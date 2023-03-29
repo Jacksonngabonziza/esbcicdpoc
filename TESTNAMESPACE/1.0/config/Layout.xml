@@ -6,7 +6,7 @@
     <service-instance name="Xslt3" x="411" y="326"/>
     <service-instance name="Xslt1" x="398" y="208"/>
     <service-instance name="Xslt2" x="292" y="306"/>
-    <service-instance name="Display3" x="511" y="223"/>
+    <service-instance name="Display3" x="549" y="166"/>
     <service-instance name="Xslt4" x="133" y="354"/>
   </subflow>
   <shortcut-routes/>
