@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:datetime="http://exslt.org/dates-and-times" xmlns:set="http://exslt.org/sets" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:math="http://exslt.org/math" xmlns:lxslt="http://xml.apache.org/xslt" xmlns:xalan="http://xml.apache.org/xslt" xmlns:java="http://xml.apache.org/xslt/java" exclude-result-prefixes="xalan java lxslt" xmlns:ns4="urn:iso:std:iso:20022:tech:xsd:pain.001.001.05" xmlns:ns5="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://fastwebservice.nbc.org.kh/getIncomingTransaction/Output" xmlns:ns3="http://fastwebservice.nbc.org.kh/" xmlns:dateConversion="ext1" xmlns:deimaltoHex="ext2" xmlns:myext="ext3" xmlns:strings="ext4" extension-element-prefixes="datetime set math dateConversion deimaltoHex myext strings">
+  <xsl:output method="text" indent="yes" encoding="UTF-8" xalan:indent-amount="2" omit-xml-declaration="no"></xsl:output>
+  <xsl:variable name="document" select="/"></xsl:variable>
+  <xsl:variable name="document_OUT_PORT" select="document('OUT_PORT')"></xsl:variable>
+  <xsl:template match="/">
+    <ns4:Document1>
+      <ns4:Document>
+        <ns4:CstmrCdtTrfInitn>
+          <ns4:GrpHdr>
+            <ns4:MsgId>
+              <xsl:value-of select="'&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#xd;&#xa;&lt;Document1 xsi:schemaLocation=&quot;xsd/pain.001.001.05.xsd&quot; xmlns=&quot;urn:iso:std:iso:20022:tech:xsd:pain.001.001.05&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;'"></xsl:value-of>
+              <xsl:value-of select="myext:replace(string($document_OUT_PORT/ns1:Envelope/ns1:Body/ns3:getIncomingTransactionResponse/return),string('\&lt;\?xml version=\&quot;1.0\&quot; encoding=\&quot;UTF-8\&quot; standalone=\&quot;yes\&quot;\?\&gt;'),string('g'),string(''))"></xsl:value-of>
+              <xsl:value-of select="'&lt;/Document1&gt;'"></xsl:value-of>
+            </ns4:MsgId>
+          </ns4:GrpHdr>
+        </ns4:CstmrCdtTrfInitn>
+      </ns4:Document>
+    </ns4:Document1>
+  </xsl:template>
+<!--The list of Extensions defined by user-->
+  <lxslt:component prefix="myext" functions="compute replace">
+    <lxslt:script lang="javascript"><![CDATA[function compute(expr){
+	return eval(expr);
+}
+
+function nextMillenium(){
+	d = new Date()    //today's date
+	mill=new Date(3000, 00, 01, 00, 00, 00)    //Next millennium start date
+	diff = mill-d    //difference in milliseconds
+	mtg = new String(diff/86400000)    //calculate days and convert to string
+	point=mtg.indexOf(".")    //find the decimal point
+	days=mtg.substring(0,point)    //get just the whole days
+	return "There are only " + days + " days remaining to the start of the next millennium."; 
+}
+
+function replace(input, pattern, flags, str){
+	return input.replace(new RegExp(pattern, flags), str);
+}]]></lxslt:script>
+  </lxslt:component>
+</xsl:stylesheet>

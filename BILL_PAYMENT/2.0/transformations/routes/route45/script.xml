@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xalan="http://xml.apache.org/xslt" xmlns:datetime="http://exslt.org/dates-and-times" xmlns:math="http://exslt.org/math" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:lxslt="http://xml.apache.org/xslt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http://xml.apache.org/xslt/java" xmlns:set="http://exslt.org/sets" exclude-result-prefixes="xalan java lxslt" xmlns:ns1="http://www.w3.org/2001/XMLSchema" xmlns:FOOSignature="http://xml.apache.org/xslt/java" xmlns:Hash="http://xml.apache.org/xslt/java" xmlns:PGP="http://xml.apache.org/xslt/java" xmlns:ccc="http://xml.apache.org/xslt/java" xmlns:dateConversion="dateConversion" xmlns:myext="myext" xmlns:strings="strings" xmlns:tcsipi="http://xml.apache.org/xslt/java" extension-element-prefixes="datetime set math FOOSignature Hash PGP ccc dateConversion myext strings tcsipi">
+  <xsl:import href="GLOBAL_FUNCLET_PATH"></xsl:import>
+  <xsl:output method="xml" indent="yes" encoding="UTF-8" xalan:indent-amount="2" omit-xml-declaration="no"></xsl:output>
+  <xsl:variable name="document" select="/"></xsl:variable>
+  <xsl:variable name="document_OUT_PORT" select="document('OUT_PORT')"></xsl:variable>
+  <xsl:template match="/">
+    <root>
+      <responseCode>
+        <xsl:value-of select="$document_OUT_PORT/root/responseCode"></xsl:value-of>
+      </responseCode>
+      <status>
+        <xsl:value-of select="$document_OUT_PORT/root/status"></xsl:value-of>
+      </status>
+      <responseMessage>
+        <xsl:value-of select="$document_OUT_PORT/root/responseMessage"></xsl:value-of>
+      </responseMessage>
+      <responseData>
+        <accountNumber>
+          <xsl:value-of select="$document_OUT_PORT/root/responseData/accountNumber"></xsl:value-of>
+        </accountNumber>
+        <amount>
+          <xsl:value-of select="$document_OUT_PORT/root/responseData/amount"></xsl:value-of>
+        </amount>
+        <custName>
+          <xsl:value-of select="$document_OUT_PORT/root/responseData/custName"></xsl:value-of>
+        </custName>
+        <resField1>
+          <xsl:value-of select="$document_OUT_PORT/root/responseData/resField1"></xsl:value-of>
+        </resField1>
+        <resField2>
+          <xsl:value-of select="$document_OUT_PORT/root/responseData/resField2"></xsl:value-of>
+        </resField2>
+        <resField3>
+          <xsl:value-of select="$document_OUT_PORT/root/responseData/resField3"></xsl:value-of>
+        </resField3>
+        <resField4>
+          <xsl:value-of select="$document_OUT_PORT/root/responseData/resField4"></xsl:value-of>
+        </resField4>
+        <resField5>
+          <xsl:value-of select="$document_OUT_PORT/root/responseData/resField5"></xsl:value-of>
+        </resField5>
+        <resField6>
+          <xsl:value-of select="$document_OUT_PORT/root/responseData/resField6"></xsl:value-of>
+        </resField6>
+        <oderId>
+          <xsl:value-of select="$document_OUT_PORT/root/responseData/oderId"></xsl:value-of>
+        </oderId>
+        <providerTransactionId>
+          <xsl:value-of select="$document_OUT_PORT/root/responseData/providerTransactionId"></xsl:value-of>
+        </providerTransactionId>
+        <arrayResponse>
+          <AccountNumber>
+            <xsl:value-of select="$document_OUT_PORT/root/responseData/arrayResponse/AccountNumber"></xsl:value-of>
+          </AccountNumber>
+          <PremiseType>
+            <xsl:value-of select="$document_OUT_PORT/root/responseData/arrayResponse/PremiseType"></xsl:value-of>
+          </PremiseType>
+          <Area>
+            <xsl:value-of select="$document_OUT_PORT/root/responseData/arrayResponse/Area"></xsl:value-of>
+          </Area>
+          <AccountType>
+            <xsl:value-of select="$document_OUT_PORT/root/responseData/arrayResponse/AccountType"></xsl:value-of>
+          </AccountType>
+          <PoBox>
+            <xsl:value-of disable-output-escaping="no" select="$document_OUT_PORT/root/responseData/arrayResponse/PoBox"></xsl:value-of>
+          </PoBox>
+          <Balance>
+            <xsl:value-of select="$document_OUT_PORT/root/responseData/arrayResponse/Balance"></xsl:value-of>
+          </Balance>
+        </arrayResponse>
+      </responseData>
+    </root>
+  </xsl:template>
+</xsl:stylesheet>

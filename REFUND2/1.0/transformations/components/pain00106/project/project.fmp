@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappermodel:MapperProject xmlns:mappermodel="http://www.fiorano.com/tools/mapper/mappermodel" convertor="nameIndexed" suppressEmptyItems="false" suppressPattern="" version="3.0.2">
+  <mappermodel:XSLTVersion>1.0</mappermodel:XSLTVersion>
+  <mappermodel:XSLTEngine>org.apache.xalan.processor.TransformerFactoryImpl</mappermodel:XSLTEngine>
+  <mappermodel:XSLTEncoding>UTF-8</mappermodel:XSLTEncoding>
+  <mappermodel:OutputMethod>text</mappermodel:OutputMethod>
+  <mappermodel:OutputEncoding>UTF-8</mappermodel:OutputEncoding>
+  <mappermodel:indent>true</mappermodel:indent>
+  <mappermodel:setDTD>false</mappermodel:setDTD>
+  <mappermodel:omit-xml-declaration>false</mappermodel:omit-xml-declaration>
+  <mappermodel:createEmptyOutputTags>false</mappermodel:createEmptyOutputTags>
+  <mappermodel:copyUnmappedFromInput enabled="false"/>
+  <mappermodel:disableOutputEscapingForANY>false</mappermodel:disableOutputEscapingForANY>
+  <mappermodel:Comments>Key in relevant comments</mappermodel:Comments>
+  <mappermodel:excludeResultPrefixes></mappermodel:excludeResultPrefixes>
+  <mappermodel:addDefaultXSTypeAttributes>false</mappermodel:addDefaultXSTypeAttributes>
+  <mappermodel:InputStructure>
+    <mappermodel:Structure duplicates="" filePath="Application-Context.DTD" mime="DTD" name="Application-Context" rootName="Context"/>
+    <mappermodel:Structure duplicates="" filePath="Input1.XSD" mime="XSD" name="Input1" rootName="{urn:iso:std:iso:20022:tech:xsd:pain.002.001.06}Document"/>
+  </mappermodel:InputStructure>
+  <mappermodel:OutputStructure>
+    <mappermodel:Structure duplicates="" filePath="OUT_PORT.XSD" mime="XSD" name="OUT_PORT" rootName="Root"/>
+    <mappermodel:Structure duplicates="" filePath="Output1.DTD" mime="DTD" name="Output1" rootName="d"/>
+  </mappermodel:OutputStructure>
+  <mappermodel:Namespaces>
+    <mappermodel:namespace prefix="ns1" uri="urn:iso:std:iso:20022:tech:xsd:pain.002.001.06"/>
+    <mappermodel:namespace prefix="ns2" uri="http://www.w3.org/2001/XMLSchema"/>
+  </mappermodel:Namespaces>
+  <mappermodel:Mappings>
+    <mappermodel:GraphModel inputPins="1,2,3,4" outputNode="OUT_PORT:0,Root:0,RESPONSE.CODE:0,value:0" x="-1" y="-1">
+      <mappermodel:TreeGraphNode inputNode="Input1:0,Document:0,CstmrPmtStsRpt:0,[ZERO MANY]:0,OrgnlPmtInfAndSts:0,[ZERO MANY]:2,TxInfAndSts:0,TxSts:0" x="-1" y="-1">
+        <mappermodel:InputPins>1st</mappermodel:InputPins>
+        <mappermodel:OutputPins>1st</mappermodel:OutputPins>
+      </mappermodel:TreeGraphNode>
+      <mappermodel:FunctionGraphNode label="RESPONSE.CODE=" type="22" x="48" y="115">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="," type="22" x="112" y="166">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="1" outputID="1" outputIndex="0"/>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="2" outputIndex="0"/>
+      <mappermodel:Link inputID="0" inputIndex="2" outputID="3" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2,3" outputNode="OUT_PORT:0,Root:0,RESPONSE.DESC:0,value:0" x="770" y="55">
+      <mappermodel:TreeGraphNode inputNode="Input1:0,Document:0,CstmrPmtStsRpt:0,[ZERO MANY]:0,OrgnlPmtInfAndSts:0,[ZERO MANY]:2,TxInfAndSts:0,[ZERO MANY]:0,StsRsnInf:0,[ZERO MANY]:0,AddtlInf:0" x="48" y="79">
+        <mappermodel:InputPins>1st</mappermodel:InputPins>
+        <mappermodel:OutputPins>1st</mappermodel:OutputPins>
+      </mappermodel:TreeGraphNode>
+      <mappermodel:FunctionGraphNode label="MESSAGE=" type="22" x="89" y="57">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="1" outputID="1" outputIndex="0"/>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="2" outputIndex="0"/>
+    </mappermodel:GraphModel>
+  </mappermodel:Mappings>
+  <mappermodel:Extensions/>
+  <mappermodel:UserXSL index="0" node="OUT_PORT:0,Root:0,RESPONSE.DESC:0">&lt;xsl:if test=&quot;($document_Input1/ns1:Document/ns1:CstmrPmtStsRpt/ns1:OrgnlPmtInfAndSts/ns1:TxInfAndSts/ns1:TxSts)=('RJCT')&quot;></mappermodel:UserXSL>
+  <mappermodel:UserXSL index="3" node="OUT_PORT:0,Root:0,RESPONSE.DESC:0">&lt;/xsl:if></mappermodel:UserXSL>
+</mappermodel:MapperProject>

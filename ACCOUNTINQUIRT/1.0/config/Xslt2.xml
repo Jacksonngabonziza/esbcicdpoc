@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.7.0_60" class="java.beans.XMLDecoder"> 
+ <object class="com.fiorano.services.xslt.configuration.XsltPM"> 
+  <void property="JMSMessageXSL"> 
+   <null/> 
+  </void> 
+  <void property="XSL"> 
+   <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:datetime=&quot;http://exslt.org/dates-and-times&quot; xmlns:set=&quot;http://exslt.org/sets&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:math=&quot;http://exslt.org/math&quot; xmlns:lxslt=&quot;http://xml.apache.org/xslt&quot; xmlns:xalan=&quot;http://xml.apache.org/xslt&quot; xmlns:java=&quot;http://xml.apache.org/xslt/java&quot; exclude-result-prefixes=&quot;xalan java lxslt&quot; xmlns:ns1=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:dateConversion=&quot;ext1&quot; xmlns:deimaltoHex=&quot;ext2&quot; xmlns:myext=&quot;ext3&quot; xmlns:strings=&quot;ext4&quot; extension-element-prefixes=&quot;datetime set math dateConversion deimaltoHex myext strings&quot;&gt;
+  &lt;xsl:output method=&quot;xml&quot; indent=&quot;yes&quot; encoding=&quot;UTF-8&quot; xalan:indent-amount=&quot;2&quot; omit-xml-declaration=&quot;no&quot;&gt;&lt;/xsl:output&gt;
+  &lt;xsl:variable name=&quot;document&quot; select=&quot;/&quot;&gt;&lt;/xsl:variable&gt;
+  &lt;xsl:variable name=&quot;document_Input1&quot; select=&quot;document(&apos;Input1&apos;)&quot;&gt;&lt;/xsl:variable&gt;
+  &lt;xsl:template match=&quot;/&quot;&gt;
+    &lt;Root&gt;
+      &lt;BIZDATE&gt;
+        &lt;value&gt;
+          &lt;xsl:value-of select=&quot;$document_Input1/Doc/BizDate&quot;&gt;&lt;/xsl:value-of&gt;
+        &lt;/value&gt;
+      &lt;/BIZDATE&gt;
+      &lt;BIZTIME&gt;
+        &lt;value&gt;
+          &lt;xsl:value-of select=&quot;$document_Input1/Doc/BizTime&quot;&gt;&lt;/xsl:value-of&gt;
+        &lt;/value&gt;
+      &lt;/BIZTIME&gt;
+      &lt;MYBANKID&gt;
+        &lt;value&gt;
+          &lt;xsl:value-of select=&quot;$document_Input1/Doc/myBankID&quot;&gt;&lt;/xsl:value-of&gt;
+        &lt;/value&gt;
+      &lt;/MYBANKID&gt;
+      &lt;NEXTSESS&gt;
+        &lt;value&gt;
+          &lt;xsl:value-of select=&quot;$document_Input1/Doc/nextSess&quot;&gt;&lt;/xsl:value-of&gt;
+        &lt;/value&gt;
+      &lt;/NEXTSESS&gt;
+      &lt;NEXTSETTLEKHR&gt;
+        &lt;value&gt;
+          &lt;xsl:value-of select=&quot;$document_Input1/Doc/nextSettleKHR&quot;&gt;&lt;/xsl:value-of&gt;
+        &lt;/value&gt;
+      &lt;/NEXTSETTLEKHR&gt;
+      &lt;NEXTSETTLEUSD&gt;
+        &lt;value&gt;
+          &lt;xsl:value-of select=&quot;$document_Input1/Doc/nextSettleUSD&quot;&gt;&lt;/xsl:value-of&gt;
+        &lt;/value&gt;
+      &lt;/NEXTSETTLEUSD&gt;
+      &lt;SETTLEKHR&gt;
+        &lt;value&gt;
+          &lt;xsl:value-of select=&quot;$document_Input1/Doc/settleKHR&quot;&gt;&lt;/xsl:value-of&gt;
+        &lt;/value&gt;
+      &lt;/SETTLEKHR&gt;
+      &lt;SETTLEUSD&gt;
+        &lt;value&gt;
+          &lt;xsl:value-of select=&quot;$document_Input1/Doc/settleUSD&quot;&gt;&lt;/xsl:value-of&gt;
+        &lt;/value&gt;
+      &lt;/SETTLEUSD&gt;
+      &lt;KHR.NBC.BR.CODE&gt;
+        &lt;xsl:for-each select=&quot;$document_Input1/Doc/curAccKHR/Brnch&quot;&gt;
+          &lt;value&gt;
+            &lt;xsl:attribute name=&quot;position&quot;&gt;
+              &lt;xsl:value-of select=&quot;position()&quot;&gt;&lt;/xsl:value-of&gt;
+            &lt;/xsl:attribute&gt;
+            &lt;xsl:value-of select=&quot;./Nb&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/value&gt;
+        &lt;/xsl:for-each&gt;
+      &lt;/KHR.NBC.BR.CODE&gt;
+      &lt;KHR.ACCT.NO&gt;
+        &lt;xsl:for-each select=&quot;$document_Input1/Doc/curAccKHR/Brnch&quot;&gt;
+          &lt;value&gt;
+            &lt;xsl:attribute name=&quot;position&quot;&gt;
+              &lt;xsl:value-of select=&quot;position()&quot;&gt;&lt;/xsl:value-of&gt;
+            &lt;/xsl:attribute&gt;
+            &lt;xsl:value-of select=&quot;./Acc&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/value&gt;
+        &lt;/xsl:for-each&gt;
+      &lt;/KHR.ACCT.NO&gt;
+      &lt;KHR.BALANCE&gt;
+        &lt;xsl:for-each select=&quot;$document_Input1/Doc/curAccKHR/Brnch&quot;&gt;
+          &lt;value&gt;
+            &lt;xsl:attribute name=&quot;position&quot;&gt;
+              &lt;xsl:value-of select=&quot;position()&quot;&gt;&lt;/xsl:value-of&gt;
+            &lt;/xsl:attribute&gt;
+            &lt;xsl:value-of select=&quot;./Bal&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/value&gt;
+        &lt;/xsl:for-each&gt;
+      &lt;/KHR.BALANCE&gt;
+      &lt;TOTTALKHR&gt;
+        &lt;value&gt;
+          &lt;xsl:value-of select=&quot;$document_Input1/Doc/totalKHR&quot;&gt;&lt;/xsl:value-of&gt;
+        &lt;/value&gt;
+      &lt;/TOTTALKHR&gt;
+      &lt;USD.NBC.BR.CODE&gt;
+        &lt;xsl:for-each select=&quot;$document_Input1/Doc/curAccUSD/Brnch&quot;&gt;
+          &lt;value&gt;
+            &lt;xsl:attribute name=&quot;position&quot;&gt;
+              &lt;xsl:value-of select=&quot;position()&quot;&gt;&lt;/xsl:value-of&gt;
+            &lt;/xsl:attribute&gt;
+            &lt;xsl:value-of select=&quot;./Nb&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/value&gt;
+        &lt;/xsl:for-each&gt;
+      &lt;/USD.NBC.BR.CODE&gt;
+      &lt;USD.ACCT.NO&gt;
+        &lt;xsl:for-each select=&quot;$document_Input1/Doc/curAccUSD/Brnch&quot;&gt;
+          &lt;value&gt;
+            &lt;xsl:attribute name=&quot;position&quot;&gt;
+              &lt;xsl:value-of select=&quot;position()&quot;&gt;&lt;/xsl:value-of&gt;
+            &lt;/xsl:attribute&gt;
+            &lt;xsl:value-of select=&quot;./Acc&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/value&gt;
+        &lt;/xsl:for-each&gt;
+      &lt;/USD.ACCT.NO&gt;
+      &lt;USD.BALANCE&gt;
+        &lt;xsl:for-each select=&quot;$document_Input1/Doc/curAccUSD/Brnch&quot;&gt;
+          &lt;value&gt;
+            &lt;xsl:attribute name=&quot;position&quot;&gt;
+              &lt;xsl:value-of select=&quot;position()&quot;&gt;&lt;/xsl:value-of&gt;
+            &lt;/xsl:attribute&gt;
+            &lt;xsl:value-of select=&quot;./Bal&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/value&gt;
+        &lt;/xsl:for-each&gt;
+      &lt;/USD.BALANCE&gt;
+      &lt;TOTTALUSD&gt;
+        &lt;value&gt;
+          &lt;xsl:value-of select=&quot;$document_Input1/Doc/totalUSD&quot;&gt;&lt;/xsl:value-of&gt;
+        &lt;/value&gt;
+      &lt;/TOTTALUSD&gt;
+    &lt;/Root&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</string> 
+  </void> 
+  <void property="configuredVersion"> 
+   <int>1033</int> 
+  </void> 
+  <void property="errorHandlingConfiguration"> 
+   <void property="errorActionsMap"> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>3</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>2</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>1</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.RetryAction"> 
+       <void property="configuration"> 
+        <object class="com.fiorano.edbc.framework.service.exception.RetryConfiguration"> 
+         <void property="otherActions"> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+            <void property="enabled"> 
+             <boolean>true</boolean> 
+            </void> 
+            <void property="id"> 
+             <int>1</int> 
+            </void> 
+           </object> 
+           <int>1</int> 
+          </void> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+            <void property="enabled"> 
+             <boolean>true</boolean> 
+            </void> 
+           </object> 
+           <int>1</int> 
+          </void> 
+         </void> 
+        </object> 
+       </void> 
+       <void property="id"> 
+        <int>2</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>4</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>0</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>6</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+   </void> 
+  </void> 
+  <void property="esbDefInPort"> 
+   <object class="fiorano.esb.record.ESBRecordDefinition"> 
+    <void property="definitionType"> 
+     <int>2</int> 
+    </void> 
+    <void property="rootElementName"> 
+     <string>Doc</string> 
+    </void> 
+    <void property="structure"> 
+     <string>&lt;!ELEMENT Acc ( #PCDATA ) &gt;&#13;
+&lt;!ELEMENT Bal ( #PCDATA ) &gt;&#13;
+&lt;!ELEMENT BizDate ( #PCDATA ) &gt;&#13;
+&lt;!ELEMENT BizTime ( #PCDATA ) &gt;&#13;
+&lt;!ELEMENT Brnch ( Nb, Acc, Bal ) &gt;&#13;
+&lt;!ELEMENT Doc ( BizDate, BizTime, myBankID, nextSess, nextSettleKHR, nextSettleUSD, settleKHR, settleUSD, curAccKHR, totalKHR, curAccUSD, totalUSD ) &gt;&#13;
+&lt;!ELEMENT Nb ( #PCDATA ) &gt;&#13;
+&lt;!ELEMENT curAccKHR ( Brnch+ ) &gt;&#13;
+&lt;!ELEMENT curAccUSD ( Brnch+ ) &gt;&#13;
+&lt;!ELEMENT myBankID ( #PCDATA ) &gt;&#13;
+&lt;!ELEMENT nextSess ( #PCDATA ) &gt;&#13;
+&lt;!ELEMENT nextSettleKHR ( #PCDATA ) &gt;&#13;
+&lt;!ELEMENT nextSettleUSD ( #PCDATA ) &gt;&#13;
+&lt;!ELEMENT settleKHR ( #PCDATA ) &gt;&#13;
+&lt;!ELEMENT settleUSD ( #PCDATA ) &gt;&#13;
+&lt;!ELEMENT totalKHR ( #PCDATA ) &gt;&#13;
+&lt;!ELEMENT totalUSD ( #PCDATA ) &gt;&#13;
+</string> 
+    </void> 
+    <void property="targetNamespace"> 
+     <string></string> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="esbDefOutPort"> 
+   <object class="fiorano.esb.record.ESBRecordDefinition"> 
+    <void property="rootElementName"> 
+     <string>Root</string> 
+    </void> 
+    <void property="structure"> 
+     <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;
+&lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; elementFormDefault=&quot;qualified&quot;&gt;&#13;
+   &lt;xsd:element name=&quot;Root&quot;&gt;&#13;
+      &lt;xsd:complexType&gt;&#13;
+         &lt;xsd:sequence&gt;&#13;
+            &lt;xsd:element name=&quot;header&quot; type=&quot;xsd:string&quot;/&gt;&#13;
+            &lt;xsd:element name=&quot;BIZDATE&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;BIZTIME&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;MYBANKID&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;NEXTSESS&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;NEXTSETTLEKHR&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;NEXTSETTLEUSD&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;SETTLEKHR&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;SETTLEUSD&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;KHR.NBC.BR.CODE&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;KHR.ACCT.NO&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;KHR.BALANCE&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;TOTTALKHR&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;USD.NBC.BR.CODE&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;USD.ACCT.NO&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;USD.BALANCE&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;TOTTALUSD&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+         &lt;/xsd:sequence&gt;&#13;
+      &lt;/xsd:complexType&gt;&#13;
+   &lt;/xsd:element&gt;&#13;
+   &lt;xsd:attribute name=&quot;totalPositions&quot; type=&quot;xsd:int&quot;/&gt;&#13;
+   &lt;xsd:attribute name=&quot;position&quot; type=&quot;xsd:int&quot;/&gt;&#13;
+   &lt;xsd:element name=&quot;value&quot;&gt;&#13;
+      &lt;xsd:complexType&gt;&#13;
+         &lt;xsd:simpleContent&gt;&#13;
+            &lt;xsd:extension base=&quot;xsd:string&quot;&gt;&#13;
+               &lt;xsd:attribute ref=&quot;position&quot; use=&quot;optional&quot;/&gt;&#13;
+            &lt;/xsd:extension&gt;&#13;
+         &lt;/xsd:simpleContent&gt;&#13;
+      &lt;/xsd:complexType&gt;&#13;
+   &lt;/xsd:element&gt;&#13;
+&lt;/xsd:schema&gt;&#13;
+</string> 
+    </void> 
+    <void property="targetNamespace"> 
+     <string></string> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="inputStructureName"> 
+   <string>Input1</string> 
+  </void> 
+  <void property="project"> 
+   <string>project</string> 
+  </void> 
+  <void property="tfClassName"> 
+   <string></string> 
+  </void> 
+ </object> 
+</java> 

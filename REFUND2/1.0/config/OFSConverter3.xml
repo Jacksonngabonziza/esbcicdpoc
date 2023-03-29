@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.7.0_60" class="java.beans.XMLDecoder"> 
+ <object class="com.fiorano.service.ofsconverter.config.OFSConverterPM"> 
+  <void property="configuredVersion"> 
+   <int>1033</int> 
+  </void> 
+  <void property="errorHandlingConfiguration"> 
+   <void property="errorActionsMap"> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>3</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>2</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>1</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.RetryAction"> 
+       <void property="configuration"> 
+        <object class="com.fiorano.edbc.framework.service.exception.RetryConfiguration"> 
+         <void property="otherActions"> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+            <void property="enabled"> 
+             <boolean>true</boolean> 
+            </void> 
+            <void property="id"> 
+             <int>1</int> 
+            </void> 
+           </object> 
+           <int>1</int> 
+          </void> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+            <void property="enabled"> 
+             <boolean>true</boolean> 
+            </void> 
+           </object> 
+           <int>1</int> 
+          </void> 
+         </void> 
+        </object> 
+       </void> 
+       <void property="id"> 
+        <int>2</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>4</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>0</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>6</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+   </void> 
+  </void> 
+  <void property="requiredFields"> 
+   <void method="add"> 
+    <string>MSGID</string> 
+   </void> 
+   <void method="add"> 
+    <string>CRE.DATE.TIME</string> 
+   </void> 
+   <void method="add"> 
+    <string>NBOFTXS</string> 
+   </void> 
+   <void method="add"> 
+    <string>NM</string> 
+   </void> 
+   <void method="add"> 
+    <string>STRNM</string> 
+   </void> 
+   <void method="add"> 
+    <string>BLDGNM</string> 
+   </void> 
+   <void method="add"> 
+    <string>PSTCD</string> 
+   </void> 
+   <void method="add"> 
+    <string>TWNNM</string> 
+   </void> 
+   <void method="add"> 
+    <string>CTRY</string> 
+   </void> 
+   <void method="add"> 
+    <string>DEBITOR.BANK</string> 
+   </void> 
+   <void method="add"> 
+    <string>CREDITOR.BANK</string> 
+   </void> 
+   <void method="add"> 
+    <string>ORGNLMSGID</string> 
+   </void> 
+   <void method="add"> 
+    <string>ORGNLMSGNMID</string> 
+   </void> 
+   <void method="add"> 
+    <string>ORGNLCREDTTM</string> 
+   </void> 
+   <void method="add"> 
+    <string>ORGNLPMTINFID</string> 
+   </void> 
+   <void method="add"> 
+    <string>FT.ID</string> 
+   </void> 
+   <void method="add"> 
+    <string>ORGNLENDTOEND</string> 
+   </void> 
+   <void method="add"> 
+    <string>CREDIT.AMOUNT</string> 
+   </void> 
+   <void method="add"> 
+    <string>CREDITOR.NAME</string> 
+   </void> 
+   <void method="add"> 
+    <string>CREDITOR.STRTNM</string> 
+   </void> 
+   <void method="add"> 
+    <string>CREDITOR.BLDGNM</string> 
+   </void> 
+   <void method="add"> 
+    <string>CREDITOR.TWNNM</string> 
+   </void> 
+   <void method="add"> 
+    <string>CREDITOR.CTRY</string> 
+   </void> 
+   <void method="add"> 
+    <string>CD</string> 
+   </void> 
+   <void method="add"> 
+    <string>REQDEXCTNDT</string> 
+   </void> 
+   <void method="add"> 
+    <string>DEBITOR.NM</string> 
+   </void> 
+   <void method="add"> 
+    <string>DEBITOR.STRTNM</string> 
+   </void> 
+   <void method="add"> 
+    <string>DEBITOR.BLDGNB</string> 
+   </void> 
+   <void method="add"> 
+    <string>DEBITOR.TWNNM</string> 
+   </void> 
+   <void method="add"> 
+    <string>DEBITOR.CTRY</string> 
+   </void> 
+   <void method="add"> 
+    <string>O.SENDER.ACCT.NO</string> 
+   </void> 
+   <void method="add"> 
+    <string>O.SENDER.NM</string> 
+   </void> 
+   <void method="add"> 
+    <string>O.SENDER.STRTNM</string> 
+   </void> 
+   <void method="add"> 
+    <string>O.SENDER.BLDGNB</string> 
+   </void> 
+   <void method="add"> 
+    <string>O.SENDER.TWNNM</string> 
+   </void> 
+   <void method="add"> 
+    <string>O.SENDER.CTRY</string> 
+   </void> 
+   <void method="add"> 
+    <string>ORGNLINSTDAMT</string> 
+   </void> 
+   <void method="add"> 
+    <string>CREDIT.CCY</string> 
+   </void> 
+  </void> 
+  <void property="rootName"> 
+   <string>Root</string> 
+  </void> 
+ </object> 
+</java> 

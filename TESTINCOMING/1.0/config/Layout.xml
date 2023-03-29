@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<layout>
+  <subflow name="FIORANO.ESTUDIO.ROOT_FLOW" x="0" y="0">
+    <service-instance name="SwiftMXMessages1" x="285" y="129"/>
+    <service-instance name="Xslt2" x="423" y="138"/>
+    <service-instance name="ScopeFinder" x="381" y="33"/>
+  </subflow>
+  <shortcut-routes/>
+</layout>

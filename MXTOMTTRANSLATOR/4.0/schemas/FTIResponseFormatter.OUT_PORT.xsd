@@ -1,0 +1,33 @@
+<xs:schema attributeFormDefault="unqualified" xmlns:fns1="urn:messages.service.ti.apps.tiplus2.misys.com" elementFormDefault="qualified" targetNamespace="urn:control.services.tiplus2.misys.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	   <xs:import namespace="urn:messages.service.ti.apps.tiplus2.misys.com"/>
+
+	<xs:element name="ServiceRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="RequestHeader">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:string" name="Service"/>
+							<xs:element type="xs:string" name="Operation"/>
+							<xs:element name="Credentials">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="xs:string" name="Name"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element type="xs:string" name="ReplyFormat"/>
+							<xs:element type="xs:string" name="TargetSystem"/>
+							<xs:element type="xs:string" name="SourceSystem"/>
+							<xs:element type="xs:string" name="NoRepair"/>
+							<xs:element type="xs:string" name="NoOverride"/>
+							<xs:element type="xs:byte" name="CorrelationId"/>
+							<xs:element type="xs:string" name="TransactionControl"/>
+							<xs:element type="xs:date" name="CreationDate"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element ref="fns1:SwiftIn"/></xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

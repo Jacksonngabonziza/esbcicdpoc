@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<layout>
+  <subflow name="FIORANO.ESTUDIO.ROOT_FLOW" x="0" y="0">
+    <service-instance name="MBME" x="581" y="58"/>
+    <service-instance name="RESTStub" x="310" y="64"/>
+    <service-instance name="Xslt2" x="794" y="55"/>
+    <service-instance name="JSONConverter1" x="993" y="41"/>
+  </subflow>
+  <shortcut-routes/>
+</layout>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<target:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:target="http://fiorano.com/environment/1.0" xsi:schemaLocation="http://fiorano.com/environment/1.0 env.xsd">
+  <target:instance name="ScopeAndError">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fps"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="MT103_To_PACS008Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fps"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="MT900_To_CAMT054Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fps"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="MT910_To_CAMT054Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fps"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="MT202Cove_To_PACS009Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fps"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="MT202Core_To_PACS009Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fps"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="MXResponseWriter">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fps"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="FTIOutgoing">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="FTIScopeSender">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="FTIErrorSender">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="MT210_To_CAM057Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fps"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="MT200_To_PACS009Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fps"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="MT199_MT299_To_PACS002Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fps"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="MT205Core_To_PACS009Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fps"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="MT205Cove_To_PACS009Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fps"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="MT103Reject_To_PACS002Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fps"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="MT103RETURN_TO_PACS004Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fps"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="MT202Reject_To_PACS002Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fps"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="MT202RETURN_TO_PACS004Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fps"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="MT199UC_To_TRCK001Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fps"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="MT192_MT292_To_CAMT056Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fps"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="MT196_MT296_To_CAMT029Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fps"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="MT101_To_Pain001Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fps"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="MT940_To_CAMT053Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fps"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="MT942_To_CAMT052Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fps"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="MTMessageReader">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="WebServiceConsumer1">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="RESTStub1">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+  </target:instance>
+  <target:instance name="XsltForPDUMX">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+  </target:instance>
+</target:target>

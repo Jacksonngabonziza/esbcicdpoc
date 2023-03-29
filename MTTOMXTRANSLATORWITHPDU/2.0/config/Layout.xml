@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ASCII"?>
+<layout>
+  <subflow name="FIORANO.ESTUDIO.ROOT_FLOW" x="0" y="0">
+    <service-instance name="ScopeAndError" x="167" y="349"/>
+    <service-instance name="MT103_To_PACS008Router" x="427" y="27"/>
+    <service-instance name="MT900_To_CAMT054Router" x="1029" y="632"/>
+    <service-instance name="MT910_To_CAMT054Router" x="1168" y="634"/>
+    <service-instance name="MT202Cove_To_PACS009Router" x="1327" y="18"/>
+    <service-instance name="MT202Core_To_PACS009Router" x="1186" y="19"/>
+    <service-instance name="MXResponseWriter" x="1538" y="445"/>
+    <service-instance name="FTIOutgoing" x="20" y="295"/>
+    <service-instance name="FTIScopeSender" x="243" y="-74"/>
+    <service-instance name="FTIErrorSender" x="345" y="-112"/>
+    <service-instance name="MT210_To_CAM057Router" x="914" y="629"/>
+    <service-instance name="MT200_To_PACS009Router" x="1097" y="21"/>
+    <service-instance name="MT199_MT299_To_PACS002Router" x="903" y="21"/>
+    <service-instance name="MT205Core_To_PACS009Router" x="715" y="629"/>
+    <service-instance name="MT205Cove_To_PACS009Router" x="812" y="626"/>
+    <service-instance name="MT103Reject_To_PACS002Router" x="520" y="23"/>
+    <service-instance name="MT103RETURN_TO_PACS004Router" x="617" y="22"/>
+    <service-instance name="MT202Reject_To_PACS002Router" x="518" y="623"/>
+    <service-instance name="MT202RETURN_TO_PACS004Router" x="632" y="624"/>
+    <service-instance name="MT199UC_To_TRCK001Router" x="1006" y="19"/>
+    <service-instance name="MT192_MT292_To_CAMT056Router" x="716" y="23"/>
+    <service-instance name="MT196_MT296_To_CAMT029Router" x="805" y="20"/>
+    <service-instance name="MT101_To_Pain001Router" x="329" y="24"/>
+    <service-instance name="MT940_To_CAMT053Router" x="1275" y="623"/>
+    <service-instance name="MT942_To_CAMT052Router" x="1372" y="626"/>
+    <service-instance name="MTMessageReader" x="44" y="179"/>
+    <service-instance name="WebServiceConsumer1" x="1522" y="121"/>
+    <service-instance name="RESTStub1" x="68" y="404"/>
+  </subflow>
+  <shortcut-routes/>
+</layout>

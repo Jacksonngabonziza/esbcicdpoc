@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xalan="http://xml.apache.org/xslt" xmlns:datetime="http://exslt.org/dates-and-times" xmlns:math="http://exslt.org/math" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:lxslt="http://xml.apache.org/xslt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http://xml.apache.org/xslt/java" xmlns:set="http://exslt.org/sets" exclude-result-prefixes="xalan java lxslt" xmlns:ns5="urn:iso:std:iso:20022:tech:xsd:head.001.001.02" xmlns:ns4="http://www.w3.org/2001/XMLSchema" xmlns:ns1="urn:swift:xsd:envelope" xmlns:ns3="urn:iso:std:iso:20022:tech:xsd:pacs.009.001.08" xmlns:ns2="http://www.fiorano.com/fesb/activity/DB1/Response" xmlns:ExpoAddDecimal="http://xml.apache.org/xslt/java" xmlns:Hash="http://xml.apache.org/xslt/java" xmlns:MT2MX="http://xml.apache.org/xslt/java" xmlns:MTtoMX="http://xml.apache.org/xslt/java" xmlns:MTtoMXUtil="http://xml.apache.org/xslt/java" xmlns:MX2MT="http://xml.apache.org/xslt/java" xmlns:MXToMT="http://xml.apache.org/xslt/java" xmlns:MXtoMT="http://xml.apache.org/xslt/java" xmlns:New="http://xml.apache.org/xslt/java" xmlns:QueryGenerator="QueryGenerator" xmlns:ccc="http://xml.apache.org/xslt/java" xmlns:dateConversion="dateConversion" xmlns:deimaltoHex="deimaltoHex" xmlns:expoFunc="expoFunc" xmlns:exptodecimal="exptodecimal" xmlns:myext="myext" xmlns:strings="strings" xmlns:tcsipi="http://xml.apache.org/xslt/java" extension-element-prefixes="datetime set math ExpoAddDecimal Hash MT2MX MTtoMX MTtoMXUtil MX2MT MXToMT MXtoMT New QueryGenerator ccc dateConversion deimaltoHex expoFunc exptodecimal myext strings tcsipi">
+  <xsl:import href="GLOBAL_FUNCLET_PATH"></xsl:import>
+  <xsl:output method="text" indent="yes" encoding="UTF-8" xalan:indent-amount="2" omit-xml-declaration="no"></xsl:output>
+  <xsl:variable name="document" select="/"></xsl:variable>
+  <xsl:variable name="document_OUT_PORT" select="document('OUT_PORT')"></xsl:variable>
+  <xsl:template match="/">
+    <ns1:Envelope>
+      <ns5:AppHdr>
+        <ns5:CharSet>
+          <xsl:value-of select="java:_getStringProperty($_TIF_MESSAGE_, 'MXconv')"></xsl:value-of>
+        </ns5:CharSet>
+      </ns5:AppHdr>
+    </ns1:Envelope>
+  </xsl:template>
+<!--The list of parameters defined by user-->
+  <xsl:param name="_TIF_MESSAGE_"></xsl:param>
+</xsl:stylesheet>

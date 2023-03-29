@@ -1,0 +1,2245 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.8.0_92" class="java.beans.XMLDecoder"> 
+ <object class="com.fiorano.bc.httpstub.model.HttpStubPM"> 
+  <void property="FESPassword" isEncrypted="true"> 
+   <string>DMSLzKckc/JLgIUhIpdeyw==</string> 
+  </void> 
+  <void property="HTTPAuthConfiguration"> 
+   <void property="password" isEncrypted="true"> 
+    <string></string> 
+   </void> 
+   <void property="username"> 
+    <string></string> 
+   </void> 
+  </void> 
+  <void property="configuredVersion"> 
+   <int>1033</int> 
+  </void> 
+  <void property="contextName"> 
+   <string>customerregistration</string> 
+  </void> 
+  <void property="errorHandlingConfiguration"> 
+   <void property="errorActionsMap"> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>3</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"/> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>2</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"/> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>1</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"/> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.RetryAction"> 
+       <void property="configuration"> 
+        <object class="com.fiorano.edbc.framework.service.exception.RetryConfiguration"> 
+         <void property="otherActions"> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+            <void property="id"> 
+             <int>1</int> 
+            </void> 
+           </object> 
+           <int>1</int> 
+          </void> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"/> 
+           <int>1</int> 
+          </void> 
+         </void> 
+        </object> 
+       </void> 
+       <void property="id"> 
+        <int>2</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>4</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>0</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"/> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>6</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+   </void> 
+  </void> 
+  <void property="requestDetails"> 
+   <void property="importedSchemas"> 
+    <void method="put"> 
+     <string>http://www.ericsson.com/em/emm/sp/backend</string> 
+     <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;xs:schema version=&quot;1.0&quot; targetNamespace=&quot;http://www.ericsson.com/em/emm/sp/backend&quot; xmlns:ns2=&quot;urn:iso:std:iso:20022:tech:xsd&quot; xmlns:ns1=&quot;http://www.ericsson.com/em/emm/common&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+
+	&lt;xs:import namespace=&quot;http://www.ericsson.com/em/emm/common&quot;  /&gt;
+	&lt;xs:import namespace=&quot;urn:iso:std:iso:20022:tech:xsd&quot;  /&gt;
+
+	&lt;xs:element name=&quot;getcustomerdetailsrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;getcustomerdetailsresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;customerid&quot; type=&quot;ns1:bankid&quot; minOccurs=&quot;0&quot; /&gt;
+				&lt;xs:element name=&quot;status&quot; type=&quot;ns1:registrationstatus&quot; /&gt;
+				&lt;xs:element name=&quot;savingsaccounts&quot;&gt;
+					&lt;xs:complexType&gt;
+						&lt;xs:sequence&gt;
+							&lt;xs:element name=&quot;savingsaccount&quot; type=&quot;ns1:savingsaccount&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;5&quot; /&gt;
+						&lt;/xs:sequence&gt;
+					&lt;/xs:complexType&gt;
+				&lt;/xs:element&gt;
+				&lt;xs:element name=&quot;loanaccounts&quot;&gt;
+					&lt;xs:complexType&gt;
+						&lt;xs:sequence&gt;
+							&lt;xs:element name=&quot;loanaccount&quot; type=&quot;ns1:loanaccount&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;5&quot; /&gt;
+						&lt;/xs:sequence&gt;
+					&lt;/xs:complexType&gt;
+				&lt;/xs:element&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;customerregistrationrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+				&lt;xs:element name=&quot;name&quot; type=&quot;ns1:name&quot; minOccurs=&quot;0&quot;/&gt;
+				&lt;xs:element name=&quot;gender&quot; type=&quot;ns2:GenderCode&quot; minOccurs=&quot;0&quot;/&gt;
+				&lt;xs:element name=&quot;dob&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;/&gt;
+				&lt;xs:element name=&quot;idtype&quot; type=&quot;ns2:PersonIdentificationType1Code&quot;  minOccurs=&quot;0&quot;/&gt;
+				&lt;xs:element name=&quot;idnumber&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot;/&gt;
+				&lt;xs:element name=&quot;idexpiry&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;/&gt;
+				&lt;xs:element name=&quot;language&quot; type=&quot;xs:string&quot;  minOccurs=&quot;0&quot;/&gt;
+				&lt;xs:element name=&quot;addresses&quot; minOccurs=&quot;0&quot;&gt;
+					&lt;xs:complexType&gt;
+						&lt;xs:sequence&gt;
+							&lt;xs:element name=&quot;address&quot; type=&quot;ns2:PostalAddress3&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;2&quot; /&gt;
+						&lt;/xs:sequence&gt;
+					&lt;/xs:complexType&gt;
+				&lt;/xs:element&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+
+	&lt;xs:element name=&quot;customerregistrationresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;customerid&quot; type=&quot;ns1:bankid&quot; minOccurs=&quot;0&quot; /&gt;
+				&lt;xs:element name=&quot;status&quot; type=&quot;ns1:registrationstatus&quot; /&gt;
+				&lt;xs:element name=&quot;savingsaccount&quot; type=&quot;ns1:savingsaccount&quot; minOccurs=&quot;0&quot; /&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;closesavingsaccountrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+				&lt;xs:element name=&quot;accountnumber&quot; type=&quot;ns1:bankid&quot; /&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;closesavingsaccountresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;initiateloanapplicationrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+				&lt;xs:element name=&quot;amount&quot; type=&quot;ns1:moneydetailstype&quot; /&gt;
+				&lt;xs:element name=&quot;tenor&quot; type=&quot;xs:int&quot; /&gt;
+				&lt;xs:element name=&quot;loantype&quot; type=&quot;ns1:loantype&quot; /&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;initiateloanapplicationresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;loanaccount&quot; type=&quot;ns1:loanaccount&quot; /&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;ministatementrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+				&lt;xs:element name=&quot;accountnumber&quot; type=&quot;ns1:bankid&quot; /&gt;
+				&lt;xs:element name=&quot;fromdate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot; /&gt;
+				&lt;xs:element name=&quot;todate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot; /&gt;
+				&lt;xs:element name=&quot;noofdays&quot; type=&quot;xs:integer&quot; minOccurs=&quot;0&quot; /&gt;
+				&lt;xs:element name=&quot;noofentries&quot; type=&quot;xs:integer&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;ministatementresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;transactions&quot;&gt;
+					&lt;xs:complexType&gt;
+						&lt;xs:sequence&gt;
+							&lt;xs:element name=&quot;transaction&quot; type=&quot;ns1:transactionrecord&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;5&quot; /&gt;
+						&lt;/xs:sequence&gt;
+					&lt;/xs:complexType&gt;
+				&lt;/xs:element&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+	&lt;xs:element name=&quot;cancelloanapplicationrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+				&lt;xs:element name=&quot;accountnumber&quot; type=&quot;ns1:bankid&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+	&lt;xs:element name=&quot;cancelloanapplicationresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;savingsaccountapplicationrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+				&lt;xs:element name=&quot;savingsaccounttype&quot; type=&quot;ns1:savingsaccounttype&quot; /&gt;
+				&lt;xs:element name=&quot;term&quot; type=&quot;ns1:term&quot; minOccurs=&quot;0&quot; /&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;savingsaccountapplicationresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;savingsaccount&quot; type=&quot;ns1:savingsaccount&quot; /&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+	&lt;xs:element name=&quot;bankdebitcompletedrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;fromfri&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+				&lt;xs:element name=&quot;tofri&quot; type=&quot;ns1:spfri&quot; /&gt;
+				&lt;xs:element name=&quot;transactionid&quot; type=&quot;xs:long&quot; /&gt;
+				&lt;xs:element name=&quot;amount&quot; type=&quot;ns1:moneydetailstype&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;bankdebitcompletedresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;externaltransactionid&quot; type=&quot;ns1:providertransactionid&quot; /&gt;
+				&lt;xs:element name=&quot;status&quot; type=&quot;ns1:financialtransactionstatus&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+    &lt;xs:element name=&quot;activateautosavingsrequest&quot;&gt;
+    	&lt;xs:complexType&gt;
+    		&lt;xs:sequence&gt;
+	    		&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot;/&gt;
+	    		&lt;xs:element name=&quot;savingsaccountno&quot; type=&quot;ns1:bankid&quot;/&gt;
+	    		&lt;xs:element name=&quot;term&quot; type=&quot;ns1:term&quot; /&gt;
+	    		&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+    		&lt;/xs:sequence&gt;
+    	&lt;/xs:complexType&gt;
+    &lt;/xs:element&gt;
+    
+    &lt;xs:element name=&quot;activateautosavingsresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;cancelautosavingsrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+				&lt;xs:element name=&quot;savingsaccountno&quot; type=&quot;ns1:bankid&quot; /&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;cancelautosavingsresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+&lt;/xs:schema&gt;
+</string> 
+    </void> 
+    <void method="put"> 
+     <string>urn:iso:std:iso:20022:tech:xsd</string> 
+     <object class="java.util.ArrayList"> 
+      <void method="add"> 
+       <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xsd:schema targetNamespace=&quot;urn:iso:std:iso:20022:tech:xsd&quot; xmlns:iso=&quot;urn:iso:std:iso:20022:tech:xsd&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+
+	&lt;!-- Complex types --&gt;
+
+	&lt;xsd:complexType name=&quot;IndividualPerson10&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:choice&gt;
+				&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;NmPrfx&quot; type=&quot;iso:NamePrefix1Code&quot; /&gt;
+				&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;XtndedNmPrfx&quot; type=&quot;iso:Extended350Code&quot; /&gt;
+			&lt;/xsd:choice&gt;
+			&lt;xsd:element name=&quot;GvnNm&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;MddlNm&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element name=&quot;Nm&quot; type=&quot;iso:Max350Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;NmSfx&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Gndr&quot; type=&quot;iso:GenderCode&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Lang&quot; type=&quot;iso:LanguageCode&quot; /&gt;
+			&lt;xsd:element name=&quot;BirthDt&quot; type=&quot;iso:ISODate&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CtryOfBirth&quot; type=&quot;iso:CountryCode&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PrvcOfBirth&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CityOfBirth&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Prfssn&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;TaxtnCtry&quot; type=&quot;iso:CountryCode&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CtryAndResdtlSts&quot; type=&quot;iso:CountryAndResidentialStatusType1&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;5&quot; minOccurs=&quot;1&quot; name=&quot;PstlAdr&quot; type=&quot;iso:PostalAddress3&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;3&quot; minOccurs=&quot;1&quot; name=&quot;Ctznsh&quot; type=&quot;iso:CitizenshipInformation&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;EmplngCpny&quot; type=&quot;iso:Max140Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;BizFctn&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PmryComAdr&quot; type=&quot;iso:CommunicationAddress3&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;ScndryComAdr&quot; type=&quot;iso:CommunicationAddress3&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;10&quot; minOccurs=&quot;0&quot; name=&quot;OthrId&quot; type=&quot;iso:GenericIdentification9&quot; /&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;IndividualPerson8&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:element name=&quot;Nm&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element name=&quot;GvnNm&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;NmPrfx&quot; type=&quot;iso:NamePrefix1Code&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;NmSfx&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Gndr&quot; type=&quot;iso:GenderCode&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;BirthDt&quot; type=&quot;iso:ISODate&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;SclSctyNb&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element name=&quot;IndvInvstrAdr&quot; type=&quot;iso:PostalAddress1&quot; /&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;CountryAndResidentialStatusType1&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:element name=&quot;Ctry&quot; type=&quot;iso:CountryCode&quot; /&gt;
+			&lt;xsd:element name=&quot;ResdtlSts&quot; type=&quot;iso:ResidentialStatus1Code&quot; /&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;PostalAddress3&quot;&gt;
+		&lt;xsd:sequence&gt;
+				&lt;xsd:element name=&quot;AdrTp&quot; type=&quot;iso:AddressType1Code&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;xsd:element name=&quot;MlngInd&quot; type=&quot;iso:YesNoIndicator&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;xsd:element name=&quot;RegnAdrInd&quot; type=&quot;iso:YesNoIndicator&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;xsd:element name=&quot;NmAndAdr&quot; type=&quot;iso:NameAndAddress4&quot; minOccurs=&quot;0&quot; /&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;NameAndAddress4&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Nm&quot; type=&quot;iso:Max350Text&quot; /&gt;
+			&lt;xsd:element name=&quot;Adr&quot; type=&quot;iso:PostalAddress1&quot; minOccurs=&quot;0&quot; /&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;PostalAddress1&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;AdrTp&quot; type=&quot;iso:AddressType2Code&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;5&quot; minOccurs=&quot;0&quot; name=&quot;AdrLine&quot; type=&quot;iso:Max70Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;StrtNm&quot; type=&quot;iso:Max70Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;BldgNb&quot; type=&quot;iso:Max16Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PstCd&quot; type=&quot;iso:Max16Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;TwnNm&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CtrySubDvsn&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element name=&quot;Ctry&quot; type=&quot;iso:CountryCode&quot;  minOccurs=&quot;0&quot;/&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;CitizenshipInformation&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:element name=&quot;Ntlty&quot; type=&quot;iso:NationalityCode&quot; /&gt;
+			&lt;xsd:element name=&quot;MnrInd&quot; type=&quot;iso:YesNoIndicator&quot; /&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;CommunicationAddress3&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Email&quot; type=&quot;iso:Max256Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Phne&quot; type=&quot;iso:PhoneNumber&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Mob&quot; type=&quot;iso:PhoneNumber&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;FaxNb&quot; type=&quot;iso:PhoneNumber&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;TlxAdr&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;URLAdr&quot; type=&quot;iso:Max256Text&quot; /&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;GenericIdentification9&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:element name=&quot;Id&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:choice&gt;
+				&lt;xsd:element name=&quot;IdTp&quot; type=&quot;iso:PersonIdentificationType1Code&quot; /&gt;
+				&lt;xsd:element name=&quot;XtndedIdTp&quot; type=&quot;iso:Extended350Code&quot; /&gt;
+			&lt;/xsd:choice&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Issr&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;IsseDt&quot; type=&quot;iso:ISODate&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;XpryDt&quot; type=&quot;iso:ISODate&quot; /&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;ActiveOrHistoricCurrencyAndAmount&quot;&gt;
+		&lt;xsd:simpleContent&gt;
+			&lt;xsd:extension base=&quot;iso:ActiveOrHistoricCurrencyAndAmount_SimpleType&quot;&gt;
+				&lt;xsd:attribute name=&quot;Ccy&quot; type=&quot;iso:ActiveOrHistoricCurrencyCode&quot; use=&quot;required&quot; /&gt;
+			&lt;/xsd:extension&gt;
+		&lt;/xsd:simpleContent&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;PaymentCard2&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:element name=&quot;Tp&quot; type=&quot;iso:CardType1Code&quot; /&gt;
+			&lt;xsd:element name=&quot;Nb&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element name=&quot;HldrNm&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;StartDt&quot; type=&quot;iso:ISOYearMonth&quot; /&gt;
+			&lt;xsd:element name=&quot;XpryDt&quot; type=&quot;iso:ISOYearMonth&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CardIssrNm&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CardIssrId&quot; type=&quot;iso:PartyIdentification2Choice&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;SctyCd&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;SeqNb&quot; type=&quot;iso:Max3Text&quot; /&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;PartyIdentification2Choice&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:choice&gt;
+				&lt;xsd:element name=&quot;BICOrBEI&quot; type=&quot;iso:AnyBICIdentifier&quot; /&gt;
+				&lt;xsd:element name=&quot;PrtryId&quot; type=&quot;iso:GenericIdentification1&quot; /&gt;
+				&lt;xsd:element name=&quot;NmAndAdr&quot; type=&quot;iso:NameAndAddress5&quot; /&gt;
+			&lt;/xsd:choice&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;GenericIdentification1&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:element name=&quot;Id&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;SchmeNm&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Issr&quot; type=&quot;iso:Max35Text&quot; /&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;NameAndAddress5&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:element name=&quot;Nm&quot; type=&quot;iso:Max350Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Adr&quot; type=&quot;iso:PostalAddress1&quot; /&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;!-- Simple types --&gt;
+
+	&lt;xsd:simpleType name=&quot;ActiveOrHistoricCurrencyAndAmount_SimpleType&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:decimal&quot;&gt;
+			&lt;xsd:minInclusive value=&quot;0&quot; /&gt;
+			&lt;xsd:fractionDigits value=&quot;5&quot; /&gt;
+			&lt;xsd:totalDigits value=&quot;18&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;ActiveOrHistoricCurrencyCode&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:pattern value=&quot;[A-Z]{3,3}&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;NamePrefix1Code&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:enumeration value=&quot;DOCT&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;MIST&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;MISS&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;MADM&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;AnyBICIdentifier&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:pattern value=&quot;[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;Extended350Code&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:minLength value=&quot;1&quot; /&gt;
+			&lt;xsd:maxLength value=&quot;350&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;Max3Text&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:minLength value=&quot;1&quot; /&gt;
+			&lt;xsd:maxLength value=&quot;3&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;Max16Text&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:minLength value=&quot;1&quot; /&gt;
+			&lt;xsd:maxLength value=&quot;16&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;Max35Text&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:minLength value=&quot;1&quot; /&gt;
+			&lt;xsd:maxLength value=&quot;35&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;Max70Text&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:minLength value=&quot;1&quot; /&gt;
+			&lt;xsd:maxLength value=&quot;70&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;Max140Text&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:minLength value=&quot;1&quot; /&gt;
+			&lt;xsd:maxLength value=&quot;140&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;Max256Text&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:minLength value=&quot;1&quot; /&gt;
+			&lt;xsd:maxLength value=&quot;256&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;Max350Text&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:minLength value=&quot;1&quot; /&gt;
+			&lt;xsd:maxLength value=&quot;350&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;Max2048Text&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:minLength value=&quot;1&quot; /&gt;
+			&lt;xsd:maxLength value=&quot;2048&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;GenderCode&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:enumeration value=&quot;MALE&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;FEMA&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;LanguageCode&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot; /&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;CountryCode&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:pattern value=&quot;[A-Z]{2,2}&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;ResidentialStatus1Code&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:enumeration value=&quot;RESI&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;PRES&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;NRES&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;AddressType1Code&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:enumeration value=&quot;HOME&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;BIZZ&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;AddressType2Code&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:enumeration value=&quot;ADDR&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;PBOX&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;HOME&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;BIZZ&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;MLTO&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;DLVY&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;YesNoIndicator&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:boolean&quot; /&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;NationalityCode&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot; /&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;PhoneNumber&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:pattern value=&quot;\+[0-9]{1,3}-[0-9()+\-]{1,30}&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;ISODate&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:date&quot; /&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;ISODateTime&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:dateTime&quot; /&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;ISOYearMonth&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:gYearMonth&quot; /&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;PersonIdentificationType1Code&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:enumeration value=&quot;PASS&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;CPFA&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;SRSA&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;NRIN&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;OTHR&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;DRLC&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;SOCS&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;AREG&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;IDCD&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;EMID&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;CardType1Code&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:enumeration value=&quot;CRDT&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;DBIT&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;ExternalServiceLevel1Code&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:minLength value=&quot;1&quot; /&gt;
+			&lt;xsd:maxLength value=&quot;4&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:complexType name=&quot;ServiceLevel8Choice&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:choice&gt;
+				&lt;xsd:element name=&quot;Cd&quot; type=&quot;iso:ExternalServiceLevel1Code&quot; /&gt;
+				&lt;xsd:element name=&quot;Prtry&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;/xsd:choice&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;ForeignExchangeTerms6&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:element name=&quot;UnitCcy&quot; type=&quot;iso:ActiveOrHistoricCurrencyCode&quot; /&gt;
+			&lt;xsd:element name=&quot;QtdCcy&quot; type=&quot;iso:ActiveOrHistoricCurrencyCode&quot; /&gt;
+			&lt;xsd:element name=&quot;XchgRate&quot; type=&quot;iso:BaseOneRate&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;QtnDt&quot; type=&quot;iso:ISODateTime&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;QtgInstn&quot; type=&quot;iso:PartyIdentification2Choice&quot; /&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:simpleType name=&quot;BaseOneRate&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:decimal&quot;&gt;
+			&lt;xsd:fractionDigits value=&quot;10&quot; /&gt;
+			&lt;xsd:totalDigits value=&quot;11&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;PlusOrMinusIndicator&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:boolean&quot; /&gt;
+	&lt;/xsd:simpleType&gt;
+&lt;/xsd:schema&gt;
+</string> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="put"> 
+     <string>http://www.ericsson.com/em/emm/common</string> 
+     <object class="java.util.ArrayList"> 
+      <void method="add"> 
+       <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;xs:schema attributeFormDefault=&quot;unqualified&quot; elementFormDefault=&quot;unqualified&quot; version=&quot;1.0&quot; targetNamespace=&quot;http://www.ericsson.com/em/emm/common&quot; xmlns:op=&quot;http://www.ericsson.com/em/emm/common&quot;
+	xmlns:tns=&quot;http://www.ericsson.com/em/emm/common&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+	&lt;xs:simpleType name=&quot;quoteid&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot; /&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:complexType name=&quot;transactionrecord&quot;&gt;
+		&lt;xs:sequence&gt;
+			&lt;xs:element name=&quot;transactionid&quot; type=&quot;tns:bankid&quot; /&gt;
+			&lt;xs:element name=&quot;fromfri&quot; type=&quot;xs:string&quot; /&gt;
+			&lt;xs:element name=&quot;tofri&quot; type=&quot;xs:string&quot; /&gt;
+			&lt;xs:element name=&quot;amount&quot; type=&quot;tns:moneydetailstype&quot; /&gt;
+			&lt;xs:element name=&quot;transactiontype&quot; type=&quot;tns:transactiontype&quot; /&gt;
+			&lt;xs:element name=&quot;transactiondate&quot; type=&quot;xs:dateTime&quot; /&gt;
+		&lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;
+
+
+	&lt;xs:complexType name=&quot;savingsaccount&quot;&gt;
+		&lt;xs:sequence&gt;
+			&lt;xs:element name=&quot;accountnumber&quot; type=&quot;tns:bankid&quot; /&gt;
+			&lt;xs:element name=&quot;status&quot; type=&quot;tns:savingsaccountstatus&quot; /&gt;
+			&lt;xs:element name=&quot;balance&quot; type=&quot;tns:moneydetailstype&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;xs:element name=&quot;savingsaccounttype&quot; type=&quot;tns:savingsaccounttype&quot; /&gt;
+			&lt;xs:element name=&quot;interest&quot; type=&quot;tns:interest&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;xs:element name=&quot;extension&quot; type=&quot;tns:extensiontype&quot; minOccurs=&quot;0&quot; /&gt;
+		&lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:complexType name=&quot;loanaccount&quot;&gt;
+		&lt;xs:sequence&gt;
+			&lt;xs:element name=&quot;accountnumber&quot; type=&quot;tns:bankid&quot; /&gt;
+			&lt;xs:element name=&quot;status&quot; type=&quot;tns:loanstatus&quot; /&gt;
+			&lt;xs:element name=&quot;due&quot; type=&quot;tns:moneydetailstype&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;xs:element name=&quot;duedate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;xs:element name=&quot;tenor&quot; type=&quot;xs:integer&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;xs:element name=&quot;loantype&quot; type=&quot;tns:loantype&quot; /&gt;
+			&lt;xs:element name=&quot;interest&quot; type=&quot;xs:decimal&quot; /&gt;
+			&lt;xs:element name=&quot;extension&quot; type=&quot;tns:extensiontype&quot; minOccurs=&quot;0&quot; /&gt;
+		&lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:simpleType name=&quot;registrationstatus&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:enumeration value=&quot;REGISTERED&quot; /&gt;
+			&lt;xs:enumeration value=&quot;UNREGISTERED&quot; /&gt;
+			&lt;xs:enumeration value=&quot;PENDING&quot; /&gt;
+			&lt;xs:enumeration value=&quot;FAILED&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;frequency&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:enumeration value=&quot;DAILY&quot; /&gt;
+			&lt;xs:enumeration value=&quot;WEEKLY&quot; /&gt;
+			&lt;xs:enumeration value=&quot;MONTHLY&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;savingsaccountstatus&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:enumeration value=&quot;ACTIVE&quot; /&gt;
+			&lt;xs:enumeration value=&quot;PENDING&quot; /&gt;
+			&lt;xs:enumeration value=&quot;FAILED&quot; /&gt;
+			&lt;xs:enumeration value=&quot;INACTIVE&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;loanstatus&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:enumeration value=&quot;APPROVED&quot; /&gt;
+			&lt;xs:enumeration value=&quot;DECLINED&quot; /&gt;
+			&lt;xs:enumeration value=&quot;PENDING&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;transactiontype&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:enumeration value=&quot;DEPOSIT&quot; /&gt;
+			&lt;xs:enumeration value=&quot;WITHDRAW&quot; /&gt;
+			&lt;xs:enumeration value=&quot;OTHER&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;savingsaccounttype&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:enumeration value=&quot;SAVINGS&quot; /&gt;
+			&lt;xs:enumeration value=&quot;DEPOSIT&quot; /&gt;
+			&lt;xs:enumeration value=&quot;SWEEP&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;loantype&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:enumeration value=&quot;PERSONAL&quot; /&gt;
+			&lt;xs:enumeration value=&quot;AUTO&quot; /&gt;
+			&lt;xs:enumeration value=&quot;STUDENT&quot; /&gt;
+			&lt;xs:enumeration value=&quot;MORTGAGE&quot; /&gt;
+			&lt;xs:enumeration value=&quot;SME&quot; /&gt;
+			&lt;xs:enumeration value=&quot;OTHER&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:complexType name=&quot;moneydetailstype&quot;&gt;
+		&lt;xs:sequence&gt;
+			&lt;xs:element name=&quot;amount&quot; type=&quot;tns:amount&quot; /&gt;
+			&lt;xs:element name=&quot;currency&quot; type=&quot;tns:currency&quot; /&gt;
+		&lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:complexType name=&quot;name&quot;&gt;
+		&lt;xs:sequence&gt;
+			&lt;xs:element name=&quot;firstname&quot; type=&quot;tns:firstname&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;xs:element name=&quot;lastname&quot; type=&quot;tns:lastname&quot; minOccurs=&quot;0&quot;/&gt;
+		&lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:simpleType name=&quot;financialtransactionstatus&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:enumeration value=&quot;SUCCESSFUL&quot; /&gt;
+			&lt;xs:enumeration value=&quot;PENDING&quot; /&gt;
+			&lt;xs:enumeration value=&quot;FAILED&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;paymentstatus&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:enumeration value=&quot;PENDING&quot; /&gt;
+			&lt;xs:enumeration value=&quot;COMPLETED&quot; /&gt;
+			&lt;xs:enumeration value=&quot;FAILED&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:complexType name=&quot;extensiontype&quot;&gt;
+		&lt;xs:sequence&gt;
+			&lt;xs:any processContents=&quot;lax&quot; namespace=&quot;##other&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; /&gt;
+		&lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:simpleType name=&quot;preapprovalstatus&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:enumeration value=&quot;PENDING&quot; /&gt;
+			&lt;xs:enumeration value=&quot;APPROVED&quot; /&gt;
+			&lt;xs:enumeration value=&quot;REJECTED&quot; /&gt;
+			&lt;xs:enumeration value=&quot;EXPIRED&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:complexType name=&quot;receiverinfo&quot;&gt;
+		&lt;xs:sequence&gt;
+			&lt;xs:element name=&quot;fri&quot; type=&quot;xs:string&quot; /&gt;
+			&lt;xs:element name=&quot;name&quot; type=&quot;tns:restricted-string&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;xs:element name=&quot;msisdn&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;xs:element name=&quot;emailadresses&quot; minOccurs=&quot;0&quot;&gt;
+				&lt;xs:complexType&gt;
+					&lt;xs:sequence&gt;
+						&lt;xs:element name=&quot;email&quot; type=&quot;tns:emailaddress&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; /&gt;
+					&lt;/xs:sequence&gt;
+				&lt;/xs:complexType&gt;
+			&lt;/xs:element&gt;
+			&lt;xs:element name=&quot;language&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;
+		&lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:simpleType name=&quot;emailaddress&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot; /&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;status&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:enumeration value=&quot;CREATED&quot; /&gt;
+			&lt;xs:enumeration value=&quot;PENDING&quot; /&gt;
+			&lt;xs:enumeration value=&quot;COMPLETED&quot; /&gt;
+			&lt;xs:enumeration value=&quot;FAILED&quot; /&gt;
+			&lt;xs:enumeration value=&quot;EXPIRED&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:complexType name=&quot;term&quot;&gt;
+		&lt;xs:sequence&gt;
+			&lt;xs:element name=&quot;amount&quot; type=&quot;tns:moneydetailstype&quot; /&gt;
+			&lt;xs:element name=&quot;frequency&quot; type=&quot;tns:frequency&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;xs:element name=&quot;frequencyvalue&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;
+		&lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:simpleType name=&quot;spfri&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:pattern value=&quot;FRI:.*/USER&quot;&gt;&lt;/xs:pattern&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;linkedfri&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:pattern value=&quot;FRI:([0-9])*@.*-.*/SP&quot;&gt;&lt;/xs:pattern&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;subscriberfri&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:pattern value=&quot;FRI:([0-9])*/MSISDN&quot;&gt;&lt;/xs:pattern&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;customerid&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;0&quot; /&gt;
+			&lt;xs:maxLength value=&quot;32&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;bankid&quot;&gt;
+		&lt;xs:restriction base=&quot;tns:external-refernce-string&quot;&gt;
+			&lt;xs:minLength value=&quot;0&quot; /&gt;
+			&lt;xs:maxLength value=&quot;32&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;amount&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:decimal&quot;&gt;
+			&lt;xs:minInclusive value=&quot;0&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;currency&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;3&quot; /&gt;
+			&lt;xs:maxLength value=&quot;3&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;interest&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:decimal&quot;&gt;
+			&lt;xs:minInclusive value=&quot;0&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	
+	&lt;xs:simpleType name=&quot;firstname&quot;&gt;
+		&lt;xs:restriction base=&quot;tns:restricted-string&quot;&gt;
+			&lt;xs:minLength value=&quot;0&quot; /&gt;
+			&lt;xs:maxLength value=&quot;48&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	
+	&lt;xs:simpleType name=&quot;lastname&quot;&gt;
+		&lt;xs:restriction base=&quot;tns:restricted-string&quot;&gt;
+			&lt;xs:minLength value=&quot;0&quot; /&gt;
+			&lt;xs:maxLength value=&quot;128&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	
+	&lt;xs:simpleType name=&quot;message&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;0&quot; /&gt;
+			&lt;xs:maxLength value=&quot;256&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	
+	&lt;xs:simpleType name=&quot;providertransactionid&quot;&gt;
+		&lt;xs:restriction base=&quot;tns:external-refernce-string&quot;&gt;
+			&lt;xs:minLength value=&quot;0&quot; /&gt;
+			&lt;xs:maxLength value=&quot;256&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	
+	&lt;xs:simpleType name=&quot;referenceid&quot;&gt;
+		&lt;xs:restriction base=&quot;tns:external-refernce-string&quot;&gt;
+			&lt;xs:minLength value=&quot;0&quot; /&gt;
+			&lt;xs:maxLength value=&quot;64&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	
+	&lt;xs:simpleType name=&quot;external-refernce-string&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:pattern value=&quot;[\p{L}\p{N}_\-]*&quot;&gt;&lt;/xs:pattern&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	
+	&lt;xs:simpleType name=&quot;restricted-string&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:pattern value=&quot;[\p{L}\p{N}\s.,()!?:/+*=@&apos;_\-]*&quot;&gt;&lt;/xs:pattern&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+&lt;/xs:schema&gt;
+
+</string> 
+      </void> 
+     </object> 
+    </void> 
+   </void> 
+   <void property="parameters"> 
+    <void property="includeAllOthers"> 
+     <boolean>false</boolean> 
+    </void> 
+   </void> 
+   <void property="streamData"> 
+    <void property="strDtd"> 
+     <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;xs:schema version=&quot;1.0&quot; targetNamespace=&quot;http://www.ericsson.com/em/emm/sp/backend&quot; xmlns:ns2=&quot;urn:iso:std:iso:20022:tech:xsd&quot; xmlns:ns1=&quot;http://www.ericsson.com/em/emm/common&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+
+	&lt;xs:import namespace=&quot;http://www.ericsson.com/em/emm/common&quot;  /&gt;
+	&lt;xs:import namespace=&quot;urn:iso:std:iso:20022:tech:xsd&quot;  /&gt;
+
+	&lt;xs:element name=&quot;getcustomerdetailsrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;getcustomerdetailsresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;customerid&quot; type=&quot;ns1:bankid&quot; minOccurs=&quot;0&quot; /&gt;
+				&lt;xs:element name=&quot;status&quot; type=&quot;ns1:registrationstatus&quot; /&gt;
+				&lt;xs:element name=&quot;savingsaccounts&quot;&gt;
+					&lt;xs:complexType&gt;
+						&lt;xs:sequence&gt;
+							&lt;xs:element name=&quot;savingsaccount&quot; type=&quot;ns1:savingsaccount&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;5&quot; /&gt;
+						&lt;/xs:sequence&gt;
+					&lt;/xs:complexType&gt;
+				&lt;/xs:element&gt;
+				&lt;xs:element name=&quot;loanaccounts&quot;&gt;
+					&lt;xs:complexType&gt;
+						&lt;xs:sequence&gt;
+							&lt;xs:element name=&quot;loanaccount&quot; type=&quot;ns1:loanaccount&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;5&quot; /&gt;
+						&lt;/xs:sequence&gt;
+					&lt;/xs:complexType&gt;
+				&lt;/xs:element&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;customerregistrationrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+				&lt;xs:element name=&quot;name&quot; type=&quot;ns1:name&quot; minOccurs=&quot;0&quot;/&gt;
+				&lt;xs:element name=&quot;gender&quot; type=&quot;ns2:GenderCode&quot; minOccurs=&quot;0&quot;/&gt;
+				&lt;xs:element name=&quot;dob&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;/&gt;
+				&lt;xs:element name=&quot;idtype&quot; type=&quot;ns2:PersonIdentificationType1Code&quot;  minOccurs=&quot;0&quot;/&gt;
+				&lt;xs:element name=&quot;idnumber&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot;/&gt;
+				&lt;xs:element name=&quot;idexpiry&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;/&gt;
+				&lt;xs:element name=&quot;language&quot; type=&quot;xs:string&quot;  minOccurs=&quot;0&quot;/&gt;
+				&lt;xs:element name=&quot;addresses&quot; minOccurs=&quot;0&quot;&gt;
+					&lt;xs:complexType&gt;
+						&lt;xs:sequence&gt;
+							&lt;xs:element name=&quot;address&quot; type=&quot;ns2:PostalAddress3&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;2&quot; /&gt;
+						&lt;/xs:sequence&gt;
+					&lt;/xs:complexType&gt;
+				&lt;/xs:element&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+
+	&lt;xs:element name=&quot;customerregistrationresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;customerid&quot; type=&quot;ns1:bankid&quot; minOccurs=&quot;0&quot; /&gt;
+				&lt;xs:element name=&quot;status&quot; type=&quot;ns1:registrationstatus&quot; /&gt;
+				&lt;xs:element name=&quot;savingsaccount&quot; type=&quot;ns1:savingsaccount&quot; minOccurs=&quot;0&quot; /&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;closesavingsaccountrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+				&lt;xs:element name=&quot;accountnumber&quot; type=&quot;ns1:bankid&quot; /&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;closesavingsaccountresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;initiateloanapplicationrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+				&lt;xs:element name=&quot;amount&quot; type=&quot;ns1:moneydetailstype&quot; /&gt;
+				&lt;xs:element name=&quot;tenor&quot; type=&quot;xs:int&quot; /&gt;
+				&lt;xs:element name=&quot;loantype&quot; type=&quot;ns1:loantype&quot; /&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;initiateloanapplicationresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;loanaccount&quot; type=&quot;ns1:loanaccount&quot; /&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;ministatementrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+				&lt;xs:element name=&quot;accountnumber&quot; type=&quot;ns1:bankid&quot; /&gt;
+				&lt;xs:element name=&quot;fromdate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot; /&gt;
+				&lt;xs:element name=&quot;todate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot; /&gt;
+				&lt;xs:element name=&quot;noofdays&quot; type=&quot;xs:integer&quot; minOccurs=&quot;0&quot; /&gt;
+				&lt;xs:element name=&quot;noofentries&quot; type=&quot;xs:integer&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;ministatementresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;transactions&quot;&gt;
+					&lt;xs:complexType&gt;
+						&lt;xs:sequence&gt;
+							&lt;xs:element name=&quot;transaction&quot; type=&quot;ns1:transactionrecord&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;5&quot; /&gt;
+						&lt;/xs:sequence&gt;
+					&lt;/xs:complexType&gt;
+				&lt;/xs:element&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+	&lt;xs:element name=&quot;cancelloanapplicationrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+				&lt;xs:element name=&quot;accountnumber&quot; type=&quot;ns1:bankid&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+	&lt;xs:element name=&quot;cancelloanapplicationresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;savingsaccountapplicationrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+				&lt;xs:element name=&quot;savingsaccounttype&quot; type=&quot;ns1:savingsaccounttype&quot; /&gt;
+				&lt;xs:element name=&quot;term&quot; type=&quot;ns1:term&quot; minOccurs=&quot;0&quot; /&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;savingsaccountapplicationresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;savingsaccount&quot; type=&quot;ns1:savingsaccount&quot; /&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+	&lt;xs:element name=&quot;bankdebitcompletedrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;fromfri&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+				&lt;xs:element name=&quot;tofri&quot; type=&quot;ns1:spfri&quot; /&gt;
+				&lt;xs:element name=&quot;transactionid&quot; type=&quot;xs:long&quot; /&gt;
+				&lt;xs:element name=&quot;amount&quot; type=&quot;ns1:moneydetailstype&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;bankdebitcompletedresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;externaltransactionid&quot; type=&quot;ns1:providertransactionid&quot; /&gt;
+				&lt;xs:element name=&quot;status&quot; type=&quot;ns1:financialtransactionstatus&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+    &lt;xs:element name=&quot;activateautosavingsrequest&quot;&gt;
+    	&lt;xs:complexType&gt;
+    		&lt;xs:sequence&gt;
+	    		&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot;/&gt;
+	    		&lt;xs:element name=&quot;savingsaccountno&quot; type=&quot;ns1:bankid&quot;/&gt;
+	    		&lt;xs:element name=&quot;term&quot; type=&quot;ns1:term&quot; /&gt;
+	    		&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+    		&lt;/xs:sequence&gt;
+    	&lt;/xs:complexType&gt;
+    &lt;/xs:element&gt;
+    
+    &lt;xs:element name=&quot;activateautosavingsresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;cancelautosavingsrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+				&lt;xs:element name=&quot;savingsaccountno&quot; type=&quot;ns1:bankid&quot; /&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;cancelautosavingsresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+&lt;/xs:schema&gt;
+</string> 
+    </void> 
+    <void property="strFormat"> 
+     <string> XML Text  [Provide a XSD for the XML Text.]</string> 
+    </void> 
+    <void property="strRootElem"> 
+     <string>customerregistrationrequest</string> 
+    </void> 
+   </void> 
+   <void property="targetNameSpace"> 
+    <string>http://www.ericsson.com/em/emm/sp/backend</string> 
+   </void> 
+  </void> 
+  <void property="responseDetails"> 
+   <void property="importedSchemas"> 
+    <void method="put"> 
+     <string>urn:iso:std:iso:20022:tech:xsd</string> 
+     <object class="java.util.ArrayList"> 
+      <void method="add"> 
+       <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xsd:schema targetNamespace=&quot;urn:iso:std:iso:20022:tech:xsd&quot; xmlns:iso=&quot;urn:iso:std:iso:20022:tech:xsd&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+
+	&lt;!-- Complex types --&gt;
+
+	&lt;xsd:complexType name=&quot;IndividualPerson10&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:choice&gt;
+				&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;NmPrfx&quot; type=&quot;iso:NamePrefix1Code&quot; /&gt;
+				&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;XtndedNmPrfx&quot; type=&quot;iso:Extended350Code&quot; /&gt;
+			&lt;/xsd:choice&gt;
+			&lt;xsd:element name=&quot;GvnNm&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;MddlNm&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element name=&quot;Nm&quot; type=&quot;iso:Max350Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;NmSfx&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Gndr&quot; type=&quot;iso:GenderCode&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Lang&quot; type=&quot;iso:LanguageCode&quot; /&gt;
+			&lt;xsd:element name=&quot;BirthDt&quot; type=&quot;iso:ISODate&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CtryOfBirth&quot; type=&quot;iso:CountryCode&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PrvcOfBirth&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CityOfBirth&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Prfssn&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;TaxtnCtry&quot; type=&quot;iso:CountryCode&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CtryAndResdtlSts&quot; type=&quot;iso:CountryAndResidentialStatusType1&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;5&quot; minOccurs=&quot;1&quot; name=&quot;PstlAdr&quot; type=&quot;iso:PostalAddress3&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;3&quot; minOccurs=&quot;1&quot; name=&quot;Ctznsh&quot; type=&quot;iso:CitizenshipInformation&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;EmplngCpny&quot; type=&quot;iso:Max140Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;BizFctn&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PmryComAdr&quot; type=&quot;iso:CommunicationAddress3&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;ScndryComAdr&quot; type=&quot;iso:CommunicationAddress3&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;10&quot; minOccurs=&quot;0&quot; name=&quot;OthrId&quot; type=&quot;iso:GenericIdentification9&quot; /&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;IndividualPerson8&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:element name=&quot;Nm&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element name=&quot;GvnNm&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;NmPrfx&quot; type=&quot;iso:NamePrefix1Code&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;NmSfx&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Gndr&quot; type=&quot;iso:GenderCode&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;BirthDt&quot; type=&quot;iso:ISODate&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;SclSctyNb&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element name=&quot;IndvInvstrAdr&quot; type=&quot;iso:PostalAddress1&quot; /&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;CountryAndResidentialStatusType1&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:element name=&quot;Ctry&quot; type=&quot;iso:CountryCode&quot; /&gt;
+			&lt;xsd:element name=&quot;ResdtlSts&quot; type=&quot;iso:ResidentialStatus1Code&quot; /&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;PostalAddress3&quot;&gt;
+		&lt;xsd:sequence&gt;
+				&lt;xsd:element name=&quot;AdrTp&quot; type=&quot;iso:AddressType1Code&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;xsd:element name=&quot;MlngInd&quot; type=&quot;iso:YesNoIndicator&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;xsd:element name=&quot;RegnAdrInd&quot; type=&quot;iso:YesNoIndicator&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;xsd:element name=&quot;NmAndAdr&quot; type=&quot;iso:NameAndAddress4&quot; minOccurs=&quot;0&quot; /&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;NameAndAddress4&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Nm&quot; type=&quot;iso:Max350Text&quot; /&gt;
+			&lt;xsd:element name=&quot;Adr&quot; type=&quot;iso:PostalAddress1&quot; minOccurs=&quot;0&quot; /&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;PostalAddress1&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;AdrTp&quot; type=&quot;iso:AddressType2Code&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;5&quot; minOccurs=&quot;0&quot; name=&quot;AdrLine&quot; type=&quot;iso:Max70Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;StrtNm&quot; type=&quot;iso:Max70Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;BldgNb&quot; type=&quot;iso:Max16Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PstCd&quot; type=&quot;iso:Max16Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;TwnNm&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CtrySubDvsn&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element name=&quot;Ctry&quot; type=&quot;iso:CountryCode&quot;  minOccurs=&quot;0&quot;/&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;CitizenshipInformation&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:element name=&quot;Ntlty&quot; type=&quot;iso:NationalityCode&quot; /&gt;
+			&lt;xsd:element name=&quot;MnrInd&quot; type=&quot;iso:YesNoIndicator&quot; /&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;CommunicationAddress3&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Email&quot; type=&quot;iso:Max256Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Phne&quot; type=&quot;iso:PhoneNumber&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Mob&quot; type=&quot;iso:PhoneNumber&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;FaxNb&quot; type=&quot;iso:PhoneNumber&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;TlxAdr&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;URLAdr&quot; type=&quot;iso:Max256Text&quot; /&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;GenericIdentification9&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:element name=&quot;Id&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:choice&gt;
+				&lt;xsd:element name=&quot;IdTp&quot; type=&quot;iso:PersonIdentificationType1Code&quot; /&gt;
+				&lt;xsd:element name=&quot;XtndedIdTp&quot; type=&quot;iso:Extended350Code&quot; /&gt;
+			&lt;/xsd:choice&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Issr&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;IsseDt&quot; type=&quot;iso:ISODate&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;XpryDt&quot; type=&quot;iso:ISODate&quot; /&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;ActiveOrHistoricCurrencyAndAmount&quot;&gt;
+		&lt;xsd:simpleContent&gt;
+			&lt;xsd:extension base=&quot;iso:ActiveOrHistoricCurrencyAndAmount_SimpleType&quot;&gt;
+				&lt;xsd:attribute name=&quot;Ccy&quot; type=&quot;iso:ActiveOrHistoricCurrencyCode&quot; use=&quot;required&quot; /&gt;
+			&lt;/xsd:extension&gt;
+		&lt;/xsd:simpleContent&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;PaymentCard2&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:element name=&quot;Tp&quot; type=&quot;iso:CardType1Code&quot; /&gt;
+			&lt;xsd:element name=&quot;Nb&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element name=&quot;HldrNm&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;StartDt&quot; type=&quot;iso:ISOYearMonth&quot; /&gt;
+			&lt;xsd:element name=&quot;XpryDt&quot; type=&quot;iso:ISOYearMonth&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CardIssrNm&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CardIssrId&quot; type=&quot;iso:PartyIdentification2Choice&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;SctyCd&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;SeqNb&quot; type=&quot;iso:Max3Text&quot; /&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;PartyIdentification2Choice&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:choice&gt;
+				&lt;xsd:element name=&quot;BICOrBEI&quot; type=&quot;iso:AnyBICIdentifier&quot; /&gt;
+				&lt;xsd:element name=&quot;PrtryId&quot; type=&quot;iso:GenericIdentification1&quot; /&gt;
+				&lt;xsd:element name=&quot;NmAndAdr&quot; type=&quot;iso:NameAndAddress5&quot; /&gt;
+			&lt;/xsd:choice&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;GenericIdentification1&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:element name=&quot;Id&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;SchmeNm&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Issr&quot; type=&quot;iso:Max35Text&quot; /&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;NameAndAddress5&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:element name=&quot;Nm&quot; type=&quot;iso:Max350Text&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Adr&quot; type=&quot;iso:PostalAddress1&quot; /&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;!-- Simple types --&gt;
+
+	&lt;xsd:simpleType name=&quot;ActiveOrHistoricCurrencyAndAmount_SimpleType&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:decimal&quot;&gt;
+			&lt;xsd:minInclusive value=&quot;0&quot; /&gt;
+			&lt;xsd:fractionDigits value=&quot;5&quot; /&gt;
+			&lt;xsd:totalDigits value=&quot;18&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;ActiveOrHistoricCurrencyCode&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:pattern value=&quot;[A-Z]{3,3}&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;NamePrefix1Code&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:enumeration value=&quot;DOCT&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;MIST&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;MISS&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;MADM&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;AnyBICIdentifier&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:pattern value=&quot;[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;Extended350Code&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:minLength value=&quot;1&quot; /&gt;
+			&lt;xsd:maxLength value=&quot;350&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;Max3Text&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:minLength value=&quot;1&quot; /&gt;
+			&lt;xsd:maxLength value=&quot;3&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;Max16Text&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:minLength value=&quot;1&quot; /&gt;
+			&lt;xsd:maxLength value=&quot;16&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;Max35Text&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:minLength value=&quot;1&quot; /&gt;
+			&lt;xsd:maxLength value=&quot;35&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;Max70Text&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:minLength value=&quot;1&quot; /&gt;
+			&lt;xsd:maxLength value=&quot;70&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;Max140Text&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:minLength value=&quot;1&quot; /&gt;
+			&lt;xsd:maxLength value=&quot;140&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;Max256Text&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:minLength value=&quot;1&quot; /&gt;
+			&lt;xsd:maxLength value=&quot;256&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;Max350Text&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:minLength value=&quot;1&quot; /&gt;
+			&lt;xsd:maxLength value=&quot;350&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;Max2048Text&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:minLength value=&quot;1&quot; /&gt;
+			&lt;xsd:maxLength value=&quot;2048&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;GenderCode&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:enumeration value=&quot;MALE&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;FEMA&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;LanguageCode&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot; /&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;CountryCode&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:pattern value=&quot;[A-Z]{2,2}&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;ResidentialStatus1Code&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:enumeration value=&quot;RESI&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;PRES&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;NRES&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;AddressType1Code&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:enumeration value=&quot;HOME&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;BIZZ&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;AddressType2Code&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:enumeration value=&quot;ADDR&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;PBOX&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;HOME&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;BIZZ&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;MLTO&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;DLVY&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;YesNoIndicator&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:boolean&quot; /&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;NationalityCode&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot; /&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;PhoneNumber&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:pattern value=&quot;\+[0-9]{1,3}-[0-9()+\-]{1,30}&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;ISODate&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:date&quot; /&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;ISODateTime&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:dateTime&quot; /&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;ISOYearMonth&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:gYearMonth&quot; /&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;PersonIdentificationType1Code&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:enumeration value=&quot;PASS&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;CPFA&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;SRSA&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;NRIN&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;OTHR&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;DRLC&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;SOCS&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;AREG&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;IDCD&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;EMID&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;CardType1Code&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:enumeration value=&quot;CRDT&quot; /&gt;
+			&lt;xsd:enumeration value=&quot;DBIT&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;ExternalServiceLevel1Code&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:string&quot;&gt;
+			&lt;xsd:minLength value=&quot;1&quot; /&gt;
+			&lt;xsd:maxLength value=&quot;4&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:complexType name=&quot;ServiceLevel8Choice&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:choice&gt;
+				&lt;xsd:element name=&quot;Cd&quot; type=&quot;iso:ExternalServiceLevel1Code&quot; /&gt;
+				&lt;xsd:element name=&quot;Prtry&quot; type=&quot;iso:Max35Text&quot; /&gt;
+			&lt;/xsd:choice&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:complexType name=&quot;ForeignExchangeTerms6&quot;&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:element name=&quot;UnitCcy&quot; type=&quot;iso:ActiveOrHistoricCurrencyCode&quot; /&gt;
+			&lt;xsd:element name=&quot;QtdCcy&quot; type=&quot;iso:ActiveOrHistoricCurrencyCode&quot; /&gt;
+			&lt;xsd:element name=&quot;XchgRate&quot; type=&quot;iso:BaseOneRate&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;QtnDt&quot; type=&quot;iso:ISODateTime&quot; /&gt;
+			&lt;xsd:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;QtgInstn&quot; type=&quot;iso:PartyIdentification2Choice&quot; /&gt;
+		&lt;/xsd:sequence&gt;
+	&lt;/xsd:complexType&gt;
+
+	&lt;xsd:simpleType name=&quot;BaseOneRate&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:decimal&quot;&gt;
+			&lt;xsd:fractionDigits value=&quot;10&quot; /&gt;
+			&lt;xsd:totalDigits value=&quot;11&quot; /&gt;
+		&lt;/xsd:restriction&gt;
+	&lt;/xsd:simpleType&gt;
+
+	&lt;xsd:simpleType name=&quot;PlusOrMinusIndicator&quot;&gt;
+		&lt;xsd:restriction base=&quot;xsd:boolean&quot; /&gt;
+	&lt;/xsd:simpleType&gt;
+&lt;/xsd:schema&gt;
+</string> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="put"> 
+     <string>http://www.ericsson.com/em/emm/common</string> 
+     <object class="java.util.ArrayList"> 
+      <void method="add"> 
+       <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;xs:schema attributeFormDefault=&quot;unqualified&quot; elementFormDefault=&quot;unqualified&quot; version=&quot;1.0&quot; targetNamespace=&quot;http://www.ericsson.com/em/emm/common&quot; xmlns:op=&quot;http://www.ericsson.com/em/emm/common&quot;
+	xmlns:tns=&quot;http://www.ericsson.com/em/emm/common&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+	&lt;xs:simpleType name=&quot;quoteid&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot; /&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:complexType name=&quot;transactionrecord&quot;&gt;
+		&lt;xs:sequence&gt;
+			&lt;xs:element name=&quot;transactionid&quot; type=&quot;tns:bankid&quot; /&gt;
+			&lt;xs:element name=&quot;fromfri&quot; type=&quot;xs:string&quot; /&gt;
+			&lt;xs:element name=&quot;tofri&quot; type=&quot;xs:string&quot; /&gt;
+			&lt;xs:element name=&quot;amount&quot; type=&quot;tns:moneydetailstype&quot; /&gt;
+			&lt;xs:element name=&quot;transactiontype&quot; type=&quot;tns:transactiontype&quot; /&gt;
+			&lt;xs:element name=&quot;transactiondate&quot; type=&quot;xs:dateTime&quot; /&gt;
+		&lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;
+
+
+	&lt;xs:complexType name=&quot;savingsaccount&quot;&gt;
+		&lt;xs:sequence&gt;
+			&lt;xs:element name=&quot;accountnumber&quot; type=&quot;tns:bankid&quot; /&gt;
+			&lt;xs:element name=&quot;status&quot; type=&quot;tns:savingsaccountstatus&quot; /&gt;
+			&lt;xs:element name=&quot;balance&quot; type=&quot;tns:moneydetailstype&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;xs:element name=&quot;savingsaccounttype&quot; type=&quot;tns:savingsaccounttype&quot; /&gt;
+			&lt;xs:element name=&quot;interest&quot; type=&quot;tns:interest&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;xs:element name=&quot;extension&quot; type=&quot;tns:extensiontype&quot; minOccurs=&quot;0&quot; /&gt;
+		&lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:complexType name=&quot;loanaccount&quot;&gt;
+		&lt;xs:sequence&gt;
+			&lt;xs:element name=&quot;accountnumber&quot; type=&quot;tns:bankid&quot; /&gt;
+			&lt;xs:element name=&quot;status&quot; type=&quot;tns:loanstatus&quot; /&gt;
+			&lt;xs:element name=&quot;due&quot; type=&quot;tns:moneydetailstype&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;xs:element name=&quot;duedate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;xs:element name=&quot;tenor&quot; type=&quot;xs:integer&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;xs:element name=&quot;loantype&quot; type=&quot;tns:loantype&quot; /&gt;
+			&lt;xs:element name=&quot;interest&quot; type=&quot;xs:decimal&quot; /&gt;
+			&lt;xs:element name=&quot;extension&quot; type=&quot;tns:extensiontype&quot; minOccurs=&quot;0&quot; /&gt;
+		&lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:simpleType name=&quot;registrationstatus&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:enumeration value=&quot;REGISTERED&quot; /&gt;
+			&lt;xs:enumeration value=&quot;UNREGISTERED&quot; /&gt;
+			&lt;xs:enumeration value=&quot;PENDING&quot; /&gt;
+			&lt;xs:enumeration value=&quot;FAILED&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;frequency&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:enumeration value=&quot;DAILY&quot; /&gt;
+			&lt;xs:enumeration value=&quot;WEEKLY&quot; /&gt;
+			&lt;xs:enumeration value=&quot;MONTHLY&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;savingsaccountstatus&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:enumeration value=&quot;ACTIVE&quot; /&gt;
+			&lt;xs:enumeration value=&quot;PENDING&quot; /&gt;
+			&lt;xs:enumeration value=&quot;FAILED&quot; /&gt;
+			&lt;xs:enumeration value=&quot;INACTIVE&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;loanstatus&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:enumeration value=&quot;APPROVED&quot; /&gt;
+			&lt;xs:enumeration value=&quot;DECLINED&quot; /&gt;
+			&lt;xs:enumeration value=&quot;PENDING&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;transactiontype&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:enumeration value=&quot;DEPOSIT&quot; /&gt;
+			&lt;xs:enumeration value=&quot;WITHDRAW&quot; /&gt;
+			&lt;xs:enumeration value=&quot;OTHER&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;savingsaccounttype&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:enumeration value=&quot;SAVINGS&quot; /&gt;
+			&lt;xs:enumeration value=&quot;DEPOSIT&quot; /&gt;
+			&lt;xs:enumeration value=&quot;SWEEP&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;loantype&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:enumeration value=&quot;PERSONAL&quot; /&gt;
+			&lt;xs:enumeration value=&quot;AUTO&quot; /&gt;
+			&lt;xs:enumeration value=&quot;STUDENT&quot; /&gt;
+			&lt;xs:enumeration value=&quot;MORTGAGE&quot; /&gt;
+			&lt;xs:enumeration value=&quot;SME&quot; /&gt;
+			&lt;xs:enumeration value=&quot;OTHER&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:complexType name=&quot;moneydetailstype&quot;&gt;
+		&lt;xs:sequence&gt;
+			&lt;xs:element name=&quot;amount&quot; type=&quot;tns:amount&quot; /&gt;
+			&lt;xs:element name=&quot;currency&quot; type=&quot;tns:currency&quot; /&gt;
+		&lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:complexType name=&quot;name&quot;&gt;
+		&lt;xs:sequence&gt;
+			&lt;xs:element name=&quot;firstname&quot; type=&quot;tns:firstname&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;xs:element name=&quot;lastname&quot; type=&quot;tns:lastname&quot; minOccurs=&quot;0&quot;/&gt;
+		&lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:simpleType name=&quot;financialtransactionstatus&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:enumeration value=&quot;SUCCESSFUL&quot; /&gt;
+			&lt;xs:enumeration value=&quot;PENDING&quot; /&gt;
+			&lt;xs:enumeration value=&quot;FAILED&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;paymentstatus&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:enumeration value=&quot;PENDING&quot; /&gt;
+			&lt;xs:enumeration value=&quot;COMPLETED&quot; /&gt;
+			&lt;xs:enumeration value=&quot;FAILED&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:complexType name=&quot;extensiontype&quot;&gt;
+		&lt;xs:sequence&gt;
+			&lt;xs:any processContents=&quot;lax&quot; namespace=&quot;##other&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; /&gt;
+		&lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:simpleType name=&quot;preapprovalstatus&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:enumeration value=&quot;PENDING&quot; /&gt;
+			&lt;xs:enumeration value=&quot;APPROVED&quot; /&gt;
+			&lt;xs:enumeration value=&quot;REJECTED&quot; /&gt;
+			&lt;xs:enumeration value=&quot;EXPIRED&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:complexType name=&quot;receiverinfo&quot;&gt;
+		&lt;xs:sequence&gt;
+			&lt;xs:element name=&quot;fri&quot; type=&quot;xs:string&quot; /&gt;
+			&lt;xs:element name=&quot;name&quot; type=&quot;tns:restricted-string&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;xs:element name=&quot;msisdn&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;xs:element name=&quot;emailadresses&quot; minOccurs=&quot;0&quot;&gt;
+				&lt;xs:complexType&gt;
+					&lt;xs:sequence&gt;
+						&lt;xs:element name=&quot;email&quot; type=&quot;tns:emailaddress&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; /&gt;
+					&lt;/xs:sequence&gt;
+				&lt;/xs:complexType&gt;
+			&lt;/xs:element&gt;
+			&lt;xs:element name=&quot;language&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;
+		&lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:simpleType name=&quot;emailaddress&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot; /&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;status&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:enumeration value=&quot;CREATED&quot; /&gt;
+			&lt;xs:enumeration value=&quot;PENDING&quot; /&gt;
+			&lt;xs:enumeration value=&quot;COMPLETED&quot; /&gt;
+			&lt;xs:enumeration value=&quot;FAILED&quot; /&gt;
+			&lt;xs:enumeration value=&quot;EXPIRED&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:complexType name=&quot;term&quot;&gt;
+		&lt;xs:sequence&gt;
+			&lt;xs:element name=&quot;amount&quot; type=&quot;tns:moneydetailstype&quot; /&gt;
+			&lt;xs:element name=&quot;frequency&quot; type=&quot;tns:frequency&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;xs:element name=&quot;frequencyvalue&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;
+		&lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:simpleType name=&quot;spfri&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:pattern value=&quot;FRI:.*/USER&quot;&gt;&lt;/xs:pattern&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;linkedfri&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:pattern value=&quot;FRI:([0-9])*@.*-.*/SP&quot;&gt;&lt;/xs:pattern&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;subscriberfri&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:pattern value=&quot;FRI:([0-9])*/MSISDN&quot;&gt;&lt;/xs:pattern&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;customerid&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;0&quot; /&gt;
+			&lt;xs:maxLength value=&quot;32&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;bankid&quot;&gt;
+		&lt;xs:restriction base=&quot;tns:external-refernce-string&quot;&gt;
+			&lt;xs:minLength value=&quot;0&quot; /&gt;
+			&lt;xs:maxLength value=&quot;32&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;amount&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:decimal&quot;&gt;
+			&lt;xs:minInclusive value=&quot;0&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;currency&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;3&quot; /&gt;
+			&lt;xs:maxLength value=&quot;3&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:simpleType name=&quot;interest&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:decimal&quot;&gt;
+			&lt;xs:minInclusive value=&quot;0&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	
+	&lt;xs:simpleType name=&quot;firstname&quot;&gt;
+		&lt;xs:restriction base=&quot;tns:restricted-string&quot;&gt;
+			&lt;xs:minLength value=&quot;0&quot; /&gt;
+			&lt;xs:maxLength value=&quot;48&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	
+	&lt;xs:simpleType name=&quot;lastname&quot;&gt;
+		&lt;xs:restriction base=&quot;tns:restricted-string&quot;&gt;
+			&lt;xs:minLength value=&quot;0&quot; /&gt;
+			&lt;xs:maxLength value=&quot;128&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	
+	&lt;xs:simpleType name=&quot;message&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;0&quot; /&gt;
+			&lt;xs:maxLength value=&quot;256&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	
+	&lt;xs:simpleType name=&quot;providertransactionid&quot;&gt;
+		&lt;xs:restriction base=&quot;tns:external-refernce-string&quot;&gt;
+			&lt;xs:minLength value=&quot;0&quot; /&gt;
+			&lt;xs:maxLength value=&quot;256&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	
+	&lt;xs:simpleType name=&quot;referenceid&quot;&gt;
+		&lt;xs:restriction base=&quot;tns:external-refernce-string&quot;&gt;
+			&lt;xs:minLength value=&quot;0&quot; /&gt;
+			&lt;xs:maxLength value=&quot;64&quot; /&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	
+	&lt;xs:simpleType name=&quot;external-refernce-string&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:pattern value=&quot;[\p{L}\p{N}_\-]*&quot;&gt;&lt;/xs:pattern&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	
+	&lt;xs:simpleType name=&quot;restricted-string&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:pattern value=&quot;[\p{L}\p{N}\s.,()!?:/+*=@&apos;_\-]*&quot;&gt;&lt;/xs:pattern&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+&lt;/xs:schema&gt;
+
+</string> 
+      </void> 
+     </object> 
+    </void> 
+   </void> 
+   <void property="responseContentType"> 
+    <string></string> 
+   </void> 
+   <void property="streamData"> 
+    <void property="strDtd"> 
+     <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;xs:schema version=&quot;1.0&quot; targetNamespace=&quot;http://www.ericsson.com/em/emm/sp/backend&quot; xmlns:ns2=&quot;urn:iso:std:iso:20022:tech:xsd&quot; xmlns:ns1=&quot;http://www.ericsson.com/em/emm/common&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+
+	&lt;xs:import namespace=&quot;http://www.ericsson.com/em/emm/common&quot;  /&gt;
+	&lt;xs:import namespace=&quot;urn:iso:std:iso:20022:tech:xsd&quot;  /&gt;
+
+	&lt;xs:element name=&quot;getcustomerdetailsrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;getcustomerdetailsresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;customerid&quot; type=&quot;ns1:bankid&quot; minOccurs=&quot;0&quot; /&gt;
+				&lt;xs:element name=&quot;status&quot; type=&quot;ns1:registrationstatus&quot; /&gt;
+				&lt;xs:element name=&quot;savingsaccounts&quot;&gt;
+					&lt;xs:complexType&gt;
+						&lt;xs:sequence&gt;
+							&lt;xs:element name=&quot;savingsaccount&quot; type=&quot;ns1:savingsaccount&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;5&quot; /&gt;
+						&lt;/xs:sequence&gt;
+					&lt;/xs:complexType&gt;
+				&lt;/xs:element&gt;
+				&lt;xs:element name=&quot;loanaccounts&quot;&gt;
+					&lt;xs:complexType&gt;
+						&lt;xs:sequence&gt;
+							&lt;xs:element name=&quot;loanaccount&quot; type=&quot;ns1:loanaccount&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;5&quot; /&gt;
+						&lt;/xs:sequence&gt;
+					&lt;/xs:complexType&gt;
+				&lt;/xs:element&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;customerregistrationrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+				&lt;xs:element name=&quot;name&quot; type=&quot;ns1:name&quot; minOccurs=&quot;0&quot;/&gt;
+				&lt;xs:element name=&quot;gender&quot; type=&quot;ns2:GenderCode&quot; minOccurs=&quot;0&quot;/&gt;
+				&lt;xs:element name=&quot;dob&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;/&gt;
+				&lt;xs:element name=&quot;idtype&quot; type=&quot;ns2:PersonIdentificationType1Code&quot;  minOccurs=&quot;0&quot;/&gt;
+				&lt;xs:element name=&quot;idnumber&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot;/&gt;
+				&lt;xs:element name=&quot;idexpiry&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;/&gt;
+				&lt;xs:element name=&quot;language&quot; type=&quot;xs:string&quot;  minOccurs=&quot;0&quot;/&gt;
+				&lt;xs:element name=&quot;addresses&quot; minOccurs=&quot;0&quot;&gt;
+					&lt;xs:complexType&gt;
+						&lt;xs:sequence&gt;
+							&lt;xs:element name=&quot;address&quot; type=&quot;ns2:PostalAddress3&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;2&quot; /&gt;
+						&lt;/xs:sequence&gt;
+					&lt;/xs:complexType&gt;
+				&lt;/xs:element&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+
+	&lt;xs:element name=&quot;customerregistrationresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;customerid&quot; type=&quot;ns1:bankid&quot; minOccurs=&quot;0&quot; /&gt;
+				&lt;xs:element name=&quot;status&quot; type=&quot;ns1:registrationstatus&quot; /&gt;
+				&lt;xs:element name=&quot;savingsaccount&quot; type=&quot;ns1:savingsaccount&quot; minOccurs=&quot;0&quot; /&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;closesavingsaccountrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+				&lt;xs:element name=&quot;accountnumber&quot; type=&quot;ns1:bankid&quot; /&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;closesavingsaccountresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;initiateloanapplicationrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+				&lt;xs:element name=&quot;amount&quot; type=&quot;ns1:moneydetailstype&quot; /&gt;
+				&lt;xs:element name=&quot;tenor&quot; type=&quot;xs:int&quot; /&gt;
+				&lt;xs:element name=&quot;loantype&quot; type=&quot;ns1:loantype&quot; /&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;initiateloanapplicationresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;loanaccount&quot; type=&quot;ns1:loanaccount&quot; /&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;ministatementrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+				&lt;xs:element name=&quot;accountnumber&quot; type=&quot;ns1:bankid&quot; /&gt;
+				&lt;xs:element name=&quot;fromdate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot; /&gt;
+				&lt;xs:element name=&quot;todate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot; /&gt;
+				&lt;xs:element name=&quot;noofdays&quot; type=&quot;xs:integer&quot; minOccurs=&quot;0&quot; /&gt;
+				&lt;xs:element name=&quot;noofentries&quot; type=&quot;xs:integer&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;ministatementresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;transactions&quot;&gt;
+					&lt;xs:complexType&gt;
+						&lt;xs:sequence&gt;
+							&lt;xs:element name=&quot;transaction&quot; type=&quot;ns1:transactionrecord&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;5&quot; /&gt;
+						&lt;/xs:sequence&gt;
+					&lt;/xs:complexType&gt;
+				&lt;/xs:element&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+	&lt;xs:element name=&quot;cancelloanapplicationrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+				&lt;xs:element name=&quot;accountnumber&quot; type=&quot;ns1:bankid&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+	&lt;xs:element name=&quot;cancelloanapplicationresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;savingsaccountapplicationrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+				&lt;xs:element name=&quot;savingsaccounttype&quot; type=&quot;ns1:savingsaccounttype&quot; /&gt;
+				&lt;xs:element name=&quot;term&quot; type=&quot;ns1:term&quot; minOccurs=&quot;0&quot; /&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;savingsaccountapplicationresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;savingsaccount&quot; type=&quot;ns1:savingsaccount&quot; /&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+	&lt;xs:element name=&quot;bankdebitcompletedrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;fromfri&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+				&lt;xs:element name=&quot;tofri&quot; type=&quot;ns1:spfri&quot; /&gt;
+				&lt;xs:element name=&quot;transactionid&quot; type=&quot;xs:long&quot; /&gt;
+				&lt;xs:element name=&quot;amount&quot; type=&quot;ns1:moneydetailstype&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;bankdebitcompletedresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;externaltransactionid&quot; type=&quot;ns1:providertransactionid&quot; /&gt;
+				&lt;xs:element name=&quot;status&quot; type=&quot;ns1:financialtransactionstatus&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+    &lt;xs:element name=&quot;activateautosavingsrequest&quot;&gt;
+    	&lt;xs:complexType&gt;
+    		&lt;xs:sequence&gt;
+	    		&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot;/&gt;
+	    		&lt;xs:element name=&quot;savingsaccountno&quot; type=&quot;ns1:bankid&quot;/&gt;
+	    		&lt;xs:element name=&quot;term&quot; type=&quot;ns1:term&quot; /&gt;
+	    		&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+    		&lt;/xs:sequence&gt;
+    	&lt;/xs:complexType&gt;
+    &lt;/xs:element&gt;
+    
+    &lt;xs:element name=&quot;activateautosavingsresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;cancelautosavingsrequest&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;resource&quot; type=&quot;ns1:subscriberfri&quot; /&gt;
+				&lt;xs:element name=&quot;savingsaccountno&quot; type=&quot;ns1:bankid&quot; /&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name=&quot;cancelautosavingsresponse&quot;&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element name=&quot;message&quot; type=&quot;ns1:message&quot; minOccurs=&quot;0&quot; /&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+&lt;/xs:schema&gt;
+</string> 
+    </void> 
+    <void property="strFormat"> 
+     <string> XML Text  [Provide a XSD for the XML Text.]</string> 
+    </void> 
+    <void property="strRootElem"> 
+     <string>customerregistrationresponse</string> 
+    </void> 
+   </void> 
+   <void property="targetNameSpace"> 
+    <string>http://www.ericsson.com/em/emm/sp/backend</string> 
+   </void> 
+  </void> 
+ </object> 
+</java> 

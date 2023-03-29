@@ -1,0 +1,17 @@
+<!ELEMENT Acc ( #PCDATA ) >
+<!ELEMENT Bal ( #PCDATA ) >
+<!ELEMENT BizDate ( #PCDATA ) >
+<!ELEMENT BizTime ( #PCDATA ) >
+<!ELEMENT Brnch ( Nb, Acc, Bal ) >
+<!ELEMENT Doc ( BizDate, BizTime, myBankID, nextSess, nextSettleKHR, nextSettleUSD, settleKHR, settleUSD, curAccKHR, totalKHR, curAccUSD, totalUSD ) >
+<!ELEMENT Nb ( #PCDATA ) >
+<!ELEMENT curAccKHR ( Brnch+ ) >
+<!ELEMENT curAccUSD ( Brnch+ ) >
+<!ELEMENT myBankID ( #PCDATA ) >
+<!ELEMENT nextSess ( #PCDATA ) >
+<!ELEMENT nextSettleKHR ( #PCDATA ) >
+<!ELEMENT nextSettleUSD ( #PCDATA ) >
+<!ELEMENT settleKHR ( #PCDATA ) >
+<!ELEMENT settleUSD ( #PCDATA ) >
+<!ELEMENT totalKHR ( #PCDATA ) >
+<!ELEMENT totalUSD ( #PCDATA ) >

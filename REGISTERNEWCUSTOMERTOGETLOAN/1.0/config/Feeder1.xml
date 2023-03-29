@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.8.0_92" class="java.beans.XMLDecoder"> 
+ <object class="com.fiorano.bc.feeder.model.FeederPM"> 
+  <void property="attachment"> 
+   <object class="java.util.LinkedHashMap"/> 
+  </void> 
+  <void property="configuredVersion"> 
+   <int>1033</int> 
+  </void> 
+  <void property="defaultMessage"> 
+   <string>&lt;ns1:HTTPRequest xmlns:ns1=&quot;http://www.fiorano.com/httpGateway&quot;&gt;&#13;
+   &lt;Params/&gt;&#13;
+   &lt;XMLData&gt;&#13;
+      &lt;ns2:customerregistrationrequest xmlns:ns2=&quot;http://www.ericsson.com/em/emm/sp/backend&quot;&gt;&#13;
+         &lt;resource&gt;resource&lt;/resource&gt;&#13;
+         &lt;name&gt;&#13;
+            &lt;firstname&gt;firstname&lt;/firstname&gt;&#13;
+            &lt;lastname&gt;lastname&lt;/lastname&gt;&#13;
+         &lt;/name&gt;&#13;
+         &lt;gender&gt;FEMA&lt;/gender&gt;&#13;
+         &lt;dob&gt;2017-06-05&lt;/dob&gt;&#13;
+         &lt;idtype&gt;EMID&lt;/idtype&gt;&#13;
+         &lt;idnumber&gt;idnumber&lt;/idnumber&gt;&#13;
+         &lt;idexpiry&gt;2017-06-05&lt;/idexpiry&gt;&#13;
+         &lt;language&gt;language&lt;/language&gt;&#13;
+         &lt;addresses&gt;&#13;
+            &lt;address&gt;&#13;
+               &lt;AdrTp&gt;BIZZ&lt;/AdrTp&gt;&#13;
+               &lt;MlngInd&gt;false&lt;/MlngInd&gt;&#13;
+               &lt;RegnAdrInd&gt;true&lt;/RegnAdrInd&gt;&#13;
+               &lt;NmAndAdr&gt;&#13;
+                  &lt;Nm&gt;Nm&lt;/Nm&gt;&#13;
+                  &lt;Adr&gt;&#13;
+                     &lt;AdrTp&gt;HOME&lt;/AdrTp&gt;&#13;
+                     &lt;AdrLine&gt;AdrLine&lt;/AdrLine&gt;&#13;
+                     &lt;StrtNm&gt;StrtNm&lt;/StrtNm&gt;&#13;
+                     &lt;BldgNb&gt;BldgNb&lt;/BldgNb&gt;&#13;
+                     &lt;PstCd&gt;PstCd&lt;/PstCd&gt;&#13;
+                     &lt;TwnNm&gt;TwnNm&lt;/TwnNm&gt;&#13;
+                     &lt;CtrySubDvsn&gt;CtrySubDvsn&lt;/CtrySubDvsn&gt;&#13;
+                     &lt;Ctry&gt;Ctry&lt;/Ctry&gt;&#13;
+                  &lt;/Adr&gt;&#13;
+               &lt;/NmAndAdr&gt;&#13;
+            &lt;/address&gt;&#13;
+         &lt;/addresses&gt;&#13;
+         &lt;message&gt;message&lt;/message&gt;&#13;
+      &lt;/ns2:customerregistrationrequest&gt;&#13;
+   &lt;/XMLData&gt;&#13;
+&lt;/ns1:HTTPRequest&gt;</string> 
+  </void> 
+  <void property="elementsToEncrypt"> 
+   <object class="com.fiorano.services.common.configuration.EncryptDecryptElements"/> 
+  </void> 
+  <void property="errorHandlingConfiguration"> 
+   <void property="errorActionsMap"> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>3</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"/> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>2</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"/> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>1</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"/> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.RetryAction"> 
+       <void property="configuration"> 
+        <object class="com.fiorano.edbc.framework.service.exception.RetryConfiguration"> 
+         <void property="otherActions"> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+            <void property="id"> 
+             <int>1</int> 
+            </void> 
+           </object> 
+           <int>1</int> 
+          </void> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"/> 
+           <int>1</int> 
+          </void> 
+         </void> 
+        </object> 
+       </void> 
+       <void property="id"> 
+        <int>2</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>4</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>0</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"/> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>6</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+   </void> 
+  </void> 
+  <void property="header"> 
+   <object class="java.util.LinkedHashMap"/> 
+  </void> 
+  <void property="messageFormat"> 
+   <int>0</int> 
+  </void> 
+ </object> 
+</java> 

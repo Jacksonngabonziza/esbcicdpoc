@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xalan="http://xml.apache.org/xslt" xmlns:datetime="http://exslt.org/dates-and-times" xmlns:math="http://exslt.org/math" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:lxslt="http://xml.apache.org/xslt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http://xml.apache.org/xslt/java" xmlns:set="http://exslt.org/sets" exclude-result-prefixes="xalan java lxslt" xmlns:ns3="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://www.fiorano.com/services/rest" xmlns:MT2MX="http://xml.apache.org/xslt/java" xmlns:MTtoMX="http://xml.apache.org/xslt/java" xmlns:MTtoMXUtil="http://xml.apache.org/xslt/java" xmlns:MX2MT="http://xml.apache.org/xslt/java" xmlns:MXToMT="http://xml.apache.org/xslt/java" xmlns:MXtoMT="http://xml.apache.org/xslt/java" xmlns:QueryGenerator="QueryGenerator" xmlns:dateConversion="dateConversion" xmlns:myext="myext" xmlns:strings="strings" extension-element-prefixes="datetime set math MT2MX MTtoMX MTtoMXUtil MX2MT MXToMT MXtoMT QueryGenerator dateConversion myext strings">
+  <xsl:import href="GLOBAL_FUNCLET_PATH"></xsl:import>
+  <xsl:output method="xml" indent="yes" encoding="UTF-8" xalan:indent-amount="2" omit-xml-declaration="no"></xsl:output>
+  <xsl:variable name="document" select="/"></xsl:variable>
+  <xsl:template match="/">
+    <ns2:Request>
+      <Representations>
+        <Representation>
+          <Element>
+            <xsl:value-of disable-output-escaping="no" select="myext:textToBin(string(java:_getText($_TIF_MESSAGE_)))"></xsl:value-of>
+          </Element>
+        </Representation>
+      </Representations>
+    </ns2:Request>
+  </xsl:template>
+<!--The list of parameters defined by user-->
+  <xsl:param name="_TIF_MESSAGE_"></xsl:param>
+<!--The list of Extensions defined by user-->
+  <lxslt:component prefix="myext" functions="TruncField70NarativeLine textToBin">
+    <lxslt:script lang="javascript"><![CDATA[function compute(expr){
+	return eval(expr);
+}
+
+function nextMillenium(){
+	d = new Date()    //today's date
+	mill=new Date(3000, 00, 01, 00, 00, 00)    //Next millennium start date
+	diff = mill-d    //difference in milliseconds
+	mtg = new String(diff/86400000)    //calculate days and convert to string
+	point=mtg.indexOf(".")    //find the decimal point
+	days=mtg.substring(0,point)    //get just the whole days
+	return "There are only " + days + " days remaining to the start of the next millennium."; 
+}
+
+function replace(input, pattern, flags, str){
+	return input.replace(new RegExp(pattern, flags), str);
+}
+
+function TruncField70NarativeLine(input) {
+
+    var text = "F50A_Account_ENDOFFIELDTAGENDOFTRUNCATEDFIELDF50F_Account_ENDOFFIELDTAGENDOFTRUNCATEDFIELDF50F_NameAndAddress_Lines2to5ENDOFFIELDTAGENDOFTRUNCATEDFIELDF50K_Account_ENDOFFIELDTAGENDOFTRUNCATEDFIELDF50K_NameAndAddress_LineENDOFFIELDTAGENDOFTRUNCATEDFIELDF59Account_ENDOFFIELDTAGENDOFTRUNCATEDFIELDF59_NameAndAddress_LineENDOFFIELDTAGENDOFTRUNCATEDFIELDF59A_Account_ENDOFFIELDTAGENDOFTRUNCATEDFIELDF59F_Account_ENDOFFIELDTAGENDOFTRUNCATEDFIELDF59F_NumberNameAndAddressDetailsENDOFFIELDTAGENDOFTRUNCATEDFIELDF70_Narative_LineENDOFFIELDTAGTrCONCATPAIRuncated CBPR+ credit TransferENDOFPAIRENDOFTRUNCATEDFIELDF72_Lines2to6ENDOFFIELDTAGENDOFTRUNCATEDFIELDF77B_Narrative_LineENDOFFIELDTAGENDOFTRUNCATEDFIELD";
+
+    const myArray = input.split("ENDOFTRUNCATEDFIELDF");
+
+    var str;
+
+    for (var i = 0; i < myArray.length; i++) {
+
+        var obj = myArray[i];
+
+        if (myArray[i].includes("70_Narative_Line")) {
+            //           str = myArray[i].replace("70_Narative_Line", "").replace("ENDOFFIELDTAG","").replace("CONCATPAIR","").replace("ENDOFPAIR","");
+
+            if (myArray[i].replace("70_Narative_Line", "").replace("ENDOFFIELDTAG", "").split("CONCATPAIR")[1] != null) {
+                str = myArray[i].replace("70_Narative_Line", "").replace("ENDOFFIELDTAG", "").split("CONCATPAIR")[1].split("ENDOFPAIR")[0];
+
+                return str;
+            }
+
+        }
+    }
+    return null;
+}
+
+function textToBin(text) {
+  var length = text.length,
+      output = [];
+  for (var i = 0;i < length; i++) {
+    var bin = text[i].charCodeAt().toString(2);
+    output.push(Array(8-bin.length+1).join("0") + bin);
+  } 
+  return output.join("");
+}
+]]></lxslt:script>
+  </lxslt:component>
+</xsl:stylesheet>

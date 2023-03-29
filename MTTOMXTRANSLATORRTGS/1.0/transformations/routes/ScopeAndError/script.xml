@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xalan="http://xml.apache.org/xslt" xmlns:datetime="http://exslt.org/dates-and-times" xmlns:math="http://exslt.org/math" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:lxslt="http://xml.apache.org/xslt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http://xml.apache.org/xslt/java" xmlns:set="http://exslt.org/sets" exclude-result-prefixes="xalan java lxslt" xmlns:ns3="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://www.fiorano.com/fesb/activity/JMSIn1/jmsIn/In" xmlns:CTHBWPAS="CTHBWPAS" xmlns:Hex2Bytes="http://xml.apache.org/xslt/java" xmlns:Java="http://xml.apache.org/xslt/java" xmlns:MT2MX="http://xml.apache.org/xslt/java" xmlns:MTtoMXUtil="http://xml.apache.org/xslt/java" xmlns:MX2MT="http://xml.apache.org/xslt/java" xmlns:MXToMT="http://xml.apache.org/xslt/java" xmlns:MXtoMT="http://xml.apache.org/xslt/java" xmlns:New="http://xml.apache.org/xslt/java" xmlns:dateConversion="dateConversion" xmlns:myext="myext" xmlns:strings="strings" xmlns:test="http://xml.apache.org/xslt/java" extension-element-prefixes="datetime set math CTHBWPAS Hex2Bytes Java MT2MX MTtoMXUtil MX2MT MXToMT MXtoMT New dateConversion myext strings test">
+  <xsl:import href="GLOBAL_FUNCLET_PATH"></xsl:import>
+  <xsl:output method="xml" indent="yes" encoding="UTF-8" xalan:indent-amount="2" omit-xml-declaration="no"></xsl:output>
+  <xsl:variable name="document" select="/"></xsl:variable>
+  <xsl:template match="/">
+    <ns2:Message>
+      <ns2:JMSHeader>
+        <ns2:JMSDestination>
+          <xsl:variable name="if0">
+            <xsl:choose>
+              <xsl:when test="(java:_getStringProperty($_TIF_MESSAGE_, 'TranslationScope'))=('OutOfScope')">
+                <xsl:value-of select="'TI.OutOfScope'"></xsl:value-of>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:value-of select="'TI.MTError'"></xsl:value-of>
+              </xsl:otherwise>
+            </xsl:choose>
+          </xsl:variable>
+          <xsl:value-of select="$if0"></xsl:value-of>
+        </ns2:JMSDestination>
+      </ns2:JMSHeader>
+      <ns2:Body>
+        <xsl:value-of select="java:_getText($_TIF_MESSAGE_)"></xsl:value-of>
+      </ns2:Body>
+    </ns2:Message>
+  </xsl:template>
+<!--The list of parameters defined by user-->
+  <xsl:param name="_TIF_MESSAGE_"></xsl:param>
+</xsl:stylesheet>

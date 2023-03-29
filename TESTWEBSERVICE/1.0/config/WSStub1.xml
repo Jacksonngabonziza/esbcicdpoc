@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.8.0_281" class="java.beans.XMLDecoder"> 
+ <object class="com.fiorano.services.wsstub.configuration.WSStubPM"> 
+  <void property="additionalConfiguration"> 
+   <void property="port"> 
+    <string></string> 
+   </void> 
+   <void property="publicHost"> 
+    <string></string> 
+   </void> 
+   <void property="targetNamespace"> 
+    <string></string> 
+   </void> 
+  </void> 
+  <void property="attachmentsConfiguration"> 
+   <void property="attachmentsDirectory"> 
+    <string></string> 
+   </void> 
+   <void property="timeStampFormat"> 
+    <string>ddMMyyyy_HHmmssSSS</string> 
+   </void> 
+  </void> 
+  <void property="configuredVersion"> 
+   <int>1200</int> 
+  </void> 
+  <void property="errorHandlingConfiguration"> 
+   <void property="errorActionsMap"> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>3</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"/> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>2</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"/> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>1</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"/> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.RetryAction"> 
+       <void property="configuration"> 
+        <object class="com.fiorano.edbc.framework.service.exception.RetryConfiguration"> 
+         <void property="otherActions"> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+            <void property="id"> 
+             <int>1</int> 
+            </void> 
+           </object> 
+           <int>1</int> 
+          </void> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"/> 
+           <int>1</int> 
+          </void> 
+         </void> 
+        </object> 
+       </void> 
+       <void property="id"> 
+        <int>2</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>4</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>0</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"/> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>6</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+   </void> 
+  </void> 
+  <void property="fesConnectionConfig"> 
+   <void property="password" isEncrypted="true"> 
+    <string>DMSLzKckc/JLgIUhIpdeyw==</string> 
+   </void> 
+  </void> 
+  <void property="transportConfiguration"> 
+   <void property="connectionConfiguration"> 
+    <void property="password" isEncrypted="true"> 
+     <string>zcC6SXzF+bh4BGN4YJKKfw==</string> 
+    </void> 
+   </void> 
+   <void property="jndiConfiguration"> 
+    <void property="password" isEncrypted="true"> 
+     <string>CVuEpOIpQJAIVeUQIs7kBQ==</string> 
+    </void> 
+   </void> 
+  </void> 
+  <void property="wsDefinitionConfiguration"> 
+   <void property="baseURI"> 
+    <string>D:\project\APAC\Canadia Bank\FAST</string> 
+   </void> 
+   <void property="wsdl"> 
+    <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;
+&lt;wsdl:definitions name=&quot;NBCInterface&quot; targetNamespace=&quot;http://fastwebservice.nbc.org.kh/&quot; xmlns:jms=&quot;http://www.w3.org/2010/soapjms/&quot; xmlns:wsdl=&quot;http://schemas.xmlsoap.org/wsdl/&quot; xmlns:tns=&quot;http://fastwebservice.nbc.org.kh/&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:ns1=&quot;http://schemas.xmlsoap.org/soap/http&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; xmlns:wsdlsoap12=&quot;http://schemas.xmlsoap.org/wsdl/soap12/&quot;&gt;&#13;
+  &lt;wsdl:types&gt;&#13;
+    &lt;xs:schema elementFormDefault=&quot;unqualified&quot; targetNamespace=&quot;http://fastwebservice.nbc.org.kh/&quot; version=&quot;1.0&quot; xmlns:tns=&quot;http://fastwebservice.nbc.org.kh/&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;&#13;
+&#13;
+			&lt;xs:element name=&quot;getAccountInquiry&quot; type=&quot;tns:getAccountInquiry&quot;/&gt;&#13;
+&#13;
+			&lt;xs:element name=&quot;getAccountInquiryResponse&quot; type=&quot;tns:getAccountInquiryResponse&quot;/&gt;&#13;
+&#13;
+			&lt;xs:element name=&quot;getIncomingTransaction&quot; type=&quot;tns:getIncomingTransaction&quot;/&gt;&#13;
+&#13;
+			&lt;xs:element name=&quot;getIncomingTransactionResponse&quot; type=&quot;tns:getIncomingTransactionResponse&quot;/&gt;&#13;
+&#13;
+			&lt;xs:element name=&quot;getOutgoingTransaction&quot; type=&quot;tns:getOutgoingTransaction&quot;/&gt;&#13;
+&#13;
+			&lt;xs:element name=&quot;getOutgoingTransactionResponse&quot; type=&quot;tns:getOutgoingTransactionResponse&quot;/&gt;&#13;
+&#13;
+			&lt;xs:element name=&quot;makeAcknowledgment&quot; type=&quot;tns:makeAcknowledgment&quot;/&gt;&#13;
+&#13;
+			&lt;xs:element name=&quot;makeAcknowledgmentResponse&quot; type=&quot;tns:makeAcknowledgmentResponse&quot;/&gt;&#13;
+&#13;
+			&lt;xs:element name=&quot;makeFullFundTransfer&quot; type=&quot;tns:makeFullFundTransfer&quot;/&gt;&#13;
+&#13;
+			&lt;xs:element name=&quot;makeFullFundTransferResponse&quot; type=&quot;tns:makeFullFundTransferResponse&quot;/&gt;&#13;
+&#13;
+			&lt;xs:element name=&quot;makeHalfFundTransfer&quot; type=&quot;tns:makeHalfFundTransfer&quot;/&gt;&#13;
+&#13;
+			&lt;xs:element name=&quot;makeHalfFundTransferResponse&quot; type=&quot;tns:makeHalfFundTransferResponse&quot;/&gt;&#13;
+&#13;
+			&lt;xs:element name=&quot;makeReverseTransaction&quot; type=&quot;tns:makeReverseTransaction&quot;/&gt;&#13;
+&#13;
+			&lt;xs:element name=&quot;makeReverseTransactionResponse&quot; type=&quot;tns:makeReverseTransactionResponse&quot;/&gt;&#13;
+&#13;
+			&lt;xs:complexType name=&quot;makeHalfFundTransfer&quot;&gt;&#13;
+				&lt;xs:sequence&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;cm_user_name&quot; type=&quot;xs:string&quot;/&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;cm_password&quot; type=&quot;xs:string&quot;/&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;iso_message&quot; type=&quot;xs:string&quot;/&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;import_file_name&quot; type=&quot;xs:string&quot;/&gt;&#13;
+				&lt;/xs:sequence&gt;&#13;
+			&lt;/xs:complexType&gt;&#13;
+&#13;
+			&lt;xs:complexType name=&quot;makeHalfFundTransferResponse&quot;&gt;&#13;
+				&lt;xs:sequence&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;return&quot; type=&quot;xs:string&quot;/&gt;&#13;
+				&lt;/xs:sequence&gt;&#13;
+			&lt;/xs:complexType&gt;&#13;
+&#13;
+			&lt;xs:complexType name=&quot;getOutgoingTransaction&quot;&gt;&#13;
+				&lt;xs:sequence&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;cm_user_name&quot; type=&quot;xs:string&quot;/&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;cm_password&quot; type=&quot;xs:string&quot;/&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;payer_participant_code&quot; type=&quot;xs:string&quot;/&gt;&#13;
+				&lt;/xs:sequence&gt;&#13;
+			&lt;/xs:complexType&gt;&#13;
+&#13;
+			&lt;xs:complexType name=&quot;getOutgoingTransactionResponse&quot;&gt;&#13;
+				&lt;xs:sequence&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;return&quot; type=&quot;xs:string&quot;/&gt;&#13;
+				&lt;/xs:sequence&gt;&#13;
+			&lt;/xs:complexType&gt;&#13;
+&#13;
+			&lt;xs:complexType name=&quot;makeFullFundTransfer&quot;&gt;&#13;
+				&lt;xs:sequence&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;cm_user_name&quot; type=&quot;xs:string&quot;/&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;cm_password&quot; type=&quot;xs:string&quot;/&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;iso_message&quot; type=&quot;xs:string&quot;/&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;import_file_name&quot; type=&quot;xs:string&quot;/&gt;&#13;
+				&lt;/xs:sequence&gt;&#13;
+			&lt;/xs:complexType&gt;&#13;
+&#13;
+			&lt;xs:complexType name=&quot;makeFullFundTransferResponse&quot;&gt;&#13;
+				&lt;xs:sequence&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;return&quot; type=&quot;xs:string&quot;/&gt;&#13;
+				&lt;/xs:sequence&gt;&#13;
+			&lt;/xs:complexType&gt;&#13;
+&#13;
+			&lt;xs:complexType name=&quot;getAccountInquiry&quot;&gt;&#13;
+				&lt;xs:sequence&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;cm_user_name&quot; type=&quot;xs:string&quot;/&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;cm_password&quot; type=&quot;xs:string&quot;/&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;participant_code&quot; type=&quot;xs:string&quot;/&gt;&#13;
+				&lt;/xs:sequence&gt;&#13;
+			&lt;/xs:complexType&gt;&#13;
+&#13;
+			&lt;xs:complexType name=&quot;getAccountInquiryResponse&quot;&gt;&#13;
+				&lt;xs:sequence&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;return&quot; type=&quot;xs:string&quot;/&gt;&#13;
+				&lt;/xs:sequence&gt;&#13;
+			&lt;/xs:complexType&gt;&#13;
+&#13;
+			&lt;xs:complexType name=&quot;makeReverseTransaction&quot;&gt;&#13;
+				&lt;xs:sequence&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;cm_user_name&quot; type=&quot;xs:string&quot;/&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;cm_password&quot; type=&quot;xs:string&quot;/&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;content_message&quot; type=&quot;xs:string&quot;/&gt;&#13;
+				&lt;/xs:sequence&gt;&#13;
+			&lt;/xs:complexType&gt;&#13;
+&#13;
+			&lt;xs:complexType name=&quot;makeReverseTransactionResponse&quot;&gt;&#13;
+				&lt;xs:sequence&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;return&quot; type=&quot;xs:string&quot;/&gt;&#13;
+				&lt;/xs:sequence&gt;&#13;
+			&lt;/xs:complexType&gt;&#13;
+&#13;
+			&lt;xs:complexType name=&quot;getIncomingTransaction&quot;&gt;&#13;
+				&lt;xs:sequence&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;cm_user_name&quot; type=&quot;xs:string&quot;/&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;cm_password&quot; type=&quot;xs:string&quot;/&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;payee_participant_code&quot; type=&quot;xs:string&quot;/&gt;&#13;
+				&lt;/xs:sequence&gt;&#13;
+			&lt;/xs:complexType&gt;&#13;
+&#13;
+			&lt;xs:complexType name=&quot;getIncomingTransactionResponse&quot;&gt;&#13;
+				&lt;xs:sequence&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;return&quot; type=&quot;xs:string&quot;/&gt;&#13;
+				&lt;/xs:sequence&gt;&#13;
+			&lt;/xs:complexType&gt;&#13;
+&#13;
+			&lt;xs:complexType name=&quot;makeAcknowledgment&quot;&gt;&#13;
+				&lt;xs:sequence&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;cm_user_name&quot; type=&quot;xs:string&quot;/&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;cm_password&quot; type=&quot;xs:string&quot;/&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;content_message&quot; type=&quot;xs:string&quot;/&gt;&#13;
+				&lt;/xs:sequence&gt;&#13;
+			&lt;/xs:complexType&gt;&#13;
+&#13;
+			&lt;xs:complexType name=&quot;makeAcknowledgmentResponse&quot;&gt;&#13;
+				&lt;xs:sequence&gt;&#13;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;return&quot; type=&quot;xs:string&quot;/&gt;&#13;
+				&lt;/xs:sequence&gt;&#13;
+			&lt;/xs:complexType&gt;&#13;
+&#13;
+		&lt;/xs:schema&gt;&#13;
+  &lt;/wsdl:types&gt;&#13;
+  &lt;wsdl:message name=&quot;getAccountInquiryResponse&quot;&gt;&#13;
+    &lt;wsdl:part name=&quot;parameters&quot; element=&quot;tns:getAccountInquiryResponse&quot;&gt;&#13;
+    &lt;/wsdl:part&gt;&#13;
+  &lt;/wsdl:message&gt;&#13;
+  &lt;wsdl:message name=&quot;getOutgoingTransactionResponse&quot;&gt;&#13;
+    &lt;wsdl:part name=&quot;parameters&quot; element=&quot;tns:getOutgoingTransactionResponse&quot;&gt;&#13;
+    &lt;/wsdl:part&gt;&#13;
+  &lt;/wsdl:message&gt;&#13;
+  &lt;wsdl:message name=&quot;makeAcknowledgment&quot;&gt;&#13;
+    &lt;wsdl:part name=&quot;parameters&quot; element=&quot;tns:makeAcknowledgment&quot;&gt;&#13;
+    &lt;/wsdl:part&gt;&#13;
+  &lt;/wsdl:message&gt;&#13;
+  &lt;wsdl:message name=&quot;getIncomingTransactionResponse&quot;&gt;&#13;
+    &lt;wsdl:part name=&quot;parameters&quot; element=&quot;tns:getIncomingTransactionResponse&quot;&gt;&#13;
+    &lt;/wsdl:part&gt;&#13;
+  &lt;/wsdl:message&gt;&#13;
+  &lt;wsdl:message name=&quot;makeReverseTransactionResponse&quot;&gt;&#13;
+    &lt;wsdl:part name=&quot;parameters&quot; element=&quot;tns:makeReverseTransactionResponse&quot;&gt;&#13;
+    &lt;/wsdl:part&gt;&#13;
+  &lt;/wsdl:message&gt;&#13;
+  &lt;wsdl:message name=&quot;makeHalfFundTransfer&quot;&gt;&#13;
+    &lt;wsdl:part name=&quot;parameters&quot; element=&quot;tns:makeHalfFundTransfer&quot;&gt;&#13;
+    &lt;/wsdl:part&gt;&#13;
+  &lt;/wsdl:message&gt;&#13;
+  &lt;wsdl:message name=&quot;getOutgoingTransaction&quot;&gt;&#13;
+    &lt;wsdl:part name=&quot;parameters&quot; element=&quot;tns:getOutgoingTransaction&quot;&gt;&#13;
+    &lt;/wsdl:part&gt;&#13;
+  &lt;/wsdl:message&gt;&#13;
+  &lt;wsdl:message name=&quot;makeFullFundTransfer&quot;&gt;&#13;
+    &lt;wsdl:part name=&quot;parameters&quot; element=&quot;tns:makeFullFundTransfer&quot;&gt;&#13;
+    &lt;/wsdl:part&gt;&#13;
+  &lt;/wsdl:message&gt;&#13;
+  &lt;wsdl:message name=&quot;getAccountInquiry&quot;&gt;&#13;
+    &lt;wsdl:part name=&quot;parameters&quot; element=&quot;tns:getAccountInquiry&quot;&gt;&#13;
+    &lt;/wsdl:part&gt;&#13;
+  &lt;/wsdl:message&gt;&#13;
+  &lt;wsdl:message name=&quot;makeReverseTransaction&quot;&gt;&#13;
+    &lt;wsdl:part name=&quot;parameters&quot; element=&quot;tns:makeReverseTransaction&quot;&gt;&#13;
+    &lt;/wsdl:part&gt;&#13;
+  &lt;/wsdl:message&gt;&#13;
+  &lt;wsdl:message name=&quot;makeFullFundTransferResponse&quot;&gt;&#13;
+    &lt;wsdl:part name=&quot;parameters&quot; element=&quot;tns:makeFullFundTransferResponse&quot;&gt;&#13;
+    &lt;/wsdl:part&gt;&#13;
+  &lt;/wsdl:message&gt;&#13;
+  &lt;wsdl:message name=&quot;makeAcknowledgmentResponse&quot;&gt;&#13;
+    &lt;wsdl:part name=&quot;parameters&quot; element=&quot;tns:makeAcknowledgmentResponse&quot;&gt;&#13;
+    &lt;/wsdl:part&gt;&#13;
+  &lt;/wsdl:message&gt;&#13;
+  &lt;wsdl:message name=&quot;makeHalfFundTransferResponse&quot;&gt;&#13;
+    &lt;wsdl:part name=&quot;parameters&quot; element=&quot;tns:makeHalfFundTransferResponse&quot;&gt;&#13;
+    &lt;/wsdl:part&gt;&#13;
+  &lt;/wsdl:message&gt;&#13;
+  &lt;wsdl:message name=&quot;getIncomingTransaction&quot;&gt;&#13;
+    &lt;wsdl:part name=&quot;parameters&quot; element=&quot;tns:getIncomingTransaction&quot;&gt;&#13;
+    &lt;/wsdl:part&gt;&#13;
+  &lt;/wsdl:message&gt;&#13;
+  &lt;wsdl:portType name=&quot;NBCInterface&quot;&gt;&#13;
+    &lt;wsdl:operation name=&quot;makeHalfFundTransfer&quot;&gt;&#13;
+      &lt;wsdl:input name=&quot;makeHalfFundTransfer&quot; message=&quot;tns:makeHalfFundTransfer&quot;&gt;&#13;
+    &lt;/wsdl:input&gt;&#13;
+      &lt;wsdl:output name=&quot;makeHalfFundTransferResponse&quot; message=&quot;tns:makeHalfFundTransferResponse&quot;&gt;&#13;
+    &lt;/wsdl:output&gt;&#13;
+    &lt;/wsdl:operation&gt;&#13;
+    &lt;wsdl:operation name=&quot;getOutgoingTransaction&quot;&gt;&#13;
+      &lt;wsdl:input name=&quot;getOutgoingTransaction&quot; message=&quot;tns:getOutgoingTransaction&quot;&gt;&#13;
+    &lt;/wsdl:input&gt;&#13;
+      &lt;wsdl:output name=&quot;getOutgoingTransactionResponse&quot; message=&quot;tns:getOutgoingTransactionResponse&quot;&gt;&#13;
+    &lt;/wsdl:output&gt;&#13;
+    &lt;/wsdl:operation&gt;&#13;
+    &lt;wsdl:operation name=&quot;makeFullFundTransfer&quot;&gt;&#13;
+      &lt;wsdl:input name=&quot;makeFullFundTransfer&quot; message=&quot;tns:makeFullFundTransfer&quot;&gt;&#13;
+    &lt;/wsdl:input&gt;&#13;
+      &lt;wsdl:output name=&quot;makeFullFundTransferResponse&quot; message=&quot;tns:makeFullFundTransferResponse&quot;&gt;&#13;
+    &lt;/wsdl:output&gt;&#13;
+    &lt;/wsdl:operation&gt;&#13;
+    &lt;wsdl:operation name=&quot;getAccountInquiry&quot;&gt;&#13;
+      &lt;wsdl:input name=&quot;getAccountInquiry&quot; message=&quot;tns:getAccountInquiry&quot;&gt;&#13;
+    &lt;/wsdl:input&gt;&#13;
+      &lt;wsdl:output name=&quot;getAccountInquiryResponse&quot; message=&quot;tns:getAccountInquiryResponse&quot;&gt;&#13;
+    &lt;/wsdl:output&gt;&#13;
+    &lt;/wsdl:operation&gt;&#13;
+    &lt;wsdl:operation name=&quot;makeReverseTransaction&quot;&gt;&#13;
+      &lt;wsdl:input name=&quot;makeReverseTransaction&quot; message=&quot;tns:makeReverseTransaction&quot;&gt;&#13;
+    &lt;/wsdl:input&gt;&#13;
+      &lt;wsdl:output name=&quot;makeReverseTransactionResponse&quot; message=&quot;tns:makeReverseTransactionResponse&quot;&gt;&#13;
+    &lt;/wsdl:output&gt;&#13;
+    &lt;/wsdl:operation&gt;&#13;
+    &lt;wsdl:operation name=&quot;getIncomingTransaction&quot;&gt;&#13;
+      &lt;wsdl:input name=&quot;getIncomingTransaction&quot; message=&quot;tns:getIncomingTransaction&quot;&gt;&#13;
+    &lt;/wsdl:input&gt;&#13;
+      &lt;wsdl:output name=&quot;getIncomingTransactionResponse&quot; message=&quot;tns:getIncomingTransactionResponse&quot;&gt;&#13;
+    &lt;/wsdl:output&gt;&#13;
+    &lt;/wsdl:operation&gt;&#13;
+    &lt;wsdl:operation name=&quot;makeAcknowledgment&quot;&gt;&#13;
+      &lt;wsdl:input name=&quot;makeAcknowledgment&quot; message=&quot;tns:makeAcknowledgment&quot;&gt;&#13;
+    &lt;/wsdl:input&gt;&#13;
+      &lt;wsdl:output name=&quot;makeAcknowledgmentResponse&quot; message=&quot;tns:makeAcknowledgmentResponse&quot;&gt;&#13;
+    &lt;/wsdl:output&gt;&#13;
+    &lt;/wsdl:operation&gt;&#13;
+  &lt;/wsdl:portType&gt;&#13;
+  &lt;wsdl:binding name=&quot;NBCInterfaceSoapBinding&quot; type=&quot;tns:NBCInterface&quot;&gt;&#13;
+    &lt;soap:binding style=&quot;document&quot; transport=&quot;http://schemas.xmlsoap.org/soap/http&quot;/&gt;&#13;
+    &lt;wsdl:operation name=&quot;makeHalfFundTransfer&quot;&gt;&#13;
+      &lt;soap:operation soapAction=&quot;makeHalfFundTransfer&quot; style=&quot;document&quot;/&gt;&#13;
+      &lt;wsdl:input name=&quot;makeHalfFundTransfer&quot;&gt;&#13;
+        &lt;soap:body use=&quot;literal&quot;/&gt;&#13;
+      &lt;/wsdl:input&gt;&#13;
+      &lt;wsdl:output name=&quot;makeHalfFundTransferResponse&quot;&gt;&#13;
+        &lt;soap:body use=&quot;literal&quot;/&gt;&#13;
+      &lt;/wsdl:output&gt;&#13;
+    &lt;/wsdl:operation&gt;&#13;
+    &lt;wsdl:operation name=&quot;getOutgoingTransaction&quot;&gt;&#13;
+      &lt;soap:operation soapAction=&quot;getOutgoingTransaction&quot; style=&quot;document&quot;/&gt;&#13;
+      &lt;wsdl:input name=&quot;getOutgoingTransaction&quot;&gt;&#13;
+        &lt;soap:body use=&quot;literal&quot;/&gt;&#13;
+      &lt;/wsdl:input&gt;&#13;
+      &lt;wsdl:output name=&quot;getOutgoingTransactionResponse&quot;&gt;&#13;
+        &lt;soap:body use=&quot;literal&quot;/&gt;&#13;
+      &lt;/wsdl:output&gt;&#13;
+    &lt;/wsdl:operation&gt;&#13;
+    &lt;wsdl:operation name=&quot;makeFullFundTransfer&quot;&gt;&#13;
+      &lt;soap:operation soapAction=&quot;makeFullFundTransfer&quot; style=&quot;document&quot;/&gt;&#13;
+      &lt;wsdl:input name=&quot;makeFullFundTransfer&quot;&gt;&#13;
+        &lt;soap:body use=&quot;literal&quot;/&gt;&#13;
+      &lt;/wsdl:input&gt;&#13;
+      &lt;wsdl:output name=&quot;makeFullFundTransferResponse&quot;&gt;&#13;
+        &lt;soap:body use=&quot;literal&quot;/&gt;&#13;
+      &lt;/wsdl:output&gt;&#13;
+    &lt;/wsdl:operation&gt;&#13;
+    &lt;wsdl:operation name=&quot;getAccountInquiry&quot;&gt;&#13;
+      &lt;soap:operation soapAction=&quot;getAccountInquiry&quot; style=&quot;document&quot;/&gt;&#13;
+      &lt;wsdl:input name=&quot;getAccountInquiry&quot;&gt;&#13;
+        &lt;soap:body use=&quot;literal&quot;/&gt;&#13;
+      &lt;/wsdl:input&gt;&#13;
+      &lt;wsdl:output name=&quot;getAccountInquiryResponse&quot;&gt;&#13;
+        &lt;soap:body use=&quot;literal&quot;/&gt;&#13;
+      &lt;/wsdl:output&gt;&#13;
+    &lt;/wsdl:operation&gt;&#13;
+    &lt;wsdl:operation name=&quot;makeReverseTransaction&quot;&gt;&#13;
+      &lt;soap:operation soapAction=&quot;makeReverseTransaction&quot; style=&quot;document&quot;/&gt;&#13;
+      &lt;wsdl:input name=&quot;makeReverseTransaction&quot;&gt;&#13;
+        &lt;soap:body use=&quot;literal&quot;/&gt;&#13;
+      &lt;/wsdl:input&gt;&#13;
+      &lt;wsdl:output name=&quot;makeReverseTransactionResponse&quot;&gt;&#13;
+        &lt;soap:body use=&quot;literal&quot;/&gt;&#13;
+      &lt;/wsdl:output&gt;&#13;
+    &lt;/wsdl:operation&gt;&#13;
+    &lt;wsdl:operation name=&quot;getIncomingTransaction&quot;&gt;&#13;
+      &lt;soap:operation soapAction=&quot;getIncomingTransaction&quot; style=&quot;document&quot;/&gt;&#13;
+      &lt;wsdl:input name=&quot;getIncomingTransaction&quot;&gt;&#13;
+        &lt;soap:body use=&quot;literal&quot;/&gt;&#13;
+      &lt;/wsdl:input&gt;&#13;
+      &lt;wsdl:output name=&quot;getIncomingTransactionResponse&quot;&gt;&#13;
+        &lt;soap:body use=&quot;literal&quot;/&gt;&#13;
+      &lt;/wsdl:output&gt;&#13;
+    &lt;/wsdl:operation&gt;&#13;
+    &lt;wsdl:operation name=&quot;makeAcknowledgment&quot;&gt;&#13;
+      &lt;soap:operation soapAction=&quot;makeAcknowledgment&quot; style=&quot;document&quot;/&gt;&#13;
+      &lt;wsdl:input name=&quot;makeAcknowledgment&quot;&gt;&#13;
+        &lt;soap:body use=&quot;literal&quot;/&gt;&#13;
+      &lt;/wsdl:input&gt;&#13;
+      &lt;wsdl:output name=&quot;makeAcknowledgmentResponse&quot;&gt;&#13;
+        &lt;soap:body use=&quot;literal&quot;/&gt;&#13;
+      &lt;/wsdl:output&gt;&#13;
+    &lt;/wsdl:operation&gt;&#13;
+  &lt;/wsdl:binding&gt;&#13;
+  &lt;wsdl:service name=&quot;NBCInterface&quot;&gt;&#13;
+    &lt;wsdl:port name=&quot;NBCInterfacePort&quot; binding=&quot;tns:NBCInterfaceSoapBinding&quot;&gt;&#13;
+      &lt;soap:address location=&quot;http://localhost:10080/FASTWebService/NBCInterface&quot;/&gt;&#13;
+    &lt;/wsdl:port&gt;&#13;
+  &lt;/wsdl:service&gt;&#13;
+&lt;/wsdl:definitions&gt;&#13;
+</string> 
+   </void> 
+  </void> 
+ </object> 
+</java> 

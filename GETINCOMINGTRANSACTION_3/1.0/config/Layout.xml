@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<layout>
+  <subflow name="FIORANO.ESTUDIO.ROOT_FLOW" x="0" y="0">
+    <service-instance name="pain00700105" x="586" y="204"/>
+    <service-instance name="XMLtoOFS" x="323" y="189"/>
+    <service-instance name="FASTgetIncomingTrancaction1" x="33" y="284"/>
+    <service-instance name="T24socket" x="448" y="187"/>
+    <service-instance name="FASTtoAcknowledge" x="787" y="242"/>
+    <service-instance name="FASTtoReverseTransaction" x="714" y="122"/>
+    <service-instance name="pain00200106" x="631" y="401"/>
+    <service-instance name="XMLSplitter1" x="239" y="310"/>
+    <service-instance name="Timer1" x="-13" y="402"/>
+    <service-instance name="Aggregator1" x="187" y="26"/>
+    <service-instance name="Sleep1" x="20" y="40"/>
+  </subflow>
+  <shortcut-routes/>
+</layout>

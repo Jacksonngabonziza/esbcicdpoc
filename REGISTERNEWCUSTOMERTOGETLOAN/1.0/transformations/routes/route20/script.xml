@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xalan="http://xml.apache.org/xslt" xmlns:datetime="http://exslt.org/dates-and-times" xmlns:math="http://exslt.org/math" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:lxslt="http://xml.apache.org/xslt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http://xml.apache.org/xslt/java" xmlns:set="http://exslt.org/sets" exclude-result-prefixes="xalan java lxslt" xmlns:ns1="http://www.ericsson.com/em/emm/sp/backend" xmlns:ns4="http://www.w3.org/2001/XMLSchema" xmlns:ns3="urn:iso:std:iso:20022:tech:xsd" xmlns:ns2="http://www.fiorano.com/fesb/activity/fault" xmlns:ns5="http://www.ericsson.com/em/emm/common" xmlns:dateConversion="ext1" xmlns:myext="ext2" xmlns:strings="ext3" extension-element-prefixes="datetime set math dateConversion myext strings">
+  <xsl:output method="xml" indent="yes" encoding="UTF-8" xalan:indent-amount="2" omit-xml-declaration="no"></xsl:output>
+  <xsl:variable name="document" select="/"></xsl:variable>
+  <xsl:variable name="document_ON_EXCEPTION" select="document('ON_EXCEPTION')"></xsl:variable>
+  <xsl:template match="/">
+    <ns1:customerregistrationresponse>
+      <status>
+        <xsl:value-of select="$document_ON_EXCEPTION/ns2:Error/errorCode"></xsl:value-of>
+      </status>
+      <message>
+        <xsl:value-of select="$document_ON_EXCEPTION/ns2:Error/errorMessage"></xsl:value-of>
+      </message>
+    </ns1:customerregistrationresponse>
+  </xsl:template>
+</xsl:stylesheet>

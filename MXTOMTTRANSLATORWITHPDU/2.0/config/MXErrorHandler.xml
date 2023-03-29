@@ -1,0 +1,732 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.8.0_281" class="java.beans.XMLDecoder"> 
+ <object class="com.fiorano.services.xslt.configuration.XsltPM"> 
+  <void property="JMSMessageXSL"> 
+   <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xalan=&quot;http://xml.apache.org/xslt&quot; xmlns:datetime=&quot;http://exslt.org/dates-and-times&quot; xmlns:math=&quot;http://exslt.org/math&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:lxslt=&quot;http://xml.apache.org/xslt&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:java=&quot;http://xml.apache.org/xslt/java&quot; xmlns:set=&quot;http://exslt.org/sets&quot; exclude-result-prefixes=&quot;xalan java lxslt&quot; xmlns:ns3=&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.02&quot; xmlns:ns2=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:ns1=&quot;urn:swift:xsd:envelope&quot; xmlns:MXtoMT=&quot;http://xml.apache.org/xslt/java&quot; xmlns:dateConversion=&quot;dateConversion&quot; xmlns:myext=&quot;myext&quot; xmlns:strings=&quot;strings&quot; extension-element-prefixes=&quot;datetime set math MXtoMT dateConversion myext strings&quot;&gt;
+  &lt;xsl:import href=&quot;GLOBAL_FUNCLET_PATH&quot;&gt;&lt;/xsl:import&gt;
+  &lt;xsl:output method=&quot;text&quot; indent=&quot;no&quot; encoding=&quot;UTF-8&quot; xalan:indent-amount=&quot;2&quot; omit-xml-declaration=&quot;no&quot;&gt;&lt;/xsl:output&gt;
+  &lt;xsl:variable name=&quot;document&quot; select=&quot;/&quot;&gt;&lt;/xsl:variable&gt;
+  &lt;xsl:variable name=&quot;document_Input1&quot; select=&quot;document(&apos;Input1&apos;)&quot;&gt;&lt;/xsl:variable&gt;
+  &lt;xsl:template match=&quot;/&quot;&gt;
+    &lt;Message&gt;
+      &lt;Properties&gt;
+        &lt;Property&gt;
+          &lt;xsl:attribute name=&quot;name&quot;&gt;
+            &lt;xsl:value-of select=&quot;&apos;ErrorCode&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/xsl:attribute&gt;
+          &lt;xsl:variable name=&quot;if0&quot;&gt;
+            &lt;xsl:choose&gt;
+              &lt;xsl:when test=&quot;((count(document(&apos;Input1&apos;)//*[local-name()=&apos;CdtTrfTxInf&apos;]))&amp;gt;(&apos;1&apos;) and ((java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS009_To_MT202CORE&apos;) or (java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS008_To_MT103&apos;)))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00053&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;((document(&apos;Input1&apos;)//*[local-name()=&apos;Ntry&apos;][*[local-name()=&apos;Sts&apos;][*[local-name()=&apos;Cd&apos;]]])!=(&apos;BOOK&apos;) and (java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;CAMT054_To_MT900_910&apos;))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00038&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS004_To_MT103&apos;) and boolean(document(&apos;Input1&apos;)//*[local-name()=&apos;RtrChain&apos;][*[local-name()=&apos;Dbtr&apos;][*[local-name()=&apos;Agt&apos;]]]))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00046&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS004_To_MT103&apos;) and document(&apos;Input1&apos;)//*[local-name()=&apos;RtrChain&apos;][*[local-name()=&apos;Cdtr&apos;][*[local-name()=&apos;Agt&apos;]]])&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00047&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS004_To_MT202CORE&apos;) and boolean(document(&apos;Input1&apos;)//*[local-name()=&apos;RtrChain&apos;][*[local-name()=&apos;Dbtr&apos;][*[local-name()=&apos;Pty&apos;]]]))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00048&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS004_To_MT202CORE&apos;) and boolean(document(&apos;Input1&apos;)//*[local-name()=&apos;RtrChain&apos;][*[local-name()=&apos;Cdtr&apos;][*[local-name()=&apos;Pty&apos;]]]))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00049&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;(((java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS004_To_MT103&apos;) or &apos;PACS004_To_MT202CORE&apos;) and (count(document(&apos;Input1&apos;)//*[local-name()=&apos;Document&apos;][*[local-name()=&apos;PmtRtr&apos;][*[local-name()=&apos;TxInf&apos;]]]))&amp;gt;(&apos;1&apos;))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00053&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;(((count(document(&apos;Input1&apos;)//*[local-name()=&apos;Ntfctn&apos;]))&amp;gt;(&apos;1&apos;) or (count(document(&apos;Input1&apos;)//*[local-name()=&apos;Ntry&apos;]))&amp;gt;(&apos;1&apos;) or (count(document(&apos;Input1&apos;)//*[local-name()=&apos;NtryDtls&apos;]))&amp;gt;(&apos;1&apos;) or (count(document(&apos;Input1&apos;)//*[local-name()=&apos;TxDtls&apos;]))&amp;gt;(&apos;1&apos;)) and (java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;CAMT054_To_MT900_910&apos;))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00053&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;CAMT057_To_MT210&apos;) and MXtoMT:com.fiorano.funclet.MXtoMT.isCurrencyCodeInvalid(string(document(&apos;Input1&apos;)//*[local-name()=&apos;Ntfctn&apos;][*[local-name()=&apos;Itm&apos;][*[local-name()=&apos;Amt&apos;]]]/@*[local-name()=&apos;Ccy&apos;])))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00054&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;(((java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS004_To_MT103&apos;) or &apos;PACS004_To_MT202CORE&apos;) and MXtoMT:com.fiorano.funclet.MXtoMT.isCurrencyCodeInvalid(string(document(&apos;Input1&apos;)//*[local-name()=&apos;PmtRtr&apos;][*[local-name()=&apos;TxInf&apos;][*[local-name()=&apos;RtrdIntrBkSttlmAmt&apos;]]]/@*[local-name()=&apos;Ccy&apos;])))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00054&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;((((java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS009_To_MT202CORE&apos;) or (java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS008_To_MT103&apos;)) or (java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS009_To_MT202COVE&apos;)) and MXtoMT:com.fiorano.funclet.MXtoMT.isCurrencyCodeInvalid(string(document(&apos;Input1&apos;)//*[local-name()=&apos;CdtTrfTxInf&apos;][*[local-name()=&apos;IntrBkSttlmAmt&apos;]]/@*[local-name()=&apos;Ccy&apos;])))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00054&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS002_To_MT199_299&apos;) and (document(&apos;Input1&apos;)//*[local-name()=&apos;FIToFIPmtStsRpt&apos;][*[local-name()=&apos;TxInfAndSts&apos;][*[local-name()=&apos;TxSts&apos;]]])!=(&apos;RJCT&apos;))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00056&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS002_To_MT199_299&apos;) and not((starts-with(document(&apos;Input1&apos;)//*[local-name()=&apos;TxInfAndSts&apos;][*[local-name()=&apos;OrgnlGrpInf&apos;][*[local-name()=&apos;OrgnlMsgNmId&apos;]]],&apos;pacs.008&apos;) and starts-with(document(&apos;Input1&apos;)//*[local-name()=&apos;TxInfAndSts&apos;][*[local-name()=&apos;OrgnlGrpInf&apos;][*[local-name()=&apos;OrgnlMsgNmId&apos;]]],&apos;MT103&apos;) and starts-with(document(&apos;Input1&apos;)//*[local-name()=&apos;TxInfAndSts&apos;][*[local-name()=&apos;OrgnlGrpInf&apos;][*[local-name()=&apos;OrgnlMsgNmId&apos;]]],&apos;pacs.009&apos;) and starts-with(document(&apos;Input1&apos;)//*[local-name()=&apos;TxInfAndSts&apos;][*[local-name()=&apos;OrgnlGrpInf&apos;][*[local-name()=&apos;OrgnlMsgNmId&apos;]]],&apos;MT202&apos;))))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00057&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;CAMT057_To_MT210&apos;) and (count(document(&apos;Input1&apos;)//*[local-name()=&apos;NtfctnToRcv&apos;][*[local-name()=&apos;Ntfctn&apos;][*[local-name()=&apos;Itm&apos;]]]))&amp;gt;(&apos;1&apos;))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00061&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:otherwise&gt;
+                &lt;xsl:value-of select=&quot;&apos;NoError&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:otherwise&gt;
+            &lt;/xsl:choose&gt;
+          &lt;/xsl:variable&gt;
+          &lt;xsl:value-of select=&quot;$if0&quot;&gt;&lt;/xsl:value-of&gt;
+        &lt;/Property&gt;
+      &lt;/Properties&gt;
+      &lt;Text&gt;
+        &lt;xsl:value-of select=&quot;java:_getStringProperty($_TIF_MESSAGE_, &apos;MXMessage&apos;)&quot;&gt;&lt;/xsl:value-of&gt;
+      &lt;/Text&gt;
+    &lt;/Message&gt;
+  &lt;/xsl:template&gt;
+&lt;!--The list of parameters defined by user--&gt;
+  &lt;xsl:param name=&quot;_TIF_MESSAGE_&quot;&gt;&lt;/xsl:param&gt;
+&lt;!--The list of Extensions defined by user--&gt;
+&lt;/xsl:stylesheet&gt;</string> 
+  </void> 
+  <void property="JMSMessageXSL1"> 
+   <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xalan=&quot;http://xml.apache.org/xslt&quot; xmlns:datetime=&quot;http://exslt.org/dates-and-times&quot; xmlns:math=&quot;http://exslt.org/math&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:lxslt=&quot;http://xml.apache.org/xslt&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:java=&quot;http://xml.apache.org/xslt/java&quot; xmlns:set=&quot;http://exslt.org/sets&quot; exclude-result-prefixes=&quot;xalan java lxslt&quot; xmlns:ns3=&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.02&quot; xmlns:ns2=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:ns1=&quot;urn:swift:xsd:envelope&quot; xmlns:MXtoMT=&quot;http://xml.apache.org/xslt/java&quot; xmlns:dateConversion=&quot;dateConversion&quot; xmlns:myext=&quot;myext&quot; xmlns:strings=&quot;strings&quot; extension-element-prefixes=&quot;datetime set math MXtoMT dateConversion myext strings&quot;&gt;
+  &lt;xsl:import href=&quot;GLOBAL_FUNCLET_PATH&quot;&gt;&lt;/xsl:import&gt;
+  &lt;xsl:output method=&quot;text&quot; indent=&quot;no&quot; encoding=&quot;UTF-8&quot; xalan:indent-amount=&quot;2&quot; omit-xml-declaration=&quot;no&quot;&gt;&lt;/xsl:output&gt;
+  &lt;xsl:variable name=&quot;document&quot; select=&quot;/&quot;&gt;&lt;/xsl:variable&gt;
+  &lt;xsl:variable name=&quot;document_Input1&quot; select=&quot;document(&apos;Input1&apos;)&quot;&gt;&lt;/xsl:variable&gt;
+  &lt;xsl:template match=&quot;/&quot;&gt;
+    &lt;Message&gt;
+      &lt;Properties&gt;
+        &lt;Property&gt;
+          &lt;xsl:attribute name=&quot;name&quot;&gt;
+            &lt;xsl:value-of select=&quot;&apos;ErrorCode&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/xsl:attribute&gt;
+          &lt;xsl:variable name=&quot;if0&quot;&gt;
+            &lt;xsl:choose&gt;
+              &lt;xsl:when test=&quot;((count(document(&apos;Input1&apos;)//*[local-name()=&apos;CdtTrfTxInf&apos;]))&amp;gt;(&apos;1&apos;) and ((java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS009_To_MT202CORE&apos;) or (java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS008_To_MT103&apos;)))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00053&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;((document(&apos;Input1&apos;)//*[local-name()=&apos;Ntry&apos;][*[local-name()=&apos;Sts&apos;][*[local-name()=&apos;Cd&apos;]]])!=(&apos;BOOK&apos;) and (java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;CAMT054_To_MT900_910&apos;))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00038&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS004_To_MT103&apos;) and boolean(document(&apos;Input1&apos;)//*[local-name()=&apos;RtrChain&apos;][*[local-name()=&apos;Dbtr&apos;][*[local-name()=&apos;Agt&apos;]]]))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00046&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS004_To_MT103&apos;) and document(&apos;Input1&apos;)//*[local-name()=&apos;RtrChain&apos;][*[local-name()=&apos;Cdtr&apos;][*[local-name()=&apos;Agt&apos;]]])&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00047&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS004_To_MT202CORE&apos;) and boolean(document(&apos;Input1&apos;)//*[local-name()=&apos;RtrChain&apos;][*[local-name()=&apos;Dbtr&apos;][*[local-name()=&apos;Pty&apos;]]]))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00048&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS004_To_MT202CORE&apos;) and boolean(document(&apos;Input1&apos;)//*[local-name()=&apos;RtrChain&apos;][*[local-name()=&apos;Cdtr&apos;][*[local-name()=&apos;Pty&apos;]]]))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00049&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;(((java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS004_To_MT103&apos;) or &apos;PACS004_To_MT202CORE&apos;) and (count(document(&apos;Input1&apos;)//*[local-name()=&apos;Document&apos;][*[local-name()=&apos;PmtRtr&apos;][*[local-name()=&apos;TxInf&apos;]]]))&amp;gt;(&apos;1&apos;))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00053&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;(((count(document(&apos;Input1&apos;)//*[local-name()=&apos;Ntfctn&apos;]))&amp;gt;(&apos;1&apos;) or (count(document(&apos;Input1&apos;)//*[local-name()=&apos;Ntry&apos;]))&amp;gt;(&apos;1&apos;) or (count(document(&apos;Input1&apos;)//*[local-name()=&apos;NtryDtls&apos;]))&amp;gt;(&apos;1&apos;) or (count(document(&apos;Input1&apos;)//*[local-name()=&apos;TxDtls&apos;]))&amp;gt;(&apos;1&apos;)) and (java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;CAMT054_To_MT900_910&apos;))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00053&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;CAMT057_To_MT210&apos;) and MXtoMT:com.fiorano.funclet.MXtoMT.isCurrencyCodeInvalid(string(document(&apos;Input1&apos;)//*[local-name()=&apos;Ntfctn&apos;][*[local-name()=&apos;Itm&apos;][*[local-name()=&apos;Amt&apos;]]]/@*[local-name()=&apos;Ccy&apos;])))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00054&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;(((java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS004_To_MT103&apos;) or &apos;PACS004_To_MT202CORE&apos;) and MXtoMT:com.fiorano.funclet.MXtoMT.isCurrencyCodeInvalid(string(document(&apos;Input1&apos;)//*[local-name()=&apos;PmtRtr&apos;][*[local-name()=&apos;TxInf&apos;][*[local-name()=&apos;RtrdIntrBkSttlmAmt&apos;]]]/@*[local-name()=&apos;Ccy&apos;])))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00054&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;((((java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS009_To_MT202CORE&apos;) or (java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS008_To_MT103&apos;)) or (java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS009_To_MT202COVE&apos;)) and MXtoMT:com.fiorano.funclet.MXtoMT.isCurrencyCodeInvalid(string(document(&apos;Input1&apos;)//*[local-name()=&apos;CdtTrfTxInf&apos;][*[local-name()=&apos;IntrBkSttlmAmt&apos;]]/@*[local-name()=&apos;Ccy&apos;])))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00054&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS002_To_MT199_299&apos;) and (document(&apos;Input1&apos;)//*[local-name()=&apos;FIToFIPmtStsRpt&apos;][*[local-name()=&apos;TxInfAndSts&apos;][*[local-name()=&apos;TxSts&apos;]]])!=(&apos;RJCT&apos;))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00056&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;PACS002_To_MT199_299&apos;) and not((starts-with(document(&apos;Input1&apos;)//*[local-name()=&apos;TxInfAndSts&apos;][*[local-name()=&apos;OrgnlGrpInf&apos;][*[local-name()=&apos;OrgnlMsgNmId&apos;]]],&apos;pacs.008&apos;) and starts-with(document(&apos;Input1&apos;)//*[local-name()=&apos;TxInfAndSts&apos;][*[local-name()=&apos;OrgnlGrpInf&apos;][*[local-name()=&apos;OrgnlMsgNmId&apos;]]],&apos;MT103&apos;) and starts-with(document(&apos;Input1&apos;)//*[local-name()=&apos;TxInfAndSts&apos;][*[local-name()=&apos;OrgnlGrpInf&apos;][*[local-name()=&apos;OrgnlMsgNmId&apos;]]],&apos;pacs.009&apos;) and starts-with(document(&apos;Input1&apos;)//*[local-name()=&apos;TxInfAndSts&apos;][*[local-name()=&apos;OrgnlGrpInf&apos;][*[local-name()=&apos;OrgnlMsgNmId&apos;]]],&apos;MT202&apos;))))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00057&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;TranslatorScope&apos;))=(&apos;CAMT057_To_MT210&apos;) and (count(document(&apos;Input1&apos;)//*[local-name()=&apos;NtfctnToRcv&apos;][*[local-name()=&apos;Ntfctn&apos;][*[local-name()=&apos;Itm&apos;]]]))&amp;gt;(&apos;1&apos;))&quot;&gt;
+                &lt;xsl:value-of select=&quot;&apos;T00061&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:when&gt;
+              &lt;xsl:otherwise&gt;
+                &lt;xsl:value-of select=&quot;&apos;NoError&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:otherwise&gt;
+            &lt;/xsl:choose&gt;
+          &lt;/xsl:variable&gt;
+          &lt;xsl:value-of select=&quot;$if0&quot;&gt;&lt;/xsl:value-of&gt;
+        &lt;/Property&gt;
+      &lt;/Properties&gt;
+      &lt;Text&gt;
+        &lt;xsl:value-of select=&quot;java:_getStringProperty($_TIF_MESSAGE_, &apos;MXMessage&apos;)&quot;&gt;&lt;/xsl:value-of&gt;
+      &lt;/Text&gt;
+    &lt;/Message&gt;
+  &lt;/xsl:template&gt;
+&lt;!--The list of parameters defined by user--&gt;
+  &lt;xsl:param name=&quot;_TIF_MESSAGE_&quot;&gt;&lt;/xsl:param&gt;
+&lt;!--The list of Extensions defined by user--&gt;
+&lt;/xsl:stylesheet&gt;</string> 
+  </void> 
+  <void property="XSL"> 
+   <null/> 
+  </void> 
+  <void property="configuredVersion"> 
+   <int>1200</int> 
+  </void> 
+  <void property="errorHandlingConfiguration"> 
+   <void property="errorActionsMap"> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>3</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>2</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>1</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.RetryAction"> 
+       <void property="configuration"> 
+        <object class="com.fiorano.edbc.framework.service.exception.RetryConfiguration"> 
+         <void property="otherActions"> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+            <void property="enabled"> 
+             <boolean>true</boolean> 
+            </void> 
+            <void property="id"> 
+             <int>1</int> 
+            </void> 
+           </object> 
+           <int>1</int> 
+          </void> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+            <void property="enabled"> 
+             <boolean>true</boolean> 
+            </void> 
+           </object> 
+           <int>1</int> 
+          </void> 
+         </void> 
+        </object> 
+       </void> 
+       <void property="id"> 
+        <int>2</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>4</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>0</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>6</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+   </void> 
+  </void> 
+  <void property="esbDefInPort"> 
+   <object class="fiorano.esb.record.ESBRecordDefinition"> 
+    <void property="importedStructures"> 
+     <object class="java.util.Hashtable"> 
+      <void method="put"> 
+       <string>urn:iso:std:iso:20022:tech:xsd:head.001.001.02</string> 
+       <object class="java.util.ArrayList"> 
+        <void method="add"> 
+         <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!--Generated by Standards Editor (build:R1.6.16) on 2019 Oct 22 11:50:59, ISO 20022 version : 2013--&gt;
+&lt;xs:schema xmlns=&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.02&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; elementFormDefault=&quot;qualified&quot; targetNamespace=&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.02&quot;&gt;
+    &lt;xs:element name=&quot;AppHdr&quot; type=&quot;BusinessApplicationHeaderV02&quot;/&gt;
+    &lt;xs:simpleType name=&quot;AddressType2Code&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:enumeration value=&quot;ADDR&quot;/&gt;
+            &lt;xs:enumeration value=&quot;PBOX&quot;/&gt;
+            &lt;xs:enumeration value=&quot;HOME&quot;/&gt;
+            &lt;xs:enumeration value=&quot;BIZZ&quot;/&gt;
+            &lt;xs:enumeration value=&quot;MLTO&quot;/&gt;
+            &lt;xs:enumeration value=&quot;DLVY&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:complexType name=&quot;AddressType3Choice&quot;&gt;
+        &lt;xs:choice&gt;
+            &lt;xs:element name=&quot;Cd&quot; type=&quot;AddressType2Code&quot;/&gt;
+            &lt;xs:element name=&quot;Prtry&quot; type=&quot;GenericIdentification30&quot;/&gt;
+        &lt;/xs:choice&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:simpleType name=&quot;AnyBICDec2014Identifier&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:pattern value=&quot;[A-Z0-9]{4,4}[A-Z]{2,2}[A-Z0-9]{2,2}([A-Z0-9]{3,3}){0,1}&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;BICFIDec2014Identifier&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:pattern value=&quot;[A-Z0-9]{4,4}[A-Z]{2,2}[A-Z0-9]{2,2}([A-Z0-9]{3,3}){0,1}&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:complexType name=&quot;BranchAndFinancialInstitutionIdentification6&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;FinInstnId&quot; type=&quot;FinancialInstitutionIdentification18&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;BrnchId&quot; type=&quot;BranchData3&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;BranchData3&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Id&quot; type=&quot;Max35Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;LEI&quot; type=&quot;LEIIdentifier&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Nm&quot; type=&quot;Max140Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PstlAdr&quot; type=&quot;PostalAddress24&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;BusinessApplicationHeader5&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;Fr&quot; type=&quot;Party44Choice&quot;/&gt;
+            &lt;xs:element name=&quot;To&quot; type=&quot;Party44Choice&quot;/&gt;
+            &lt;xs:element name=&quot;BizMsgIdr&quot; type=&quot;Max35Text&quot;/&gt;
+            &lt;xs:element name=&quot;MsgDefIdr&quot; type=&quot;Max35Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;BizSvc&quot; type=&quot;Max35Text&quot;/&gt;
+            &lt;xs:element name=&quot;CreDt&quot; type=&quot;ISODateTime&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CpyDplct&quot; type=&quot;CopyDuplicate1Code&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Prty&quot; type=&quot;BusinessMessagePriorityCode&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;BusinessApplicationHeaderV02&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CharSet&quot; type=&quot;UnicodeChartsCode&quot;/&gt;
+            &lt;xs:element name=&quot;Fr&quot; type=&quot;Party44Choice&quot;/&gt;
+            &lt;xs:element name=&quot;To&quot; type=&quot;Party44Choice&quot;/&gt;
+            &lt;xs:element name=&quot;BizMsgIdr&quot; type=&quot;Max35Text&quot;/&gt;
+            &lt;xs:element name=&quot;MsgDefIdr&quot; type=&quot;Max35Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;BizSvc&quot; type=&quot;Max35Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;MktPrctc&quot; type=&quot;ImplementationSpecification1&quot;/&gt;
+            &lt;xs:element name=&quot;CreDt&quot; type=&quot;ISODateTime&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CpyDplct&quot; type=&quot;CopyDuplicate1Code&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PssblDplct&quot; type=&quot;YesNoIndicator&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Prty&quot; type=&quot;BusinessMessagePriorityCode&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;Rltd&quot; type=&quot;BusinessApplicationHeader5&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:simpleType name=&quot;BusinessMessagePriorityCode&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;/&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:complexType name=&quot;ClearingSystemIdentification2Choice&quot;&gt;
+        &lt;xs:choice&gt;
+            &lt;xs:element name=&quot;Cd&quot; type=&quot;ExternalClearingSystemIdentification1Code&quot;/&gt;
+            &lt;xs:element name=&quot;Prtry&quot; type=&quot;Max35Text&quot;/&gt;
+        &lt;/xs:choice&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;ClearingSystemMemberIdentification2&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;ClrSysId&quot; type=&quot;ClearingSystemIdentification2Choice&quot;/&gt;
+            &lt;xs:element name=&quot;MmbId&quot; type=&quot;Max35Text&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;Contact4&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;NmPrfx&quot; type=&quot;NamePrefix2Code&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Nm&quot; type=&quot;Max140Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PhneNb&quot; type=&quot;PhoneNumber&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;MobNb&quot; type=&quot;PhoneNumber&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;FaxNb&quot; type=&quot;PhoneNumber&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;EmailAdr&quot; type=&quot;Max2048Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;EmailPurp&quot; type=&quot;Max35Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;JobTitl&quot; type=&quot;Max35Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Rspnsblty&quot; type=&quot;Max35Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Dept&quot; type=&quot;Max70Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;Othr&quot; type=&quot;OtherContact1&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PrefrdMtd&quot; type=&quot;PreferredContactMethod1Code&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:simpleType name=&quot;CopyDuplicate1Code&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:enumeration value=&quot;CODU&quot;/&gt;
+            &lt;xs:enumeration value=&quot;COPY&quot;/&gt;
+            &lt;xs:enumeration value=&quot;DUPL&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;CountryCode&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:pattern value=&quot;[A-Z]{2,2}&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:complexType name=&quot;DateAndPlaceOfBirth1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;BirthDt&quot; type=&quot;ISODate&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PrvcOfBirth&quot; type=&quot;Max35Text&quot;/&gt;
+            &lt;xs:element name=&quot;CityOfBirth&quot; type=&quot;Max35Text&quot;/&gt;
+            &lt;xs:element name=&quot;CtryOfBirth&quot; type=&quot;CountryCode&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:simpleType name=&quot;Exact4AlphaNumericText&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:pattern value=&quot;[a-zA-Z0-9]{4}&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;ExternalClearingSystemIdentification1Code&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;
+            &lt;xs:maxLength value=&quot;5&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;ExternalFinancialInstitutionIdentification1Code&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;
+            &lt;xs:maxLength value=&quot;4&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;ExternalOrganisationIdentification1Code&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;
+            &lt;xs:maxLength value=&quot;4&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;ExternalPersonIdentification1Code&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;
+            &lt;xs:maxLength value=&quot;4&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:complexType name=&quot;FinancialIdentificationSchemeName1Choice&quot;&gt;
+        &lt;xs:choice&gt;
+            &lt;xs:element name=&quot;Cd&quot; type=&quot;ExternalFinancialInstitutionIdentification1Code&quot;/&gt;
+            &lt;xs:element name=&quot;Prtry&quot; type=&quot;Max35Text&quot;/&gt;
+        &lt;/xs:choice&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;FinancialInstitutionIdentification18&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;BICFI&quot; type=&quot;BICFIDec2014Identifier&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;ClrSysMmbId&quot; type=&quot;ClearingSystemMemberIdentification2&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;LEI&quot; type=&quot;LEIIdentifier&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Nm&quot; type=&quot;Max140Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PstlAdr&quot; type=&quot;PostalAddress24&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Othr&quot; type=&quot;GenericFinancialIdentification1&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;GenericFinancialIdentification1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;Id&quot; type=&quot;Max35Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;SchmeNm&quot; type=&quot;FinancialIdentificationSchemeName1Choice&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Issr&quot; type=&quot;Max35Text&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;GenericIdentification30&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;Id&quot; type=&quot;Exact4AlphaNumericText&quot;/&gt;
+            &lt;xs:element name=&quot;Issr&quot; type=&quot;Max35Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;SchmeNm&quot; type=&quot;Max35Text&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;GenericOrganisationIdentification1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;Id&quot; type=&quot;Max35Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;SchmeNm&quot; type=&quot;OrganisationIdentificationSchemeName1Choice&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Issr&quot; type=&quot;Max35Text&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;GenericPersonIdentification1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;Id&quot; type=&quot;Max35Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;SchmeNm&quot; type=&quot;PersonIdentificationSchemeName1Choice&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Issr&quot; type=&quot;Max35Text&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:simpleType name=&quot;ISODate&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:date&quot;/&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;ISODateTime&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:dateTime&quot;/&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:complexType name=&quot;ImplementationSpecification1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;Regy&quot; type=&quot;Max350Text&quot;/&gt;
+            &lt;xs:element name=&quot;Id&quot; type=&quot;Max2048Text&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:simpleType name=&quot;LEIIdentifier&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:pattern value=&quot;[A-Z0-9]{18,18}[0-9]{2,2}&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;Max128Text&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;
+            &lt;xs:maxLength value=&quot;128&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;Max140Text&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;
+            &lt;xs:maxLength value=&quot;140&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;Max16Text&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;
+            &lt;xs:maxLength value=&quot;16&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;Max2048Text&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;
+            &lt;xs:maxLength value=&quot;2048&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;Max350Text&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;
+            &lt;xs:maxLength value=&quot;350&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;Max35Text&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;
+            &lt;xs:maxLength value=&quot;35&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;Max4Text&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;
+            &lt;xs:maxLength value=&quot;4&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;Max70Text&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;
+            &lt;xs:maxLength value=&quot;70&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;NamePrefix2Code&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:enumeration value=&quot;DOCT&quot;/&gt;
+            &lt;xs:enumeration value=&quot;MADM&quot;/&gt;
+            &lt;xs:enumeration value=&quot;MISS&quot;/&gt;
+            &lt;xs:enumeration value=&quot;MIST&quot;/&gt;
+            &lt;xs:enumeration value=&quot;MIKS&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:complexType name=&quot;OrganisationIdentification29&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;AnyBIC&quot; type=&quot;AnyBICDec2014Identifier&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;LEI&quot; type=&quot;LEIIdentifier&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;Othr&quot; type=&quot;GenericOrganisationIdentification1&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;OrganisationIdentificationSchemeName1Choice&quot;&gt;
+        &lt;xs:choice&gt;
+            &lt;xs:element name=&quot;Cd&quot; type=&quot;ExternalOrganisationIdentification1Code&quot;/&gt;
+            &lt;xs:element name=&quot;Prtry&quot; type=&quot;Max35Text&quot;/&gt;
+        &lt;/xs:choice&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;OtherContact1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;ChanlTp&quot; type=&quot;Max4Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Id&quot; type=&quot;Max128Text&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;Party38Choice&quot;&gt;
+        &lt;xs:choice&gt;
+            &lt;xs:element name=&quot;OrgId&quot; type=&quot;OrganisationIdentification29&quot;/&gt;
+            &lt;xs:element name=&quot;PrvtId&quot; type=&quot;PersonIdentification13&quot;/&gt;
+        &lt;/xs:choice&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;Party44Choice&quot;&gt;
+        &lt;xs:choice&gt;
+            &lt;xs:element name=&quot;OrgId&quot; type=&quot;PartyIdentification135&quot;/&gt;
+            &lt;xs:element name=&quot;FIId&quot; type=&quot;BranchAndFinancialInstitutionIdentification6&quot;/&gt;
+        &lt;/xs:choice&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;PartyIdentification135&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Nm&quot; type=&quot;Max140Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PstlAdr&quot; type=&quot;PostalAddress24&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Id&quot; type=&quot;Party38Choice&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CtryOfRes&quot; type=&quot;CountryCode&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CtctDtls&quot; type=&quot;Contact4&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;PersonIdentification13&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;DtAndPlcOfBirth&quot; type=&quot;DateAndPlaceOfBirth1&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;Othr&quot; type=&quot;GenericPersonIdentification1&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;PersonIdentificationSchemeName1Choice&quot;&gt;
+        &lt;xs:choice&gt;
+            &lt;xs:element name=&quot;Cd&quot; type=&quot;ExternalPersonIdentification1Code&quot;/&gt;
+            &lt;xs:element name=&quot;Prtry&quot; type=&quot;Max35Text&quot;/&gt;
+        &lt;/xs:choice&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:simpleType name=&quot;PhoneNumber&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:pattern value=&quot;\+[0-9]{1,3}-[0-9()+\-]{1,30}&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:complexType name=&quot;PostalAddress24&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;AdrTp&quot; type=&quot;AddressType3Choice&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Dept&quot; type=&quot;Max70Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;SubDept&quot; type=&quot;Max70Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;StrtNm&quot; type=&quot;Max70Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;BldgNb&quot; type=&quot;Max16Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;BldgNm&quot; type=&quot;Max35Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Flr&quot; type=&quot;Max70Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PstBx&quot; type=&quot;Max16Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Room&quot; type=&quot;Max70Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PstCd&quot; type=&quot;Max16Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;TwnNm&quot; type=&quot;Max35Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;TwnLctnNm&quot; type=&quot;Max35Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;DstrctNm&quot; type=&quot;Max35Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CtrySubDvsn&quot; type=&quot;Max35Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Ctry&quot; type=&quot;CountryCode&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;7&quot; minOccurs=&quot;0&quot; name=&quot;AdrLine&quot; type=&quot;Max70Text&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:simpleType name=&quot;PreferredContactMethod1Code&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:enumeration value=&quot;LETT&quot;/&gt;
+            &lt;xs:enumeration value=&quot;MAIL&quot;/&gt;
+            &lt;xs:enumeration value=&quot;PHON&quot;/&gt;
+            &lt;xs:enumeration value=&quot;FAXX&quot;/&gt;
+            &lt;xs:enumeration value=&quot;CELL&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:complexType name=&quot;SignatureEnvelope&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:any namespace=&quot;http://www.w3.org/2000/09/xmldsig#&quot; processContents=&quot;lax&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:simpleType name=&quot;UnicodeChartsCode&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;/&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;YesNoIndicator&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:boolean&quot;/&gt;
+    &lt;/xs:simpleType&gt;
+&lt;/xs:schema&gt;
+
+</string> 
+        </void> 
+       </object> 
+      </void> 
+     </object> 
+    </void> 
+    <void property="rootElementName"> 
+     <string>Envelope</string> 
+    </void> 
+    <void property="structure"> 
+     <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xsd:schema xmlns:ns2=&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.02&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; targetNamespace=&quot;urn:swift:xsd:envelope&quot; xmlns:ns3=&quot;urn:swift:xsd:envelope&quot; elementFormDefault=&quot;qualified&quot;&gt;
+   &lt;xsd:import namespace=&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.02&quot;/&gt;
+   &lt;xsd:element name=&quot;Envelope&quot; type=&quot;ns3:CustomMsg&quot;/&gt;
+   &lt;xsd:complexType name=&quot;CustomMsg&quot;&gt;
+      &lt;xsd:sequence&gt;
+         &lt;xsd:element ref=&quot;ns2:AppHdr&quot;/&gt;
+      &lt;/xsd:sequence&gt;
+   &lt;/xsd:complexType&gt;
+&lt;/xsd:schema&gt;
+</string> 
+    </void> 
+    <void property="targetNamespace"> 
+     <string>urn:swift:xsd:envelope</string> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="inputStructureName"> 
+   <string>Input1</string> 
+  </void> 
+  <void property="project"> 
+   <string>project</string> 
+  </void> 
+  <void property="tfClassName"> 
+   <string></string> 
+  </void> 
+ </object> 
+</java> 

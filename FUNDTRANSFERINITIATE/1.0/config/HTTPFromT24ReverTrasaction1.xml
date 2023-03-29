@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.7.0_97" class="java.beans.XMLDecoder"> 
+ <object class="com.fiorano.bc.httpreceive.model.HTTPReceivePropertyModel"> 
+  <void property="SSLEnabled"> 
+   <boolean>true</boolean> 
+  </void> 
+  <void property="configuredVersion"> 
+   <int>1033</int> 
+  </void> 
+  <void property="contexts"> 
+   <void property="listOfContexts"> 
+    <void index="0"> 
+     <void property="m_path"> 
+      <string>FundTransfer</string> 
+     </void> 
+     <void property="m_requestTimeoutMsecs"> 
+      <long>90000</long> 
+     </void> 
+    </void> 
+    <void method="add"> 
+     <object class="com.fiorano.bc.httpreceive.model.Context"> 
+      <void property="displayName"> 
+       <string>INDEX1</string> 
+      </void> 
+      <void property="m_path"> 
+       <string>AccountInquiry</string> 
+      </void> 
+      <void property="m_requestTimeoutMsecs"> 
+       <long>90000</long> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="com.fiorano.bc.httpreceive.model.Context"> 
+      <void property="displayName"> 
+       <string>Refund</string> 
+      </void> 
+      <void property="m_path"> 
+       <string>Refund</string> 
+      </void> 
+      <void property="m_requestTimeoutMsecs"> 
+       <long>90000</long> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="com.fiorano.bc.httpreceive.model.Context"> 
+      <void property="displayName"> 
+       <string>echo</string> 
+      </void> 
+      <void property="m_path"> 
+       <string>echo</string> 
+      </void> 
+     </object> 
+    </void> 
+   </void> 
+  </void> 
+  <void property="contextsStr"> 
+   <string>&lt;Contexts&gt;&lt;Context path=&apos;FundTransfer&apos; display_name=&apos;INDEX&apos; timeout=&apos;90000&apos; retries=&apos;0&apos; is_requestreply=&apos;true&apos; ResourceHandlerRequired=&apos;true&apos; ResourceBase=&apos;.&apos; IsAcceptRanges=&apos;true&apos; IsDirAllowed=&apos;true&apos; CacheControl=&apos;&apos;&gt;&lt;RequestDetails&gt;&lt;Parameters include_all_others=&apos;false&apos; include_blank_as_null=&apos;false&apos;&gt;&lt;default_file_config&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
+&lt;java version=&quot;1.7.0_97&quot; class=&quot;java.beans.XMLDecoder&quot;&gt; 
+ &lt;object class=&quot;com.fiorano.services.httpreceive.common.WriteToFileConfiguration&quot;&gt; 
+  &lt;void property=&quot;destFolderDirectory&quot;&gt; 
+   &lt;string&gt;&lt;/string&gt; 
+  &lt;/void&gt; 
+  &lt;void property=&quot;fileName&quot;&gt; 
+   &lt;string&gt;&lt;/string&gt; 
+  &lt;/void&gt; 
+ &lt;/object&gt; 
+&lt;/java&gt; 
+]]&gt;&lt;/default_file_config&gt;&lt;/Parameters&gt;&lt;StreamData format=&apos; Simple Text &apos; WrapInSoap=&apos;false&apos; validate_stream=&apos;false&apos; rootElem=&apos;null&apos; buffer=&apos;65536&apos; &gt;&lt;XSD&gt;&lt;![CDATA[]]&gt;&lt;/XSD&gt;&lt;ImportedSchemas&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
+&lt;java version=&quot;1.7.0_97&quot; class=&quot;java.beans.XMLDecoder&quot;&gt; 
+ &lt;null/&gt; 
+&lt;/java&gt; 
+]]&gt;&lt;/ImportedSchemas&gt;&lt;/StreamData&gt;&lt;Headers all_others=&apos;false&apos; &gt;&lt;/Headers&gt;&lt;TNS&gt;http://www.fiorano.com/httpReceive&lt;/TNS&gt;&lt;/RequestDetails&gt;&lt;ResponseDetails&gt;&lt;StreamData format=&apos; Simple Text &apos; WrapInSoap=&apos;false&apos; validate_stream=&apos;false&apos; rootElem=&apos;null&apos; buffer=&apos;65536&apos; &gt;&lt;XSD&gt;&lt;![CDATA[]]&gt;&lt;/XSD&gt;&lt;ImportedSchemas&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
+&lt;java version=&quot;1.7.0_97&quot; class=&quot;java.beans.XMLDecoder&quot;&gt; 
+ &lt;null/&gt; 
+&lt;/java&gt; 
+]]&gt;&lt;/ImportedSchemas&gt;&lt;/StreamData&gt;&lt;Headers all_others=&apos;false&apos; &gt;&lt;/Headers&gt;&lt;TNS&gt;http://www.fiorano.com/httpReceive&lt;/TNS&gt;&lt;/ResponseDetails&gt;&lt;DefaultResponseDetails&gt;&lt;/DefaultResponseDetails&gt;&lt;/Context&gt;&lt;Context path=&apos;AccountInquiry&apos; display_name=&apos;INDEX1&apos; timeout=&apos;90000&apos; retries=&apos;0&apos; is_requestreply=&apos;true&apos; ResourceHandlerRequired=&apos;true&apos; ResourceBase=&apos;.&apos; IsAcceptRanges=&apos;true&apos; IsDirAllowed=&apos;true&apos; CacheControl=&apos;&apos;&gt;&lt;RequestDetails&gt;&lt;Parameters include_all_others=&apos;false&apos; include_blank_as_null=&apos;false&apos;&gt;&lt;default_file_config&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
+&lt;java version=&quot;1.7.0_97&quot; class=&quot;java.beans.XMLDecoder&quot;&gt; 
+ &lt;object class=&quot;com.fiorano.services.httpreceive.common.WriteToFileConfiguration&quot;&gt; 
+  &lt;void property=&quot;destFolderDirectory&quot;&gt; 
+   &lt;string&gt;&lt;/string&gt; 
+  &lt;/void&gt; 
+  &lt;void property=&quot;fileName&quot;&gt; 
+   &lt;string&gt;&lt;/string&gt; 
+  &lt;/void&gt; 
+ &lt;/object&gt; 
+&lt;/java&gt; 
+]]&gt;&lt;/default_file_config&gt;&lt;/Parameters&gt;&lt;StreamData format=&apos; Simple Text &apos; WrapInSoap=&apos;false&apos; validate_stream=&apos;false&apos; rootElem=&apos;null&apos; buffer=&apos;65536&apos; &gt;&lt;XSD&gt;&lt;![CDATA[]]&gt;&lt;/XSD&gt;&lt;ImportedSchemas&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
+&lt;java version=&quot;1.7.0_97&quot; class=&quot;java.beans.XMLDecoder&quot;&gt; 
+ &lt;null/&gt; 
+&lt;/java&gt; 
+]]&gt;&lt;/ImportedSchemas&gt;&lt;/StreamData&gt;&lt;Headers all_others=&apos;false&apos; &gt;&lt;/Headers&gt;&lt;TNS&gt;http://www.fiorano.com/httpReceive&lt;/TNS&gt;&lt;/RequestDetails&gt;&lt;ResponseDetails&gt;&lt;StreamData format=&apos; Simple Text &apos; WrapInSoap=&apos;false&apos; validate_stream=&apos;false&apos; rootElem=&apos;null&apos; buffer=&apos;65536&apos; &gt;&lt;XSD&gt;&lt;![CDATA[]]&gt;&lt;/XSD&gt;&lt;ImportedSchemas&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
+&lt;java version=&quot;1.7.0_97&quot; class=&quot;java.beans.XMLDecoder&quot;&gt; 
+ &lt;null/&gt; 
+&lt;/java&gt; 
+]]&gt;&lt;/ImportedSchemas&gt;&lt;/StreamData&gt;&lt;Headers all_others=&apos;false&apos; &gt;&lt;/Headers&gt;&lt;TNS&gt;http://www.fiorano.com/httpReceive&lt;/TNS&gt;&lt;/ResponseDetails&gt;&lt;DefaultResponseDetails&gt;&lt;/DefaultResponseDetails&gt;&lt;/Context&gt;&lt;Context path=&apos;Refund&apos; display_name=&apos;Refund&apos; timeout=&apos;90000&apos; retries=&apos;0&apos; is_requestreply=&apos;true&apos; ResourceHandlerRequired=&apos;true&apos; ResourceBase=&apos;.&apos; IsAcceptRanges=&apos;true&apos; IsDirAllowed=&apos;true&apos; CacheControl=&apos;&apos;&gt;&lt;RequestDetails&gt;&lt;Parameters include_all_others=&apos;false&apos; include_blank_as_null=&apos;false&apos;&gt;&lt;default_file_config&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
+&lt;java version=&quot;1.7.0_97&quot; class=&quot;java.beans.XMLDecoder&quot;&gt; 
+ &lt;object class=&quot;com.fiorano.services.httpreceive.common.WriteToFileConfiguration&quot;&gt; 
+  &lt;void property=&quot;destFolderDirectory&quot;&gt; 
+   &lt;string&gt;&lt;/string&gt; 
+  &lt;/void&gt; 
+  &lt;void property=&quot;fileName&quot;&gt; 
+   &lt;string&gt;&lt;/string&gt; 
+  &lt;/void&gt; 
+ &lt;/object&gt; 
+&lt;/java&gt; 
+]]&gt;&lt;/default_file_config&gt;&lt;/Parameters&gt;&lt;StreamData format=&apos; Simple Text &apos; WrapInSoap=&apos;false&apos; validate_stream=&apos;false&apos; rootElem=&apos;null&apos; buffer=&apos;65536&apos; &gt;&lt;XSD&gt;&lt;![CDATA[]]&gt;&lt;/XSD&gt;&lt;ImportedSchemas&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
+&lt;java version=&quot;1.7.0_97&quot; class=&quot;java.beans.XMLDecoder&quot;&gt; 
+ &lt;null/&gt; 
+&lt;/java&gt; 
+]]&gt;&lt;/ImportedSchemas&gt;&lt;/StreamData&gt;&lt;Headers all_others=&apos;false&apos; &gt;&lt;/Headers&gt;&lt;TNS&gt;http://www.fiorano.com/httpReceive&lt;/TNS&gt;&lt;/RequestDetails&gt;&lt;ResponseDetails&gt;&lt;StreamData format=&apos; Simple Text &apos; WrapInSoap=&apos;false&apos; validate_stream=&apos;false&apos; rootElem=&apos;null&apos; buffer=&apos;65536&apos; &gt;&lt;XSD&gt;&lt;![CDATA[]]&gt;&lt;/XSD&gt;&lt;ImportedSchemas&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
+&lt;java version=&quot;1.7.0_97&quot; class=&quot;java.beans.XMLDecoder&quot;&gt; 
+ &lt;null/&gt; 
+&lt;/java&gt; 
+]]&gt;&lt;/ImportedSchemas&gt;&lt;/StreamData&gt;&lt;Headers all_others=&apos;false&apos; &gt;&lt;/Headers&gt;&lt;TNS&gt;http://www.fiorano.com/httpReceive&lt;/TNS&gt;&lt;/ResponseDetails&gt;&lt;DefaultResponseDetails&gt;&lt;/DefaultResponseDetails&gt;&lt;/Context&gt;&lt;Context path=&apos;echo&apos; display_name=&apos;echo&apos; timeout=&apos;30000&apos; retries=&apos;0&apos; is_requestreply=&apos;true&apos; ResourceHandlerRequired=&apos;true&apos; ResourceBase=&apos;.&apos; IsAcceptRanges=&apos;true&apos; IsDirAllowed=&apos;true&apos; CacheControl=&apos;&apos;&gt;&lt;RequestDetails&gt;&lt;Parameters include_all_others=&apos;false&apos; include_blank_as_null=&apos;false&apos;&gt;&lt;default_file_config&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
+&lt;java version=&quot;1.7.0_97&quot; class=&quot;java.beans.XMLDecoder&quot;&gt; 
+ &lt;object class=&quot;com.fiorano.services.httpreceive.common.WriteToFileConfiguration&quot;&gt; 
+  &lt;void property=&quot;destFolderDirectory&quot;&gt; 
+   &lt;string&gt;&lt;/string&gt; 
+  &lt;/void&gt; 
+  &lt;void property=&quot;fileName&quot;&gt; 
+   &lt;string&gt;&lt;/string&gt; 
+  &lt;/void&gt; 
+ &lt;/object&gt; 
+&lt;/java&gt; 
+]]&gt;&lt;/default_file_config&gt;&lt;/Parameters&gt;&lt;StreamData format=&apos; Simple Text &apos; WrapInSoap=&apos;false&apos; validate_stream=&apos;false&apos; rootElem=&apos;null&apos; buffer=&apos;65536&apos; &gt;&lt;XSD&gt;&lt;![CDATA[]]&gt;&lt;/XSD&gt;&lt;ImportedSchemas&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
+&lt;java version=&quot;1.7.0_97&quot; class=&quot;java.beans.XMLDecoder&quot;&gt; 
+ &lt;null/&gt; 
+&lt;/java&gt; 
+]]&gt;&lt;/ImportedSchemas&gt;&lt;/StreamData&gt;&lt;Headers all_others=&apos;false&apos; &gt;&lt;/Headers&gt;&lt;TNS&gt;http://www.fiorano.com/httpReceive&lt;/TNS&gt;&lt;/RequestDetails&gt;&lt;ResponseDetails&gt;&lt;StreamData format=&apos; Simple Text &apos; WrapInSoap=&apos;false&apos; validate_stream=&apos;false&apos; rootElem=&apos;null&apos; buffer=&apos;65536&apos; &gt;&lt;XSD&gt;&lt;![CDATA[]]&gt;&lt;/XSD&gt;&lt;ImportedSchemas&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
+&lt;java version=&quot;1.7.0_97&quot; class=&quot;java.beans.XMLDecoder&quot;&gt; 
+ &lt;null/&gt; 
+&lt;/java&gt; 
+]]&gt;&lt;/ImportedSchemas&gt;&lt;/StreamData&gt;&lt;Headers all_others=&apos;false&apos; &gt;&lt;/Headers&gt;&lt;TNS&gt;http://www.fiorano.com/httpReceive&lt;/TNS&gt;&lt;/ResponseDetails&gt;&lt;DefaultResponseDetails&gt;&lt;/DefaultResponseDetails&gt;&lt;/Context&gt;&lt;/Contexts&gt;</string> 
+  </void> 
+  <void property="keyPassword" isEncrypted="true"> 
+   <string>shRKkGi+tvnVM3ArYnepDw==</string> 
+  </void> 
+  <void property="keystoreLocationPath"> 
+   <string>/root/download/CErtificates/T24.keystore</string> 
+  </void> 
+  <void property="keystorePassword" isEncrypted="true"> 
+   <string>qIClbg3gljXrX0THKE6WYg==</string> 
+  </void> 
+  <void property="keystoreType"> 
+   <string>jks</string> 
+  </void> 
+  <void property="listener"> 
+   <void property="m_maxIdleTimeMS"> 
+    <int>90000</int> 
+   </void> 
+  </void> 
+ </object> 
+</java> 

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ASCII"?>
+<layout>
+  <subflow name="FIORANO.ESTUDIO.ROOT_FLOW" x="0" y="0">
+    <service-instance name="ScopeAndError" x="167" y="349"/>
+    <service-instance name="MT103_To_RTGSPACS008Router" x="841" y="-217"/>
+    <service-instance name="MT900_To_RTGSCAMT054Router" x="848" y="957"/>
+    <service-instance name="MT910_To_RTGSCAMT054Router" x="845" y="1041"/>
+    <service-instance name="MT202Core_To_RTGSPACS009Router" x="846" y="371"/>
+    <service-instance name="MXResponseWriter" x="1504" y="355"/>
+    <service-instance name="FTIOutgoing" x="20" y="295"/>
+    <service-instance name="FTIScopeSender" x="243" y="-74"/>
+    <service-instance name="FTIErrorSender" x="345" y="-112"/>
+    <service-instance name="MT103RETURN_TO_RTGSPACS004Router" x="847" y="-19"/>
+    <service-instance name="MT202RETURN_TO_RTGSPACS004Router" x="845" y="663"/>
+    <service-instance name="MT192_MT292_To_RTGSCAMT056Router" x="843" y="91"/>
+    <service-instance name="MT103REJECT_TO_RTGSPACS002Router" x="842" y="-110"/>
+    <service-instance name="MT196_MT296_To_RTGSCAMT029Router" x="847" y="184"/>
+    <service-instance name="MT200_TO_RTGSPACS009Router" x="841" y="277"/>
+    <service-instance name="MT202Cove_To_RTGSPACS009Router" x="845" y="465"/>
+    <service-instance name="MT202REJECT_TO_RTGSPACS002Router" x="844" y="570"/>
+    <service-instance name="MT205COVE_TO_RTGSPACS004Router" x="844" y="847"/>
+    <service-instance name="MT205CORE_TO_RTGSPACS004Router" x="846" y="746"/>
+  </subflow>
+  <shortcut-routes/>
+</layout>

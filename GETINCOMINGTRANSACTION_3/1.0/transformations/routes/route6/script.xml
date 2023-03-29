@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:datetime="http://exslt.org/dates-and-times" xmlns:set="http://exslt.org/sets" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:math="http://exslt.org/math" xmlns:lxslt="http://xml.apache.org/xslt" xmlns:xalan="http://xml.apache.org/xslt" xmlns:java="http://xml.apache.org/xslt/java" exclude-result-prefixes="xalan java lxslt" xmlns:dateConversion="ext1" xmlns:deimaltoHex="ext2" xmlns:myext="ext3" xmlns:strings="ext4" extension-element-prefixes="datetime set math dateConversion deimaltoHex myext strings">
+  <xsl:output method="text" indent="yes" encoding="UTF-8" xalan:indent-amount="2" omit-xml-declaration="no"></xsl:output>
+  <xsl:variable name="document" select="/"></xsl:variable>
+  <xsl:template match="/">
+    <d>
+      <xsl:value-of select="deimaltoHex:decimalToHex(string(string-length($_TIF_BODY_TEXT_)),string('4'))"></xsl:value-of>
+      <xsl:value-of select="$_TIF_BODY_TEXT_"></xsl:value-of>
+    </d>
+  </xsl:template>
+<!--The list of parameters defined by user-->
+  <xsl:param name="_TIF_BODY_TEXT_"></xsl:param>
+<!--The list of Extensions defined by user-->
+  <lxslt:component prefix="deimaltoHex" functions="decimalToHex">
+    <lxslt:script lang="javascript"><![CDATA[function decimalToHex(d, padding) {
+    var hex = Number(d).toString(16);
+    padding = typeof (padding) === "undefined" || padding === null ? padding = 2 : padding;
+
+    while (hex.length < padding) {
+        hex = "0" + hex;
+    }
+
+    return hex;
+}]]></lxslt:script>
+  </lxslt:component>
+</xsl:stylesheet>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<layout>
+  <subflow name="FIORANO.ESTUDIO.ROOT_FLOW" x="0" y="0">
+    <service-instance name="FTResponseOFOutgoingTransaction" x="-2" y="145"/>
+    <service-instance name="OFSConverter1" x="260" y="348"/>
+    <service-instance name="Timer1" x="-50" y="308"/>
+    <service-instance name="Feeder2" x="-32" y="392"/>
+    <service-instance name="Display1" x="140" y="12"/>
+    <service-instance name="XMLSplitter2" x="103" y="220"/>
+    <service-instance name="T24socket" x="575" y="298"/>
+    <service-instance name="Display2" x="515" y="374"/>
+    <service-instance name="Aggregator1" x="463" y="37"/>
+    <service-instance name="Sleep1" x="-46" y="15"/>
+    <service-instance name="Cache1" x="315" y="194"/>
+  </subflow>
+</layout>

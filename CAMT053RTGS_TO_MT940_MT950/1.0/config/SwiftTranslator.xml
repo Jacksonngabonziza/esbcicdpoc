@@ -1,0 +1,3133 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.8.0_321" class="java.beans.XMLDecoder"> 
+ <object class="com.fiorano.services.xslt.configuration.XsltPM"> 
+  <void property="JMSMessageXSL"> 
+   <null/> 
+  </void> 
+  <void property="JMSMessageXSL1"> 
+   <null/> 
+  </void> 
+  <void property="XSL"> 
+   <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xalan=&quot;http://xml.apache.org/xslt&quot; xmlns:datetime=&quot;http://exslt.org/dates-and-times&quot; xmlns:math=&quot;http://exslt.org/math&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:lxslt=&quot;http://xml.apache.org/xslt&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:java=&quot;http://xml.apache.org/xslt/java&quot; xmlns:set=&quot;http://exslt.org/sets&quot; exclude-result-prefixes=&quot;xalan java lxslt&quot; xmlns:ns4=&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.01&quot; xmlns:ns6=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:ns5=&quot;urn:swift:xsd:mtmsg.2020&quot; xmlns:ns3=&quot;urn:iso:std:iso:20022:tech:xsd:camt.053.001.08&quot; xmlns:ns2=&quot;urn:swift:xsd:fin.940.2020&quot; xmlns:ns1=&quot;urn:swift:xsd:envelope&quot; xmlns:MT2MX=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MTtoMX=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MX2MT=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MXToMT=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MXtoMT=&quot;http://xml.apache.org/xslt/java&quot; xmlns:QueryGenerator=&quot;QueryGenerator&quot; xmlns:dateConversion=&quot;dateConversion&quot; xmlns:myext=&quot;myext&quot; xmlns:strings=&quot;strings&quot; extension-element-prefixes=&quot;datetime set math MT2MX MTtoMX MX2MT MXToMT MXtoMT QueryGenerator dateConversion myext strings&quot;&gt;
+  &lt;xsl:import href=&quot;GLOBAL_FUNCLET_PATH&quot;&gt;&lt;/xsl:import&gt;
+  &lt;xsl:output method=&quot;xml&quot; indent=&quot;yes&quot; encoding=&quot;UTF-8&quot; xalan:indent-amount=&quot;2&quot; omit-xml-declaration=&quot;no&quot;&gt;&lt;/xsl:output&gt;
+  &lt;xsl:variable name=&quot;document&quot; select=&quot;/&quot;&gt;&lt;/xsl:variable&gt;
+  &lt;xsl:variable name=&quot;document_Input1&quot; select=&quot;document(&apos;Input1&apos;)&quot;&gt;&lt;/xsl:variable&gt;
+  &lt;xsl:template match=&quot;/&quot;&gt;
+    &lt;ns5:FinMessage&gt;
+      &lt;ns5:Block1&gt;&lt;ns5:ApplicationIdentifier&gt;&#13;
+          &lt;xsl:value-of select=&quot;&apos;F&apos;&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+        &lt;/ns5:ApplicationIdentifier&gt;&#13;
+        &lt;ns5:ServiceIdentifier&gt;&#13;
+          &lt;xsl:value-of select=&quot;&apos;01&apos;&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+        &lt;/ns5:ServiceIdentifier&gt;&#13;
+        &lt;ns5:LogicalTerminalAddress&gt;&#13;
+          &lt;xsl:variable name=&quot;if0&quot;&gt;&#13;
+            &lt;xsl:choose&gt;&#13;
+              &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))!=(&apos;I&apos;) or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))))&quot;&gt;&#13;
+                &lt;xsl:value-of select=&quot;$document_Input1/ns1:Envelope/ns4:AppHdr/ns4:To/ns4:FIId/ns4:FinInstnId/ns4:BICFI&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+              &lt;/xsl:when&gt;&#13;
+              &lt;xsl:otherwise&gt;&#13;
+                &lt;xsl:value-of select=&quot;$document_Input1/ns1:Envelope/ns4:AppHdr/ns4:Fr/ns4:FIId/ns4:FinInstnId/ns4:BICFI&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+              &lt;/xsl:otherwise&gt;&#13;
+            &lt;/xsl:choose&gt;&#13;
+          &lt;/xsl:variable&gt;&#13;
+          &lt;xsl:value-of select=&quot;MXToMT:com.fiorano.funclet.MXtoMT.MX_To_MT_BICFI_LogicalAddress(string($if0))&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+        &lt;/ns5:LogicalTerminalAddress&gt;&#13;
+ &lt;ns5:SessionNumber&gt;&#13;
+	&lt;xsl:value-of select=&quot;substring(java:_getStringProperty($_TIF_MESSAGE_, &apos;SequenceNumber&apos;),&apos;1&apos;,&apos;4&apos;)&quot;/&gt;&#13;
+&lt;/ns5:SessionNumber&gt;&#13;
+&lt;ns5:SequenceNumber&gt;&#13;
+	&lt;xsl:value-of select=&quot;substring(java:_getStringProperty($_TIF_MESSAGE_, &apos;SequenceNumber&apos;),&apos;5&apos;,&apos;6&apos;)&quot;/&gt;&#13;
+&lt;/ns5:SequenceNumber&gt;&lt;/ns5:Block1&gt;
+      &lt;ns5:Block2&gt;&lt;!-- User code ends here --&gt;&#13;
+&#13;
+        &lt;ns5:InputIdentifier&gt;&#13;
+          &lt;xsl:variable name=&quot;if1&quot;&gt;&#13;
+            &lt;xsl:choose&gt;&#13;
+              &lt;xsl:when test=&quot;(java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))=(&apos;I&apos;)&quot;&gt;&#13;
+                &lt;xsl:value-of select=&quot;&apos;I&apos;&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+              &lt;/xsl:when&gt;&#13;
+            &lt;/xsl:choose&gt;&#13;
+          &lt;/xsl:variable&gt;&#13;
+          &lt;xsl:value-of select=&quot;$if1&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+        &lt;/ns5:InputIdentifier&gt;&#13;
+        &lt;ns5:MessageType&gt;&#13;
+          &lt;xsl:variable name=&quot;if2&quot;&gt;&#13;
+            &lt;xsl:choose&gt;&#13;
+              &lt;xsl:when test=&quot;(java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))=(&apos;I&apos;)&quot;&gt;&#13;
+                &lt;xsl:value-of select=&quot;&apos;940&apos;&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+              &lt;/xsl:when&gt;&#13;
+            &lt;/xsl:choose&gt;&#13;
+          &lt;/xsl:variable&gt;&#13;
+          &lt;xsl:value-of select=&quot;$if2&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+        &lt;/ns5:MessageType&gt;&#13;
+        &lt;ns5:DestinationAddress&gt;&#13;
+          &lt;xsl:variable name=&quot;if3&quot;&gt;&#13;
+            &lt;xsl:choose&gt;&#13;
+              &lt;xsl:when test=&quot;(java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))=(&apos;I&apos;)&quot;&gt;&#13;
+                &lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.MX_To_MT_BICFI_LogicalAddress(string($document_Input1/ns1:Envelope/ns4:AppHdr/ns4:To/ns4:FIId/ns4:FinInstnId/ns4:BICFI))&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+              &lt;/xsl:when&gt;&#13;
+            &lt;/xsl:choose&gt;&#13;
+          &lt;/xsl:variable&gt;&#13;
+          &lt;xsl:value-of select=&quot;$if3&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+        &lt;/ns5:DestinationAddress&gt;&#13;
+        &lt;ns5:MessagePriority&gt;&#13;
+          &lt;xsl:variable name=&quot;if4&quot;&gt;&#13;
+            &lt;xsl:choose&gt;&#13;
+              &lt;xsl:when test=&quot;(java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))=(&apos;I&apos;)&quot;&gt;&#13;
+                &lt;xsl:variable name=&quot;if5&quot;&gt;&#13;
+                  &lt;xsl:choose&gt;&#13;
+                    &lt;xsl:when test=&quot;($document_Input1/ns1:Envelope/ns4:AppHdr/ns4:Prty)=(&apos;HIGH&apos;)&quot;&gt;&#13;
+                      &lt;xsl:value-of select=&quot;&apos;U&apos;&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+                    &lt;/xsl:when&gt;&#13;
+                    &lt;xsl:otherwise&gt;&#13;
+                      &lt;xsl:value-of select=&quot;&apos;N&apos;&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+                    &lt;/xsl:otherwise&gt;&#13;
+                  &lt;/xsl:choose&gt;&#13;
+                &lt;/xsl:variable&gt;&#13;
+                &lt;xsl:value-of select=&quot;$if5&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+              &lt;/xsl:when&gt;&#13;
+            &lt;/xsl:choose&gt;&#13;
+          &lt;/xsl:variable&gt;&#13;
+          &lt;xsl:value-of select=&quot;$if4&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+        &lt;/ns5:MessagePriority&gt;&#13;
+        &lt;ns5:OutputIdentifier&gt;&#13;
+          &lt;xsl:variable name=&quot;if6&quot;&gt;&#13;
+            &lt;xsl:choose&gt;&#13;
+              &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))!=(&apos;I&apos;) or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))))&quot;&gt;&#13;
+                &lt;xsl:value-of select=&quot;&apos;O&apos;&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+              &lt;/xsl:when&gt;&#13;
+            &lt;/xsl:choose&gt;&#13;
+          &lt;/xsl:variable&gt;&#13;
+          &lt;xsl:value-of select=&quot;$if6&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+        &lt;/ns5:OutputIdentifier&gt;&#13;
+        &lt;ns5:MessageType&gt;&#13;
+          &lt;xsl:variable name=&quot;if7&quot;&gt;&#13;
+            &lt;xsl:choose&gt;&#13;
+              &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))!=(&apos;I&apos;) or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))))&quot;&gt;&#13;
+                &lt;xsl:value-of select=&quot;&apos;940&apos;&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+              &lt;/xsl:when&gt;&#13;
+            &lt;/xsl:choose&gt;&#13;
+          &lt;/xsl:variable&gt;&#13;
+          &lt;xsl:value-of select=&quot;$if7&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+        &lt;/ns5:MessageType&gt;&#13;
+        &lt;ns5:InputTime&gt;&#13;
+          &lt;xsl:variable name=&quot;if8&quot;&gt;&#13;
+            &lt;xsl:choose&gt;&#13;
+                &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))!=(&apos;I&apos;) or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;)))) and string-length(java:_getStringProperty($_TIF_MESSAGE_, &apos;OutputTime&apos;))&quot;&gt;&#13;
+                  &lt;xsl:value-of select=&quot;java:_getStringProperty($_TIF_MESSAGE_, &apos;OutputTime&apos;)&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+                &lt;/xsl:when&gt;&#13;
+				&#13;
+				 &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))!=(&apos;I&apos;) or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;)))) and (not(string-length(java:_getStringProperty($_TIF_MESSAGE_, &apos;OutputTime&apos;))))&quot;&gt;&#13;
+                   &lt;xsl:value-of select=&quot;&apos;0000&apos;&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+                &lt;/xsl:when&gt;&#13;
+              &lt;/xsl:choose&gt;&#13;
+          &lt;/xsl:variable&gt;&#13;
+          &lt;xsl:value-of select=&quot;$if8&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+        &lt;/ns5:InputTime&gt;&#13;
+        &lt;ns5:MessageInputReference&gt;&#13;
+          &lt;ns5:Date&gt;&#13;
+            &lt;xsl:variable name=&quot;if9&quot;&gt;&#13;
+             &lt;xsl:choose&gt;&#13;
+                &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))!=(&apos;I&apos;) or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;)))) and string-length(java:_getStringProperty($_TIF_MESSAGE_, &apos;OutputDate&apos;))&quot;&gt;&#13;
+                  &lt;xsl:value-of select=&quot;java:_getStringProperty($_TIF_MESSAGE_, &apos;OutputDate&apos;)&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+                &lt;/xsl:when&gt;&#13;
+				&#13;
+				 &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))!=(&apos;I&apos;) or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;)))) and (not(string-length(java:_getStringProperty($_TIF_MESSAGE_, &apos;OutputDate&apos;))))&quot;&gt;&#13;
+                   &lt;xsl:value-of select=&quot;&apos;991231&apos;&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+                &lt;/xsl:when&gt;&#13;
+              &lt;/xsl:choose&gt;&#13;
+            &lt;/xsl:variable&gt;&#13;
+            &lt;xsl:value-of select=&quot;$if9&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+          &lt;/ns5:Date&gt;&#13;
+          &lt;ns5:LTIdentifier&gt;&#13;
+            &lt;xsl:variable name=&quot;if10&quot;&gt;&#13;
+              &lt;xsl:choose&gt;&#13;
+                &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))!=(&apos;I&apos;) or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))))&quot;&gt;&#13;
+                  &lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.MX_To_MT_BICFI_LTIAddress(string($document_Input1/ns1:Envelope/ns4:AppHdr/ns4:Fr/ns4:FIId/ns4:FinInstnId/ns4:BICFI))&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+                &lt;/xsl:when&gt;&#13;
+              &lt;/xsl:choose&gt;&#13;
+            &lt;/xsl:variable&gt;&#13;
+            &lt;xsl:value-of select=&quot;$if10&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+          &lt;/ns5:LTIdentifier&gt;&#13;
+          &lt;ns5:BranchCode&gt;&#13;
+            &lt;xsl:variable name=&quot;if11&quot;&gt;&#13;
+              &lt;xsl:choose&gt;&#13;
+                &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))!=(&apos;I&apos;) or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))))&quot;&gt;&#13;
+                  &lt;xsl:variable name=&quot;if12&quot;&gt;&#13;
+                    &lt;xsl:choose&gt;&#13;
+                      &lt;xsl:when test=&quot;(string-length($document_Input1/ns1:Envelope/ns4:AppHdr/ns4:Fr/ns4:FIId/ns4:FinInstnId/ns4:BICFI))&amp;gt;=(&apos;11&apos;)&quot;&gt;&#13;
+                        &lt;xsl:value-of select=&quot;substring($document_Input1/ns1:Envelope/ns4:AppHdr/ns4:Fr/ns4:FIId/ns4:FinInstnId/ns4:BICFI,(string-length($document_Input1/ns1:Envelope/ns4:AppHdr/ns4:Fr/ns4:FIId/ns4:FinInstnId/ns4:BICFI))-(&apos;2&apos;),string-length($document_Input1/ns1:Envelope/ns4:AppHdr/ns4:Fr/ns4:FIId/ns4:FinInstnId/ns4:BICFI))&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+                      &lt;/xsl:when&gt;&#13;
+                      &lt;xsl:otherwise&gt;&#13;
+                        &lt;xsl:value-of select=&quot;&apos;XXX&apos;&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+                      &lt;/xsl:otherwise&gt;&#13;
+                    &lt;/xsl:choose&gt;&#13;
+                  &lt;/xsl:variable&gt;&#13;
+                  &lt;xsl:value-of select=&quot;$if12&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+                &lt;/xsl:when&gt;&#13;
+              &lt;/xsl:choose&gt;&#13;
+            &lt;/xsl:variable&gt;&#13;
+            &lt;xsl:value-of select=&quot;$if11&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+          &lt;/ns5:BranchCode&gt;&#13;
+          &lt;ns5:SessionNumber&gt;&#13;
+            &lt;xsl:variable name=&quot;if13&quot;&gt;&#13;
+              &lt;xsl:choose&gt;&#13;
+                &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))!=(&apos;I&apos;) or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))))&quot;&gt;&#13;
+                   &lt;xsl:value-of select=&quot;substring(java:_getStringProperty($_TIF_MESSAGE_, &apos;SequenceNumber&apos;),&apos;1&apos;,&apos;4&apos;)&quot;/&gt;&#13;
+                &lt;/xsl:when&gt;&#13;
+              &lt;/xsl:choose&gt;&#13;
+            &lt;/xsl:variable&gt;&#13;
+            &lt;xsl:value-of select=&quot;$if13&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+          &lt;/ns5:SessionNumber&gt;&#13;
+          &lt;ns5:ISN&gt;&#13;
+            &lt;xsl:variable name=&quot;if14&quot;&gt;&#13;
+              &lt;xsl:choose&gt;&#13;
+                &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))!=(&apos;I&apos;) or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))))&quot;&gt;&#13;
+                   &lt;xsl:value-of select=&quot;substring(java:_getStringProperty($_TIF_MESSAGE_, &apos;SequenceNumber&apos;),&apos;5&apos;,&apos;6&apos;)&quot;/&gt;&#13;
+                &lt;/xsl:when&gt;&#13;
+              &lt;/xsl:choose&gt;&#13;
+            &lt;/xsl:variable&gt;&#13;
+            &lt;xsl:value-of select=&quot;$if14&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+          &lt;/ns5:ISN&gt;&#13;
+        &lt;/ns5:MessageInputReference&gt;&#13;
+        &lt;ns5:Date&gt;&#13;
+          &lt;xsl:variable name=&quot;if15&quot;&gt;&#13;
+             &lt;xsl:choose&gt;&#13;
+                &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))!=(&apos;I&apos;) or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;)))) and string-length(java:_getStringProperty($_TIF_MESSAGE_, &apos;OutputDate&apos;))&quot;&gt;&#13;
+                  &lt;xsl:value-of select=&quot;java:_getStringProperty($_TIF_MESSAGE_, &apos;OutputDate&apos;)&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+                &lt;/xsl:when&gt;&#13;
+				&#13;
+				 &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))!=(&apos;I&apos;) or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;)))) and (not(string-length(java:_getStringProperty($_TIF_MESSAGE_, &apos;OutputDate&apos;))))&quot;&gt;&#13;
+                   &lt;xsl:value-of select=&quot;&apos;991231&apos;&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+                &lt;/xsl:when&gt;&#13;
+              &lt;/xsl:choose&gt;&#13;
+          &lt;/xsl:variable&gt;&#13;
+          &lt;xsl:value-of select=&quot;$if15&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+        &lt;/ns5:Date&gt;&#13;
+        &lt;ns5:Time&gt;&#13;
+          &lt;xsl:variable name=&quot;if16&quot;&gt;&#13;
+             &lt;xsl:choose&gt;&#13;
+                &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))!=(&apos;I&apos;) or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;)))) and string-length(java:_getStringProperty($_TIF_MESSAGE_, &apos;OutputTime&apos;))&quot;&gt;&#13;
+                  &lt;xsl:value-of select=&quot;java:_getStringProperty($_TIF_MESSAGE_, &apos;OutputTime&apos;)&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+                &lt;/xsl:when&gt;&#13;
+				&#13;
+				 &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))!=(&apos;I&apos;) or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;)))) and (not(string-length(java:_getStringProperty($_TIF_MESSAGE_, &apos;OutputTime&apos;))))&quot;&gt;&#13;
+                   &lt;xsl:value-of select=&quot;&apos;0000&apos;&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+                &lt;/xsl:when&gt;&#13;
+              &lt;/xsl:choose&gt;&#13;
+          &lt;/xsl:variable&gt;&#13;
+          &lt;xsl:value-of select=&quot;$if16&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+        &lt;/ns5:Time&gt;&#13;
+        &lt;ns5:MessagePriority&gt;&#13;
+          &lt;xsl:variable name=&quot;if17&quot;&gt;&#13;
+            &lt;xsl:choose&gt;&#13;
+              &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))!=(&apos;I&apos;) or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, &apos;ApplicationMode&apos;))))&quot;&gt;&#13;
+                &lt;xsl:variable name=&quot;if18&quot;&gt;&#13;
+                  &lt;xsl:choose&gt;&#13;
+                    &lt;xsl:when test=&quot;($document_Input1/ns1:Envelope/ns4:AppHdr/ns4:Prty)=(&apos;HIGH&apos;)&quot;&gt;&#13;
+                      &lt;xsl:value-of select=&quot;&apos;U&apos;&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+                    &lt;/xsl:when&gt;&#13;
+                    &lt;xsl:otherwise&gt;&#13;
+                      &lt;xsl:value-of select=&quot;&apos;N&apos;&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+                    &lt;/xsl:otherwise&gt;&#13;
+                  &lt;/xsl:choose&gt;&#13;
+                &lt;/xsl:variable&gt;&#13;
+                &lt;xsl:value-of select=&quot;$if18&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+              &lt;/xsl:when&gt;&#13;
+            &lt;/xsl:choose&gt;&#13;
+          &lt;/xsl:variable&gt;&#13;
+          &lt;xsl:value-of select=&quot;$if17&quot;&gt;&lt;/xsl:value-of&gt;&#13;
+        &lt;/ns5:MessagePriority&gt;&lt;/ns5:Block2&gt;
+      &lt;ns5:Block3&gt;
+        &lt;ns5:F121&gt;&lt;xsl:value-of select=&quot;java:_setStringProperty($_TIF_MESSAGE_, &apos;UETR_ID&apos;, $document_Input1/ns1:Envelope/ns3:Document/ns3:FIToFIPmtCxlReq/ns3:Undrlyg/ns3:TxInf/ns3:OrgnlUETR)&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;xsl:value-of select=&quot;java:_setStringProperty($_TIF_MESSAGE_, &apos;Truncated_Fields&apos;, &apos;&apos;)&quot;&gt;&lt;/xsl:value-of&gt;
+        &lt;/ns5:F121&gt;
+      &lt;/ns5:Block3&gt;
+      &lt;ns5:Block4&gt;
+        &lt;ns2:Document&gt;&lt;xsl:variable name=&quot;LineSeparator&quot;&gt;&#13;
+	&lt;xsl:value-of select=&quot;&apos;ENDOFFLINE&apos;&quot;/&gt;&#13;
+&lt;/xsl:variable&gt;&#13;
+&lt;xsl:variable name=&quot;VariableSeparator&quot;&gt;&#13;
+	&lt;xsl:value-of select=&quot;&apos;ENDOFFVAR&apos;&quot;/&gt;&#13;
+&lt;/xsl:variable&gt;&#13;
+&lt;xsl:variable name=&quot;AppendedBal&quot;&gt;&#13;
+	&lt;xsl:for-each select=&quot;$document_Input1/ns1:Envelope/ns3:Document/ns3:BkToCstmrStmt/ns3:Stmt/ns3:Bal&quot;&gt;&#13;
+		&lt;xsl:value-of select=&quot;./ns3:Tp/ns3:CdOrPrtry/ns3:Cd&quot;/&gt;&#13;
+		&lt;xsl:value-of select=&quot;$VariableSeparator&quot;/&gt;&#13;
+		&lt;xsl:value-of select=&quot;./ns3:Amt&quot;/&gt;&#13;
+		&lt;xsl:value-of select=&quot;$VariableSeparator&quot;/&gt;&#13;
+		&lt;xsl:value-of select=&quot;./ns3:Amt/@Ccy&quot;/&gt;&#13;
+		&lt;xsl:value-of select=&quot;$VariableSeparator&quot;/&gt;&#13;
+		&lt;xsl:value-of select=&quot;./ns3:CdtDbtInd&quot;/&gt;&#13;
+		&lt;xsl:value-of select=&quot;$VariableSeparator&quot;/&gt;&#13;
+		&lt;xsl:value-of select=&quot;./ns3:Dt/ns3:Dt&quot;/&gt;&#13;
+		&lt;xsl:value-of select=&quot;$VariableSeparator&quot;/&gt;&#13;
+		&lt;xsl:value-of select=&quot;&apos;null&apos;&quot;/&gt;&#13;
+		&lt;xsl:value-of select=&quot;$LineSeparator&quot;/&gt;&#13;
+	&lt;/xsl:for-each&gt;&#13;
+&lt;/xsl:variable&gt;
+          &lt;ns2:MT940&gt;
+            &lt;ns2:F20a&gt;
+              &lt;ns2:F20&gt;&lt;!-- User code ends here --&gt;
+&lt;xsl:variable name=&quot;Resultant&quot;&gt;
+                &lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.mx2MT_TR001withTruncate(string($document_Input1/ns1:Envelope/ns3:Document/ns3:BkToCstmrStmt/ns3:Stmt/ns3:Id))&quot;&gt;&lt;/xsl:value-of&gt;
+				&lt;/xsl:variable&gt;
+&lt;xsl:value-of select=&quot;normalize-space(substring-before($Resultant,&apos;ENDOFOUTPUT&apos;))&quot;/&gt;
+&lt;xsl:variable name=&quot;TruncTemp&quot;&gt;
+  &lt;xsl:value-of select=&quot;java:_getStringProperty($_TIF_MESSAGE_, &apos;Truncated_Fields&apos;)&quot;/&gt;
+&lt;/xsl:variable&gt;
+&lt;xsl:value-of select=&quot;java:_setStringProperty($_TIF_MESSAGE_, &apos;Truncated_Fields&apos;, concat($TruncTemp,&apos;F20_ENDOFFIELDTAG&apos;,substring-after($Resultant,&apos;ENDOFOUTPUT&apos;),&apos;ENDOFTRUNCATEDFIELD&apos;))&quot;/&gt;
+&lt;!-- User code starts here --&gt;&lt;/ns2:F20&gt;
+            &lt;/ns2:F20a&gt;
+            &lt;ns2:F25a&gt;&lt;xsl:choose&gt;
+&lt;xsl:when test=&quot;(not(string-length($document_Input1/ns1:Envelope/ns3:Document/ns3:BkToCstmrStmt/ns3:Stmt/ns3:Acct/ns3:Ownr/ns3:Id/ns3:OrgId/ns3:AnyBIC)))&quot;&gt;
+              &lt;ns2:F25&gt;&lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.Field25_25P_Account(string(null),string($document_Input1/ns1:Envelope/ns3:Document/ns3:BkToCstmrStmt/ns3:Stmt/ns3:Acct/ns3:Id/ns3:Othr/ns3:Id))&quot;&gt;&lt;/xsl:value-of&gt;&lt;/ns2:F25&gt;&lt;/xsl:when&gt;
+&lt;xsl:otherwise&gt;
+              &lt;ns2:F25P&gt;
+                &lt;ns2:Account&gt;&lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.Field25_25P_Account(string(null),string($document_Input1/ns1:Envelope/ns3:Document/ns3:BkToCstmrStmt/ns3:Stmt/ns3:Acct/ns3:Id/ns3:Othr/ns3:Id))&quot;&gt;&lt;/xsl:value-of&gt;&lt;/ns2:Account&gt;
+                &lt;ns2:IdentifierCode&gt;&lt;xsl:variable name=&quot;if0&quot;&gt;
+                    &lt;xsl:choose&gt;
+                      &lt;xsl:when test=&quot;string-length($document_Input1/ns1:Envelope/ns3:Document/ns3:BkToCstmrStmt/ns3:Stmt/ns3:Acct/ns3:Ownr/ns3:Id/ns3:OrgId/ns3:AnyBIC)&quot;&gt;
+                        &lt;xsl:value-of select=&quot;$document_Input1/ns1:Envelope/ns3:Document/ns3:BkToCstmrStmt/ns3:Stmt/ns3:Acct/ns3:Ownr/ns3:Id/ns3:OrgId/ns3:AnyBIC&quot;&gt;&lt;/xsl:value-of&gt;
+                      &lt;/xsl:when&gt;
+                    &lt;/xsl:choose&gt;
+                  &lt;/xsl:variable&gt;
+                  &lt;xsl:value-of select=&quot;$if0&quot;&gt;&lt;/xsl:value-of&gt;&lt;/ns2:IdentifierCode&gt;
+              &lt;/ns2:F25P&gt;&lt;/xsl:otherwise&gt;
+&lt;/xsl:choose&gt;&lt;/ns2:F25a&gt;
+            &lt;ns2:F28a&gt;&lt;!--&lt;ns2:F28C&gt;
+                &lt;ns2:StatementNumber&gt;&lt;xsl:variable name=&quot;if3&quot;&gt;
+                    &lt;xsl:choose&gt;
+                      &lt;xsl:when test=&quot;(string-length($document_Input1/ns1:Envelope/ns3:Document/ns3:BkToCstmrStmt/ns3:Stmt/ns3:LglSeqNb) and (string-length($document_Input1/ns1:Envelope/ns3:Document/ns3:BkToCstmrStmt/ns3:Stmt/ns3:LglSeqNb))&amp;lt;=(&apos;5&apos;))&quot;&gt;
+&lt;xsl:value-of select=&quot;$document_Input1/ns1:Envelope/ns3:Document/ns3:BkToCstmrStmt/ns3:Stmt/ns3:LglSeqNb&quot;&gt;&lt;/xsl:value-of&gt;
+ &lt;/xsl:when&gt;
+                            &lt;xsl:otherwise&gt;
+&lt;xsl:choose&gt;
+&lt;xsl:when test=&quot;(string-length($document_Input1/ns1:Envelope/ns3:Document/ns3:BkToCstmrStmt/ns3:Stmt/ns3:ElctrncSeqNb) and (string-length($document_Input1/ns1:Envelope/ns3:Document/ns3:BkToCstmrStmt/ns3:Stmt/ns3:ElctrncSeqNb))&amp;lt;=(&apos;5&apos;))&quot;&gt;
+&lt;xsl:value-of select=&quot;$document_Input1/ns1:Envelope/ns3:Document/ns3:BkToCstmrStmt/ns3:Stmt/ns3:ElctrncSeqNb&quot;&gt;&lt;/xsl:value-of&gt;
+ &lt;/xsl:when&gt;
+   &lt;/xsl:choose&gt;
+&lt;/xsl:otherwise&gt;
+                    &lt;/xsl:choose&gt;
+&lt;/xsl:variable&gt;
+   &lt;xsl:choose&gt;
+&lt;xsl:when test=&quot;(string-length($if3))&quot;&gt;
+&lt;xsl:value-of select=&quot;$if3&quot;&gt;&lt;/xsl:value-of&gt;
+&lt;/xsl:when&gt;
+&lt;/xsl:choose&gt;&lt;/ns2:StatementNumber&gt;
+                &lt;ns2:SequenceNumber&gt;
+                  &lt;xsl:value-of select=&quot;$document_Input1/ns1:Envelope/ns3:Document/ns3:BkToCstmrStmt/ns3:Stmt/ns3:StmtPgntn/ns3:PgNb&quot;&gt;&lt;/xsl:value-of&gt;
+                &lt;/ns2:SequenceNumber&gt;
+              &lt;/ns2:F28C&gt;--&gt;&lt;/ns2:F28a&gt;
+            &lt;ns2:F60a&gt;&lt;xsl:variable name=&quot;Code&quot;&gt;&#13;
+	&lt;xsl:value-of select=&quot;&apos;OPBD&apos;&quot;/&gt;&#13;
+&lt;/xsl:variable&gt;
+              &lt;ns2:F60M&gt;&lt;ns2:DCMark&gt;&lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.MX_To_MTBalanceDCMark_CAMT053(string($AppendedBal),string($Code),string($VariableSeparator),string($LineSeparator))&quot;&gt;&lt;/xsl:value-of&gt;&lt;/ns2:DCMark&gt;
+                &lt;ns2:Date&gt;&lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.MX_To_MTBalanceDate_CAMT053(string($AppendedBal),string($Code),string($VariableSeparator),string($LineSeparator))&quot;&gt;&lt;/xsl:value-of&gt;&lt;/ns2:Date&gt;
+                &lt;ns2:Currency&gt;&lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.MX_To_MTBalanceCurrency_CAMT053(string($AppendedBal),string($Code),string($VariableSeparator),string($LineSeparator))&quot;&gt;&lt;/xsl:value-of&gt;&lt;/ns2:Currency&gt;
+                &lt;ns2:Amount&gt;&lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.MX_To_MTBalanceAmount_CAMT053(string($AppendedBal),string($Code),string($VariableSeparator),string($LineSeparator))&quot;&gt;&lt;/xsl:value-of&gt;&lt;/ns2:Amount&gt;&lt;/ns2:F60M&gt;
+            &lt;/ns2:F60a&gt;&lt;xsl:variable name=&quot;AppendedEntry&quot;&gt;
+	&lt;xsl:for-each select=&quot;$document_Input1/ns1:Envelope/ns3:Document/ns3:BkToCstmrStmt/ns3:Stmt/ns3:Ntry&quot;&gt;
+		&lt;xsl:value-of select=&quot;./ns3:ValDt/ns3:Dt&quot;/&gt;
+		&lt;xsl:value-of select=&quot;$VariableSeparator&quot;/&gt;
+		&lt;xsl:value-of select=&quot;&apos;null&apos;&quot;/&gt;
+		&lt;xsl:value-of select=&quot;$VariableSeparator&quot;/&gt;
+		&lt;xsl:value-of select=&quot;&apos;null&apos;&quot;/&gt;
+		&lt;xsl:value-of select=&quot;$VariableSeparator&quot;/&gt;
+		&lt;xsl:value-of select=&quot;./ns3:BookgDt/ns3:DtTm&quot;/&gt;
+		&lt;xsl:value-of select=&quot;$VariableSeparator&quot;/&gt;
+		&lt;xsl:value-of select=&quot;./ns3:CdtDbtInd&quot;/&gt;
+		&lt;xsl:value-of select=&quot;$VariableSeparator&quot;/&gt;
+		&lt;xsl:value-of select=&quot;&apos;null&apos;&quot;/&gt;
+		&lt;xsl:value-of select=&quot;$VariableSeparator&quot;/&gt;
+		&lt;xsl:value-of select=&quot;./ns3:Amt/@Ccy&quot;/&gt;
+		&lt;xsl:value-of select=&quot;$VariableSeparator&quot;/&gt;
+		&lt;xsl:value-of select=&quot;./ns3:Amt&quot;/&gt;
+		&lt;xsl:value-of select=&quot;$VariableSeparator&quot;/&gt;
+		&lt;xsl:value-of select=&quot;./ns3:NtryDtls/ns3:TxDtls/ns3:Refs/ns3:EndToEndId&quot;/&gt;
+		&lt;xsl:value-of select=&quot;$LineSeparator&quot;/&gt;
+	&lt;/xsl:for-each&gt;
+&lt;/xsl:variable&gt;
+
+&lt;xsl:variable name=&quot;ResultantEntry&quot;&gt;
+&lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.MX_To_MTEntry_CAMT053withTruncate(string($AppendedEntry),string($VariableSeparator),string($LineSeparator))&quot;&gt;&lt;/xsl:value-of&gt;
+&lt;/xsl:variable&gt;				
+				
+&lt;xsl:call-template name=&quot;tokenize6&quot;&gt;
+    &lt;xsl:with-param name=&quot;text&quot; select=&quot;substring-before($ResultantEntry,&apos;ENDOFOUTPUT&apos;)&quot;/&gt;
+	&lt;xsl:with-param name=&quot;LineSeparator&quot; select=&quot;$LineSeparator&quot;/&gt;
+	&lt;xsl:with-param name=&quot;VarSeparator&quot; select=&quot;$VariableSeparator&quot;/&gt;
+&lt;/xsl:call-template&gt;
+&lt;xsl:variable name=&quot;TruncTemp&quot;&gt;
+  &lt;xsl:value-of select=&quot;java:_getStringProperty($_TIF_MESSAGE_, &apos;Truncated_Fields&apos;)&quot;/&gt;
+&lt;/xsl:variable&gt;
+&lt;xsl:value-of select=&quot;java:_setStringProperty($_TIF_MESSAGE_, &apos;Truncated_Fields&apos;, concat($TruncTemp,&apos;F61_ENDOFFIELDTAG&apos;,substring-after($ResultantEntry,&apos;ENDOFOUTPUT&apos;),&apos;ENDOFTRUNCATEDFIELD&apos;))&quot;/&gt;
+            &lt;ns2:Loop1&gt;&lt;!-- User code starts here --&gt;&lt;/ns2:Loop1&gt;
+            &lt;ns2:F62a&gt;&lt;xsl:variable name=&quot;Code&quot;&gt;&#13;
+	&lt;xsl:value-of select=&quot;&apos;CLBD&apos;&quot;/&gt;&#13;
+&lt;/xsl:variable&gt;
+              &lt;ns2:F62M&gt;&lt;ns2:DCMark&gt;&lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.MX_To_MTBalanceDCMark_CAMT053(string($AppendedBal),string($Code),string($VariableSeparator),string($LineSeparator))&quot;&gt;&lt;/xsl:value-of&gt;&lt;/ns2:DCMark&gt;
+                &lt;ns2:Date&gt;&lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.MX_To_MTBalanceDate_CAMT053(string($AppendedBal),string($Code),string($VariableSeparator),string($LineSeparator))&quot;&gt;&lt;/xsl:value-of&gt;&lt;/ns2:Date&gt;
+                &lt;ns2:Currency&gt;&lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.MX_To_MTBalanceCurrency_CAMT053(string($AppendedBal),string($Code),string($VariableSeparator),string($LineSeparator))&quot;&gt;&lt;/xsl:value-of&gt;&lt;/ns2:Currency&gt;
+                &lt;ns2:Amount&gt;&lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.MX_To_MTBalanceAmount_CAMT053(string($AppendedBal),string($Code),string($VariableSeparator),string($LineSeparator))&quot;&gt;&lt;/xsl:value-of&gt;&lt;/ns2:Amount&gt;&lt;/ns2:F62M&gt;
+            &lt;/ns2:F62a&gt;
+            &lt;ns2:F64a&gt;&lt;xsl:variable name=&quot;Code&quot;&gt;&#13;
+	&lt;xsl:value-of select=&quot;&apos;CLAV&apos;&quot;/&gt;&#13;
+&lt;/xsl:variable&gt;
+              &lt;ns2:F64&gt;&lt;ns2:DCMark&gt;&lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.MX_To_MTBalanceDCMark_CAMT053(string($AppendedBal),string($Code),string($VariableSeparator),string($LineSeparator))&quot;&gt;&lt;/xsl:value-of&gt;&lt;/ns2:DCMark&gt;&#13;
+                &lt;ns2:Date&gt;&lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.MX_To_MTBalanceDate_CAMT053(string($AppendedBal),string($Code),string($VariableSeparator),string($LineSeparator))&quot;&gt;&lt;/xsl:value-of&gt;&lt;/ns2:Date&gt;&#13;
+                &lt;ns2:Currency&gt;&lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.MX_To_MTBalanceCurrency_CAMT053(string($AppendedBal),string($Code),string($VariableSeparator),string($LineSeparator))&quot;&gt;&lt;/xsl:value-of&gt;&lt;/ns2:Currency&gt;&#13;
+                &lt;ns2:Amount&gt;&lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.MX_To_MTBalanceAmount_CAMT053(string($AppendedBal),string($Code),string($VariableSeparator),string($LineSeparator))&quot;&gt;&lt;/xsl:value-of&gt;&lt;/ns2:Amount&gt;&lt;/ns2:F64&gt;
+            &lt;/ns2:F64a&gt;
+          &lt;/ns2:MT940&gt;
+        &lt;/ns2:Document&gt;
+      &lt;/ns5:Block4&gt;
+      &lt;ns5:Block5&gt;
+        &lt;ns5:SYS&gt;
+          &lt;ns5:MIR&gt;
+            &lt;ns5:LTIdentifier&gt;&lt;xsl:variable name=&quot;TruncatedWithLimitter&quot;&gt;
+&lt;xsl:value-of select=&quot;(concat(java:_getStringProperty($_TIF_MESSAGE_, &apos;Truncated_Fields&apos;),&apos;ENDOFTRUNK&apos;))&quot;&gt;&lt;/xsl:value-of&gt;
+&lt;/xsl:variable&gt;
+&lt;xsl:value-of select=&quot;java:_setStringProperty($_TIF_MESSAGE_, &apos;File_Truncated&apos;, java:com.fiorano.xslt.functions.base64.Base64.getEncodedString(MXToMT:com.fiorano.funclet.MXtoMT.generateReadableData(string(concat($document_Input1/ns1:Envelope/ns3:Document/ns3:FIToFIPmtCxlReq/ns3:Undrlyg/ns3:TxInf/ns3:OrgnlUETR,&apos;ENDOFUETR&apos;,$TruncatedWithLimitter)))))&quot;&gt;&lt;/xsl:value-of&gt;&lt;/ns5:LTIdentifier&gt;
+          &lt;/ns5:MIR&gt;
+        &lt;/ns5:SYS&gt;
+      &lt;/ns5:Block5&gt;
+    &lt;/ns5:FinMessage&gt;
+  &lt;/xsl:template&gt;&lt;xsl:template name=&quot;tokenize6&quot;&gt;&#13;
+ &lt;xsl:param name=&quot;text&quot; select=&quot;.&quot;/&gt;&#13;
+ &lt;xsl:param name=&quot;LineSeparator&quot; select=&quot;&apos;ENDOFFLINE&apos;&quot;/&gt;&#13;
+ &lt;xsl:param name=&quot;VarSeparator&quot; select=&quot;&apos;ENDOFFVAR&apos;&quot;/&gt;&#13;
+        &lt;xsl:choose&gt;&#13;
+        &lt;xsl:when test=&quot;not(string-length($text))&quot;&gt;&#13;
+        &lt;/xsl:when&gt;&#13;
+            &lt;xsl:when test=&quot;not(contains($text, $LineSeparator))&quot;&gt;&#13;
+            &lt;ns2:Loop1&gt;&#13;
+			&lt;ns2:F61a&gt;&#13;
+            &lt;ns2:F61&gt;&#13;
+                &lt;ns2:ValueDate&gt;&#13;
+                &lt;xsl:value-of select=&quot;normalize-space(substring-before($text, $VarSeparator))&quot;/&gt;&#13;
+                &lt;/ns2:ValueDate&gt;&#13;
+&#13;
+                &lt;xsl:variable name=&quot;Cdval11&quot;&gt;&#13;
+                &lt;xsl:value-of select=&quot;substring-after($text, $VarSeparator)&quot;/&gt;&#13;
+                &lt;/xsl:variable&gt;&#13;
+&#13;
+                &lt;ns2:EntryDate&gt;&#13;
+                &lt;xsl:value-of select=&quot;normalize-space(substring-before($Cdval11, $VarSeparator))&quot;/&gt;&#13;
+                &lt;/ns2:EntryDate&gt;&#13;
+				&#13;
+				&lt;xsl:variable name=&quot;Cdval22&quot;&gt;&#13;
+                 &lt;xsl:value-of select=&quot;substring-after($Cdval11, $VarSeparator)&quot;/&gt;&#13;
+                &lt;/xsl:variable&gt;&#13;
+&#13;
+                &lt;ns2:DebitCreditMark&gt;&#13;
+                &lt;xsl:value-of select=&quot;normalize-space(substring-before($Cdval22, $VarSeparator))&quot;/&gt;&#13;
+                &lt;/ns2:DebitCreditMark&gt;&#13;
+				&#13;
+				&lt;xsl:variable name=&quot;Cdval33&quot;&gt;&#13;
+                &lt;xsl:value-of select=&quot;substring-after($Cdval22, $VarSeparator)&quot;/&gt;&#13;
+                &lt;/xsl:variable&gt;&#13;
+&#13;
+                &lt;ns2:Amount&gt;&#13;
+                &lt;xsl:value-of select=&quot;normalize-space(substring-before($Cdval33, $VarSeparator))&quot;/&gt;&#13;
+                &lt;/ns2:Amount&gt;&#13;
+				&#13;
+                &lt;ns2:TransactionType&gt;&#13;
+               	&lt;xsl:value-of select=&quot;&apos;N&apos;&quot;/&gt;&#13;
+                &lt;/ns2:TransactionType&gt;&#13;
+				&#13;
+                &lt;ns2:IdentificationCode&gt;&#13;
+                &lt;xsl:value-of select=&quot;&apos;TRF&apos;&quot;/&gt;&#13;
+                &lt;/ns2:IdentificationCode&gt;&#13;
+				&#13;
+				&lt;xsl:variable name=&quot;Cdval44&quot;&gt;&#13;
+                &lt;xsl:value-of select=&quot;substring-after($Cdval33, $VarSeparator)&quot;/&gt;&#13;
+                &lt;/xsl:variable&gt;&#13;
+&#13;
+                &lt;ns2:ReferenceForTheAccountOwner&gt;&#13;
+                &lt;xsl:value-of select=&quot;normalize-space(substring-before($Cdval44, $VarSeparator))&quot;/&gt;&#13;
+                &lt;/ns2:ReferenceForTheAccountOwner&gt;&#13;
+			&#13;
+            &lt;/ns2:F61&gt;&#13;
+			&lt;/ns2:F61a&gt;&#13;
+			&lt;/ns2:Loop1&gt;&#13;
+            &lt;/xsl:when&gt;&#13;
+           &lt;xsl:when test=&quot;((contains($text, $LineSeparator))) &quot;&gt;&#13;
+&#13;
+            &lt;ns2:Loop1&gt;&#13;
+			&lt;ns2:F61a&gt;&#13;
+            &lt;ns2:F61&gt;&#13;
+                &lt;ns2:ValueDate&gt;&#13;
+                &lt;xsl:value-of select=&quot;normalize-space(substring-before($text, $VarSeparator))&quot;/&gt;&#13;
+                &lt;/ns2:ValueDate&gt;&#13;
+&#13;
+                &lt;xsl:variable name=&quot;nxtVal11&quot;&gt;&#13;
+                &lt;xsl:value-of select=&quot;substring-after($text, $VarSeparator)&quot;/&gt;&#13;
+                &lt;/xsl:variable&gt;&#13;
+&#13;
+                &lt;ns2:EntryDate&gt;&#13;
+                &lt;xsl:value-of select=&quot;normalize-space(substring-before($nxtVal11, $VarSeparator))&quot;/&gt;&#13;
+                &lt;/ns2:EntryDate&gt;&#13;
+				&#13;
+				&lt;xsl:variable name=&quot;nxtVal22&quot;&gt;&#13;
+                 &lt;xsl:value-of select=&quot;substring-after($nxtVal11, $VarSeparator)&quot;/&gt;&#13;
+                &lt;/xsl:variable&gt;&#13;
+&#13;
+                &lt;ns2:DebitCreditMark&gt;&#13;
+                &lt;xsl:value-of select=&quot;normalize-space(substring-before($nxtVal22, $VarSeparator))&quot;/&gt;&#13;
+                &lt;/ns2:DebitCreditMark&gt;&#13;
+				&#13;
+				&lt;xsl:variable name=&quot;nxtVal33&quot;&gt;&#13;
+                &lt;xsl:value-of select=&quot;substring-after($nxtVal22, $VarSeparator)&quot;/&gt;&#13;
+                &lt;/xsl:variable&gt;&#13;
+&#13;
+                &lt;ns2:Amount&gt;&#13;
+                &lt;xsl:value-of select=&quot;normalize-space(substring-before($nxtVal33, $VarSeparator))&quot;/&gt;&#13;
+                &lt;/ns2:Amount&gt;&#13;
+				&#13;
+                &lt;ns2:TransactionType&gt;&#13;
+               	&lt;xsl:value-of select=&quot;&apos;N&apos;&quot;/&gt;&#13;
+                &lt;/ns2:TransactionType&gt;&#13;
+				&#13;
+                &lt;ns2:IdentificationCode&gt;&#13;
+                &lt;xsl:value-of select=&quot;&apos;TRF&apos;&quot;/&gt;&#13;
+                &lt;/ns2:IdentificationCode&gt;&#13;
+				&#13;
+				&lt;xsl:variable name=&quot;nxtVal44&quot;&gt;&#13;
+                &lt;xsl:value-of select=&quot;substring-after($nxtVal33, $VarSeparator)&quot;/&gt;&#13;
+                &lt;/xsl:variable&gt;&#13;
+&#13;
+                &lt;ns2:ReferenceForTheAccountOwner&gt;&#13;
+                &lt;xsl:value-of select=&quot;normalize-space(substring-before($nxtVal44, $VarSeparator))&quot;/&gt;&#13;
+                &lt;/ns2:ReferenceForTheAccountOwner&gt;&#13;
+			&#13;
+            &lt;/ns2:F61&gt;&#13;
+			&lt;/ns2:F61a&gt;&#13;
+			&lt;/ns2:Loop1&gt;&#13;
+            &lt;xsl:call-template name=&quot;tokenize6&quot;&gt;&#13;
+                &lt;xsl:with-param name=&quot;text&quot; select=&quot;substring-after($text, $LineSeparator)&quot;/&gt;&#13;
+            &lt;/xsl:call-template&gt;&#13;
+            &lt;/xsl:when&gt;&#13;
+        &lt;/xsl:choose&gt;&#13;
+&lt;/xsl:template&gt;
+&lt;!--The list of parameters defined by user--&gt;
+  &lt;xsl:param name=&quot;_TIF_MESSAGE_&quot;&gt;&lt;/xsl:param&gt;
+&lt;/xsl:stylesheet&gt;</string> 
+  </void> 
+  <void property="configuredVersion"> 
+   <int>1300</int> 
+  </void> 
+  <void property="errorHandlingConfiguration"> 
+   <void property="errorActionsMap"> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>3</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>2</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>1</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.RetryAction"> 
+       <void property="configuration"> 
+        <object class="com.fiorano.edbc.framework.service.exception.RetryConfiguration"> 
+         <void property="otherActions"> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+            <void property="enabled"> 
+             <boolean>true</boolean> 
+            </void> 
+            <void property="id"> 
+             <int>1</int> 
+            </void> 
+           </object> 
+           <int>1</int> 
+          </void> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+            <void property="enabled"> 
+             <boolean>true</boolean> 
+            </void> 
+           </object> 
+           <int>1</int> 
+          </void> 
+         </void> 
+        </object> 
+       </void> 
+       <void property="id"> 
+        <int>2</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>4</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>0</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>6</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+   </void> 
+  </void> 
+  <void property="esbDefInPort"> 
+   <object class="fiorano.esb.record.ESBRecordDefinition"> 
+    <void property="importedStructures"> 
+     <object class="java.util.Hashtable"> 
+      <void method="put"> 
+       <string>urn:iso:std:iso:20022:tech:xsd:head.001.001.01</string> 
+       <object class="java.util.ArrayList"> 
+        <void method="add"> 
+         <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Legal Notices
+
+SWIFT SCRL@2016. All rights reserved.
+
+This schema is a component of MyStandards, the SWIFT collaborative Web application used to manage
+standards definitions and industry usage.
+
+This is a licensed product, which may only be used and distributed in accordance with MyStandards License
+Terms as specified in MyStandards Service Description and the related Terms of Use.
+
+Unless otherwise agreed in writing with SWIFT SCRL, the user has no right to:
+ - authorise external end users to use this component for other purposes than their internal use.
+ - remove, alter, cover, obfuscate or cancel from view any copyright or other proprietary rights notices appearing in this physical medium.
+ - re-sell or authorise another party e.g. software and service providers, to re-sell this component.
+
+This component is provided &apos;AS IS&apos;. SWIFT does not give and excludes any express or implied warranties
+with respect to this component such as but not limited to any guarantee as to its quality, supply or availability.
+
+Any and all rights, including title, ownership rights, copyright, trademark, patents, and any other intellectual 
+property rights of whatever nature in this component will remain the exclusive property of SWIFT or its 
+licensors.
+
+Trademarks
+SWIFT is the trade name of S.W.I.F.T. SCRL.
+The following are registered trademarks of SWIFT: the SWIFT logo, SWIFT, SWIFTNet, SWIFTReady, Accord, Sibos, 3SKey, Innotribe, the Standards Forum logo, MyStandards, and SWIFT Institute.
+Other product, service, or company names in this publication are trade names, trademarks, or registered trademarks of their respective owners.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Group: RTGS
+Collection: RTGS_BusinessApplicationHeader
+Usage Guideline: head.001_BusinessApplicationHeader_head.001.001.01
+Base Message: head.001.001.01
+Date of publication: 01 April 2021
+URL: https://www2.swift.com/mystandards/#/mp/mx/_5XSokEFaEei166Gk6ZGJ0A/_8Zfq0Q5bEeuC29xszeiKFA
+Description: null
+Generated by the MyStandards web platform [https://www.swift.com/mystandards] on 2021-10-08T09:09:42+00:00
+--&gt;
+&lt;xs:schema xmlns=&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.01&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; elementFormDefault=&quot;qualified&quot; targetNamespace=&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.01&quot;&gt;
+    &lt;xs:element name=&quot;AppHdr&quot; type=&quot;BusinessApplicationHeaderV01&quot;/&gt;
+    &lt;xs:simpleType name=&quot;BICFIIdentifier&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:pattern value=&quot;[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:complexType name=&quot;BranchAndFinancialInstitutionIdentification5__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;FinInstnId&quot; type=&quot;FinancialInstitutionIdentification8__1&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;BranchAndFinancialInstitutionIdentification5__2&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;FinInstnId&quot; type=&quot;FinancialInstitutionIdentification8__2&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;BranchAndFinancialInstitutionIdentification5__3&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;FinInstnId&quot; type=&quot;FinancialInstitutionIdentification8__3&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;BusinessApplicationHeader1__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;Fr&quot; type=&quot;Party9Choice__3&quot;/&gt;
+            &lt;xs:element name=&quot;To&quot; type=&quot;Party9Choice__2&quot;/&gt;
+            &lt;xs:element name=&quot;BizMsgIdr&quot; type=&quot;TARGET_RestrictedFINXMax35Text&quot;/&gt;
+            &lt;xs:element name=&quot;MsgDefIdr&quot; type=&quot;TARGET_RestrictedFINXMax35Text&quot;/&gt;
+            &lt;xs:element name=&quot;CreDt&quot; type=&quot;ISONormalisedDateTime&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CpyDplct&quot; type=&quot;CopyDuplicate1Code&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PssblDplct&quot; type=&quot;YesNoIndicator&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Prty&quot; type=&quot;BusinessMessagePriorityCode&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Sgntr&quot; type=&quot;SignatureEnvelope&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;BusinessApplicationHeaderV01&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;Fr&quot; type=&quot;Party9Choice__1&quot;/&gt;
+            &lt;xs:element name=&quot;To&quot; type=&quot;Party9Choice__2&quot;/&gt;
+            &lt;xs:element name=&quot;BizMsgIdr&quot; type=&quot;TARGET_RestrictedFINXMax35Text&quot;/&gt;
+            &lt;xs:element name=&quot;MsgDefIdr&quot; type=&quot;TARGET_Head_XMLMessageNamePattern&quot;/&gt;
+            &lt;xs:element name=&quot;CreDt&quot; type=&quot;ISONormalisedDateTime&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CpyDplct&quot; type=&quot;CopyDuplicate1Code&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PssblDplct&quot; type=&quot;YesNoIndicator&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Prty&quot; type=&quot;BusinessMessagePriorityCode&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Sgntr&quot; type=&quot;SignatureEnvelope_CSLD&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Rltd&quot; type=&quot;BusinessApplicationHeader1__1&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:simpleType name=&quot;BusinessMessagePriorityCode&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;/&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:complexType name=&quot;ClearingSystemIdentification2Choice__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:choice&gt;
+                &lt;xs:element name=&quot;Prtry&quot; type=&quot;TARGET_RestrictedFINXMax35Text&quot;/&gt;
+            &lt;/xs:choice&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;ClearingSystemMemberIdentification2__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;ClrSysId&quot; type=&quot;ClearingSystemIdentification2Choice__1&quot;/&gt;
+            &lt;xs:element name=&quot;MmbId&quot; type=&quot;TARGET_RestrictedFINXMax35Text&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;ClearingSystemMemberIdentification2__2&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;ClrSysId&quot; type=&quot;ClearingSystemIdentification2Choice__1&quot;/&gt;
+            &lt;xs:element name=&quot;MmbId&quot; type=&quot;TARGET_RestrictedFINXMax35Text&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:simpleType name=&quot;CopyDuplicate1Code&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:enumeration value=&quot;CODU&quot;/&gt;
+            &lt;xs:enumeration value=&quot;COPY&quot;/&gt;
+            &lt;xs:enumeration value=&quot;DUPL&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:complexType name=&quot;FinancialInstitutionIdentification8__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;BICFI&quot; type=&quot;BICFIIdentifier&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;ClrSysMmbId&quot; type=&quot;ClearingSystemMemberIdentification2__1&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Othr&quot; type=&quot;GenericFinancialIdentification1__1&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;FinancialInstitutionIdentification8__2&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;BICFI&quot; type=&quot;BICFIIdentifier&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Othr&quot; type=&quot;GenericFinancialIdentification1__1&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;FinancialInstitutionIdentification8__3&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;BICFI&quot; type=&quot;BICFIIdentifier&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;ClrSysMmbId&quot; type=&quot;ClearingSystemMemberIdentification2__2&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Othr&quot; type=&quot;GenericFinancialIdentification1__1&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;GenericFinancialIdentification1__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;Id&quot; type=&quot;TARGET_RestrictedFINXMax35Text&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:simpleType name=&quot;ISONormalisedDateTime&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:dateTime&quot;&gt;
+            &lt;xs:pattern value=&quot;.*Z&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:complexType name=&quot;Party9Choice__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:choice&gt;
+                &lt;xs:element name=&quot;FIId&quot; type=&quot;BranchAndFinancialInstitutionIdentification5__1&quot;/&gt;
+            &lt;/xs:choice&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;Party9Choice__2&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:choice&gt;
+                &lt;xs:element name=&quot;FIId&quot; type=&quot;BranchAndFinancialInstitutionIdentification5__2&quot;/&gt;
+            &lt;/xs:choice&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;Party9Choice__3&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:choice&gt;
+                &lt;xs:element name=&quot;FIId&quot; type=&quot;BranchAndFinancialInstitutionIdentification5__3&quot;/&gt;
+            &lt;/xs:choice&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;SignatureEnvelope&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:any namespace=&quot;http://www.w3.org/2000/09/xmldsig#&quot; processContents=&quot;lax&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;SignatureEnvelope_CSLD&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:any namespace=&quot;http://www.w3.org/2000/09/xmldsig#&quot; processContents=&quot;strict&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:simpleType name=&quot;TARGET_Head_XMLMessageNamePattern&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:pattern value=&quot;[a-z]{4}\.[0-9]{3}\.[0-9]{3}\.[0-9]{2}|[a-z]{4}\.[0-9]{3}\.[0-9]{3}\.[0-9]{2}CORE|[a-z]{4}\.[0-9]{3}\.[0-9]{3}\.[0-9]{2}COV&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;TARGET_RestrictedFINXMax35Text&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:pattern value=&quot;[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+](|[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+]|[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+ ]{1,33}[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+])&quot;/&gt;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;
+            &lt;xs:maxLength value=&quot;35&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;YesNoIndicator&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:boolean&quot;/&gt;
+    &lt;/xs:simpleType&gt;
+&lt;/xs:schema&gt;
+</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="put"> 
+       <string>urn:iso:std:iso:20022:tech:xsd:camt.053.001.08</string> 
+       <object class="java.util.ArrayList"> 
+        <void method="add"> 
+         <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Legal Notices
+
+SWIFT SCRL@2016. All rights reserved.
+
+This schema is a component of MyStandards, the SWIFT collaborative Web application used to manage
+standards definitions and industry usage.
+
+This is a licensed product, which may only be used and distributed in accordance with MyStandards License
+Terms as specified in MyStandards Service Description and the related Terms of Use.
+
+Unless otherwise agreed in writing with SWIFT SCRL, the user has no right to:
+ - authorise external end users to use this component for other purposes than their internal use.
+ - remove, alter, cover, obfuscate or cancel from view any copyright or other proprietary rights notices appearing in this physical medium.
+ - re-sell or authorise another party e.g. software and service providers, to re-sell this component.
+
+This component is provided &apos;AS IS&apos;. SWIFT does not give and excludes any express or implied warranties
+with respect to this component such as but not limited to any guarantee as to its quality, supply or availability.
+
+Any and all rights, including title, ownership rights, copyright, trademark, patents, and any other intellectual 
+property rights of whatever nature in this component will remain the exclusive property of SWIFT or its 
+licensors.
+
+Trademarks
+SWIFT is the trade name of S.W.I.F.T. SCRL.
+The following are registered trademarks of SWIFT: the SWIFT logo, SWIFT, SWIFTNet, SWIFTReady, Accord, Sibos, 3SKey, Innotribe, the Standards Forum logo, MyStandards, and SWIFT Institute.
+Other product, service, or company names in this publication are trade names, trademarks, or registered trademarks of their respective owners.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Group: RTGS
+Collection: RTGS_BankToCustomerStatement
+Usage Guideline: camt.053_BankToCustomerStatement_camt.053.001.08
+Base Message: camt.053.001.08
+Date of publication: 01 April 2021
+URL: https://www2.swift.com/mystandards/#/mp/mx/_TGcZQEFZEei166Gk6ZGJ0A/_Gm-WsRs4EemTyYOOlfF45A
+Description: null
+Generated by the MyStandards web platform [https://www.swift.com/mystandards] on 2021-12-07T11:49:10+00:00
+--&gt;
+&lt;xs:schema xmlns=&quot;urn:iso:std:iso:20022:tech:xsd:camt.053.001.08&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; elementFormDefault=&quot;qualified&quot; targetNamespace=&quot;urn:iso:std:iso:20022:tech:xsd:camt.053.001.08&quot;&gt;
+    &lt;xs:element name=&quot;Document&quot; type=&quot;Document&quot;/&gt;
+    &lt;xs:complexType name=&quot;AccountIdentification4Choice__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:choice&gt;
+                &lt;xs:element name=&quot;Othr&quot; type=&quot;GenericAccountIdentification1__1&quot;/&gt;
+            &lt;/xs:choice&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;AccountStatement9__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;Id&quot; type=&quot;TARGET_RestrictedFINXMax35Text&quot;/&gt;
+            &lt;xs:element name=&quot;Acct&quot; type=&quot;CashAccount39__1&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;2&quot; minOccurs=&quot;2&quot; name=&quot;Bal&quot; type=&quot;CashBalance8__1&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;TxsSummry&quot; type=&quot;TotalTransactions6__1&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;Ntry&quot; type=&quot;ReportEntry10__1&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:simpleType name=&quot;ActiveCurrencyCode&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:pattern value=&quot;[A-Z]{3,3}&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:complexType name=&quot;BalanceType10Choice__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:choice&gt;
+                &lt;xs:element name=&quot;Cd&quot; type=&quot;TARGET_BalanceTypeCode&quot;/&gt;
+            &lt;/xs:choice&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;BalanceType13__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;CdOrPrtry&quot; type=&quot;BalanceType10Choice__1&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;BankToCustomerStatementV08&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;GrpHdr&quot; type=&quot;GroupHeader81__1&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;1&quot; name=&quot;Stmt&quot; type=&quot;AccountStatement9__1&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;BankTransactionCodeStructure4__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;Prtry&quot; type=&quot;ProprietaryBankTransactionCodeStructure1__1&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;BranchAndFinancialInstitutionIdentification6__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;FinInstnId&quot; type=&quot;FinancialInstitutionIdentification18__1&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;CashAccount38__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;Id&quot; type=&quot;AccountIdentification4Choice__1&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;CashAccount39__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;Id&quot; type=&quot;AccountIdentification4Choice__1&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Ownr&quot; type=&quot;PartyIdentification135__1&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;CashBalance8__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;Tp&quot; type=&quot;BalanceType13__1&quot;/&gt;
+            &lt;xs:element name=&quot;Amt&quot; type=&quot;TARGET_Max18_Max2DecimalAmount&quot;/&gt;
+            &lt;xs:element name=&quot;CdtDbtInd&quot; type=&quot;CreditDebitCode&quot;/&gt;
+            &lt;xs:element name=&quot;Dt&quot; type=&quot;DateAndDateTime2Choice__1&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:simpleType name=&quot;CreditDebitCode&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:enumeration value=&quot;CRDT&quot;/&gt;
+            &lt;xs:enumeration value=&quot;DBIT&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:complexType name=&quot;DateAndDateTime2Choice__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:choice&gt;
+                &lt;xs:element name=&quot;Dt&quot; type=&quot;ISODate&quot;/&gt;
+            &lt;/xs:choice&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;DateAndDateTime2Choice__2&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:choice&gt;
+                &lt;xs:element name=&quot;DtTm&quot; type=&quot;TARGET_DateTime&quot;/&gt;
+            &lt;/xs:choice&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;Document&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;BkToCstmrStmt&quot; type=&quot;BankToCustomerStatementV08&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;EntryDetails9__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;TxDtls&quot; type=&quot;EntryTransaction10__1&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;EntryStatus1Choice__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:choice&gt;
+                &lt;xs:element name=&quot;Cd&quot; type=&quot;ExternalEntryStatus1Code_fixed&quot;/&gt;
+            &lt;/xs:choice&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;EntryTransaction10__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;Refs&quot; type=&quot;TransactionReferences6__1&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Amt&quot; type=&quot;TARGET_Max18_Max2DecimalAmount&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;RltdPties&quot; type=&quot;TransactionParties6__1&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;RltdAgts&quot; type=&quot;TransactionAgents5__1&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;LclInstrm&quot; type=&quot;LocalInstrument2Choice__1&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;RltdDts&quot; type=&quot;TransactionDates3__1&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:simpleType name=&quot;ExternalEntryStatus1Code_fixed&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:enumeration value=&quot;BOOK&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;ExternalLocalInstrument1Code&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;
+            &lt;xs:maxLength value=&quot;35&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:complexType name=&quot;FinancialInstitutionIdentification18__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;BICFI&quot; type=&quot;TARGET_BIC11Text&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;GenericAccountIdentification1__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;Id&quot; type=&quot;TARGET_RestrictedFINXMax34Text&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;GroupHeader81__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;MsgId&quot; type=&quot;TARGET_RestrictedFINXMax35Text&quot;/&gt;
+            &lt;xs:element name=&quot;CreDtTm&quot; type=&quot;TARGET_DateTime&quot;/&gt;
+            &lt;xs:element name=&quot;MsgPgntn&quot; type=&quot;Pagination1&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:simpleType name=&quot;ISODate&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:date&quot;/&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:complexType name=&quot;LocalInstrument2Choice__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:choice&gt;
+                &lt;xs:element name=&quot;Cd&quot; type=&quot;ExternalLocalInstrument1Code&quot;/&gt;
+                &lt;xs:element name=&quot;Prtry&quot; type=&quot;TARGET_RestrictedFINXMax35Text&quot;/&gt;
+            &lt;/xs:choice&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:simpleType name=&quot;Max15NumericText&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:pattern value=&quot;[0-9]{1,15}&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;Max5NumericText&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:pattern value=&quot;[0-9]{1,5}&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:complexType name=&quot;NumberAndSumOfTransactions4__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;NbOfNtries&quot; type=&quot;Max15NumericText&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;OrganisationIdentification29__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;AnyBIC&quot; type=&quot;TARGET_BIC11Text&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;OrganisationIdentification29__2&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;AnyBIC&quot; type=&quot;TARGET_BIC11Text&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;Pagination1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;PgNb&quot; type=&quot;Max5NumericText&quot;/&gt;
+            &lt;xs:element name=&quot;LastPgInd&quot; type=&quot;YesNoIndicator&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;Party38Choice__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:choice&gt;
+                &lt;xs:element name=&quot;OrgId&quot; type=&quot;OrganisationIdentification29__1&quot;/&gt;
+            &lt;/xs:choice&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;Party38Choice__2&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:choice&gt;
+                &lt;xs:element name=&quot;OrgId&quot; type=&quot;OrganisationIdentification29__2&quot;/&gt;
+            &lt;/xs:choice&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;Party40Choice__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:choice&gt;
+                &lt;xs:element name=&quot;Pty&quot; type=&quot;PartyIdentification135__2&quot;/&gt;
+            &lt;/xs:choice&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;PartyIdentification135__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;Id&quot; type=&quot;Party38Choice__1&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;PartyIdentification135__2&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Nm&quot; type=&quot;TARGET_RestrictedFINXMax140Text_Extended&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Id&quot; type=&quot;Party38Choice__2&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;ProprietaryBankTransactionCodeStructure1__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;Cd&quot; type=&quot;TARGET_BankTransactionCode&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;ReportEntry10__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;NtryRef&quot; type=&quot;TARGET_RestrictedFINXMax35Text&quot;/&gt;
+            &lt;xs:element name=&quot;Amt&quot; type=&quot;TARGET_Max18_Max2DecimalAmount&quot;/&gt;
+            &lt;xs:element name=&quot;CdtDbtInd&quot; type=&quot;CreditDebitCode&quot;/&gt;
+            &lt;xs:element name=&quot;Sts&quot; type=&quot;EntryStatus1Choice__1&quot;/&gt;
+            &lt;xs:element name=&quot;BookgDt&quot; type=&quot;DateAndDateTime2Choice__2&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;ValDt&quot; type=&quot;DateAndDateTime2Choice__1&quot;/&gt;
+            &lt;xs:element name=&quot;BkTxCd&quot; type=&quot;BankTransactionCodeStructure4__1&quot;/&gt;
+            &lt;xs:element name=&quot;NtryDtls&quot; type=&quot;EntryDetails9__1&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:simpleType name=&quot;TARGET_BIC11Text&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:pattern value=&quot;[A-Z0-9]{4,4}[A-Z]{2,2}[A-Z0-9]{2,2}[A-Z0-9]{3,3}&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;TARGET_BalanceTypeCode&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:enumeration value=&quot;OPBD&quot;/&gt;
+            &lt;xs:enumeration value=&quot;CLBD&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;TARGET_BankTransactionCode&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:enumeration value=&quot;PMNT&quot;/&gt;
+            &lt;xs:enumeration value=&quot;LIQT&quot;/&gt;
+            &lt;xs:enumeration value=&quot;ASTI&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;TARGET_DateTime&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:dateTime&quot;&gt;
+            &lt;xs:pattern value=&quot;.*(\+|-)((0[0-9])|(1[0-3])):[0-5][0-9]&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;TARGET_Max18_Max2DecimalAmount_SimpleType&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:decimal&quot;&gt;
+            &lt;xs:fractionDigits value=&quot;2&quot;/&gt;
+            &lt;xs:totalDigits value=&quot;18&quot;/&gt;
+            &lt;xs:minInclusive value=&quot;0&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:complexType name=&quot;TARGET_Max18_Max2DecimalAmount&quot;&gt;
+        &lt;xs:simpleContent&gt;
+            &lt;xs:extension base=&quot;TARGET_Max18_Max2DecimalAmount_SimpleType&quot;&gt;
+                &lt;xs:attribute name=&quot;Ccy&quot; type=&quot;ActiveCurrencyCode&quot; use=&quot;required&quot;/&gt;
+            &lt;/xs:extension&gt;
+        &lt;/xs:simpleContent&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:simpleType name=&quot;TARGET_RestrictedFINXMax140Text_Extended&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:pattern value=&quot;[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+!#$%&amp;amp;\*=^_`\{\|\}~&amp;quot;;&amp;lt;&amp;gt;@\[\\\]](|[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+!#$%&amp;amp;\*=^_`\{\|\}~&amp;quot;;&amp;lt;&amp;gt;@\[\\\]]|[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+ !#$%&amp;amp;\*=^_`\{\|\}~&amp;quot;;&amp;lt;&amp;gt;@\[\\\]]{1,138}[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+!#$%&amp;amp;\*=^_`\{\|\}~&amp;quot;;&amp;lt;&amp;gt;@\[\\\]])&quot;/&gt;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;
+            &lt;xs:maxLength value=&quot;140&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;TARGET_RestrictedFINXMax34Text&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:pattern value=&quot;[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+](|[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+]|[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+ ]{1,32}[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+])&quot;/&gt;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;
+            &lt;xs:maxLength value=&quot;34&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;TARGET_RestrictedFINXMax35Text&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:pattern value=&quot;[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+](|[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+]|[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+ ]{1,33}[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+])&quot;/&gt;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;
+            &lt;xs:maxLength value=&quot;35&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:complexType name=&quot;TotalTransactions6__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;TtlNtries&quot; type=&quot;NumberAndSumOfTransactions4__1&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;TransactionAgents5__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;InstgAgt&quot; type=&quot;BranchAndFinancialInstitutionIdentification6__1&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;InstdAgt&quot; type=&quot;BranchAndFinancialInstitutionIdentification6__1&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;DbtrAgt&quot; type=&quot;BranchAndFinancialInstitutionIdentification6__1&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;TransactionDates3__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;IntrBkSttlmDt&quot; type=&quot;ISODate&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;TransactionParties6__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Dbtr&quot; type=&quot;Party40Choice__1&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;DbtrAcct&quot; type=&quot;CashAccount38__1&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Cdtr&quot; type=&quot;Party40Choice__1&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CdtrAcct&quot; type=&quot;CashAccount38__1&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;TransactionReferences6__1&quot;&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;InstrId&quot; type=&quot;TARGET_RestrictedFINXMax35Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;EndToEndId&quot; type=&quot;TARGET_RestrictedFINXMax35Text&quot;/&gt;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;UETR&quot; type=&quot;UUIDv4Identifier&quot;/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:simpleType name=&quot;UUIDv4Identifier&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+            &lt;xs:pattern value=&quot;[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}&quot;/&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name=&quot;YesNoIndicator&quot;&gt;
+        &lt;xs:restriction base=&quot;xs:boolean&quot;/&gt;
+    &lt;/xs:simpleType&gt;
+&lt;/xs:schema&gt;
+</string> 
+        </void> 
+       </object> 
+      </void> 
+     </object> 
+    </void> 
+    <void property="rootElementName"> 
+     <string>Envelope</string> 
+    </void> 
+    <void property="structure"> 
+     <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xsd:schema xmlns:ns2=&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.01&quot; xmlns:ns1=&quot;urn:iso:std:iso:20022:tech:xsd:camt.053.001.08&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; elementFormDefault=&quot;qualified&quot; targetNamespace=&quot;urn:swift:xsd:envelope&quot; xmlns:ns3=&quot;urn:swift:xsd:envelope&quot; &gt;
+   &lt;xsd:import namespace=&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.01&quot;/&gt;
+   &lt;xsd:import namespace=&quot;urn:iso:std:iso:20022:tech:xsd:camt.053.001.08&quot;/&gt;
+   &lt;xsd:element name=&quot;Envelope&quot; type=&quot;ns3:CustomMsg&quot;/&gt;
+   &lt;xsd:complexType name=&quot;CustomMsg&quot;&gt;
+      &lt;xsd:sequence&gt;
+         &lt;xsd:element ref=&quot;ns2:AppHdr&quot;/&gt;
+         &lt;xsd:element ref=&quot;ns1:Document&quot;/&gt;
+      &lt;/xsd:sequence&gt;
+   &lt;/xsd:complexType&gt;
+&lt;/xsd:schema&gt;
+</string> 
+    </void> 
+    <void property="targetNamespace"> 
+     <string>urn:swift:xsd:envelope</string> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="esbDefOutPort"> 
+   <object class="fiorano.esb.record.ESBRecordDefinition"> 
+    <void property="importedStructures"> 
+     <object class="java.util.Hashtable"> 
+      <void method="put"> 
+       <string>urn:swift:xsd:fin.940.2020</string> 
+       <object class="java.util.ArrayList"> 
+        <void method="add"> 
+         <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!--
+Copyright (c) SWIFT scrl, 2019.
+
+ This is a licensed product, which may only be redistributed upon agreement with SWIFT scrl.
+
+ This component is subject to the following terms of use:
+
+ This component is provided &apos;AS IS&apos;. SWIFT does not give and excludes any express or implied warranties with respect to this component such as but not limited to any guarantee as to its quality, supply or availability.
+
+ The user  has no right, or right to authorise others, to:
+	 - rent, lease, or sell this component;
+	 - display publicly, distribute or otherwise provide this component;
+	 - remove, alter, cover, obfuscate or cancel from view any copyright or other proprietary rights notices, marks or legends appearing in this physical medium.
+
+Any and all rights, including title, ownership rights, copyright, trademark, patents, and any other intellectual property rights of whatever nature in this component will remain the exclusive property of SWIFT or its licensors. 
+--&gt;
+&lt;!--Generated by Standards Editor (build:R1.7.0.44) on 2020 Apr 17 01:51:56--&gt;
+&lt;xs:schema xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:info=&quot;urn:swift:xsd:appInfo&quot; xmlns=&quot;urn:swift:xsd:fin.940.2020&quot; targetNamespace=&quot;urn:swift:xsd:fin.940.2020&quot; elementFormDefault=&quot;qualified&quot;&gt;
+	&lt;xs:element name=&quot;Document&quot; type=&quot;Document&quot;/&gt;
+	&lt;xs:complexType name=&quot;MTMessage&quot; abstract=&quot;true&quot;/&gt;
+	&lt;xs:complexType name=&quot;ISO15022Message&quot; abstract=&quot;true&quot;/&gt;
+	&lt;xs:complexType name=&quot;SystemMessage&quot; abstract=&quot;true&quot;/&gt;
+	&lt;xs:complexType name=&quot;Sequence&quot; abstract=&quot;true&quot;/&gt;
+	&lt;xs:complexType name=&quot;Choice&quot; abstract=&quot;true&quot;/&gt;
+	&lt;xs:complexType name=&quot;MTField&quot; abstract=&quot;true&quot;/&gt;
+	&lt;xs:complexType name=&quot;ISO15022Field&quot; abstract=&quot;true&quot;/&gt;
+	&lt;xs:complexType name=&quot;Xor&quot; abstract=&quot;true&quot;/&gt;
+	&lt;xs:complexType name=&quot;Qualifier&quot; abstract=&quot;true&quot;/&gt;
+	&lt;xs:complexType name=&quot;FieldOption&quot; abstract=&quot;true&quot;/&gt;
+	&lt;xs:complexType name=&quot;ComplexDataType&quot; abstract=&quot;true&quot;/&gt;
+	&lt;xs:complexType name=&quot;ChoiceDataType&quot; abstract=&quot;true&quot;/&gt;
+	&lt;xs:complexType name=&quot;Document&quot;&gt;
+		&lt;xs:sequence&gt;
+			&lt;xs:element name=&quot;MT940&quot; type=&quot;MT940_Type&quot;/&gt;
+		&lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;MT940_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;MTMessage&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name=&quot;F20a&quot; type=&quot;MT940_F20a_Type&quot;/&gt;
+					&lt;xs:element name=&quot;F21a&quot; type=&quot;MT940_F21a_Type&quot; minOccurs=&quot;0&quot;/&gt;
+					&lt;xs:element name=&quot;F25a&quot; type=&quot;MT940_F25a_Type&quot;/&gt;
+					&lt;xs:element name=&quot;F28a&quot; type=&quot;MT940_F28a_Type&quot;/&gt;
+					&lt;xs:element name=&quot;F60a&quot; type=&quot;MT940_F60a_Type&quot;/&gt;
+					&lt;xs:element name=&quot;Loop1&quot; type=&quot;Loop1_Type&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;/&gt;
+					&lt;xs:element name=&quot;F62a&quot; type=&quot;MT940_F62a_Type&quot;/&gt;
+					&lt;xs:element name=&quot;F64a&quot; type=&quot;MT940_F64a_Type&quot; minOccurs=&quot;0&quot;/&gt;
+					&lt;xs:element name=&quot;F65a&quot; type=&quot;MT940_F65a_Type&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;/&gt;
+					&lt;xs:element name=&quot;F86a&quot; type=&quot;MT940_F86a_Type&quot; minOccurs=&quot;0&quot;/&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;MT940_F20a_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;MTField&quot;&gt;
+				&lt;xs:choice&gt;
+					&lt;xs:element name=&quot;F20&quot; type=&quot;F20_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;20&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+				&lt;/xs:choice&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;MT940_F21a_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;MTField&quot;&gt;
+				&lt;xs:choice&gt;
+					&lt;xs:element name=&quot;F21&quot; type=&quot;F21_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;21&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+				&lt;/xs:choice&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;MT940_F25a_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;MTField&quot;&gt;
+				&lt;xs:choice&gt;
+					&lt;xs:element name=&quot;F25&quot; type=&quot;F25_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;25&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element name=&quot;F25P&quot; type=&quot;F25P_1_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;25P&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+				&lt;/xs:choice&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;MT940_F28a_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;MTField&quot;&gt;
+				&lt;xs:choice&gt;
+					&lt;xs:element name=&quot;F28C&quot; type=&quot;F28C_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;28C&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+				&lt;/xs:choice&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;MT940_F60a_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;MTField&quot;&gt;
+				&lt;xs:choice&gt;
+					&lt;xs:element name=&quot;F60F&quot; type=&quot;F60F_7_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;60F&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element name=&quot;F60M&quot; type=&quot;F60M_6_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;60M&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+				&lt;/xs:choice&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;Loop1_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;Sequence&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name=&quot;F61a&quot; type=&quot;Loop1_F61a_Type&quot; minOccurs=&quot;0&quot;/&gt;
+					&lt;xs:element name=&quot;F86a&quot; type=&quot;Loop1_F86a_Type&quot; minOccurs=&quot;0&quot;/&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;MT940_F62a_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;MTField&quot;&gt;
+				&lt;xs:choice&gt;
+					&lt;xs:element name=&quot;F62F&quot; type=&quot;F62F_8_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;62F&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element name=&quot;F62M&quot; type=&quot;F62M_6_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;62M&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+				&lt;/xs:choice&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;MT940_F64a_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;MTField&quot;&gt;
+				&lt;xs:choice&gt;
+					&lt;xs:element name=&quot;F64&quot; type=&quot;F64_6_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;64&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+				&lt;/xs:choice&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;MT940_F65a_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;MTField&quot;&gt;
+				&lt;xs:choice&gt;
+					&lt;xs:element name=&quot;F65&quot; type=&quot;F65_6_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;65&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+				&lt;/xs:choice&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;MT940_F86a_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;MTField&quot;&gt;
+				&lt;xs:choice&gt;
+					&lt;xs:element name=&quot;F86&quot; type=&quot;F86_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;86&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+				&lt;/xs:choice&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:simpleType name=&quot;F20_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_FIN_16x_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;F21_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_FIN_16x_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;F25_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_FIN_35x_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:complexType name=&quot;F25P_1_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;FieldOption&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name=&quot;Account&quot; type=&quot;Text_FIN_35x_Type&quot;/&gt;
+					&lt;xs:element name=&quot;IdentifierCode&quot; type=&quot;Identifier_BICFIOrNonFI_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:SepPrefix value=&quot;&amp;#x0d;&amp;#x0a;&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;F28C_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;FieldOption&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name=&quot;StatementNumber&quot; type=&quot;Quantity_FIN_5n_Type&quot;/&gt;
+					&lt;xs:element name=&quot;SequenceNumber&quot; type=&quot;Quantity_FIN_5n_Type&quot; minOccurs=&quot;0&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:SepPrefix value=&quot;/&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;F60F_7_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;FieldOption&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name=&quot;DCMark&quot; type=&quot;Code_1Ea_62_Type&quot;/&gt;
+					&lt;xs:element name=&quot;Date&quot; type=&quot;DateTime_YYMMDD_Type&quot;/&gt;
+					&lt;xs:element name=&quot;Currency&quot; type=&quot;Currency_Type&quot;/&gt;
+					&lt;xs:element name=&quot;Amount&quot; type=&quot;Amount_FIN_15d_Type&quot;/&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;F60M_6_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;FieldOption&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name=&quot;DCMark&quot; type=&quot;Code_1Ea_62_Type&quot;/&gt;
+					&lt;xs:element name=&quot;Date&quot; type=&quot;DateTime_YYMMDD_Type&quot;/&gt;
+					&lt;xs:element name=&quot;Currency&quot; type=&quot;Currency_Type&quot;/&gt;
+					&lt;xs:element name=&quot;Amount&quot; type=&quot;Amount_FIN_15d_Type&quot;/&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;Loop1_F61a_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;MTField&quot;&gt;
+				&lt;xs:choice&gt;
+					&lt;xs:element name=&quot;F61&quot; type=&quot;F61_12_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;61&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+				&lt;/xs:choice&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;Loop1_F86a_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;MTField&quot;&gt;
+				&lt;xs:choice&gt;
+					&lt;xs:element name=&quot;F86&quot; type=&quot;F86_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;86&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+				&lt;/xs:choice&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;F62F_8_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;FieldOption&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name=&quot;DCMark&quot; type=&quot;Code_1Ea_63_Type&quot;/&gt;
+					&lt;xs:element name=&quot;Date&quot; type=&quot;DateTime_YYMMDD_Type&quot;/&gt;
+					&lt;xs:element name=&quot;Currency&quot; type=&quot;Currency_Type&quot;/&gt;
+					&lt;xs:element name=&quot;Amount&quot; type=&quot;Amount_FIN_15d_Type&quot;/&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;F62M_6_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;FieldOption&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name=&quot;DCMark&quot; type=&quot;Code_1Ea_63_Type&quot;/&gt;
+					&lt;xs:element name=&quot;Date&quot; type=&quot;DateTime_YYMMDD_Type&quot;/&gt;
+					&lt;xs:element name=&quot;Currency&quot; type=&quot;Currency_Type&quot;/&gt;
+					&lt;xs:element name=&quot;Amount&quot; type=&quot;Amount_FIN_15d_Type&quot;/&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;F64_6_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;FieldOption&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name=&quot;DCMark&quot; type=&quot;Code_1Ea_64_Type&quot;/&gt;
+					&lt;xs:element name=&quot;Date&quot; type=&quot;DateTime_YYMMDD_Type&quot;/&gt;
+					&lt;xs:element name=&quot;Currency&quot; type=&quot;Currency_Type&quot;/&gt;
+					&lt;xs:element name=&quot;Amount&quot; type=&quot;Amount_FIN_15d_Type&quot;/&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;F65_6_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;FieldOption&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name=&quot;DCMark&quot; type=&quot;Code_1Ea_65_Type&quot;/&gt;
+					&lt;xs:element name=&quot;Date&quot; type=&quot;DateTime_YYMMDD_Type&quot;/&gt;
+					&lt;xs:element name=&quot;Currency&quot; type=&quot;Currency_Type&quot;/&gt;
+					&lt;xs:element name=&quot;Amount&quot; type=&quot;Amount_FIN_15d_Type&quot;/&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;F86_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;FieldOption&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name=&quot;Narrative&quot; type=&quot;Text_FIN_6M65x_Type&quot;/&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:simpleType name=&quot;Text_FIN_16x_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Text&quot;/&gt;
+				&lt;info:FinFormat value=&quot;16x&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;1&quot;/&gt;
+			&lt;xs:maxLength value=&quot;16&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9a-zA-Z/\-\?:\(\)\.,&amp;apos;\+ ]{1,16}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Text_FIN_35x_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Text&quot;/&gt;
+				&lt;info:FinFormat value=&quot;35x&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;1&quot;/&gt;
+			&lt;xs:maxLength value=&quot;35&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9a-zA-Z/\-\?:\(\)\.,&amp;apos;\+ ]{1,35}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Identifier_BICFIOrNonFI_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Identifier&quot;/&gt;
+				&lt;info:FinFormat value=&quot;4!a2!a2!c[3!c]&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;8&quot;/&gt;
+			&lt;xs:maxLength value=&quot;11&quot;/&gt;
+			&lt;xs:pattern value=&quot;[A-Z]{4}[A-Z]{2}[0-9A-Z]{2}([0-9A-Z]{3})?&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Quantity_FIN_5n_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Quantity&quot;/&gt;
+				&lt;info:FinFormat value=&quot;5n&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;1&quot;/&gt;
+			&lt;xs:maxLength value=&quot;5&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9]{1,5}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Code_1Ea_62_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_1Ea_Type&quot;&gt;
+			&lt;xs:enumeration value=&quot;C&quot;/&gt;
+			&lt;xs:enumeration value=&quot;D&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;DateTime_YYMMDD_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;DateTime&quot;/&gt;
+				&lt;info:FinFormat value=&quot;YYMMDD&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;6&quot;/&gt;
+			&lt;xs:maxLength value=&quot;6&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9]{6}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Currency_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_3Ea_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Amount_FIN_15d_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Amount&quot;/&gt;
+				&lt;info:FinFormat value=&quot;15d&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;2&quot;/&gt;
+			&lt;xs:maxLength value=&quot;15&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9]+,[0-9]*&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:complexType name=&quot;F61_12_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;FieldOption&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name=&quot;ValueDate&quot; type=&quot;DateTime_YYMMDD_Type&quot;/&gt;
+					&lt;xs:element name=&quot;EntryDate&quot; type=&quot;DateTime_MMDD_1_Type&quot; minOccurs=&quot;0&quot;/&gt;
+					&lt;xs:element name=&quot;DebitCreditMark&quot; type=&quot;Code_2a_5_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:LookAheadPattern value=&quot;([A-Z])?&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element name=&quot;FundsCode&quot; type=&quot;Text_FIN_1Ea_Type&quot; minOccurs=&quot;0&quot;/&gt;
+					&lt;xs:element name=&quot;Amount&quot; type=&quot;Quantity_FIN_15d_Type&quot;/&gt;
+					&lt;xs:element name=&quot;TransactionType&quot; type=&quot;Code_1Ea_52_Type&quot;/&gt;
+					&lt;xs:element name=&quot;IdentificationCode&quot; type=&quot;Text_FIN_3Ec_Type&quot;/&gt;
+					&lt;xs:element name=&quot;ReferenceForTheAccountOwner&quot; type=&quot;Text_FIN_16x_noDoubleSlash_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:LookAheadPattern value=&quot;(//[0-9a-zA-Z/\-\?:\(\)\.,&amp;apos;\+ ]{1,16})?(&amp;#x0d;&amp;#x0a;[0-9a-zA-Z/\-\?:\(\)\.,&amp;apos;\+ ]{1,34})?$&quot;/&gt;
+								&lt;info:MatchUntilPattern value=&quot;//|&amp;#x0d;&amp;#x0a;|$&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element name=&quot;ReferenceOfTheAccountServicingInstitution&quot; type=&quot;Text_FIN_16x_Type&quot; minOccurs=&quot;0&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:SepPrefix value=&quot;//&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element name=&quot;SupplementaryDetails&quot; type=&quot;Text_FIN_34x_Type&quot; minOccurs=&quot;0&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:SepPrefix value=&quot;&amp;#x0d;&amp;#x0a;&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:simpleType name=&quot;Code_1Ea_63_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_1Ea_Type&quot;&gt;
+			&lt;xs:enumeration value=&quot;C&quot;/&gt;
+			&lt;xs:enumeration value=&quot;D&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Code_1Ea_64_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_1Ea_Type&quot;&gt;
+			&lt;xs:enumeration value=&quot;C&quot;/&gt;
+			&lt;xs:enumeration value=&quot;D&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Code_1Ea_65_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_1Ea_Type&quot;&gt;
+			&lt;xs:enumeration value=&quot;C&quot;/&gt;
+			&lt;xs:enumeration value=&quot;D&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:complexType name=&quot;Text_FIN_6M65x_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;ComplexDataType&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:annotation&gt;
+						&lt;xs:appinfo&gt;
+							&lt;info:Separator value=&quot;&amp;#x0d;&amp;#x0a;&quot;/&gt;
+						&lt;/xs:appinfo&gt;
+					&lt;/xs:annotation&gt;
+					&lt;xs:element name=&quot;Line&quot; type=&quot;Text_FIN_65x_Type&quot; maxOccurs=&quot;6&quot;/&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:simpleType name=&quot;Text_1Ea_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Code&quot;/&gt;
+				&lt;info:FinFormat value=&quot;1!a&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;1&quot;/&gt;
+			&lt;xs:maxLength value=&quot;1&quot;/&gt;
+			&lt;xs:pattern value=&quot;[A-Z]&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Text_3Ea_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Code&quot;/&gt;
+				&lt;info:FinFormat value=&quot;3!a&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;3&quot;/&gt;
+			&lt;xs:maxLength value=&quot;3&quot;/&gt;
+			&lt;xs:pattern value=&quot;[A-Z]{3}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;DateTime_MMDD_1_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;DateTime&quot;/&gt;
+				&lt;info:FinFormat value=&quot;MMDD&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;4&quot;/&gt;
+			&lt;xs:maxLength value=&quot;4&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9]{4}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Code_2a_5_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_2a_Type&quot;&gt;
+			&lt;xs:enumeration value=&quot;C&quot;/&gt;
+			&lt;xs:enumeration value=&quot;D&quot;/&gt;
+			&lt;xs:enumeration value=&quot;RC&quot;/&gt;
+			&lt;xs:enumeration value=&quot;RD&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Text_FIN_1Ea_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Text&quot;/&gt;
+				&lt;info:FinFormat value=&quot;1!a&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;1&quot;/&gt;
+			&lt;xs:maxLength value=&quot;1&quot;/&gt;
+			&lt;xs:pattern value=&quot;[A-Z]&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Quantity_FIN_15d_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Quantity&quot;/&gt;
+				&lt;info:FinFormat value=&quot;15d&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;2&quot;/&gt;
+			&lt;xs:maxLength value=&quot;15&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9]+,[0-9]*&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Code_1Ea_52_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_1Ea_Type&quot;&gt;
+			&lt;xs:enumeration value=&quot;S&quot;/&gt;
+			&lt;xs:enumeration value=&quot;N&quot;/&gt;
+			&lt;xs:enumeration value=&quot;F&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Text_FIN_3Ec_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Text&quot;/&gt;
+				&lt;info:FinFormat value=&quot;3!c&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;3&quot;/&gt;
+			&lt;xs:maxLength value=&quot;3&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9A-Z]{3}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Text_FIN_16x_noDoubleSlash_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Text&quot;/&gt;
+				&lt;info:FinFormat value=&quot;16x&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;1&quot;/&gt;
+			&lt;xs:maxLength value=&quot;16&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9a-zA-Z\-\?:\(\)\.,&amp;apos;\+ ]{0,16}(/[0-9a-zA-Z\-\?:\(\)\.,&amp;apos;\+ ]{1,14}){0,7}(/)?[0-9a-zA-Z\-\?:\(\)\.,&amp;apos;\+ ]{0,15}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Text_FIN_34x_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Text&quot;/&gt;
+				&lt;info:FinFormat value=&quot;34x&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;1&quot;/&gt;
+			&lt;xs:maxLength value=&quot;34&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9a-zA-Z/\-\?:\(\)\.,&amp;apos;\+ ]{1,34}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Text_FIN_65x_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Text&quot;/&gt;
+				&lt;info:FinFormat value=&quot;65x&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;1&quot;/&gt;
+			&lt;xs:maxLength value=&quot;65&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9a-zA-Z/\-\?:\(\)\.,&amp;apos;\+ ]{1,65}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Text_2a_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Code&quot;/&gt;
+				&lt;info:FinFormat value=&quot;2a&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;1&quot;/&gt;
+			&lt;xs:maxLength value=&quot;2&quot;/&gt;
+			&lt;xs:pattern value=&quot;[A-Z]{1,2}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+&lt;/xs:schema&gt;
+</string> 
+        </void> 
+       </object> 
+      </void> 
+     </object> 
+    </void> 
+    <void property="rootElementName"> 
+     <string>FinMessage</string> 
+    </void> 
+    <void property="structure"> 
+     <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;!--
+Copyright (c) SWIFT scrl, 2019.
+
+ This is a licensed product, which may only be redistributed upon agreement with SWIFT scrl.
+
+ This component is subject to the following terms of use:
+
+ This component is provided &apos;AS IS&apos;. SWIFT does not give and excludes any express or implied warranties with respect to this component such as but not limited to any guarantee as to its quality, supply or availability.
+
+ The user  has no right, or right to authorise others, to:
+	 - rent, lease, or sell this component;
+	 - display publicly, distribute or otherwise provide this component;
+	 - remove, alter, cover, obfuscate or cancel from view any copyright or other proprietary rights notices, marks or legends appearing in this physical medium.
+
+Any and all rights, including title, ownership rights, copyright, trademark, patents, and any other intellectual property rights of whatever nature in this component will remain the exclusive property of SWIFT or its licensors. 
+--&gt;&lt;!--Generated by Standards Editor (build:R1.7.0.44) on 2020 Apr 17 01:51:56--&gt;&lt;xs:schema xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns=&quot;urn:swift:xsd:mtmsg.2020&quot; xmlns:ns1=&quot;urn:swift:xsd:fin.940.2020&quot; xmlns:info=&quot;urn:swift:xsd:appInfo&quot; elementFormDefault=&quot;qualified&quot; targetNamespace=&quot;urn:swift:xsd:mtmsg.2020&quot;&gt;&lt;import xmlns=&quot;http://www.w3.org/2001/XMLSchema&quot; namespace=&quot;urn:swift:xsd:fin.940.2020&quot;/&gt;
+	&lt;xs:complexType abstract=&quot;true&quot; name=&quot;FullMessage&quot;/&gt;
+	&lt;xs:complexType abstract=&quot;true&quot; name=&quot;Block&quot;/&gt;
+	&lt;xs:complexType abstract=&quot;true&quot; name=&quot;BlockWithSubBlocks&quot;/&gt;
+	&lt;xs:complexType abstract=&quot;true&quot; name=&quot;FieldOption&quot;/&gt;
+	&lt;xs:complexType abstract=&quot;true&quot; name=&quot;ComplexDataType&quot;/&gt;
+	&lt;xs:complexType abstract=&quot;true&quot; name=&quot;ChoiceDataType&quot;/&gt;
+	&lt;xs:element name=&quot;FinMessage&quot; type=&quot;FinMessage_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MessageApplication value=&quot;fin&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+	&lt;/xs:element&gt;
+	&lt;xs:complexType name=&quot;FinMessage_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;FullMessage&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name=&quot;Block1&quot; type=&quot;Block1Fin_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:MatchContent value=&quot;true&quot;/&gt;
+								&lt;info:Tag value=&quot;1&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element name=&quot;Block2&quot; type=&quot;Block2Fin_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;2&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;Block3&quot; type=&quot;Block3_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;3&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;Block4&quot; type=&quot;Block4_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;4&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;Block5&quot; type=&quot;Block5_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;5&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;Block1Fin_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;Block&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name=&quot;ApplicationIdentifier&quot; type=&quot;ApplicationIdentifierFin_Type&quot;/&gt;
+					&lt;xs:element name=&quot;ServiceIdentifier&quot; type=&quot;ServiceIdentifier_Type&quot;/&gt;
+					&lt;xs:element name=&quot;LogicalTerminalAddress&quot; type=&quot;LogicalTerminalAddress_Type&quot;/&gt;
+					&lt;xs:element name=&quot;SessionNumber&quot; type=&quot;SessionNumber_Type&quot;/&gt;
+					&lt;xs:element name=&quot;SequenceNumber&quot; type=&quot;SequenceNumber_Type&quot;/&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;Block2Fin_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;Block&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:choice&gt;
+						&lt;xs:sequence&gt;
+							&lt;xs:element name=&quot;InputIdentifier&quot; type=&quot;InputIdentifier_Type&quot;/&gt;
+							&lt;xs:element name=&quot;MessageType&quot; type=&quot;MessageType_Type&quot;&gt;
+								&lt;xs:annotation&gt;
+									&lt;xs:appinfo&gt;
+										&lt;info:MessageType value=&quot;true&quot;/&gt;
+									&lt;/xs:appinfo&gt;
+								&lt;/xs:annotation&gt;
+							&lt;/xs:element&gt;
+							&lt;xs:element name=&quot;DestinationAddress&quot; type=&quot;DestinationAddress_Type&quot;/&gt;
+							&lt;xs:element name=&quot;MessagePriority&quot; type=&quot;MessagePriority_Type&quot;/&gt;
+							&lt;xs:element minOccurs=&quot;0&quot; name=&quot;DeliveryMonitoring&quot; type=&quot;DeliveryMonitoring_Type&quot;/&gt;
+							&lt;xs:element minOccurs=&quot;0&quot; name=&quot;ObsolescencePeriod&quot; type=&quot;ObsolescencePeriod_Type&quot;/&gt;
+						&lt;/xs:sequence&gt;
+						&lt;xs:sequence&gt;
+							&lt;xs:element name=&quot;OutputIdentifier&quot; type=&quot;OutputIdentifier_Type&quot;/&gt;
+							&lt;xs:element name=&quot;MessageType&quot; type=&quot;MessageType_Type&quot;&gt;
+								&lt;xs:annotation&gt;
+									&lt;xs:appinfo&gt;
+										&lt;info:MessageType value=&quot;true&quot;/&gt;
+									&lt;/xs:appinfo&gt;
+								&lt;/xs:annotation&gt;
+							&lt;/xs:element&gt;
+							&lt;xs:element name=&quot;InputTime&quot; type=&quot;InputTime_Type&quot;/&gt;
+							&lt;xs:element name=&quot;MessageInputReference&quot; type=&quot;MessageInputReference_Type&quot;/&gt;
+							&lt;xs:element name=&quot;Date&quot; type=&quot;Date_Type&quot;/&gt;
+							&lt;xs:element name=&quot;Time&quot; type=&quot;Time_Type&quot;/&gt;
+							&lt;xs:element name=&quot;MessagePriority&quot; type=&quot;MessagePriority_Type&quot;/&gt;
+						&lt;/xs:sequence&gt;
+					&lt;/xs:choice&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;Block3_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;BlockWithSubBlocks&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;F103&quot; type=&quot;F103_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;103&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;F113&quot; type=&quot;F113_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;113&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;F108&quot; type=&quot;F108_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;108&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;F119&quot; type=&quot;F119_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:MessageVariant value=&quot;102.STP,103.REMIT,103.STP,202.COV,205.COV&quot;/&gt;
+								&lt;info:Tag value=&quot;119&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;F423&quot; type=&quot;F423_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;423&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;F106&quot; type=&quot;F106_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;106&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;F424&quot; type=&quot;F424_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;424&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;F111&quot; type=&quot;ServiceTypeIdentifier_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;111&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;F121&quot; type=&quot;UniqueEndToEndTransactionReference_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:MandatoryMessageType value=&quot;103,103.REMIT,103.STP,202.COV,205.COV,202,205&quot;/&gt;
+								&lt;info:Tag value=&quot;121&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;F115&quot; type=&quot;F115_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;115&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;F165&quot; type=&quot;F165_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;165&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;F433&quot; type=&quot;F433_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;433&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;F434&quot; type=&quot;F434_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;434&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;Block4_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;BlockWithSubBlocks&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;element xmlns=&quot;http://www.w3.org/2001/XMLSchema&quot; ref=&quot;ns1:Document&quot;/&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;Block5_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;BlockWithSubBlocks&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;PAC&quot; type=&quot;PAC_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;PAC&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;CHK&quot; type=&quot;CHK_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;CHK&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;SYS&quot; type=&quot;SYS_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;SYS&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;TNG&quot; type=&quot;TNG_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;TNG&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;PDE&quot; type=&quot;PDE_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;PDE&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:choice maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot;&gt;
+						&lt;xs:element name=&quot;DLM&quot; type=&quot;DLM_Type&quot;&gt;
+							&lt;xs:annotation&gt;
+								&lt;xs:appinfo&gt;
+									&lt;info:Tag value=&quot;DLM&quot;/&gt;
+								&lt;/xs:appinfo&gt;
+							&lt;/xs:annotation&gt;
+						&lt;/xs:element&gt;
+						&lt;xs:element name=&quot;PDM&quot; type=&quot;PDM_Type&quot;&gt;
+							&lt;xs:annotation&gt;
+								&lt;xs:appinfo&gt;
+									&lt;info:Tag value=&quot;PDM&quot;/&gt;
+								&lt;/xs:appinfo&gt;
+							&lt;/xs:annotation&gt;
+						&lt;/xs:element&gt;
+						&lt;xs:element name=&quot;MRF&quot; type=&quot;MRF_Type&quot;&gt;
+							&lt;xs:annotation&gt;
+								&lt;xs:appinfo&gt;
+									&lt;info:Tag value=&quot;MRF&quot;/&gt;
+								&lt;/xs:appinfo&gt;
+							&lt;/xs:annotation&gt;
+						&lt;/xs:element&gt;
+					&lt;/xs:choice&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:simpleType name=&quot;ApplicationIdentifierFin_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Code_1Ea_15_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;ServiceIdentifier_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Code_2En_1_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;LogicalTerminalAddress_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Identifier_SWIFTAddress_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;SessionNumber_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Identifier_FIN_4En_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;SequenceNumber_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Identifier_FIN_6En_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;InputIdentifier_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Code_1Ea_16_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;MessageType_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Identifier_FIN_3En_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;DestinationAddress_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Identifier_ReceiverAddress_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;MessagePriority_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Code_1Ea_14_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;DeliveryMonitoring_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Code_1En_3_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;ObsolescencePeriod_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_FIN_3En_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;OutputIdentifier_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Code_1Ea_17_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;InputTime_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;DateTime_HHMM_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:complexType name=&quot;MessageInputReference_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;FieldOption&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name=&quot;Date&quot; type=&quot;DateTime_YYMMDD_Type&quot;/&gt;
+					&lt;xs:element name=&quot;LTIdentifier&quot; type=&quot;Identifier_LTIdentifier_Type&quot;/&gt;
+					&lt;xs:element name=&quot;BranchCode&quot; type=&quot;Identifier_FIN_3Ec_Type&quot;/&gt;
+					&lt;xs:element name=&quot;SessionNumber&quot; type=&quot;Identifier_FIN_4En_Type&quot;/&gt;
+					&lt;xs:element name=&quot;ISN&quot; type=&quot;Identifier_FIN_6En_Type&quot;/&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:simpleType name=&quot;Date_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;DateTime_YYMMDD_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Time_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;DateTime_HHMM_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;F103_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Identifier_FIN_3Ea_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;F113_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_FIN_4Ex_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;F108_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_FIN_16x_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;F119_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_FIN_8c_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:complexType name=&quot;F423_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;FieldOption&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name=&quot;Date&quot; type=&quot;DateTime_YYMMDD_Type&quot;/&gt;
+					&lt;xs:element name=&quot;Time&quot; type=&quot;DateTime_HHMMSS_Type&quot;/&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;HundredthsOfASecond&quot; type=&quot;Text_FIN_2En_Type&quot;/&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;F106_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;FieldOption&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name=&quot;Date&quot; type=&quot;DateTime_YYMMDD_Type&quot;/&gt;
+					&lt;xs:element name=&quot;LogicalTerminalIdentifier&quot; type=&quot;Identifier_LTIdentifier_Type&quot;/&gt;
+					&lt;xs:element name=&quot;BranchCode&quot; type=&quot;Text_FIN_3Ec_Type&quot;/&gt;
+					&lt;xs:element name=&quot;SessionNumber&quot; type=&quot;Identifier_FIN_4En_Type&quot;/&gt;
+					&lt;xs:element name=&quot;InputSequenceNumber&quot; type=&quot;Identifier_FIN_6En_Type&quot;/&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:simpleType name=&quot;F424_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_FIN_16x_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;ServiceTypeIdentifier_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_FIN_3En_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;UniqueEndToEndTransactionReference_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_FIN_36Ex_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;F115_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_FIN_32x_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:complexType name=&quot;F165_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;FieldOption&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name=&quot;ServiceCode&quot; type=&quot;Text_FIN_3Ec_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:SepPrefix value=&quot;/&quot;/&gt;
+								&lt;info:SepSuffix value=&quot;/&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element name=&quot;PaymentReleaseInformationReceiver&quot; type=&quot;Text_FIN_34x_Type&quot;/&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;F433_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;FieldOption&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name=&quot;CodeWord&quot; type=&quot;Text_FIN_3Ea_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:SepPrefix value=&quot;/&quot;/&gt;
+								&lt;info:SepSuffix value=&quot;/&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;AdditionalInformation&quot; type=&quot;Text_20x_Type&quot;/&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;F434_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;FieldOption&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name=&quot;CodeWord&quot; type=&quot;Text_FIN_3Ea_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:SepPrefix value=&quot;/&quot;/&gt;
+								&lt;info:SepSuffix value=&quot;/&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;AdditionalInformation&quot; type=&quot;Text_20x_Type&quot;/&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:simpleType name=&quot;PAC_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;NULL_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;CHK_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_FIN_12Eh_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:complexType name=&quot;SYS_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;FieldOption&quot;&gt;
+				&lt;xs:sequence minOccurs=&quot;0&quot;&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;Time&quot; type=&quot;DateTime_HHMM_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:LookAheadPattern value=&quot;[0-9A-Z]{28}&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element name=&quot;MIR&quot; type=&quot;MIR_Type&quot;/&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:simpleType name=&quot;TNG_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;NULL_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:complexType name=&quot;PDE_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;FieldOption&quot;&gt;
+				&lt;xs:sequence minOccurs=&quot;0&quot;&gt;
+					&lt;xs:element name=&quot;Time&quot; type=&quot;DateTime_HHMM_Type&quot;/&gt;
+					&lt;xs:element name=&quot;MIR&quot; type=&quot;MIR_Type&quot;/&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:simpleType name=&quot;DLM_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;NULL_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:complexType name=&quot;PDM_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;FieldOption&quot;&gt;
+				&lt;xs:sequence minOccurs=&quot;0&quot;&gt;
+					&lt;xs:element name=&quot;Time&quot; type=&quot;DateTime_HHMM_Type&quot;/&gt;
+					&lt;xs:element name=&quot;MOR&quot; type=&quot;MOR_Type&quot;/&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;MRF_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;FieldOption&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name=&quot;Date&quot; type=&quot;DateTime_YYMMDD_Type&quot;/&gt;
+					&lt;xs:element name=&quot;FullTime&quot; type=&quot;DateTime_HHMMSS_Type&quot;/&gt;
+					&lt;xs:element name=&quot;MIR&quot; type=&quot;MIR_Type&quot;/&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:simpleType name=&quot;Code_1Ea_15_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_1Ea_Type&quot;&gt;
+			&lt;xs:enumeration value=&quot;F&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Code_2En_1_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_2En_Type&quot;&gt;
+			&lt;xs:enumeration value=&quot;01&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Identifier_SWIFTAddress_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Identifier&quot;/&gt;
+				&lt;info:FinFormat value=&quot;4!a2!a2!c1!c3!c&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;12&quot;/&gt;
+			&lt;xs:maxLength value=&quot;12&quot;/&gt;
+			&lt;xs:pattern value=&quot;[A-Z]{4}[A-Z]{2}[0-9A-Z]{2}[0-9A-Z][0-9A-Z]{3}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Identifier_FIN_4En_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Identifier&quot;/&gt;
+				&lt;info:FinFormat value=&quot;4!n&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;4&quot;/&gt;
+			&lt;xs:maxLength value=&quot;4&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9]{4}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Identifier_FIN_6En_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Identifier&quot;/&gt;
+				&lt;info:FinFormat value=&quot;6!n&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;6&quot;/&gt;
+			&lt;xs:maxLength value=&quot;6&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9]{6}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Code_1Ea_16_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_1Ea_1_Type&quot;&gt;
+			&lt;xs:enumeration value=&quot;I&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Identifier_FIN_3En_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Identifier&quot;/&gt;
+				&lt;info:FinFormat value=&quot;3!n&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;3&quot;/&gt;
+			&lt;xs:maxLength value=&quot;3&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9]{3}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Identifier_ReceiverAddress_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Identifier&quot;/&gt;
+				&lt;info:FinFormat value=&quot;4!a2!a2!cX3!c&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;12&quot;/&gt;
+			&lt;xs:maxLength value=&quot;12&quot;/&gt;
+			&lt;xs:pattern value=&quot;[A-Z]{4}[A-Z]{2}[0-9A-Z]{2}X[0-9A-Z]{3}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Code_1Ea_14_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_1Ea_1_Type&quot;&gt;
+			&lt;xs:enumeration value=&quot;S&quot;/&gt;
+			&lt;xs:enumeration value=&quot;U&quot;/&gt;
+			&lt;xs:enumeration value=&quot;N&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Code_1En_3_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_1En_Type&quot;&gt;
+			&lt;xs:enumeration value=&quot;1&quot;/&gt;
+			&lt;xs:enumeration value=&quot;2&quot;/&gt;
+			&lt;xs:enumeration value=&quot;3&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Text_FIN_3En_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Text&quot;/&gt;
+				&lt;info:FinFormat value=&quot;3!n&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;3&quot;/&gt;
+			&lt;xs:maxLength value=&quot;3&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9]{3}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Code_1Ea_17_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_1Ea_1_Type&quot;&gt;
+			&lt;xs:enumeration value=&quot;O&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;DateTime_HHMM_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;DateTime&quot;/&gt;
+				&lt;info:FinFormat value=&quot;HHMM&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;4&quot;/&gt;
+			&lt;xs:maxLength value=&quot;4&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9]{4}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;DateTime_YYMMDD_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;DateTime&quot;/&gt;
+				&lt;info:FinFormat value=&quot;YYMMDD&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;6&quot;/&gt;
+			&lt;xs:maxLength value=&quot;6&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9]{6}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Identifier_LTIdentifier_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Identifier&quot;/&gt;
+				&lt;info:FinFormat value=&quot;4!a2!a2!c1!c&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;9&quot;/&gt;
+			&lt;xs:maxLength value=&quot;9&quot;/&gt;
+			&lt;xs:pattern value=&quot;[A-Z]{4}[A-Z]{2}[0-9A-Z]{2}[0-9A-Z]&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Identifier_FIN_3Ec_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Identifier&quot;/&gt;
+				&lt;info:FinFormat value=&quot;3!c&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;3&quot;/&gt;
+			&lt;xs:maxLength value=&quot;3&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9A-Z]{3}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Identifier_FIN_3Ea_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Identifier&quot;/&gt;
+				&lt;info:FinFormat value=&quot;3!a&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;3&quot;/&gt;
+			&lt;xs:maxLength value=&quot;3&quot;/&gt;
+			&lt;xs:pattern value=&quot;[A-Z]{3}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Text_FIN_4Ex_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Text&quot;/&gt;
+				&lt;info:FinFormat value=&quot;4!x&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;4&quot;/&gt;
+			&lt;xs:maxLength value=&quot;4&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+ ]{4}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Text_FIN_16x_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Text&quot;/&gt;
+				&lt;info:FinFormat value=&quot;16x&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;1&quot;/&gt;
+			&lt;xs:maxLength value=&quot;16&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+ ]{1,16}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Text_FIN_8c_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Text&quot;/&gt;
+				&lt;info:FinFormat value=&quot;8c&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;1&quot;/&gt;
+			&lt;xs:maxLength value=&quot;8&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9A-Z]{1,8}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;DateTime_HHMMSS_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;DateTime&quot;/&gt;
+				&lt;info:FinFormat value=&quot;HHMMSS&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;6&quot;/&gt;
+			&lt;xs:maxLength value=&quot;6&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9]{6}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Text_FIN_2En_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Text&quot;/&gt;
+				&lt;info:FinFormat value=&quot;2!n&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;2&quot;/&gt;
+			&lt;xs:maxLength value=&quot;2&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9]{2}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Text_FIN_3Ec_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Text&quot;/&gt;
+				&lt;info:FinFormat value=&quot;3!c&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;3&quot;/&gt;
+			&lt;xs:maxLength value=&quot;3&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9A-Z]{3}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Text_FIN_36Ex_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Text&quot;/&gt;
+				&lt;info:FinFormat value=&quot;36!x&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;36&quot;/&gt;
+			&lt;xs:maxLength value=&quot;36&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9a-f]{8}\-[0-9a-f]{4}\-[4][0-9a-f]{3}\-[89ab]{1}[0-9a-f]{3}\-[0-9a-f]{12}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Text_FIN_32x_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Text&quot;/&gt;
+				&lt;info:FinFormat value=&quot;32x&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;1&quot;/&gt;
+			&lt;xs:maxLength value=&quot;32&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+ ]{1,32}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Text_FIN_34x_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Text&quot;/&gt;
+				&lt;info:FinFormat value=&quot;34x&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;1&quot;/&gt;
+			&lt;xs:maxLength value=&quot;34&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+ ]{1,34}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Text_FIN_3Ea_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Text&quot;/&gt;
+				&lt;info:FinFormat value=&quot;3!a&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;3&quot;/&gt;
+			&lt;xs:maxLength value=&quot;3&quot;/&gt;
+			&lt;xs:pattern value=&quot;[A-Z]{3}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Text_20x_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Text&quot;/&gt;
+				&lt;info:FinFormat value=&quot;20x&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;1&quot;/&gt;
+			&lt;xs:maxLength value=&quot;20&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+ ]{1,20}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;NULL_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;0&quot;/&gt;
+			&lt;xs:maxLength value=&quot;0&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Text_FIN_12Eh_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Text&quot;/&gt;
+				&lt;info:FinFormat value=&quot;12!h&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;12&quot;/&gt;
+			&lt;xs:maxLength value=&quot;12&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9A-F]{12}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:complexType name=&quot;MIR_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;ComplexDataType&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name=&quot;Date&quot; type=&quot;DateTime_YYMMDD_Type&quot;/&gt;
+					&lt;xs:element name=&quot;LTIdentifier&quot; type=&quot;Identifier_LTIdentifier_Type&quot;/&gt;
+					&lt;xs:element name=&quot;BranchCode&quot; type=&quot;Identifier_FIN_3Ec_Type&quot;/&gt;
+					&lt;xs:element name=&quot;SessionNumber&quot; type=&quot;Identifier_FIN_4En_Type&quot;/&gt;
+					&lt;xs:element name=&quot;ISN&quot; type=&quot;Identifier_FIN_6En_Type&quot;/&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;MOR_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;ComplexDataType&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name=&quot;Date&quot; type=&quot;DateTime_YYMMDD_Type&quot;/&gt;
+					&lt;xs:element name=&quot;LTIdentifier&quot; type=&quot;Identifier_LTIdentifier_Type&quot;/&gt;
+					&lt;xs:element name=&quot;BranchCode&quot; type=&quot;Identifier_FIN_3Ec_Type&quot;/&gt;
+					&lt;xs:element name=&quot;SessionNumber&quot; type=&quot;Identifier_FIN_4En_Type&quot;/&gt;
+					&lt;xs:element name=&quot;OSN&quot; type=&quot;Identifier_FIN_6En_Type&quot;/&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:simpleType name=&quot;Text_1Ea_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Code&quot;/&gt;
+				&lt;info:FinFormat value=&quot;1!a&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;1&quot;/&gt;
+			&lt;xs:maxLength value=&quot;1&quot;/&gt;
+			&lt;xs:pattern value=&quot;F&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Text_2En_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Code&quot;/&gt;
+				&lt;info:FinFormat value=&quot;2!n&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;2&quot;/&gt;
+			&lt;xs:maxLength value=&quot;2&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9]{2}&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Text_1Ea_1_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Code&quot;/&gt;
+				&lt;info:FinFormat value=&quot;1!a&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;1&quot;/&gt;
+			&lt;xs:maxLength value=&quot;1&quot;/&gt;
+			&lt;xs:pattern value=&quot;[A-Z]&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Text_1En_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Code&quot;/&gt;
+				&lt;info:FinFormat value=&quot;1!n&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;1&quot;/&gt;
+			&lt;xs:maxLength value=&quot;1&quot;/&gt;
+			&lt;xs:pattern value=&quot;[0-9]&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:element name=&quot;GpaMessage&quot; type=&quot;GpaMessage_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MessageApplication value=&quot;gpa&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+	&lt;/xs:element&gt;
+	&lt;xs:complexType name=&quot;GpaMessage_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;FullMessage&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name=&quot;Block1&quot; type=&quot;Block1Gpa_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:MatchContent value=&quot;true&quot;/&gt;
+								&lt;info:Tag value=&quot;1&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element name=&quot;Block2&quot; type=&quot;Block2Gpa_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;2&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;Block4&quot; type=&quot;Block4_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;4&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;Block5&quot; type=&quot;Block5GPA_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;5&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;Block1Gpa_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;Block&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name=&quot;ApplicationIdentifier&quot; type=&quot;ApplicationIdentifierGpa_Type&quot;/&gt;
+					&lt;xs:element name=&quot;ServiceIdentifier&quot; type=&quot;ServiceIdentifier_Type&quot;/&gt;
+					&lt;xs:element name=&quot;LogicalTerminalAddress&quot; type=&quot;LogicalTerminalAddress_Type&quot;/&gt;
+					&lt;xs:element name=&quot;SessionNumber&quot; type=&quot;SessionNumber_Type&quot;/&gt;
+					&lt;xs:element name=&quot;SequenceNumber&quot; type=&quot;SequenceNumber_Type&quot;/&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;Block2Gpa_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;Block&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:choice&gt;
+						&lt;xs:sequence&gt;
+							&lt;xs:element name=&quot;InputIdentifier&quot; type=&quot;InputIdentifier_Type&quot;/&gt;
+							&lt;xs:element name=&quot;MessageType&quot; type=&quot;MessageType_Type&quot;&gt;
+								&lt;xs:annotation&gt;
+									&lt;xs:appinfo&gt;
+										&lt;info:MessageType value=&quot;true&quot;/&gt;
+									&lt;/xs:appinfo&gt;
+								&lt;/xs:annotation&gt;
+							&lt;/xs:element&gt;
+							&lt;xs:element name=&quot;RecipientAddress&quot; type=&quot;RecipientAddress_Type&quot;/&gt;
+						&lt;/xs:sequence&gt;
+						&lt;xs:sequence&gt;
+							&lt;xs:element name=&quot;OutputIdentifier&quot; type=&quot;OutputIdentifier_Type&quot;/&gt;
+							&lt;xs:element name=&quot;MessageType&quot; type=&quot;MessageType_Type&quot;&gt;
+								&lt;xs:annotation&gt;
+									&lt;xs:appinfo&gt;
+										&lt;info:MessageType value=&quot;true&quot;/&gt;
+									&lt;/xs:appinfo&gt;
+								&lt;/xs:annotation&gt;
+							&lt;/xs:element&gt;
+							&lt;xs:element name=&quot;InputTime&quot; type=&quot;InputTime_Type&quot;/&gt;
+							&lt;xs:element name=&quot;MessageInputReference&quot; type=&quot;MessageInputReference_Type&quot;/&gt;
+							&lt;xs:element name=&quot;Date&quot; type=&quot;Date_Type&quot;/&gt;
+							&lt;xs:element name=&quot;Time&quot; type=&quot;Time_Type&quot;/&gt;
+						&lt;/xs:sequence&gt;
+					&lt;/xs:choice&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:complexType name=&quot;Block5GPA_Type&quot;&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base=&quot;BlockWithSubBlocks&quot;&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;CHK&quot; type=&quot;CHK_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;CHK&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;SYS&quot; type=&quot;SYS_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;SYS&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element minOccurs=&quot;0&quot; name=&quot;TNG&quot; type=&quot;TNG_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;TNG&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;PDE&quot; type=&quot;PDE_Type&quot;&gt;
+						&lt;xs:annotation&gt;
+							&lt;xs:appinfo&gt;
+								&lt;info:Tag value=&quot;PDE&quot;/&gt;
+							&lt;/xs:appinfo&gt;
+						&lt;/xs:annotation&gt;
+					&lt;/xs:element&gt;
+					&lt;xs:choice maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot;&gt;
+						&lt;xs:element name=&quot;DLM&quot; type=&quot;DLM_Type&quot;&gt;
+							&lt;xs:annotation&gt;
+								&lt;xs:appinfo&gt;
+									&lt;info:Tag value=&quot;DLM&quot;/&gt;
+								&lt;/xs:appinfo&gt;
+							&lt;/xs:annotation&gt;
+						&lt;/xs:element&gt;
+						&lt;xs:element name=&quot;PDM&quot; type=&quot;PDM_Type&quot;&gt;
+							&lt;xs:annotation&gt;
+								&lt;xs:appinfo&gt;
+									&lt;info:Tag value=&quot;PDM&quot;/&gt;
+								&lt;/xs:appinfo&gt;
+							&lt;/xs:annotation&gt;
+						&lt;/xs:element&gt;
+						&lt;xs:element name=&quot;MRF&quot; type=&quot;MRF_Type&quot;&gt;
+							&lt;xs:annotation&gt;
+								&lt;xs:appinfo&gt;
+									&lt;info:Tag value=&quot;MRF&quot;/&gt;
+								&lt;/xs:appinfo&gt;
+							&lt;/xs:annotation&gt;
+						&lt;/xs:element&gt;
+					&lt;/xs:choice&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:simpleType name=&quot;ApplicationIdentifierGpa_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Code_1Ea_18_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;RecipientAddress_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Identifier_SWIFTAddress_Type&quot;/&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Code_1Ea_18_Type&quot;&gt;
+		&lt;xs:restriction base=&quot;Text_1Ea_2_Type&quot;&gt;
+			&lt;xs:enumeration value=&quot;A&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+	&lt;xs:simpleType name=&quot;Text_1Ea_2_Type&quot;&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:appinfo&gt;
+				&lt;info:MetaType value=&quot;Code&quot;/&gt;
+				&lt;info:FinFormat value=&quot;1!a&quot;/&gt;
+			&lt;/xs:appinfo&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;
+			&lt;xs:minLength value=&quot;1&quot;/&gt;
+			&lt;xs:maxLength value=&quot;1&quot;/&gt;
+			&lt;xs:pattern value=&quot;A&quot;/&gt;
+		&lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;
+&lt;/xs:schema&gt;
+</string> 
+    </void> 
+    <void property="targetNamespace"> 
+     <string>urn:swift:xsd:mtmsg.2020</string> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="inputStructureName"> 
+   <string>Input1</string> 
+  </void> 
+  <void property="outputXSLConfiguration"> 
+   <void property="xslValue"> 
+    <string>&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; version=&quot;1.0&quot;&gt;&#13;
+    &lt;xsl:output method=&quot;xml&quot; indent=&quot;yes&quot; /&gt;&#13;
+&#13;
+    &lt;xsl:template match=&quot;*[not(descendant::text()[normalize-space()])]&quot; /&gt;&#13;
+&#13;
+    &lt;xsl:template match=&quot;@*|node()&quot;&gt;&#13;
+        &lt;xsl:copy&gt;&#13;
+            &lt;xsl:apply-templates select=&quot;@*|node()&quot;/&gt;&#13;
+        &lt;/xsl:copy&gt;&#13;
+    &lt;/xsl:template&gt;&#13;
+&lt;/xsl:stylesheet&gt;</string> 
+   </void> 
+  </void> 
+  <void property="project"> 
+   <string>project</string> 
+  </void> 
+  <void property="tfClassName"> 
+   <string></string> 
+  </void> 
+ </object> 
+</java> 

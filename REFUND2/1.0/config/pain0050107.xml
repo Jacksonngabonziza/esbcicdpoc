@@ -1,0 +1,1669 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.7.0_60" class="java.beans.XMLDecoder"> 
+ <object class="com.fiorano.services.xslt.configuration.XsltPM"> 
+  <void property="JMSMessageXSL"> 
+   <null/> 
+  </void> 
+  <void property="XSL"> 
+   <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:datetime=&quot;http://exslt.org/dates-and-times&quot; xmlns:set=&quot;http://exslt.org/sets&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:math=&quot;http://exslt.org/math&quot; xmlns:lxslt=&quot;http://xml.apache.org/xslt&quot; xmlns:xalan=&quot;http://xml.apache.org/xslt&quot; xmlns:java=&quot;http://xml.apache.org/xslt/java&quot; exclude-result-prefixes=&quot;xalan java lxslt&quot; xmlns:ns3=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:ns2=&quot;urn:iso:std:iso:20022:tech:xsd:pain.007.001.05&quot; xmlns:dateConversion=&quot;ext1&quot; xmlns:myext=&quot;ext2&quot; xmlns:strings=&quot;ext3&quot; extension-element-prefixes=&quot;datetime set math dateConversion myext strings&quot;&gt;
+  &lt;xsl:output method=&quot;xml&quot; indent=&quot;yes&quot; encoding=&quot;UTF-8&quot; xalan:indent-amount=&quot;2&quot; omit-xml-declaration=&quot;no&quot;&gt;&lt;/xsl:output&gt;
+  &lt;xsl:variable name=&quot;document&quot; select=&quot;/&quot;&gt;&lt;/xsl:variable&gt;
+  &lt;xsl:variable name=&quot;document_IN_PORT&quot; select=&quot;document(&apos;IN_PORT&apos;)&quot;&gt;&lt;/xsl:variable&gt;
+  &lt;xsl:template match=&quot;/&quot;&gt;
+    &lt;ns2:Document&gt;
+      &lt;ns2:CstmrPmtRvsl&gt;
+        &lt;ns2:GrpHdr&gt;
+          &lt;ns2:MsgId&gt;
+            &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/MSGID/value&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns2:MsgId&gt;
+          &lt;ns2:CreDtTm&gt;
+            &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/CRE.DATE.TIME/value&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns2:CreDtTm&gt;
+          &lt;ns2:NbOfTxs&gt;
+            &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/NBOFTXS/value&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns2:NbOfTxs&gt;
+          &lt;ns2:InitgPty&gt;
+            &lt;ns2:Nm&gt;
+              &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/NM/value&quot;&gt;&lt;/xsl:value-of&gt;
+            &lt;/ns2:Nm&gt;
+            &lt;ns2:PstlAdr&gt;
+              &lt;ns2:StrtNm&gt;
+                &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/STRNM/value&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/ns2:StrtNm&gt;
+              &lt;ns2:BldgNb&gt;
+                &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/BLDGNM/value&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/ns2:BldgNb&gt;
+              &lt;ns2:PstCd&gt;
+                &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/PSTCD/value&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/ns2:PstCd&gt;
+              &lt;ns2:TwnNm&gt;
+                &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/TWNNM/value&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/ns2:TwnNm&gt;
+              &lt;ns2:Ctry&gt;
+                &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/CTRY/value&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/ns2:Ctry&gt;
+            &lt;/ns2:PstlAdr&gt;
+          &lt;/ns2:InitgPty&gt;
+          &lt;ns2:DbtrAgt&gt;
+            &lt;ns2:FinInstnId&gt;
+              &lt;ns2:BICFI&gt;
+                &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/DEBITOR.BANK/value&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/ns2:BICFI&gt;
+            &lt;/ns2:FinInstnId&gt;
+          &lt;/ns2:DbtrAgt&gt;
+          &lt;ns2:CdtrAgt&gt;
+            &lt;ns2:FinInstnId&gt;
+              &lt;ns2:BICFI&gt;
+                &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/CREDITOR.BANK/value&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/ns2:BICFI&gt;
+            &lt;/ns2:FinInstnId&gt;
+          &lt;/ns2:CdtrAgt&gt;
+        &lt;/ns2:GrpHdr&gt;
+        &lt;ns2:OrgnlGrpInf&gt;
+          &lt;ns2:OrgnlMsgId&gt;
+            &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/ORGNLMSGID/value&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns2:OrgnlMsgId&gt;
+          &lt;ns2:OrgnlMsgNmId&gt;
+            &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/ORGNLMSGNMID/value&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns2:OrgnlMsgNmId&gt;
+          &lt;ns2:OrgnlCreDtTm&gt;
+            &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/ORGNLCREDTTM/value&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns2:OrgnlCreDtTm&gt;
+        &lt;/ns2:OrgnlGrpInf&gt;
+        &lt;ns2:OrgnlPmtInfAndRvsl&gt;
+          &lt;ns2:OrgnlPmtInfId&gt;
+            &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/ORGNLPMTINFID/value&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns2:OrgnlPmtInfId&gt;
+          &lt;ns2:TxInf&gt;
+            &lt;ns2:RvslId&gt;
+              &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/FT.ID/value&quot;&gt;&lt;/xsl:value-of&gt;
+            &lt;/ns2:RvslId&gt;
+            &lt;ns2:OrgnlEndToEndId&gt;
+              &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/ORGNLENDTOEND/value&quot;&gt;&lt;/xsl:value-of&gt;
+            &lt;/ns2:OrgnlEndToEndId&gt;
+            &lt;ns2:OrgnlInstdAmt&gt;
+              &lt;xsl:attribute name=&quot;Ccy&quot;&gt;
+                &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/CREDIT.CCY/value&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:attribute&gt;
+              &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/ORGNLINSTDAMT/value&quot;&gt;&lt;/xsl:value-of&gt;
+            &lt;/ns2:OrgnlInstdAmt&gt;
+            &lt;ns2:RvsdInstdAmt&gt;
+              &lt;xsl:attribute name=&quot;Ccy&quot;&gt;
+                &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/CREDIT.CCY/value&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/xsl:attribute&gt;
+              &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/CREDIT.AMOUNT/value&quot;&gt;&lt;/xsl:value-of&gt;
+            &lt;/ns2:RvsdInstdAmt&gt;
+            &lt;ns2:RvslRsnInf&gt;
+              &lt;ns2:Orgtr&gt;
+                &lt;ns2:Nm&gt;
+                  &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/CREDITOR.NAME/value&quot;&gt;&lt;/xsl:value-of&gt;
+                &lt;/ns2:Nm&gt;
+                &lt;ns2:PstlAdr&gt;
+                  &lt;ns2:StrtNm&gt;
+                    &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/CREDITOR.STRTNM/value&quot;&gt;&lt;/xsl:value-of&gt;
+                  &lt;/ns2:StrtNm&gt;
+                  &lt;ns2:BldgNb&gt;
+                    &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/CREDITOR.BLDGNM/value&quot;&gt;&lt;/xsl:value-of&gt;
+                  &lt;/ns2:BldgNb&gt;
+                  &lt;ns2:TwnNm&gt;
+                    &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/CREDITOR.TWNNM/value&quot;&gt;&lt;/xsl:value-of&gt;
+                  &lt;/ns2:TwnNm&gt;
+                  &lt;ns2:Ctry&gt;
+                    &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/CREDITOR.CTRY/value&quot;&gt;&lt;/xsl:value-of&gt;
+                  &lt;/ns2:Ctry&gt;
+                &lt;/ns2:PstlAdr&gt;
+              &lt;/ns2:Orgtr&gt;
+              &lt;ns2:Rsn&gt;
+                &lt;ns2:Cd&gt;
+                  &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/CD/value&quot;&gt;&lt;/xsl:value-of&gt;
+                &lt;/ns2:Cd&gt;
+              &lt;/ns2:Rsn&gt;
+            &lt;/ns2:RvslRsnInf&gt;
+            &lt;ns2:OrgnlTxRef&gt;
+              &lt;ns2:ReqdExctnDt&gt;
+                &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/REQDEXCTNDT/value&quot;&gt;&lt;/xsl:value-of&gt;
+              &lt;/ns2:ReqdExctnDt&gt;
+              &lt;ns2:Dbtr&gt;
+                &lt;ns2:Nm&gt;
+                  &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/DEBITOR.NM/value&quot;&gt;&lt;/xsl:value-of&gt;
+                &lt;/ns2:Nm&gt;
+                &lt;ns2:PstlAdr&gt;
+                  &lt;ns2:StrtNm&gt;
+                    &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/DEBITOR.STRTNM/value&quot;&gt;&lt;/xsl:value-of&gt;
+                  &lt;/ns2:StrtNm&gt;
+                  &lt;ns2:BldgNb&gt;
+                    &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/DEBITOR.BLDGNB/value&quot;&gt;&lt;/xsl:value-of&gt;
+                  &lt;/ns2:BldgNb&gt;
+                  &lt;ns2:TwnNm&gt;
+                    &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/DEBITOR.TWNNM/value&quot;&gt;&lt;/xsl:value-of&gt;
+                  &lt;/ns2:TwnNm&gt;
+                  &lt;ns2:Ctry&gt;
+                    &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/DEBITOR.CTRY/value&quot;&gt;&lt;/xsl:value-of&gt;
+                  &lt;/ns2:Ctry&gt;
+                &lt;/ns2:PstlAdr&gt;
+              &lt;/ns2:Dbtr&gt;
+              &lt;ns2:DbtrAcct&gt;
+                &lt;ns2:Id&gt;
+                  &lt;ns2:Othr&gt;
+                    &lt;ns2:Id&gt;
+                      &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/O.SENDER.ACCT.NO/value&quot;&gt;&lt;/xsl:value-of&gt;
+                    &lt;/ns2:Id&gt;
+                  &lt;/ns2:Othr&gt;
+                &lt;/ns2:Id&gt;
+              &lt;/ns2:DbtrAcct&gt;
+              &lt;ns2:Cdtr&gt;
+                &lt;ns2:Nm&gt;
+                  &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/O.SENDER.NM/value&quot;&gt;&lt;/xsl:value-of&gt;
+                &lt;/ns2:Nm&gt;
+                &lt;ns2:PstlAdr&gt;
+                  &lt;ns2:StrtNm&gt;
+                    &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/O.SENDER.STRTNM/value&quot;&gt;&lt;/xsl:value-of&gt;
+                  &lt;/ns2:StrtNm&gt;
+                  &lt;ns2:BldgNb&gt;
+                    &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/O.SENDER.BLDGNB/value&quot;&gt;&lt;/xsl:value-of&gt;
+                  &lt;/ns2:BldgNb&gt;
+                  &lt;ns2:TwnNm&gt;
+                    &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/O.SENDER.TWNNM/value&quot;&gt;&lt;/xsl:value-of&gt;
+                  &lt;/ns2:TwnNm&gt;
+                  &lt;ns2:Ctry&gt;
+                    &lt;xsl:value-of select=&quot;$document_IN_PORT/Root/O.SENDER.CTRY/value&quot;&gt;&lt;/xsl:value-of&gt;
+                  &lt;/ns2:Ctry&gt;
+                &lt;/ns2:PstlAdr&gt;
+              &lt;/ns2:Cdtr&gt;
+            &lt;/ns2:OrgnlTxRef&gt;
+          &lt;/ns2:TxInf&gt;
+        &lt;/ns2:OrgnlPmtInfAndRvsl&gt;
+      &lt;/ns2:CstmrPmtRvsl&gt;
+    &lt;/ns2:Document&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</string> 
+  </void> 
+  <void property="configuredVersion"> 
+   <int>1033</int> 
+  </void> 
+  <void property="errorHandlingConfiguration"> 
+   <void property="errorActionsMap"> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>3</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>2</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>1</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.RetryAction"> 
+       <void property="configuration"> 
+        <object class="com.fiorano.edbc.framework.service.exception.RetryConfiguration"> 
+         <void property="otherActions"> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+            <void property="enabled"> 
+             <boolean>true</boolean> 
+            </void> 
+            <void property="id"> 
+             <int>1</int> 
+            </void> 
+           </object> 
+           <int>1</int> 
+          </void> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+            <void property="enabled"> 
+             <boolean>true</boolean> 
+            </void> 
+           </object> 
+           <int>1</int> 
+          </void> 
+         </void> 
+        </object> 
+       </void> 
+       <void property="id"> 
+        <int>2</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>4</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>0</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>6</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+   </void> 
+  </void> 
+  <void property="esbDefInPort"> 
+   <object class="fiorano.esb.record.ESBRecordDefinition"> 
+    <void property="rootElementName"> 
+     <string>Root</string> 
+    </void> 
+    <void property="structure"> 
+     <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;
+&lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; elementFormDefault=&quot;qualified&quot;&gt;&#13;
+   &lt;xsd:element name=&quot;Root&quot;&gt;&#13;
+      &lt;xsd:complexType&gt;&#13;
+         &lt;xsd:sequence&gt;&#13;
+            &lt;xsd:element name=&quot;header&quot; type=&quot;xsd:string&quot;/&gt;&#13;
+            &lt;xsd:element name=&quot;MSGID&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;CRE.DATE.TIME&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;NBOFTXS&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;NM&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;STRNM&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;BLDGNM&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;PSTCD&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;TWNNM&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;CTRY&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;DEBITOR.BANK&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;CREDITOR.BANK&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;ORGNLMSGID&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;ORGNLMSGNMID&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;ORGNLCREDTTM&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;ORGNLPMTINFID&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;FT.ID&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;ORGNLENDTOEND&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;CREDIT.AMOUNT&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;CREDITOR.NAME&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;CREDITOR.STRTNM&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;CREDITOR.BLDGNM&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;CREDITOR.TWNNM&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;CREDITOR.CTRY&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;CD&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;REQDEXCTNDT&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;DEBITOR.NM&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;DEBITOR.STRTNM&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;DEBITOR.BLDGNB&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;DEBITOR.TWNNM&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;DEBITOR.CTRY&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;O.SENDER.ACCT.NO&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;O.SENDER.NM&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;O.SENDER.STRTNM&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;O.SENDER.BLDGNB&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;O.SENDER.TWNNM&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;O.SENDER.CTRY&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;ORGNLINSTDAMT&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+            &lt;xsd:element name=&quot;CREDIT.CCY&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; ref=&quot;value&quot;/&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute ref=&quot;totalPositions&quot; use=&quot;optional&quot;/&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+         &lt;/xsd:sequence&gt;&#13;
+      &lt;/xsd:complexType&gt;&#13;
+   &lt;/xsd:element&gt;&#13;
+   &lt;xsd:attribute name=&quot;totalPositions&quot; type=&quot;xsd:int&quot;/&gt;&#13;
+   &lt;xsd:attribute name=&quot;position&quot; type=&quot;xsd:int&quot;/&gt;&#13;
+   &lt;xsd:element name=&quot;value&quot;&gt;&#13;
+      &lt;xsd:complexType&gt;&#13;
+         &lt;xsd:simpleContent&gt;&#13;
+            &lt;xsd:extension base=&quot;xsd:string&quot;&gt;&#13;
+               &lt;xsd:attribute ref=&quot;position&quot; use=&quot;optional&quot;/&gt;&#13;
+            &lt;/xsd:extension&gt;&#13;
+         &lt;/xsd:simpleContent&gt;&#13;
+      &lt;/xsd:complexType&gt;&#13;
+   &lt;/xsd:element&gt;&#13;
+&lt;/xsd:schema&gt;&#13;
+</string> 
+    </void> 
+    <void property="targetNamespace"> 
+     <string></string> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="esbDefOutPort"> 
+   <object class="fiorano.esb.record.ESBRecordDefinition"> 
+    <void property="rootElementName"> 
+     <string>Document</string> 
+    </void> 
+    <void property="structure"> 
+     <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;
+&lt;!--Generated by Standards Editor (build:R1.6.5.2_DEV) on 2015 Feb 24 14:08:26, ISO 20022 version : 2013--&gt;&#13;
+&lt;xs:schema xmlns=&quot;urn:iso:std:iso:20022:tech:xsd:pain.007.001.05&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; elementFormDefault=&quot;qualified&quot; targetNamespace=&quot;urn:iso:std:iso:20022:tech:xsd:pain.007.001.05&quot;&gt;&#13;
+    &lt;xs:element name=&quot;Document&quot; type=&quot;Document&quot;/&gt;&#13;
+    &lt;xs:complexType name=&quot;AccountIdentification4Choice&quot;&gt;&#13;
+        &lt;xs:choice&gt;&#13;
+            &lt;xs:element name=&quot;IBAN&quot; type=&quot;IBAN2007Identifier&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;Othr&quot; type=&quot;GenericAccountIdentification1&quot;/&gt;&#13;
+        &lt;/xs:choice&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;AccountSchemeName1Choice&quot;&gt;&#13;
+        &lt;xs:choice&gt;&#13;
+            &lt;xs:element name=&quot;Cd&quot; type=&quot;ExternalAccountIdentification1Code&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;Prtry&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:choice&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:simpleType name=&quot;ActiveOrHistoricCurrencyAndAmount_SimpleType&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:decimal&quot;&gt;&#13;
+            &lt;xs:fractionDigits value=&quot;5&quot;/&gt;&#13;
+            &lt;xs:totalDigits value=&quot;18&quot;/&gt;&#13;
+            &lt;xs:minInclusive value=&quot;0&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:complexType name=&quot;ActiveOrHistoricCurrencyAndAmount&quot;&gt;&#13;
+        &lt;xs:simpleContent&gt;&#13;
+            &lt;xs:extension base=&quot;ActiveOrHistoricCurrencyAndAmount_SimpleType&quot;&gt;&#13;
+                &lt;xs:attribute name=&quot;Ccy&quot; type=&quot;ActiveOrHistoricCurrencyCode&quot; use=&quot;required&quot;/&gt;&#13;
+            &lt;/xs:extension&gt;&#13;
+        &lt;/xs:simpleContent&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:simpleType name=&quot;ActiveOrHistoricCurrencyCode&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:pattern value=&quot;[A-Z]{3,3}&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;AddressType2Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:enumeration value=&quot;ADDR&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;PBOX&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;HOME&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;BIZZ&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;MLTO&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;DLVY&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:complexType name=&quot;AmendmentInformationDetails10&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;OrgnlMndtId&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;OrgnlCdtrSchmeId&quot; type=&quot;PartyIdentification43&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;OrgnlCdtrAgt&quot; type=&quot;BranchAndFinancialInstitutionIdentification5&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;OrgnlCdtrAgtAcct&quot; type=&quot;CashAccount24&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;OrgnlDbtr&quot; type=&quot;PartyIdentification43&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;OrgnlDbtrAcct&quot; type=&quot;CashAccount24&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;OrgnlDbtrAgt&quot; type=&quot;BranchAndFinancialInstitutionIdentification5&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;OrgnlDbtrAgtAcct&quot; type=&quot;CashAccount24&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;OrgnlFnlColltnDt&quot; type=&quot;ISODate&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;OrgnlFrqcy&quot; type=&quot;Frequency21Choice&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;OrgnlRsn&quot; type=&quot;MandateSetupReason1Choice&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;AmountType4Choice&quot;&gt;&#13;
+        &lt;xs:choice&gt;&#13;
+            &lt;xs:element name=&quot;InstdAmt&quot; type=&quot;ActiveOrHistoricCurrencyAndAmount&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;EqvtAmt&quot; type=&quot;EquivalentAmount2&quot;/&gt;&#13;
+        &lt;/xs:choice&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:simpleType name=&quot;AnyBICIdentifier&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:pattern value=&quot;[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:complexType name=&quot;Authorisation1Choice&quot;&gt;&#13;
+        &lt;xs:choice&gt;&#13;
+            &lt;xs:element name=&quot;Cd&quot; type=&quot;Authorisation1Code&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;Prtry&quot; type=&quot;Max128Text&quot;/&gt;&#13;
+        &lt;/xs:choice&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:simpleType name=&quot;Authorisation1Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:enumeration value=&quot;AUTH&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;FDET&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;FSUM&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;ILEV&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;BICFIIdentifier&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:pattern value=&quot;[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;BatchBookingIndicator&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:boolean&quot;/&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:complexType name=&quot;BranchAndFinancialInstitutionIdentification5&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element name=&quot;FinInstnId&quot; type=&quot;FinancialInstitutionIdentification8&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;BrnchId&quot; type=&quot;BranchData2&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;BranchData2&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Id&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Nm&quot; type=&quot;Max140Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PstlAdr&quot; type=&quot;PostalAddress6&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;CashAccount24&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element name=&quot;Id&quot; type=&quot;AccountIdentification4Choice&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Tp&quot; type=&quot;CashAccountType2Choice&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Ccy&quot; type=&quot;ActiveOrHistoricCurrencyCode&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Nm&quot; type=&quot;Max70Text&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;CashAccountType2Choice&quot;&gt;&#13;
+        &lt;xs:choice&gt;&#13;
+            &lt;xs:element name=&quot;Cd&quot; type=&quot;ExternalCashAccountType1Code&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;Prtry&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:choice&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;CategoryPurpose1Choice&quot;&gt;&#13;
+        &lt;xs:choice&gt;&#13;
+            &lt;xs:element name=&quot;Cd&quot; type=&quot;ExternalCategoryPurpose1Code&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;Prtry&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:choice&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:simpleType name=&quot;ChargeBearerType1Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:enumeration value=&quot;DEBT&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;CRED&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;SHAR&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;SLEV&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;ClearingChannel2Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:enumeration value=&quot;RTGS&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;RTNS&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;MPNS&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;BOOK&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:complexType name=&quot;ClearingSystemIdentification2Choice&quot;&gt;&#13;
+        &lt;xs:choice&gt;&#13;
+            &lt;xs:element name=&quot;Cd&quot; type=&quot;ExternalClearingSystemIdentification1Code&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;Prtry&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:choice&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;ClearingSystemIdentification3Choice&quot;&gt;&#13;
+        &lt;xs:choice&gt;&#13;
+            &lt;xs:element name=&quot;Cd&quot; type=&quot;ExternalCashClearingSystem1Code&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;Prtry&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:choice&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;ClearingSystemMemberIdentification2&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;ClrSysId&quot; type=&quot;ClearingSystemIdentification2Choice&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;MmbId&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;ContactDetails2&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;NmPrfx&quot; type=&quot;NamePrefix1Code&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Nm&quot; type=&quot;Max140Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PhneNb&quot; type=&quot;PhoneNumber&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;MobNb&quot; type=&quot;PhoneNumber&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;FaxNb&quot; type=&quot;PhoneNumber&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;EmailAdr&quot; type=&quot;Max2048Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Othr&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:simpleType name=&quot;CountryCode&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:pattern value=&quot;[A-Z]{2,2}&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;CreditDebitCode&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:enumeration value=&quot;CRDT&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;DBIT&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:complexType name=&quot;CreditorReferenceInformation2&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Tp&quot; type=&quot;CreditorReferenceType2&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Ref&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;CreditorReferenceType1Choice&quot;&gt;&#13;
+        &lt;xs:choice&gt;&#13;
+            &lt;xs:element name=&quot;Cd&quot; type=&quot;DocumentType3Code&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;Prtry&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:choice&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;CreditorReferenceType2&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element name=&quot;CdOrPrtry&quot; type=&quot;CreditorReferenceType1Choice&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Issr&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;CustomerPaymentReversalV05&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element name=&quot;GrpHdr&quot; type=&quot;GroupHeader56&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;OrgnlGrpInf&quot; type=&quot;OriginalGroupHeader3&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;OrgnlPmtInfAndRvsl&quot; type=&quot;OriginalPaymentInstruction11&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;SplmtryData&quot; type=&quot;SupplementaryData1&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;DateAndPlaceOfBirth&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element name=&quot;BirthDt&quot; type=&quot;ISODate&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PrvcOfBirth&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;CityOfBirth&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;CtryOfBirth&quot; type=&quot;CountryCode&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;DatePeriodDetails&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element name=&quot;FrDt&quot; type=&quot;ISODate&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;ToDt&quot; type=&quot;ISODate&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:simpleType name=&quot;DecimalNumber&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:decimal&quot;&gt;&#13;
+            &lt;xs:fractionDigits value=&quot;17&quot;/&gt;&#13;
+            &lt;xs:totalDigits value=&quot;18&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:complexType name=&quot;DiscountAmountAndType1&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Tp&quot; type=&quot;DiscountAmountType1Choice&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;Amt&quot; type=&quot;ActiveOrHistoricCurrencyAndAmount&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;DiscountAmountType1Choice&quot;&gt;&#13;
+        &lt;xs:choice&gt;&#13;
+            &lt;xs:element name=&quot;Cd&quot; type=&quot;ExternalDiscountAmountType1Code&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;Prtry&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:choice&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;Document&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element name=&quot;CstmrPmtRvsl&quot; type=&quot;CustomerPaymentReversalV05&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;DocumentAdjustment1&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element name=&quot;Amt&quot; type=&quot;ActiveOrHistoricCurrencyAndAmount&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CdtDbtInd&quot; type=&quot;CreditDebitCode&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Rsn&quot; type=&quot;Max4Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;AddtlInf&quot; type=&quot;Max140Text&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:simpleType name=&quot;DocumentType3Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:enumeration value=&quot;RADM&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;RPIN&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;FXDR&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;DISP&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;PUOR&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;SCOR&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;DocumentType6Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:enumeration value=&quot;MSIN&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;CNFA&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;DNFA&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;CINV&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;CREN&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;DEBN&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;HIRI&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;SBIN&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;CMCN&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;SOAC&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;DISP&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;BOLD&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;VCHR&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;AROI&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;TSUT&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;PUOR&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:complexType name=&quot;EquivalentAmount2&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element name=&quot;Amt&quot; type=&quot;ActiveOrHistoricCurrencyAndAmount&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;CcyOfTrf&quot; type=&quot;ActiveOrHistoricCurrencyCode&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:simpleType name=&quot;ExternalAccountIdentification1Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;4&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;ExternalCashAccountType1Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;4&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;ExternalCashClearingSystem1Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;3&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;ExternalCategoryPurpose1Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;4&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;ExternalClearingSystemIdentification1Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;5&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;ExternalDiscountAmountType1Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;4&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;ExternalFinancialInstitutionIdentification1Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;4&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;ExternalGarnishmentType1Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;4&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;ExternalLocalInstrument1Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;35&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;ExternalMandateSetupReason1Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;4&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;ExternalOrganisationIdentification1Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;4&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;ExternalPersonIdentification1Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;4&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;ExternalReversalReason1Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;4&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;ExternalServiceLevel1Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;4&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;ExternalTaxAmountType1Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;4&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:complexType name=&quot;FinancialIdentificationSchemeName1Choice&quot;&gt;&#13;
+        &lt;xs:choice&gt;&#13;
+            &lt;xs:element name=&quot;Cd&quot; type=&quot;ExternalFinancialInstitutionIdentification1Code&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;Prtry&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:choice&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;FinancialInstitutionIdentification8&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;BICFI&quot; type=&quot;BICFIIdentifier&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;ClrSysMmbId&quot; type=&quot;ClearingSystemMemberIdentification2&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Nm&quot; type=&quot;Max140Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PstlAdr&quot; type=&quot;PostalAddress6&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Othr&quot; type=&quot;GenericFinancialIdentification1&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;Frequency21Choice&quot;&gt;&#13;
+        &lt;xs:choice&gt;&#13;
+            &lt;xs:element name=&quot;Tp&quot; type=&quot;Frequency6Code&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;Prd&quot; type=&quot;FrequencyPeriod1&quot;/&gt;&#13;
+        &lt;/xs:choice&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:simpleType name=&quot;Frequency6Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:enumeration value=&quot;YEAR&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;MNTH&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;QURT&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;MIAN&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;WEEK&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;DAIL&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;ADHO&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;INDA&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;FRTN&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:complexType name=&quot;FrequencyPeriod1&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element name=&quot;Tp&quot; type=&quot;Frequency6Code&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;CntPerPrd&quot; type=&quot;DecimalNumber&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;Garnishment1&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element name=&quot;Tp&quot; type=&quot;GarnishmentType1&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Grnshee&quot; type=&quot;PartyIdentification43&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;GrnshmtAdmstr&quot; type=&quot;PartyIdentification43&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;RefNb&quot; type=&quot;Max140Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Dt&quot; type=&quot;ISODate&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;RmtdAmt&quot; type=&quot;ActiveOrHistoricCurrencyAndAmount&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;FmlyMdclInsrncInd&quot; type=&quot;TrueFalseIndicator&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;MplyeeTermntnInd&quot; type=&quot;TrueFalseIndicator&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;GarnishmentType1&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element name=&quot;CdOrPrtry&quot; type=&quot;GarnishmentType1Choice&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Issr&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;GarnishmentType1Choice&quot;&gt;&#13;
+        &lt;xs:choice&gt;&#13;
+            &lt;xs:element name=&quot;Cd&quot; type=&quot;ExternalGarnishmentType1Code&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;Prtry&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:choice&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;GenericAccountIdentification1&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element name=&quot;Id&quot; type=&quot;Max34Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;SchmeNm&quot; type=&quot;AccountSchemeName1Choice&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Issr&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;GenericFinancialIdentification1&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element name=&quot;Id&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;SchmeNm&quot; type=&quot;FinancialIdentificationSchemeName1Choice&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Issr&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;GenericOrganisationIdentification1&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element name=&quot;Id&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;SchmeNm&quot; type=&quot;OrganisationIdentificationSchemeName1Choice&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Issr&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;GenericPersonIdentification1&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element name=&quot;Id&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;SchmeNm&quot; type=&quot;PersonIdentificationSchemeName1Choice&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Issr&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;GroupHeader56&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element name=&quot;MsgId&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;CreDtTm&quot; type=&quot;ISODateTime&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;2&quot; minOccurs=&quot;0&quot; name=&quot;Authstn&quot; type=&quot;Authorisation1Choice&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;NbOfTxs&quot; type=&quot;Max15NumericText&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CtrlSum&quot; type=&quot;DecimalNumber&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;GrpRvsl&quot; type=&quot;TrueFalseIndicator&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;InitgPty&quot; type=&quot;PartyIdentification43&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;FwdgAgt&quot; type=&quot;BranchAndFinancialInstitutionIdentification5&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;DbtrAgt&quot; type=&quot;BranchAndFinancialInstitutionIdentification5&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CdtrAgt&quot; type=&quot;BranchAndFinancialInstitutionIdentification5&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:simpleType name=&quot;IBAN2007Identifier&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:pattern value=&quot;[A-Z]{2,2}[0-9]{2,2}[a-zA-Z0-9]{1,30}&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;ISODate&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:date&quot;/&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;ISODateTime&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:dateTime&quot;/&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:complexType name=&quot;LocalInstrument2Choice&quot;&gt;&#13;
+        &lt;xs:choice&gt;&#13;
+            &lt;xs:element name=&quot;Cd&quot; type=&quot;ExternalLocalInstrument1Code&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;Prtry&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:choice&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;MandateRelatedInformation10&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;MndtId&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;DtOfSgntr&quot; type=&quot;ISODate&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;AmdmntInd&quot; type=&quot;TrueFalseIndicator&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;AmdmntInfDtls&quot; type=&quot;AmendmentInformationDetails10&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;ElctrncSgntr&quot; type=&quot;Max1025Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;FrstColltnDt&quot; type=&quot;ISODate&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;FnlColltnDt&quot; type=&quot;ISODate&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Frqcy&quot; type=&quot;Frequency21Choice&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Rsn&quot; type=&quot;MandateSetupReason1Choice&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;MandateSetupReason1Choice&quot;&gt;&#13;
+        &lt;xs:choice&gt;&#13;
+            &lt;xs:element name=&quot;Cd&quot; type=&quot;ExternalMandateSetupReason1Code&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;Prtry&quot; type=&quot;Max70Text&quot;/&gt;&#13;
+        &lt;/xs:choice&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:simpleType name=&quot;Max1025Text&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;1025&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;Max105Text&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;105&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;Max128Text&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;128&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;Max140Text&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;140&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;Max15NumericText&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:pattern value=&quot;[0-9]{1,15}&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;Max16Text&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;16&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;Max2048Text&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;2048&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;Max34Text&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;34&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;Max350Text&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;350&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;Max35Text&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;35&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;Max4Text&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;4&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;Max70Text&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:minLength value=&quot;1&quot;/&gt;&#13;
+            &lt;xs:maxLength value=&quot;70&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;NamePrefix1Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:enumeration value=&quot;DOCT&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;MIST&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;MISS&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;MADM&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;Number&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:decimal&quot;&gt;&#13;
+            &lt;xs:fractionDigits value=&quot;0&quot;/&gt;&#13;
+            &lt;xs:totalDigits value=&quot;18&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:complexType name=&quot;OrganisationIdentification8&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;AnyBIC&quot; type=&quot;AnyBICIdentifier&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;Othr&quot; type=&quot;GenericOrganisationIdentification1&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;OrganisationIdentificationSchemeName1Choice&quot;&gt;&#13;
+        &lt;xs:choice&gt;&#13;
+            &lt;xs:element name=&quot;Cd&quot; type=&quot;ExternalOrganisationIdentification1Code&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;Prtry&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:choice&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;OriginalGroupHeader3&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element name=&quot;OrgnlMsgId&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;OrgnlMsgNmId&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;OrgnlCreDtTm&quot; type=&quot;ISODateTime&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;RvslRsnInf&quot; type=&quot;PaymentReversalReason7&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;OriginalPaymentInstruction11&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;RvslPmtInfId&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;OrgnlPmtInfId&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;OrgnlNbOfTxs&quot; type=&quot;Max15NumericText&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;OrgnlCtrlSum&quot; type=&quot;DecimalNumber&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;BtchBookg&quot; type=&quot;BatchBookingIndicator&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PmtInfRvsl&quot; type=&quot;TrueFalseIndicator&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;RvslRsnInf&quot; type=&quot;PaymentReversalReason7&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;TxInf&quot; type=&quot;PaymentTransaction56&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;OriginalTransactionReference20&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;IntrBkSttlmAmt&quot; type=&quot;ActiveOrHistoricCurrencyAndAmount&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Amt&quot; type=&quot;AmountType4Choice&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;IntrBkSttlmDt&quot; type=&quot;ISODate&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;ReqdColltnDt&quot; type=&quot;ISODate&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;ReqdExctnDt&quot; type=&quot;ISODate&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CdtrSchmeId&quot; type=&quot;PartyIdentification43&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;SttlmInf&quot; type=&quot;SettlementInstruction1&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PmtTpInf&quot; type=&quot;PaymentTypeInformation25&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PmtMtd&quot; type=&quot;PaymentMethod4Code&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;MndtRltdInf&quot; type=&quot;MandateRelatedInformation10&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;RmtInf&quot; type=&quot;RemittanceInformation10&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;UltmtDbtr&quot; type=&quot;PartyIdentification43&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Dbtr&quot; type=&quot;PartyIdentification43&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;DbtrAcct&quot; type=&quot;CashAccount24&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;DbtrAgt&quot; type=&quot;BranchAndFinancialInstitutionIdentification5&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;DbtrAgtAcct&quot; type=&quot;CashAccount24&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CdtrAgt&quot; type=&quot;BranchAndFinancialInstitutionIdentification5&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CdtrAgtAcct&quot; type=&quot;CashAccount24&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Cdtr&quot; type=&quot;PartyIdentification43&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CdtrAcct&quot; type=&quot;CashAccount24&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;UltmtCdtr&quot; type=&quot;PartyIdentification43&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;Party11Choice&quot;&gt;&#13;
+        &lt;xs:choice&gt;&#13;
+            &lt;xs:element name=&quot;OrgId&quot; type=&quot;OrganisationIdentification8&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;PrvtId&quot; type=&quot;PersonIdentification5&quot;/&gt;&#13;
+        &lt;/xs:choice&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;PartyIdentification43&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Nm&quot; type=&quot;Max140Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PstlAdr&quot; type=&quot;PostalAddress6&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Id&quot; type=&quot;Party11Choice&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CtryOfRes&quot; type=&quot;CountryCode&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CtctDtls&quot; type=&quot;ContactDetails2&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:simpleType name=&quot;PaymentMethod4Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:enumeration value=&quot;CHK&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;TRF&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;DD&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;TRA&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:complexType name=&quot;PaymentReversalReason7&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Orgtr&quot; type=&quot;PartyIdentification43&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Rsn&quot; type=&quot;ReversalReason4Choice&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;AddtlInf&quot; type=&quot;Max105Text&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;PaymentTransaction56&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;RvslId&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;OrgnlInstrId&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;OrgnlEndToEndId&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;OrgnlInstdAmt&quot; type=&quot;ActiveOrHistoricCurrencyAndAmount&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;RvsdInstdAmt&quot; type=&quot;ActiveOrHistoricCurrencyAndAmount&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;ChrgBr&quot; type=&quot;ChargeBearerType1Code&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;RvslRsnInf&quot; type=&quot;PaymentReversalReason7&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;OrgnlTxRef&quot; type=&quot;OriginalTransactionReference20&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;SplmtryData&quot; type=&quot;SupplementaryData1&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;PaymentTypeInformation25&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;InstrPrty&quot; type=&quot;Priority2Code&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;ClrChanl&quot; type=&quot;ClearingChannel2Code&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;SvcLvl&quot; type=&quot;ServiceLevel8Choice&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;LclInstrm&quot; type=&quot;LocalInstrument2Choice&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;SeqTp&quot; type=&quot;SequenceType3Code&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CtgyPurp&quot; type=&quot;CategoryPurpose1Choice&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:simpleType name=&quot;PercentageRate&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:decimal&quot;&gt;&#13;
+            &lt;xs:fractionDigits value=&quot;10&quot;/&gt;&#13;
+            &lt;xs:totalDigits value=&quot;11&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:complexType name=&quot;PersonIdentification5&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;DtAndPlcOfBirth&quot; type=&quot;DateAndPlaceOfBirth&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;Othr&quot; type=&quot;GenericPersonIdentification1&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;PersonIdentificationSchemeName1Choice&quot;&gt;&#13;
+        &lt;xs:choice&gt;&#13;
+            &lt;xs:element name=&quot;Cd&quot; type=&quot;ExternalPersonIdentification1Code&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;Prtry&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:choice&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:simpleType name=&quot;PhoneNumber&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:pattern value=&quot;\+[0-9]{1,3}-[0-9()+\-]{1,30}&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:complexType name=&quot;PostalAddress6&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;AdrTp&quot; type=&quot;AddressType2Code&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Dept&quot; type=&quot;Max70Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;SubDept&quot; type=&quot;Max70Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;StrtNm&quot; type=&quot;Max70Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;BldgNb&quot; type=&quot;Max16Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PstCd&quot; type=&quot;Max16Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;TwnNm&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CtrySubDvsn&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Ctry&quot; type=&quot;CountryCode&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;7&quot; minOccurs=&quot;0&quot; name=&quot;AdrLine&quot; type=&quot;Max70Text&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:simpleType name=&quot;Priority2Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:enumeration value=&quot;HIGH&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;NORM&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:complexType name=&quot;ReferredDocumentInformation6&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Tp&quot; type=&quot;ReferredDocumentType4&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Nb&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;RltdDt&quot; type=&quot;ISODate&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;ReferredDocumentType3Choice&quot;&gt;&#13;
+        &lt;xs:choice&gt;&#13;
+            &lt;xs:element name=&quot;Cd&quot; type=&quot;DocumentType6Code&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;Prtry&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:choice&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;ReferredDocumentType4&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element name=&quot;CdOrPrtry&quot; type=&quot;ReferredDocumentType3Choice&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Issr&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;RemittanceAmount2&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;DuePyblAmt&quot; type=&quot;ActiveOrHistoricCurrencyAndAmount&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;DscntApldAmt&quot; type=&quot;DiscountAmountAndType1&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CdtNoteAmt&quot; type=&quot;ActiveOrHistoricCurrencyAndAmount&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;TaxAmt&quot; type=&quot;TaxAmountAndType1&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;AdjstmntAmtAndRsn&quot; type=&quot;DocumentAdjustment1&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;RmtdAmt&quot; type=&quot;ActiveOrHistoricCurrencyAndAmount&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;RemittanceInformation10&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;Ustrd&quot; type=&quot;Max140Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;Strd&quot; type=&quot;StructuredRemittanceInformation12&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;ReversalReason4Choice&quot;&gt;&#13;
+        &lt;xs:choice&gt;&#13;
+            &lt;xs:element name=&quot;Cd&quot; type=&quot;ExternalReversalReason1Code&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;Prtry&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:choice&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:simpleType name=&quot;SequenceType3Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:enumeration value=&quot;FRST&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;RCUR&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;FNAL&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;OOFF&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;RPRE&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:complexType name=&quot;ServiceLevel8Choice&quot;&gt;&#13;
+        &lt;xs:choice&gt;&#13;
+            &lt;xs:element name=&quot;Cd&quot; type=&quot;ExternalServiceLevel1Code&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;Prtry&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:choice&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;SettlementInstruction1&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element name=&quot;SttlmMtd&quot; type=&quot;SettlementMethod1Code&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;SttlmAcct&quot; type=&quot;CashAccount24&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;ClrSys&quot; type=&quot;ClearingSystemIdentification3Choice&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;InstgRmbrsmntAgt&quot; type=&quot;BranchAndFinancialInstitutionIdentification5&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;InstgRmbrsmntAgtAcct&quot; type=&quot;CashAccount24&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;InstdRmbrsmntAgt&quot; type=&quot;BranchAndFinancialInstitutionIdentification5&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;InstdRmbrsmntAgtAcct&quot; type=&quot;CashAccount24&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;ThrdRmbrsmntAgt&quot; type=&quot;BranchAndFinancialInstitutionIdentification5&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;ThrdRmbrsmntAgtAcct&quot; type=&quot;CashAccount24&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:simpleType name=&quot;SettlementMethod1Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:enumeration value=&quot;INDA&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;INGA&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;COVE&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;CLRG&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:complexType name=&quot;StructuredRemittanceInformation12&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;RfrdDocInf&quot; type=&quot;ReferredDocumentInformation6&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;RfrdDocAmt&quot; type=&quot;RemittanceAmount2&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CdtrRefInf&quot; type=&quot;CreditorReferenceInformation2&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Invcr&quot; type=&quot;PartyIdentification43&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Invcee&quot; type=&quot;PartyIdentification43&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;TaxRmt&quot; type=&quot;TaxInformation4&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;GrnshmtRmt&quot; type=&quot;Garnishment1&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;3&quot; minOccurs=&quot;0&quot; name=&quot;AddtlRmtInf&quot; type=&quot;Max140Text&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;SupplementaryData1&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;PlcAndNm&quot; type=&quot;Max350Text&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;Envlp&quot; type=&quot;SupplementaryDataEnvelope1&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;SupplementaryDataEnvelope1&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:any namespace=&quot;##any&quot; processContents=&quot;lax&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;TaxAmount1&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Rate&quot; type=&quot;PercentageRate&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;TaxblBaseAmt&quot; type=&quot;ActiveOrHistoricCurrencyAndAmount&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;TtlAmt&quot; type=&quot;ActiveOrHistoricCurrencyAndAmount&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;Dtls&quot; type=&quot;TaxRecordDetails1&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;TaxAmountAndType1&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Tp&quot; type=&quot;TaxAmountType1Choice&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;Amt&quot; type=&quot;ActiveOrHistoricCurrencyAndAmount&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;TaxAmountType1Choice&quot;&gt;&#13;
+        &lt;xs:choice&gt;&#13;
+            &lt;xs:element name=&quot;Cd&quot; type=&quot;ExternalTaxAmountType1Code&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;Prtry&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:choice&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;TaxAuthorisation1&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Titl&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Nm&quot; type=&quot;Max140Text&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;TaxInformation4&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Cdtr&quot; type=&quot;TaxParty1&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Dbtr&quot; type=&quot;TaxParty2&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;UltmtDbtr&quot; type=&quot;TaxParty2&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;AdmstnZone&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;RefNb&quot; type=&quot;Max140Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Mtd&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;TtlTaxblBaseAmt&quot; type=&quot;ActiveOrHistoricCurrencyAndAmount&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;TtlTaxAmt&quot; type=&quot;ActiveOrHistoricCurrencyAndAmount&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Dt&quot; type=&quot;ISODate&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;SeqNb&quot; type=&quot;Number&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;Rcrd&quot; type=&quot;TaxRecord1&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;TaxParty1&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;TaxId&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;RegnId&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;TaxTp&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;TaxParty2&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;TaxId&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;RegnId&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;TaxTp&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Authstn&quot; type=&quot;TaxAuthorisation1&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;TaxPeriod1&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Yr&quot; type=&quot;ISODate&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Tp&quot; type=&quot;TaxRecordPeriod1Code&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;FrToDt&quot; type=&quot;DatePeriodDetails&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;TaxRecord1&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Tp&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Ctgy&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CtgyDtls&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;DbtrSts&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;CertId&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;FrmsCd&quot; type=&quot;Max35Text&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Prd&quot; type=&quot;TaxPeriod1&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;TaxAmt&quot; type=&quot;TaxAmount1&quot;/&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;AddtlInf&quot; type=&quot;Max140Text&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:complexType name=&quot;TaxRecordDetails1&quot;&gt;&#13;
+        &lt;xs:sequence&gt;&#13;
+            &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot; name=&quot;Prd&quot; type=&quot;TaxPeriod1&quot;/&gt;&#13;
+            &lt;xs:element name=&quot;Amt&quot; type=&quot;ActiveOrHistoricCurrencyAndAmount&quot;/&gt;&#13;
+        &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+    &lt;xs:simpleType name=&quot;TaxRecordPeriod1Code&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+            &lt;xs:enumeration value=&quot;MM01&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;MM02&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;MM03&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;MM04&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;MM05&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;MM06&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;MM07&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;MM08&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;MM09&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;MM10&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;MM11&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;MM12&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;QTR1&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;QTR2&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;QTR3&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;QTR4&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;HLF1&quot;/&gt;&#13;
+            &lt;xs:enumeration value=&quot;HLF2&quot;/&gt;&#13;
+        &lt;/xs:restriction&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+    &lt;xs:simpleType name=&quot;TrueFalseIndicator&quot;&gt;&#13;
+        &lt;xs:restriction base=&quot;xs:boolean&quot;/&gt;&#13;
+    &lt;/xs:simpleType&gt;&#13;
+&lt;/xs:schema&gt;&#13;
+</string> 
+    </void> 
+    <void property="targetNamespace"> 
+     <string>urn:iso:std:iso:20022:tech:xsd:pain.007.001.05</string> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="inputStructureName"> 
+   <string>IN_PORT</string> 
+  </void> 
+  <void property="project"> 
+   <string>project</string> 
+  </void> 
+  <void property="tfClassName"> 
+   <string></string> 
+  </void> 
+ </object> 
+</java> 

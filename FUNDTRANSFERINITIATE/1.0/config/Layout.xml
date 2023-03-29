@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<layout>
+  <subflow name="FIORANO.ESTUDIO.ROOT_FLOW" x="0" y="0">
+    <service-instance name="pain00105" x="280" y="216"/>
+    <service-instance name="OFSConverter3" x="121" y="229"/>
+    <service-instance name="FASTrequestforFT1" x="379" y="328"/>
+    <service-instance name="pain00106" x="576" y="219"/>
+    <service-instance name="XML2OFS" x="712" y="144"/>
+    <service-instance name="HTTPFromT24ReverTrasaction1" x="120" y="45"/>
+  </subflow>
+</layout>

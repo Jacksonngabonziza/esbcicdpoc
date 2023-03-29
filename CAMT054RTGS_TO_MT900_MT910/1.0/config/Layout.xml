@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<layout>
+  <subflow name="FIORANO.ESTUDIO.ROOT_FLOW" x="0" y="0">
+    <service-instance name="XML2MT" x="469" y="81"/>
+    <service-instance name="ConvertTo900" x="599" y="94"/>
+    <service-instance name="SwiftTranslator" x="286" y="86"/>
+  </subflow>
+  <shortcut-routes/>
+</layout>

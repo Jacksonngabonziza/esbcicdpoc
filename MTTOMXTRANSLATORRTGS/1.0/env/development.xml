@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<target:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:target="http://fiorano.com/environment/1.0" xsi:schemaLocation="http://fiorano.com/environment/1.0 env.xsd">
+  <target:instance name="ScopeAndError">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property encrypt="false" name="XSL" type="java.lang.String"></target:property>
+      <target:property encrypt="false" name="XSLT Engine" type="java.lang.String">Xalan</target:property>
+      <target:property encrypt="false" name="Transformation Class Name" type="java.lang.String"></target:property>
+    </target:configuration-properties>
+  </target:instance>
+  <target:instance name="MXResponseWriter">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property encrypt="false" name="Post Processing Arguments" type="java.lang.String"></target:property>
+      <target:property configurationType="component" encrypt="false" name="FileWriterConfiguration" type="NamedObject">MXResponseWriter</target:property>
+      <target:property encrypt="false" name="File Encoding" type="java.lang.String">UTF-8</target:property>
+    </target:configuration-properties>
+  </target:instance>
+  <target:instance name="FTIOutgoing">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property encrypt="false" name="AuthenticationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.common.security.AuthenticationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.common.security&quot;>
+    &lt;ns1:passwordFromVault>false&lt;/ns1:passwordFromVault>
+    &lt;ns1:customPasswordEncryption>false&lt;/ns1:customPasswordEncryption>
+    &lt;ns1:authenticationRequired>false&lt;/ns1:authenticationRequired>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property configurationType="resource" encrypt="false" name="MQSeriesConnectionConfiguration" type="NamedObject">IBM</target:property>
+      <target:property encrypt="false" name="Queue Name" type="java.lang.String">TI.SWIFT.OUT.1</target:property>
+    </target:configuration-properties>
+  </target:instance>
+  <target:instance name="FTIScopeSender">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property encrypt="false" name="AuthenticationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.common.security.AuthenticationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.common.security&quot;>
+    &lt;ns1:passwordFromVault>false&lt;/ns1:passwordFromVault>
+    &lt;ns1:customPasswordEncryption>false&lt;/ns1:customPasswordEncryption>
+    &lt;ns1:authenticationRequired>false&lt;/ns1:authenticationRequired>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property configurationType="resource" encrypt="false" name="MQSeriesConnectionConfiguration" type="NamedObject">IBM</target:property>
+      <target:property encrypt="false" name="Queue Name" type="java.lang.String">TI.SWIFT.OUTOFSCOPE.1</target:property>
+    </target:configuration-properties>
+  </target:instance>
+  <target:instance name="FTIErrorSender">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property encrypt="false" name="AuthenticationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.common.security.AuthenticationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.common.security&quot;>
+    &lt;ns1:passwordFromVault>false&lt;/ns1:passwordFromVault>
+    &lt;ns1:customPasswordEncryption>false&lt;/ns1:customPasswordEncryption>
+    &lt;ns1:authenticationRequired>false&lt;/ns1:authenticationRequired>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property configurationType="resource" encrypt="false" name="MQSeriesConnectionConfiguration" type="NamedObject">IBM</target:property>
+      <target:property encrypt="false" name="Queue Name" type="java.lang.String">TI.SWIFT.ERROR.1</target:property>
+    </target:configuration-properties>
+  </target:instance>
+  <target:instance name="MT900_To_RTGSCAMT054Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property encrypt="false" name="Error DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property configurationType="resource" encrypt="false" name="ConnectionConfiguration" type="NamedObject">FioranoMQ</target:property>
+      <target:property encrypt="false" name="Response DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT900_To_RTGSCAMT054Response&lt;/ns1:name>
+    &lt;ns1:type>TOPIC&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="JNDIConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.JNDIConfiguration&quot; xmlns:ns2=&quot;uri:com.fiorano.services.common.jaxb.adapter&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:passwordFromVault>false&lt;/ns1:passwordFromVault>
+    &lt;ns1:customPasswordEncryption>false&lt;/ns1:customPasswordEncryption>
+    &lt;ns1:initialContextFactory>fiorano.jms.runtime.naming.FioranoInitialContextFactory&lt;/ns1:initialContextFactory>
+    &lt;ns1:username>anonymous&lt;/ns1:username>
+    &lt;ns1:password>CVuEpOIpQJAIVeUQIs7kBQ==&lt;/ns1:password>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="Request DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT900_To_RTGSCAMT054&lt;/ns1:name>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+    </target:configuration-properties>
+  </target:instance>
+  <target:instance name="MT910_To_RTGSCAMT054Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property encrypt="false" name="Error DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property configurationType="resource" encrypt="false" name="ConnectionConfiguration" type="NamedObject">FioranoMQ</target:property>
+      <target:property encrypt="false" name="Response DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT910_To_CAMT054_RTGS_Response&lt;/ns1:name>
+    &lt;ns1:type>TOPIC&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="JNDIConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.JNDIConfiguration&quot; xmlns:ns2=&quot;uri:com.fiorano.services.common.jaxb.adapter&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:passwordFromVault>false&lt;/ns1:passwordFromVault>
+    &lt;ns1:customPasswordEncryption>false&lt;/ns1:customPasswordEncryption>
+    &lt;ns1:initialContextFactory>fiorano.jms.runtime.naming.FioranoInitialContextFactory&lt;/ns1:initialContextFactory>
+    &lt;ns1:username>anonymous&lt;/ns1:username>
+    &lt;ns1:password>CVuEpOIpQJAIVeUQIs7kBQ==&lt;/ns1:password>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="Request DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT910_To_CAMT054_RTGS&lt;/ns1:name>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+    </target:configuration-properties>
+  </target:instance>
+  <target:instance name="MT202Core_To_RTGSPACS009Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property encrypt="false" name="Error DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property configurationType="resource" encrypt="false" name="ConnectionConfiguration" type="NamedObject">FioranoMQ</target:property>
+      <target:property encrypt="false" name="Response DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT202Core_To_RTGSPACS009Response&lt;/ns1:name>
+    &lt;ns1:type>TOPIC&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="JNDIConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.JNDIConfiguration&quot; xmlns:ns2=&quot;uri:com.fiorano.services.common.jaxb.adapter&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:passwordFromVault>false&lt;/ns1:passwordFromVault>
+    &lt;ns1:customPasswordEncryption>false&lt;/ns1:customPasswordEncryption>
+    &lt;ns1:initialContextFactory>fiorano.jms.runtime.naming.FioranoInitialContextFactory&lt;/ns1:initialContextFactory>
+    &lt;ns1:username>anonymous&lt;/ns1:username>
+    &lt;ns1:password>CVuEpOIpQJAIVeUQIs7kBQ==&lt;/ns1:password>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="Request DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT202Core_To_RTGSPACS009&lt;/ns1:name>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+    </target:configuration-properties>
+  </target:instance>
+  <target:instance name="MT103_To_RTGSPACS008Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property encrypt="false" name="Error DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property configurationType="resource" encrypt="false" name="ConnectionConfiguration" type="NamedObject">FioranoMQ</target:property>
+      <target:property encrypt="false" name="Response DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT103_To_RTGSPACS008Response&lt;/ns1:name>
+    &lt;ns1:type>TOPIC&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="JNDIConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.JNDIConfiguration&quot; xmlns:ns2=&quot;uri:com.fiorano.services.common.jaxb.adapter&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:passwordFromVault>false&lt;/ns1:passwordFromVault>
+    &lt;ns1:customPasswordEncryption>false&lt;/ns1:customPasswordEncryption>
+    &lt;ns1:initialContextFactory>fiorano.jms.runtime.naming.FioranoInitialContextFactory&lt;/ns1:initialContextFactory>
+    &lt;ns1:username>anonymous&lt;/ns1:username>
+    &lt;ns1:password>CVuEpOIpQJAIVeUQIs7kBQ==&lt;/ns1:password>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="Request DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT103_To_RTGSPACS008&lt;/ns1:name>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+    </target:configuration-properties>
+  </target:instance>
+  <target:instance name="MT103RETURN_TO_RTGSPACS004Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property encrypt="false" name="Error DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property configurationType="resource" encrypt="false" name="ConnectionConfiguration" type="NamedObject">FioranoMQ</target:property>
+      <target:property encrypt="false" name="Response DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT103RETURN_TO_RTGSPACS004RESPONSE&lt;/ns1:name>
+    &lt;ns1:type>TOPIC&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="JNDIConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.JNDIConfiguration&quot; xmlns:ns2=&quot;uri:com.fiorano.services.common.jaxb.adapter&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:passwordFromVault>false&lt;/ns1:passwordFromVault>
+    &lt;ns1:customPasswordEncryption>false&lt;/ns1:customPasswordEncryption>
+    &lt;ns1:initialContextFactory>fiorano.jms.runtime.naming.FioranoInitialContextFactory&lt;/ns1:initialContextFactory>
+    &lt;ns1:username>anonymous&lt;/ns1:username>
+    &lt;ns1:password>CVuEpOIpQJAIVeUQIs7kBQ==&lt;/ns1:password>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="Request DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT103RETURN_TO_RTGSPACS004&lt;/ns1:name>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+    </target:configuration-properties>
+  </target:instance>
+  <target:instance name="MT202RETURN_TO_RTGSPACS004Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property encrypt="false" name="Error DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property configurationType="resource" encrypt="false" name="ConnectionConfiguration" type="NamedObject">FioranoMQ</target:property>
+      <target:property encrypt="false" name="Response DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT202RETURN_TO_RTGSPACS004RESPONSE&lt;/ns1:name>
+    &lt;ns1:type>TOPIC&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="JNDIConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.JNDIConfiguration&quot; xmlns:ns2=&quot;uri:com.fiorano.services.common.jaxb.adapter&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:passwordFromVault>false&lt;/ns1:passwordFromVault>
+    &lt;ns1:customPasswordEncryption>false&lt;/ns1:customPasswordEncryption>
+    &lt;ns1:initialContextFactory>fiorano.jms.runtime.naming.FioranoInitialContextFactory&lt;/ns1:initialContextFactory>
+    &lt;ns1:username>anonymous&lt;/ns1:username>
+    &lt;ns1:password>CVuEpOIpQJAIVeUQIs7kBQ==&lt;/ns1:password>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="Request DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT202RETURN_TO_RTGSPACS004&lt;/ns1:name>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+    </target:configuration-properties>
+  </target:instance>
+  <target:instance name="MT192_MT292_To_RTGSCAMT056Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property encrypt="false" name="Error DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property configurationType="resource" encrypt="false" name="ConnectionConfiguration" type="NamedObject">FioranoMQ</target:property>
+      <target:property encrypt="false" name="Response DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT192_MT292_To_RTGSCAMT056Response&lt;/ns1:name>
+    &lt;ns1:type>TOPIC&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="JNDIConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.JNDIConfiguration&quot; xmlns:ns2=&quot;uri:com.fiorano.services.common.jaxb.adapter&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:passwordFromVault>false&lt;/ns1:passwordFromVault>
+    &lt;ns1:customPasswordEncryption>false&lt;/ns1:customPasswordEncryption>
+    &lt;ns1:initialContextFactory>fiorano.jms.runtime.naming.FioranoInitialContextFactory&lt;/ns1:initialContextFactory>
+    &lt;ns1:username>anonymous&lt;/ns1:username>
+    &lt;ns1:password>CVuEpOIpQJAIVeUQIs7kBQ==&lt;/ns1:password>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="Request DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT192_MT292_To_RTGSCAMT056&lt;/ns1:name>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+    </target:configuration-properties>
+  </target:instance>
+  <target:instance name="MT200_TO_RTGSPACS009Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property encrypt="false" name="Error DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property configurationType="resource" encrypt="false" name="ConnectionConfiguration" type="NamedObject">FioranoMQ</target:property>
+      <target:property encrypt="false" name="Response DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT200_To_RTGSPACS009RESPONSE&lt;/ns1:name>
+    &lt;ns1:type>TOPIC&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="JNDIConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.JNDIConfiguration&quot; xmlns:ns2=&quot;uri:com.fiorano.services.common.jaxb.adapter&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:passwordFromVault>false&lt;/ns1:passwordFromVault>
+    &lt;ns1:customPasswordEncryption>false&lt;/ns1:customPasswordEncryption>
+    &lt;ns1:initialContextFactory>fiorano.jms.runtime.naming.FioranoInitialContextFactory&lt;/ns1:initialContextFactory>
+    &lt;ns1:username>anonymous&lt;/ns1:username>
+    &lt;ns1:password>CVuEpOIpQJAIVeUQIs7kBQ==&lt;/ns1:password>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="Request DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT200_To_RTGSPACS009&lt;/ns1:name>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+    </target:configuration-properties>
+  </target:instance>
+  <target:instance name="MT202Cove_To_RTGSPACS009Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property encrypt="false" name="Error DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property configurationType="resource" encrypt="false" name="ConnectionConfiguration" type="NamedObject">FioranoMQ</target:property>
+      <target:property encrypt="false" name="Response DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT202Cove_To_RTGSPACS009Response&lt;/ns1:name>
+    &lt;ns1:type>TOPIC&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="JNDIConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.JNDIConfiguration&quot; xmlns:ns2=&quot;uri:com.fiorano.services.common.jaxb.adapter&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:passwordFromVault>false&lt;/ns1:passwordFromVault>
+    &lt;ns1:customPasswordEncryption>false&lt;/ns1:customPasswordEncryption>
+    &lt;ns1:initialContextFactory>fiorano.jms.runtime.naming.FioranoInitialContextFactory&lt;/ns1:initialContextFactory>
+    &lt;ns1:username>anonymous&lt;/ns1:username>
+    &lt;ns1:password>CVuEpOIpQJAIVeUQIs7kBQ==&lt;/ns1:password>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="Request DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT202Cove_To_RTGSPACS009&lt;/ns1:name>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+    </target:configuration-properties>
+  </target:instance>
+  <target:instance name="MT205CORE_TO_RTGSPACS004Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property encrypt="false" name="Error DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property configurationType="resource" encrypt="false" name="ConnectionConfiguration" type="NamedObject">FioranoMQ</target:property>
+      <target:property encrypt="false" name="Response DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT202Core_To_RTGSPACS009Response&lt;/ns1:name>
+    &lt;ns1:type>TOPIC&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="JNDIConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.JNDIConfiguration&quot; xmlns:ns2=&quot;uri:com.fiorano.services.common.jaxb.adapter&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:passwordFromVault>false&lt;/ns1:passwordFromVault>
+    &lt;ns1:customPasswordEncryption>false&lt;/ns1:customPasswordEncryption>
+    &lt;ns1:initialContextFactory>fiorano.jms.runtime.naming.FioranoInitialContextFactory&lt;/ns1:initialContextFactory>
+    &lt;ns1:username>anonymous&lt;/ns1:username>
+    &lt;ns1:password>CVuEpOIpQJAIVeUQIs7kBQ==&lt;/ns1:password>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="Request DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT205CORE_TO_RTGSPACS009&lt;/ns1:name>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+    </target:configuration-properties>
+  </target:instance>
+  <target:instance name="MT205COVE_TO_RTGSPACS004Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property encrypt="false" name="Error DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property configurationType="resource" encrypt="false" name="ConnectionConfiguration" type="NamedObject">FioranoMQ</target:property>
+      <target:property encrypt="false" name="Response DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT202Cove_To_RTGSPACS009Response&lt;/ns1:name>
+    &lt;ns1:type>TOPIC&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="JNDIConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.JNDIConfiguration&quot; xmlns:ns2=&quot;uri:com.fiorano.services.common.jaxb.adapter&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:passwordFromVault>false&lt;/ns1:passwordFromVault>
+    &lt;ns1:customPasswordEncryption>false&lt;/ns1:customPasswordEncryption>
+    &lt;ns1:initialContextFactory>fiorano.jms.runtime.naming.FioranoInitialContextFactory&lt;/ns1:initialContextFactory>
+    &lt;ns1:username>anonymous&lt;/ns1:username>
+    &lt;ns1:password>CVuEpOIpQJAIVeUQIs7kBQ==&lt;/ns1:password>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="Request DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT205COVE_TO_RTGSPACS009&lt;/ns1:name>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+    </target:configuration-properties>
+  </target:instance>
+  <target:instance name="MT196_MT296_To_RTGSCAMT029Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property encrypt="false" name="Error DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property configurationType="resource" encrypt="false" name="ConnectionConfiguration" type="NamedObject">FioranoMQ</target:property>
+      <target:property encrypt="false" name="Response DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT196_MT296_TO_RTGSCAMT029RESPONSE&lt;/ns1:name>
+    &lt;ns1:type>TOPIC&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="JNDIConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.JNDIConfiguration&quot; xmlns:ns2=&quot;uri:com.fiorano.services.common.jaxb.adapter&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:passwordFromVault>false&lt;/ns1:passwordFromVault>
+    &lt;ns1:customPasswordEncryption>false&lt;/ns1:customPasswordEncryption>
+    &lt;ns1:initialContextFactory>fiorano.jms.runtime.naming.FioranoInitialContextFactory&lt;/ns1:initialContextFactory>
+    &lt;ns1:username>anonymous&lt;/ns1:username>
+    &lt;ns1:password>CVuEpOIpQJAIVeUQIs7kBQ==&lt;/ns1:password>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="Request DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT196_MT296_TO_RTGSCAMT029&lt;/ns1:name>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+    </target:configuration-properties>
+  </target:instance>
+  <target:instance name="MT103REJECT_TO_RTGSPACS002Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property encrypt="false" name="Error DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property configurationType="resource" encrypt="false" name="ConnectionConfiguration" type="NamedObject">FioranoMQ</target:property>
+      <target:property encrypt="false" name="Response DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT103Reject_To_RTGSPACS002Response&lt;/ns1:name>
+    &lt;ns1:type>TOPIC&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="JNDIConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.JNDIConfiguration&quot; xmlns:ns2=&quot;uri:com.fiorano.services.common.jaxb.adapter&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:passwordFromVault>false&lt;/ns1:passwordFromVault>
+    &lt;ns1:customPasswordEncryption>false&lt;/ns1:customPasswordEncryption>
+    &lt;ns1:initialContextFactory>fiorano.jms.runtime.naming.FioranoInitialContextFactory&lt;/ns1:initialContextFactory>
+    &lt;ns1:username>anonymous&lt;/ns1:username>
+    &lt;ns1:password>CVuEpOIpQJAIVeUQIs7kBQ==&lt;/ns1:password>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="Request DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT103Reject_To_RTGSPACS002&lt;/ns1:name>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+    </target:configuration-properties>
+  </target:instance>
+  <target:instance name="MT202REJECT_TO_RTGSPACS002Router">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property encrypt="false" name="Error DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property configurationType="resource" encrypt="false" name="ConnectionConfiguration" type="NamedObject">FioranoMQ</target:property>
+      <target:property encrypt="false" name="Response DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT202Reject_TO_RTGSPACS002Response&lt;/ns1:name>
+    &lt;ns1:type>TOPIC&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="JNDIConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.JNDIConfiguration&quot; xmlns:ns2=&quot;uri:com.fiorano.services.common.jaxb.adapter&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:passwordFromVault>false&lt;/ns1:passwordFromVault>
+    &lt;ns1:customPasswordEncryption>false&lt;/ns1:customPasswordEncryption>
+    &lt;ns1:initialContextFactory>fiorano.jms.runtime.naming.FioranoInitialContextFactory&lt;/ns1:initialContextFactory>
+    &lt;ns1:username>anonymous&lt;/ns1:username>
+    &lt;ns1:password>CVuEpOIpQJAIVeUQIs7kBQ==&lt;/ns1:password>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="Request DestinationConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.services.libraries.jms.configuration.DestinationConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.services.libraries.jms.configuration&quot;>
+    &lt;ns1:name>MT202Reject_To_RTGSPACS002&lt;/ns1:name>
+    &lt;ns1:type>QUEUE&lt;/ns1:type>
+    &lt;ns1:lookupSupported>true&lt;/ns1:lookupSupported>
+    &lt;ns1:autoCreateSupported>true&lt;/ns1:autoCreateSupported>
+&lt;/ns1:namedConfiguration>
+</target:property>
+    </target:configuration-properties>
+  </target:instance>
+</target:target>

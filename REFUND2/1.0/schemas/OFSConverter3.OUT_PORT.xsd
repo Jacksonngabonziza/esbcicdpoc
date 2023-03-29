@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+   <xsd:element name="Root">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="header" type="xsd:string"/>
+            <xsd:element name="MSGID">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CRE.DATE.TIME">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="NBOFTXS">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="NM">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="STRNM">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="BLDGNM">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="PSTCD">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="TWNNM">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CTRY">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="DEBITOR.BANK">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CREDITOR.BANK">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ORGNLMSGID">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ORGNLMSGNMID">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ORGNLCREDTTM">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ORGNLPMTINFID">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="FT.ID">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ORGNLENDTOEND">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CREDIT.AMOUNT">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CREDITOR.NAME">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CREDITOR.STRTNM">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CREDITOR.BLDGNM">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CREDITOR.TWNNM">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CREDITOR.CTRY">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CD">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="REQDEXCTNDT">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="DEBITOR.NM">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="DEBITOR.STRTNM">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="DEBITOR.BLDGNB">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="DEBITOR.TWNNM">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="DEBITOR.CTRY">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="O.SENDER.ACCT.NO">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="O.SENDER.NM">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="O.SENDER.STRTNM">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="O.SENDER.BLDGNB">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="O.SENDER.TWNNM">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="O.SENDER.CTRY">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ORGNLINSTDAMT">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CREDIT.CCY">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:attribute name="totalPositions" type="xsd:int"/>
+   <xsd:attribute name="position" type="xsd:int"/>
+   <xsd:element name="value">
+      <xsd:complexType>
+         <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+               <xsd:attribute ref="position" use="optional"/>
+            </xsd:extension>
+         </xsd:simpleContent>
+      </xsd:complexType>
+   </xsd:element>
+</xsd:schema>

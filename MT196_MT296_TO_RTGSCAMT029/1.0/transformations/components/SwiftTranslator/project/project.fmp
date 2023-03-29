@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappermodel:MapperProject xmlns:mappermodel="http://www.fiorano.com/tools/mapper/mappermodel" convertor="nameIndexed" version="3.0.2">
+  <mappermodel:Comments>Key in relevant comments</mappermodel:Comments>
+  <mappermodel:InputStructure>
+    <mappermodel:Structure duplicates="" filePath="Application-Context.DTD" mime="DTD" name="Application-Context" rootName="Context"/>
+    <mappermodel:Structure duplicates="" filePath="IN_PORT.XSD" mime="XSD" name="IN_PORT" rootName="{urn:swift:xsd:mtmsg.2020}FinMessage">
+      <mappermodel:ExternalStructure filePath="IN_PORT_ext.XSD" mime="XSD" name="urn:swift:xsd:fin.296.2020"/>
+    </mappermodel:Structure>
+  </mappermodel:InputStructure>
+  <mappermodel:OutputStructure>
+    <mappermodel:Structure duplicates="" filePath="Output1.XSD" mime="XSD" name="Output1" rootName="{urn:swift:xsd:envelope}Envelope">
+      <mappermodel:ExternalStructure filePath="head.001.001.01.xsd" name="urn:iso:std:iso:20022:tech:xsd:head.001.001.01"/>
+      <mappermodel:ExternalStructure filePath="camt.029.001.09.xsd" name="urn:iso:std:iso:20022:tech:xsd:camt.029.001.09"/>
+    </mappermodel:Structure>
+  </mappermodel:OutputStructure>
+  <mappermodel:Namespaces>
+    <mappermodel:namespace prefix="ns1" uri="urn:swift:xsd:mtmsg.2020"/>
+    <mappermodel:namespace prefix="ns2" uri="http://www.w3.org/2001/XMLSchema"/>
+    <mappermodel:namespace prefix="ns3" uri="urn:swift:xsd:fin.296.2020"/>
+    <mappermodel:namespace prefix="ns4" uri="urn:iso:std:iso:20022:tech:xsd:camt.029.001.09"/>
+    <mappermodel:namespace prefix="ns5" uri="urn:iso:std:iso:20022:tech:xsd:head.001.001.01"/>
+    <mappermodel:namespace prefix="ns6" uri="urn:swift:xsd:envelope"/>
+  </mappermodel:Namespaces>
+  <mappermodel:Mappings>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="Output1:0,Envelope:0,Document:0,RsltnOfInvstgtn:0,Assgnmt:0,Assgnr:0,[Choice]:0,Agt:0,FinInstnId:0,BICFI:0" x="-1" y="-1">
+      <mappermodel:FunctionGraphNode label="Variable:TSender" type="160" x="104" y="92">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="1" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="Output1:0,Envelope:0,Document:0,RsltnOfInvstgtn:0,Assgnmt:0,Assgne:0,[Choice]:0,Agt:0,FinInstnId:0,BICFI:0" x="-1" y="-1">
+      <mappermodel:FunctionGraphNode label="Variable:TReceiver" type="160" x="90" y="78">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="1" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="Output1:0,Envelope:0,Document:0,RsltnOfInvstgtn:0,Sts:0,[Choice]:0,Conf:0" x="785" y="39">
+      <mappermodel:TreeGraphNode inputNode="IN_PORT:0,FinMessage:0,Block4:0,Document:0,MT296:0,F76a:0,[Choice]:0,F76:0,Narrative:0,[ONE MANY]:0,Line:0" x="16" y="27">
+        <mappermodel:InputPins>1st</mappermodel:InputPins>
+        <mappermodel:OutputPins>1st</mappermodel:OutputPins>
+      </mappermodel:TreeGraphNode>
+      <mappermodel:FunctionGraphNode label="7" type="22" x="41" y="141">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="SubString-Offset-Length" type="26" x="317" y="144">
+        <mappermodel:InputPins>str,offset,length</mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="4" type="22" x="68" y="186">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="If-Then-Else" type="41" x="543" y="54">
+        <mappermodel:InputPins>bool,then,bool,else</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label=">" type="33" x="305" y="92">
+        <mappermodel:InputPins>1,2</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="9" type="22" x="69" y="94">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="Length" type="21" x="44" y="66">
+        <mappermodel:InputPins>str</mappermodel:InputPins>
+        <mappermodel:OutputPins>num</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:Link inputID="3" inputIndex="0" outputID="1" outputIndex="0"/>
+      <mappermodel:Link inputID="3" inputIndex="1" outputID="2" outputIndex="0"/>
+      <mappermodel:Link inputID="3" inputIndex="2" outputID="4" outputIndex="0"/>
+      <mappermodel:Link inputID="8" inputIndex="0" outputID="1" outputIndex="0"/>
+      <mappermodel:Link inputID="6" inputIndex="0" outputID="8" outputIndex="0"/>
+      <mappermodel:Link inputID="6" inputIndex="1" outputID="7" outputIndex="0"/>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="5" outputIndex="0"/>
+      <mappermodel:Link inputID="5" inputIndex="1" outputID="3" outputIndex="0"/>
+      <mappermodel:Link inputID="5" inputIndex="0" outputID="6" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="Output1:0,Envelope:0,Document:0,RsltnOfInvstgtn:0,Assgnmt:0,Id:0" x="-1" y="-1">
+      <mappermodel:TreeGraphNode inputNode="IN_PORT:0,FinMessage:0,Block4:0,Document:0,MT296:0,F21a:0,[Choice]:0,F21:0" x="-1" y="-1">
+        <mappermodel:InputPins>1st</mappermodel:InputPins>
+        <mappermodel:OutputPins>1st</mappermodel:OutputPins>
+      </mappermodel:TreeGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="1" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="Output1:0,Envelope:0,AppHdr:0,BizMsgIdr:0" x="-1" y="-1">
+      <mappermodel:TreeGraphNode inputNode="IN_PORT:0,FinMessage:0,Block4:0,Document:0,MT296:0,F20a:0,[Choice]:0,F20:0" x="-1" y="-1">
+        <mappermodel:InputPins>1st</mappermodel:InputPins>
+        <mappermodel:OutputPins>1st</mappermodel:OutputPins>
+      </mappermodel:TreeGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="1" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="Output1:0,Envelope:0,Document:0,RsltnOfInvstgtn:0,CxlDtls:0,TxInfAndSts:0,CxlStsId:0" x="-1" y="-1">
+      <mappermodel:TreeGraphNode inputNode="IN_PORT:0,FinMessage:0,Block4:0,Document:0,MT296:0,F21a:0,[Choice]:0,F21:0" x="100" y="82">
+        <mappermodel:InputPins>1st</mappermodel:InputPins>
+        <mappermodel:OutputPins>1st</mappermodel:OutputPins>
+      </mappermodel:TreeGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="1" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="Output1:0,Envelope:0,Document:0,RsltnOfInvstgtn:0,CxlDtls:0,TxInfAndSts:0,OrgnlGrpInf:0,OrgnlMsgId:0" x="-1" y="-1">
+      <mappermodel:TreeGraphNode inputNode="IN_PORT:0,FinMessage:0,Block4:0,Document:0,MT296:0,F21a:0,[Choice]:0,F21:0" x="59" y="60">
+        <mappermodel:InputPins>1st</mappermodel:InputPins>
+        <mappermodel:OutputPins>1st</mappermodel:OutputPins>
+      </mappermodel:TreeGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="1" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="Output1:0,Envelope:0,Document:0,RsltnOfInvstgtn:0,CxlDtls:0,TxInfAndSts:0,OrgnlGrpInf:0,OrgnlMsgNmId:0" x="757" y="75">
+      <mappermodel:TreeGraphNode inputNode="IN_PORT:0,FinMessage:0,Block4:0,Document:0,MT296:0,F11a:0,[Choice]:0,F11S:0,MTNumber:0" x="169" y="47">
+        <mappermodel:InputPins>1st</mappermodel:InputPins>
+        <mappermodel:OutputPins>1st</mappermodel:OutputPins>
+      </mappermodel:TreeGraphNode>
+      <mappermodel:FunctionGraphNode label="103" type="22" x="140" y="122">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="Pacs.008" type="22" x="162" y="176">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="Pacs.009" type="22" x="169" y="233">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="=" type="31" x="388" y="95">
+        <mappermodel:InputPins>1,2</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="If-Then-Else" type="41" x="556" y="169">
+        <mappermodel:InputPins>bool,then,bool,else</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:Link inputID="5" inputIndex="0" outputID="1" outputIndex="0"/>
+      <mappermodel:Link inputID="5" inputIndex="1" outputID="2" outputIndex="0"/>
+      <mappermodel:Link inputID="6" inputIndex="0" outputID="5" outputIndex="0"/>
+      <mappermodel:Link inputID="6" inputIndex="1" outputID="3" outputIndex="0"/>
+      <mappermodel:Link inputID="6" inputIndex="3" outputID="4" outputIndex="0"/>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="6" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="Output1:0,Envelope:0,Document:0,RsltnOfInvstgtn:0,CxlDtls:0,TxInfAndSts:0,OrgnlGrpInf:0,OrgnlCreDtTm:0" x="793" y="99">
+      <mappermodel:TreeGraphNode inputNode="IN_PORT:0,FinMessage:0,Block4:0,Document:0,MT296:0,F11a:0,[Choice]:0,F11S:0,Date:0" x="113" y="74">
+        <mappermodel:InputPins>1st</mappermodel:InputPins>
+        <mappermodel:OutputPins>1st</mappermodel:OutputPins>
+      </mappermodel:TreeGraphNode>
+      <mappermodel:FunctionGraphNode label="MT2MX:com.fiorano.funclet.MTtoMX.MT_To_MXDate(java.lang.String arg1)" type="69" x="337" y="113">
+        <mappermodel:InputPins>arg1</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:Link inputID="2" inputIndex="0" outputID="1" outputIndex="0"/>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="2" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="Output1:0,Envelope:0,Document:0,RsltnOfInvstgtn:0,CxlDtls:0,TxInfAndSts:0,OrgnlEndToEndId:0" x="-1" y="-1">
+      <mappermodel:TreeGraphNode inputNode="IN_PORT:0,FinMessage:0,Block4:0,Document:0,MT296:0,F21a:0,[Choice]:0,F21:0" x="102" y="61">
+        <mappermodel:InputPins>1st</mappermodel:InputPins>
+        <mappermodel:OutputPins>1st</mappermodel:OutputPins>
+      </mappermodel:TreeGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="1" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="Output1:0,Envelope:0,Document:0,RsltnOfInvstgtn:0,CxlDtls:0,TxInfAndSts:0,OrgnlUETR:0" x="609" y="89">
+      <mappermodel:FunctionGraphNode label="121:" type="22" x="114" y="161">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="SubString-After" type="24" x="364" y="132">
+        <mappermodel:InputPins>str,after</mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="." type="28" x="127" y="87">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:Link inputID="2" inputIndex="1" outputID="1" outputIndex="0"/>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="2" outputIndex="0"/>
+      <mappermodel:Link inputID="2" inputIndex="0" outputID="3" outputIndex="0"/>
+    </mappermodel:GraphModel>
+  </mappermodel:Mappings>
+  <mappermodel:Extensions>
+    <mappermodel:Extension language="java" name="MT2MX">
+      <mappermodel:Script>com.fiorano.funclet.MTtoMX</mappermodel:Script>
+      <mappermodel:Function name="public static java.lang.String com.fiorano.funclet.MTtoMX.MT_To_MXDate(java.lang.String)">
+        <mappermodel:Argument datatype="java.lang.String" name="arg1"/>
+      </mappermodel:Function>
+    </mappermodel:Extension>
+  </mappermodel:Extensions>
+  <mappermodel:UserXSL index="1" node="Output1:0,Envelope:0">&lt;xsl:variable name=&quot;Identifier&quot;>&#xD;
+	&lt;xsl:choose>&#xD;
+		&lt;xsl:when test=&quot;string-length($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:InputIdentifier)&quot;>&#xD;
+			&lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:InputIdentifier&quot;/>&#xD;
+		&lt;/xsl:when>&#xD;
+		&lt;xsl:when test=&quot;string-length($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:OutputIdentifier)&quot;>&#xD;
+			&lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:OutputIdentifier&quot;/>&#xD;
+		&lt;/xsl:when>&#xD;
+		&lt;xsl:otherwise>&#xD;
+			&lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:OutputIdentifier&quot;/>&#xD;
+		&lt;/xsl:otherwise>&#xD;
+	&lt;/xsl:choose>&#xD;
+&lt;/xsl:variable>&#xD;
+&lt;xsl:variable name=&quot;TSender&quot;>&#xD;
+	&lt;xsl:value-of select=&quot;MT2MX:com.fiorano.funclet.MTtoMX.generateTSenderTarget(string($Identifier),string($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:MessageInputReference/ns1:LTIdentifier),string($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:MessageInputReference/ns1:BranchCode),string($document_IN_PORT/ns1:FinMessage/ns1:Block1/ns1:LogicalTerminalAddress))&quot;/>&#xD;
+&lt;/xsl:variable>&#xD;
+&lt;xsl:variable name=&quot;TReceiver&quot;>&#xD;
+	&lt;xsl:value-of select=&quot;MT2MX:com.fiorano.funclet.MTtoMX.generateTReceiverTarget(string($Identifier),string($document_IN_PORT/ns1:FinMessage/ns1:Block1/ns1:LogicalTerminalAddress),string($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:DestinationAddress))&quot;/>&#xD;
+&lt;/xsl:variable></mappermodel:UserXSL>
+  <mappermodel:UserXSL index="1" node="Output1:0,Envelope:0,AppHdr:0">&lt;ns5:Fr>&#xD;
+	&lt;ns5:FIId>&#xD;
+		&lt;ns5:FinInstnId>&#xD;
+			&lt;ns5:BICFI>&#xD;
+				&lt;xsl:value-of select=&quot;$TSender&quot;/>&#xD;
+			&lt;/ns5:BICFI>&#xD;
+		&lt;/ns5:FinInstnId>&#xD;
+	&lt;/ns5:FIId>&#xD;
+&lt;/ns5:Fr>&#xD;
+&lt;ns5:To>&#xD;
+	&lt;ns5:FIId>&#xD;
+		&lt;ns5:FinInstnId>&#xD;
+			&lt;ns5:BICFI>&#xD;
+				&lt;xsl:value-of select=&quot;$TReceiver&quot;/>&#xD;
+			&lt;/ns5:BICFI>&#xD;
+		&lt;/ns5:FinInstnId>&#xD;
+	&lt;/ns5:FIId>&#xD;
+&lt;/ns5:To>&#xD;
+&lt;ns5:BizMsgIdr>&#xD;
+          &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT296/ns3:F20a/ns3:F20&quot;>&lt;/xsl:value-of>&#xD;
+ &lt;/ns5:BizMsgIdr>&#xD;
+&lt;ns5:MsgDefIdr>&#xD;
+	&lt;xsl:value-of select=&quot;'camt.029.001.09'&quot;/>&#xD;
+&lt;/ns5:MsgDefIdr>&#xD;
+&lt;ns5:CreDt>&#xD;
+	&lt;xsl:value-of select=&quot;'9999-12-31T00:00:00+00:00'&quot;/>&#xD;
+&lt;/ns5:CreDt>&#xD;
+&lt;ns5:PssblDplct>&#xD;
+	&lt;xsl:variable name=&quot;if0&quot;>&#xD;
+		&lt;xsl:choose>&#xD;
+			&lt;xsl:when test=&quot;string-length($document_IN_PORT/ns1:FinMessage/ns1:Block5/ns1:PDE)&quot;>&#xD;
+				&lt;xsl:value-of select=&quot;'true'&quot;/>&#xD;
+			&lt;/xsl:when>&#xD;
+		&lt;/xsl:choose>&#xD;
+	&lt;/xsl:variable>&#xD;
+	&lt;xsl:value-of select=&quot;$if0&quot;/>&#xD;
+&lt;/ns5:PssblDplct>&#xD;
+&lt;ns5:Prty>&#xD;
+	&lt;xsl:variable name=&quot;if1&quot;>&#xD;
+		&lt;xsl:choose>&#xD;
+			&lt;xsl:when test=&quot;(translate($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:MessagePriority,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ'))=('U')&quot;>&#xD;
+				&lt;xsl:value-of select=&quot;'HIGH'&quot;/>&#xD;
+			&lt;/xsl:when>&#xD;
+		&lt;/xsl:choose>&#xD;
+	&lt;/xsl:variable>&#xD;
+	&lt;xsl:value-of select=&quot;$if1&quot;/>&#xD;
+&lt;/ns5:Prty></mappermodel:UserXSL>
+  <mappermodel:UserXSL index="1" node="Output1:0">&lt;xsl:template name=&quot;tokenizeReason&quot;>
+	&lt;xsl:param name=&quot;text&quot; select=&quot;.&quot;/>
+	&lt;xsl:param name=&quot;separator&quot; select=&quot;'ARRAYENTRY'&quot;/>
+	&lt;xsl:choose>
+		&lt;xsl:when test=&quot;not(string-length($text))&quot;>
+		&lt;/xsl:when>
+		&lt;xsl:when test=&quot;(not(contains($text, $separator))) &quot;>
+			&lt;ns4:AddtlInf>
+				&lt;xsl:value-of select=&quot;normalize-space($text)&quot;/>
+			&lt;/ns4:AddtlInf>
+		&lt;/xsl:when>
+		&lt;xsl:when test=&quot;((contains($text, $separator))) &quot;>
+			&lt;ns4:AddtlInf>
+				&lt;xsl:value-of select=&quot;normalize-space(substring-before($text, $separator))&quot;/>
+			&lt;/ns4:AddtlInf>
+			&lt;xsl:call-template name=&quot;tokenizeReason&quot;>
+				&lt;xsl:with-param name=&quot;text&quot; select=&quot;substring-after($text, $separator)&quot;/>
+			&lt;/xsl:call-template>
+		&lt;/xsl:when>
+	&lt;/xsl:choose>
+&lt;/xsl:template></mappermodel:UserXSL>
+  <mappermodel:UserXSL index="1" node="Output1:0,Envelope:0,Document:0,RsltnOfInvstgtn:0">&lt;xsl:variable name=&quot;AppendedReason&quot;>&#xD;
+	&lt;xsl:for-each select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT296/ns3:F79a/ns3:F79/ns3:Narrative/ns3:Line&quot;>&#xD;
+		&lt;xsl:value-of select=&quot;.&quot;/>&#xD;
+		&lt;xsl:value-of select=&quot;'ENDOFLINE'&quot;/>&#xD;
+	&lt;/xsl:for-each>&#xD;
+&lt;/xsl:variable></mappermodel:UserXSL>
+  <mappermodel:UserXSL index="0" node="Output1:0,Envelope:0,Document:0,RsltnOfInvstgtn:0,Sts:0,[Choice]:0,Conf:0">&lt;xsl:for-each select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT296/ns3:F76a/ns3:F76/ns3:Narrative/ns3:Line&quot;></mappermodel:UserXSL>
+  <mappermodel:UserXSL index="3" node="Output1:0,Envelope:0,Document:0,RsltnOfInvstgtn:0,Sts:0,[Choice]:0,Conf:0">&lt;/xsl:for-each></mappermodel:UserXSL>
+  <mappermodel:UserXSL index="0" node="Output1:0,Envelope:0,Document:0,RsltnOfInvstgtn:0,CxlDtls:0,TxInfAndSts:0,OrgnlUETR:0">&lt;xsl:for-each select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT296/ns3:F79a/ns3:F79/ns3:Narrative/ns3:Line[starts-with(.,'121: ')]&quot;></mappermodel:UserXSL>
+  <mappermodel:UserXSL index="3" node="Output1:0,Envelope:0,Document:0,RsltnOfInvstgtn:0,CxlDtls:0,TxInfAndSts:0,OrgnlUETR:0">&lt;/xsl:for-each></mappermodel:UserXSL>
+  <mappermodel:UserXSL index="1" node="Output1:0,Envelope:0,Document:0,RsltnOfInvstgtn:0,CxlDtls:0,TxInfAndSts:0,[ZERO MANY]:0,CxlStsRsnInf:0,Rsn:0">&lt;xsl:variable name=&quot;ReasonResponse&quot;>
+	&lt;xsl:value-of select=&quot;MTtoMX:com.fiorano.funclet.MTtoMX.MT292Field79toReasonInfo(string($AppendedReason))&quot;/>
+&lt;/xsl:variable>
+&lt;ns4:Cd>
+	&lt;xsl:value-of select=&quot;normalize-space(substring-before($ReasonResponse, 'CODEENTRY'))&quot;/>
+&lt;/ns4:Cd></mappermodel:UserXSL>
+  <mappermodel:UserXSL index="3" node="Output1:0,Envelope:0,Document:0,RsltnOfInvstgtn:0,CxlDtls:0,TxInfAndSts:0,[ZERO MANY]:0,CxlStsRsnInf:0,Rsn:0">&lt;xsl:variable name=&quot;ReasonResponse&quot;>
+	&lt;xsl:value-of select=&quot;MTtoMX:com.fiorano.funclet.MTtoMX.MT292Field79toReasonInfo(string($AppendedReason))&quot;/>
+&lt;/xsl:variable>
+&lt;xsl:call-template name=&quot;tokenizeReason&quot;>
+	&lt;xsl:with-param name=&quot;text&quot; select=&quot;substring-after($ReasonResponse, 'CODEENTRY')&quot;/>
+&lt;/xsl:call-template></mappermodel:UserXSL>
+</mappermodel:MapperProject>

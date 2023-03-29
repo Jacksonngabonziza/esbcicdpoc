@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappermodel:MapperProject xmlns:mappermodel="http://www.fiorano.com/tools/mapper/mappermodel" convertor="nameIndexed" version="3.0.2">
+  <mappermodel:Comments>Key in relevant comments</mappermodel:Comments>
+  <mappermodel:InputStructure>
+    <mappermodel:Structure duplicates="" filePath="Application-Context.XSD" mime="XSD" name="Application-Context" rootName="{urn:iso:std:iso:20022:tech:xsd:pain.001.001.05}Document"/>
+    <mappermodel:Structure duplicates="" filePath="IN_PORT1.XSD" mime="XSD" name="IN_PORT" rootName="Root"/>
+  </mappermodel:InputStructure>
+  <mappermodel:OutputStructure>
+    <mappermodel:Structure duplicates="" filePath="Output1.XSD" mime="XSD" name="Output1" rootName="{urn:iso:std:iso:20022:tech:xsd:pain.002.001.06}Document"/>
+  </mappermodel:OutputStructure>
+  <mappermodel:Mappings>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="Output1:0,Document:0,CstmrPmtStsRpt:0,OrgnlGrpInfAndSts:0,OrgnlMsgId:0" x="-1" y="-1">
+      <mappermodel:TreeGraphNode inputNode="Application-Context:0,Document:0,CstmrCdtTrfInitn:0,GrpHdr:0,MsgId:0" x="-1" y="-1">
+        <mappermodel:InputPins>1st</mappermodel:InputPins>
+        <mappermodel:OutputPins>1st</mappermodel:OutputPins>
+      </mappermodel:TreeGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="1" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2,3,4,5" outputNode="Output1:0,Document:0,CstmrPmtStsRpt:0,GrpHdr:0,MsgId:0" x="-1" y="-1">
+      <mappermodel:TreeGraphNode inputNode="Application-Context:0,Document:0,CstmrCdtTrfInitn:0,GrpHdr:0,MsgId:0" x="-1" y="-1">
+        <mappermodel:InputPins>1st</mappermodel:InputPins>
+        <mappermodel:OutputPins>1st</mappermodel:OutputPins>
+      </mappermodel:TreeGraphNode>
+      <mappermodel:FunctionGraphNode label="REPCADIKHPPXXXX" type="22" x="114" y="96">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="Random" type="91" x="36" y="134">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="*" type="5" x="285" y="148">
+        <mappermodel:InputPins>num1,num2</mappermodel:InputPins>
+        <mappermodel:OutputPins>num</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="1000000000" type="22" x="82" y="159">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="." type="22" x="395" y="170">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="SubString-Before" type="23" x="509" y="137">
+        <mappermodel:InputPins>str,before</mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="1" outputID="2" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="0" outputID="3" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="1" outputID="5" outputIndex="0"/>
+      <mappermodel:Link inputID="7" inputIndex="0" outputID="4" outputIndex="0"/>
+      <mappermodel:Link inputID="7" inputIndex="1" outputID="6" outputIndex="0"/>
+      <mappermodel:Link inputID="0" inputIndex="2" outputID="7" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="Output1:0,Document:0,CstmrPmtStsRpt:0,GrpHdr:0,CreDtTm:0" x="-1" y="-1">
+      <mappermodel:TreeGraphNode inputNode="Application-Context:0,Document:0,CstmrCdtTrfInitn:0,GrpHdr:0,CreDtTm:0" x="-1" y="-1">
+        <mappermodel:InputPins>1st</mappermodel:InputPins>
+        <mappermodel:OutputPins>1st</mappermodel:OutputPins>
+      </mappermodel:TreeGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="1" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2,3" outputNode="Output1:0,Document:0,CstmrPmtStsRpt:0,OrgnlGrpInfAndSts:0,OrgnlCreDtTm:0" x="-1" y="-1">
+      <mappermodel:TreeGraphNode inputNode="Application-Context:0,Document:0,CstmrCdtTrfInitn:0,GrpHdr:0,CreDtTm:0" x="-1" y="-1">
+        <mappermodel:InputPins>1st</mappermodel:InputPins>
+        <mappermodel:OutputPins>1st</mappermodel:OutputPins>
+      </mappermodel:TreeGraphNode>
+      <mappermodel:FunctionGraphNode label="20" type="22" x="51" y="125">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="SubString-Offset" type="25" x="290" y="107">
+        <mappermodel:InputPins>str,offset</mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="SubString-Offset-Length" type="26" x="342" y="157">
+        <mappermodel:InputPins>str,offset,length</mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="0" type="22" x="99" y="87">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:Link inputID="4" inputIndex="0" outputID="1" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="2" outputID="2" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="1" outputID="5" outputIndex="0"/>
+      <mappermodel:Link inputID="0" inputIndex="1" outputID="4" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="Output1:0,Document:0,CstmrPmtStsRpt:0,[ZERO MANY]:0,OrgnlPmtInfAndSts:0,OrgnlPmtInfId:0" x="-1" y="-1">
+      <mappermodel:TreeGraphNode inputNode="Application-Context:0,Document:0,CstmrCdtTrfInitn:0,[ONE MANY]:0,PmtInf:0,PmtInfId:0" x="-1" y="-1">
+        <mappermodel:InputPins>1st</mappermodel:InputPins>
+        <mappermodel:OutputPins>1st</mappermodel:OutputPins>
+      </mappermodel:TreeGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="1" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="Output1:0,Document:0,CstmrPmtStsRpt:0,[ZERO MANY]:0,OrgnlPmtInfAndSts:0,[ZERO MANY]:2,TxInfAndSts:0,TxSts:0" x="-1" y="-1">
+      <mappermodel:FunctionGraphNode label="ACSC" type="22" x="191" y="92">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="1" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="Output1:0,Document:0,CstmrPmtStsRpt:0,[ZERO MANY]:0,OrgnlPmtInfAndSts:0,[ZERO MANY]:2,TxInfAndSts:0,OrgnlTxRef:0,Dbtr:0,Nm:0" x="-1" y="-1">
+      <mappermodel:TreeGraphNode inputNode="Application-Context:0,Document:0,CstmrCdtTrfInitn:0,[ONE MANY]:0,PmtInf:0,Dbtr:0,Nm:0" x="-1" y="-1">
+        <mappermodel:InputPins>1st</mappermodel:InputPins>
+        <mappermodel:OutputPins>1st</mappermodel:OutputPins>
+      </mappermodel:TreeGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="1" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="Output1:0,Document:0,CstmrPmtStsRpt:0,[ZERO MANY]:0,OrgnlPmtInfAndSts:0,[ZERO MANY]:2,TxInfAndSts:0,OrgnlEndToEndId:0" x="-1" y="-1">
+      <mappermodel:TreeGraphNode inputNode="Application-Context:0,Document:0,CstmrCdtTrfInitn:0,[ONE MANY]:0,PmtInf:0,[ONE MANY]:0,CdtTrfTxInf:0,PmtId:0,EndToEndId:0" x="-1" y="-1">
+        <mappermodel:InputPins>1st</mappermodel:InputPins>
+        <mappermodel:OutputPins>1st</mappermodel:OutputPins>
+      </mappermodel:TreeGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="1" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="Output1:0,Document:0,CstmrPmtStsRpt:0,[ZERO MANY]:0,OrgnlPmtInfAndSts:0,[ZERO MANY]:2,TxInfAndSts:0,OrgnlTxRef:0,Amt:0,[Choice]:0,InstdAmt:0" x="-1" y="-1">
+      <mappermodel:TreeGraphNode inputNode="Application-Context:0,Document:0,CstmrCdtTrfInitn:0,[ONE MANY]:0,PmtInf:0,[ONE MANY]:0,CdtTrfTxInf:0,Amt:0,[Choice]:0,InstdAmt:0" x="-1" y="-1">
+        <mappermodel:InputPins>1st</mappermodel:InputPins>
+        <mappermodel:OutputPins>1st</mappermodel:OutputPins>
+      </mappermodel:TreeGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="1" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="Output1:0,Document:0,CstmrPmtStsRpt:0,[ZERO MANY]:0,OrgnlPmtInfAndSts:0,[ZERO MANY]:2,TxInfAndSts:0,OrgnlTxRef:0,Amt:0,[Choice]:0,InstdAmt:0,Ccy:0" x="-1" y="-1">
+      <mappermodel:TreeGraphNode inputNode="Application-Context:0,Document:0,CstmrCdtTrfInitn:0,[ONE MANY]:0,PmtInf:0,[ONE MANY]:0,CdtTrfTxInf:0,Amt:0,[Choice]:0,InstdAmt:0,Ccy:0" x="-1" y="-1">
+        <mappermodel:InputPins>1st</mappermodel:InputPins>
+        <mappermodel:OutputPins>1st</mappermodel:OutputPins>
+      </mappermodel:TreeGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="1" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="Output1:0,Document:0,CstmrPmtStsRpt:0,OrgnlGrpInfAndSts:0,OrgnlMsgNmId:0" x="-1" y="-1">
+      <mappermodel:FunctionGraphNode label="pacs.001.001.05" type="22" x="109" y="111">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="1" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="Output1:0,Document:0,CstmrPmtStsRpt:0,GrpHdr:0,InitgPty:0,Nm:0" x="-1" y="-1">
+      <mappermodel:TreeGraphNode inputNode="Application-Context:0,Document:0,CstmrCdtTrfInitn:0,GrpHdr:0,InitgPty:0,Nm:0" x="-1" y="-1">
+        <mappermodel:InputPins>1st</mappermodel:InputPins>
+        <mappermodel:OutputPins>1st</mappermodel:OutputPins>
+      </mappermodel:TreeGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="1" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="Output1:0,Document:0,CstmrPmtStsRpt:0,GrpHdr:0,DbtrAgt:0,FinInstnId:0,BICFI:0" x="-1" y="-1">
+      <mappermodel:TreeGraphNode inputNode="Application-Context:0,Document:0,CstmrCdtTrfInitn:0,[ONE MANY]:0,PmtInf:0,DbtrAgt:0,FinInstnId:0,BICFI:0" x="-1" y="-1">
+        <mappermodel:InputPins>1st</mappermodel:InputPins>
+        <mappermodel:OutputPins>1st</mappermodel:OutputPins>
+      </mappermodel:TreeGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="1" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="Output1:0,Document:0,CstmrPmtStsRpt:0,GrpHdr:0,CdtrAgt:0,FinInstnId:0,BICFI:0" x="-1" y="-1">
+      <mappermodel:TreeGraphNode inputNode="Application-Context:0,Document:0,CstmrCdtTrfInitn:0,[ONE MANY]:0,PmtInf:0,[ONE MANY]:0,CdtTrfTxInf:0,CdtrAgt:0,FinInstnId:0,BICFI:0" x="-1" y="-1">
+        <mappermodel:InputPins>1st</mappermodel:InputPins>
+        <mappermodel:OutputPins>1st</mappermodel:OutputPins>
+      </mappermodel:TreeGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="1" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="Output1:0,Document:0,CstmrPmtStsRpt:0,[ZERO MANY]:0,OrgnlPmtInfAndSts:0,[ZERO MANY]:2,TxInfAndSts:0,OrgnlTxRef:0,Cdtr:0,Nm:0" x="-1" y="-1">
+      <mappermodel:TreeGraphNode inputNode="Application-Context:0,Document:0,CstmrCdtTrfInitn:0,[ONE MANY]:0,PmtInf:0,[ONE MANY]:0,CdtTrfTxInf:0,Cdtr:0,Nm:0" x="-1" y="-1">
+        <mappermodel:InputPins>1st</mappermodel:InputPins>
+        <mappermodel:OutputPins>1st</mappermodel:OutputPins>
+      </mappermodel:TreeGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="1" outputIndex="0"/>
+    </mappermodel:GraphModel>
+  </mappermodel:Mappings>
+  <mappermodel:Extensions/>
+</mappermodel:MapperProject>

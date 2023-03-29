@@ -1,0 +1,18 @@
+Bug 31110	:[SamplesFromFinastra] [MT103 to pacs008] Transformation issues
+===========================================================================
+
+05-Jul-22:
+MTField 72 mapping CdtTrfTxInf->InstrForNxtAgt was getting cropped with length limit as 35 instead of 210.
+
+06-Jul-22:
+1.PrvsInstgAgt1 AddrLine tokenize missing
+2.52D Address Line 1 should be name, rest should be address in DbtrAgt instead
+of direct addrline mapping
+3.57D Nm and Address mapping to CdtrAgt entirely missing; BICFI wrongly matched
+with value from InstdAgt
+
+05-Aug-22:
+Updated with CBPR2.1_Translation_Rules_v1.3.2_20220201 rules.
+
+15-Nov-22:
+Added MX_To_MTCharSet function. 72Field INTA processing for MT103ToPacs008 conversion

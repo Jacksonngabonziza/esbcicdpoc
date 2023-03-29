@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+   <xsd:element name="Root">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="header" type="xsd:string"/>
+            <xsd:element name="MSG.ID">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CRE.DATE.TIME">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="NBOFTXS">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CREDIT.AMOUNT">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="NM">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="STRTNM">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="BLDGNB">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="TWNNM">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CTRY">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="PMTINFID">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="PMTMTD">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="BTCHBOOKG">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="REQDEXCTNDT">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="DEBITOR.NAME">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="DEBIT.ACCT.NO">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="DEBIT.CCY">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="DEBITOR.BANK">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="INSTRID">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ENDTOENDID">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CREDIT.CCY">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CREDIT.AMOUNT">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CHRGBR">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CEDITOR.BANK">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CREDITOR.NAME">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CREDITOR.STREET.NAME">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CREDITOR.BLDGMB">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CRDITOR.TWNNM">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CREDITOR.CTRY">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="RECEIVER.ACCT.NO">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CODE">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CD">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="NB">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="RLTDDT">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="PAYMENT.DETAIL">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:attribute name="totalPositions" type="xsd:int"/>
+   <xsd:attribute name="position" type="xsd:int"/>
+   <xsd:element name="value">
+      <xsd:complexType>
+         <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+               <xsd:attribute ref="position" use="optional"/>
+            </xsd:extension>
+         </xsd:simpleContent>
+      </xsd:complexType>
+   </xsd:element>
+</xsd:schema>

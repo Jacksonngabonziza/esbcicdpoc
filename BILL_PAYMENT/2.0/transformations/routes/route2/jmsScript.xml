@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xalan="http://xml.apache.org/xslt" xmlns:datetime="http://exslt.org/dates-and-times" xmlns:math="http://exslt.org/math" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:lxslt="http://xml.apache.org/xslt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http://xml.apache.org/xslt/java" xmlns:set="http://exslt.org/sets" exclude-result-prefixes="xalan java lxslt" xmlns:ns2="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.fiorano.com/services/rest" xmlns:FOOSignature="http://xml.apache.org/xslt/java" xmlns:Hash="http://xml.apache.org/xslt/java" xmlns:PGP="http://xml.apache.org/xslt/java" xmlns:ccc="http://xml.apache.org/xslt/java" xmlns:dateConversion="dateConversion" xmlns:myext="myext" xmlns:strings="strings" xmlns:tcsipi="http://xml.apache.org/xslt/java" extension-element-prefixes="datetime set math FOOSignature Hash PGP ccc dateConversion myext strings tcsipi">
+  <xsl:import href="GLOBAL_FUNCLET_PATH"></xsl:import>
+  <xsl:output method="xml" indent="yes" encoding="UTF-8" xalan:indent-amount="2" omit-xml-declaration="no"></xsl:output>
+  <xsl:variable name="document" select="/"></xsl:variable>
+  <xsl:variable name="document_balanceenquiry__POST__Request" select="document('balanceenquiry__POST__Request')"></xsl:variable>
+  <xsl:template match="/">
+    <Properties>
+      <Property>
+        <xsl:attribute name="name">
+          <xsl:value-of select="'payload'"></xsl:value-of>
+        </xsl:attribute>
+        <xsl:value-of select="$document_balanceenquiry__POST__Request/ns1:Request/Representations/Representation/Element"></xsl:value-of>
+      </Property>
+      <Property>
+        <xsl:attribute name="name">
+          <xsl:value-of select="'biller'"></xsl:value-of>
+        </xsl:attribute>
+        <xsl:value-of select="substring-before(substring-after($document_balanceenquiry__POST__Request/ns1:Request/Representations/Representation/Element,'&quot;method&quot;: &quot;'),'&quot;')"></xsl:value-of>
+      </Property>
+    </Properties>
+  </xsl:template>
+</xsl:stylesheet>

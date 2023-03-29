@@ -1,0 +1,900 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrGatewayConfigurations>
+    <BCConfigurations><![CDATA[<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.8.0_281" class="java.beans.XMLDecoder"> 
+ <object class="com.fiorano.bc.trgateway.model.dmi.bcdk.BCDKConfigurationInfo"> 
+  <void property="JCAAdapterConfig"> 
+   <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;
+&lt;ESBAdapterConfigurations&gt;&#13;
+    &lt;ConnectionLess&gt;false&lt;/ConnectionLess&gt;&#13;
+    &lt;isConfigurationRequired&gt;true&lt;/isConfigurationRequired&gt;&#13;
+    &lt;isLicensed&gt;false&lt;/isLicensed&gt;&#13;
+    &lt;Inbound&gt;false&lt;/Inbound&gt;&#13;
+    &lt;AdapterInstanceProperties&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &#13;
+&lt;java version=&quot;1.8.0_281&quot; class=&quot;java.beans.XMLDecoder&quot;&gt; &#13;
+ &lt;object class=&quot;fiorano.esb.adapter.cfg.ESBAdapterInstanceProperties&quot;&gt; &#13;
+  &lt;void property=&quot;GUID&quot;&gt; &#13;
+   &lt;string&gt;WebServiceConsumer&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;appName&quot;&gt; &#13;
+   &lt;string&gt;MTTOMXTRANSLATOR&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;domain&quot;&gt; &#13;
+   &lt;string&gt;BCConfigPropertySheet&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;instanceName&quot;&gt; &#13;
+   &lt;string&gt;WebServiceConsumer1&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;logCategories&quot;&gt; &#13;
+   &lt;void method=&quot;put&quot;&gt; &#13;
+    &lt;string&gt;WSInvokerInteractionSpec&lt;/string&gt; &#13;
+    &lt;object class=&quot;fiorano.esb.adapter.cfg.LogCategory&quot;&gt; &#13;
+     &lt;void property=&quot;loggerDescription&quot;&gt; &#13;
+      &lt;string&gt;WSInvokerInteractionSpec&lt;/string&gt; &#13;
+     &lt;/void&gt; &#13;
+     &lt;void property=&quot;loggerDisplayName&quot;&gt; &#13;
+      &lt;string&gt;WSInvokerInteractionSpec&lt;/string&gt; &#13;
+     &lt;/void&gt; &#13;
+     &lt;void property=&quot;loggerLevel&quot;&gt; &#13;
+      &lt;string&gt;SEVERE&lt;/string&gt; &#13;
+     &lt;/void&gt; &#13;
+     &lt;void property=&quot;loggerName&quot;&gt; &#13;
+      &lt;string&gt;com.fiorano.webservices.invoker.cci.WSInvokerInteractionSpec&lt;/string&gt; &#13;
+     &lt;/void&gt; &#13;
+    &lt;/object&gt; &#13;
+   &lt;/void&gt; &#13;
+   &lt;void method=&quot;put&quot;&gt; &#13;
+    &lt;string&gt;WSInvokerManagedConnectionFactory&lt;/string&gt; &#13;
+    &lt;object class=&quot;fiorano.esb.adapter.cfg.LogCategory&quot;&gt; &#13;
+     &lt;void property=&quot;loggerDescription&quot;&gt; &#13;
+      &lt;string&gt;WSInvokerManagedConnectionFactory&lt;/string&gt; &#13;
+     &lt;/void&gt; &#13;
+     &lt;void property=&quot;loggerDisplayName&quot;&gt; &#13;
+      &lt;string&gt;WSInvokerManagedConnectionFactory&lt;/string&gt; &#13;
+     &lt;/void&gt; &#13;
+     &lt;void property=&quot;loggerLevel&quot;&gt; &#13;
+      &lt;string&gt;SEVERE&lt;/string&gt; &#13;
+     &lt;/void&gt; &#13;
+     &lt;void property=&quot;loggerName&quot;&gt; &#13;
+      &lt;string&gt;com.fiorano.webservices.invoker.spi.outbound.WSInvokerManagedConnectionFactory&lt;/string&gt; &#13;
+     &lt;/void&gt; &#13;
+    &lt;/object&gt; &#13;
+   &lt;/void&gt; &#13;
+  &lt;/void&gt; &#13;
+ &lt;/object&gt; &#13;
+&lt;/java&gt; &#13;
+]]&gt;&lt;/AdapterInstanceProperties&gt;&#13;
+    &lt;ConfigurationObjects&gt;&#13;
+        &lt;ConfigurationObject&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &#13;
+&lt;java version=&quot;1.8.0_281&quot; class=&quot;java.beans.XMLDecoder&quot;&gt; &#13;
+ &lt;object class=&quot;fiorano.esb.adapter.cfg.ConfigurationObject&quot;&gt; &#13;
+  &lt;void property=&quot;beanClassName&quot;&gt; &#13;
+   &lt;class&gt;com.fiorano.webservices.invoker.spi.outbound.WSInvokerManagedConnectionFactory&lt;/class&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;beanObject&quot;&gt; &#13;
+   &lt;void property=&quot;JNDIName&quot;&gt; &#13;
+    &lt;string&gt;WebServiceConsumer&lt;/string&gt; &#13;
+   &lt;/void&gt; &#13;
+   &lt;void property=&quot;configuredVersion&quot;&gt; &#13;
+    &lt;int&gt;1100&lt;/int&gt; &#13;
+   &lt;/void&gt; &#13;
+   &lt;void property=&quot;guid&quot;&gt; &#13;
+    &lt;string&gt;WebServiceConsumer&lt;/string&gt; &#13;
+   &lt;/void&gt; &#13;
+   &lt;void property=&quot;id&quot;&gt; &#13;
+    &lt;string&gt;MTTOMXTRANSLATOR__WebServiceConsumer1&lt;/string&gt; &#13;
+   &lt;/void&gt; &#13;
+   &lt;void property=&quot;wsdl&quot;&gt; &#13;
+    &lt;object class=&quot;com.fiorano.webservices.invoker.model.WSDLInfo&quot;&gt; &#13;
+     &lt;void property=&quot;wsdlLoadType&quot;&gt; &#13;
+      &lt;int&gt;1&lt;/int&gt; &#13;
+     &lt;/void&gt; &#13;
+     &lt;void property=&quot;wsdlURL&quot;&gt; &#13;
+      &lt;string&gt;file:/D:/project/APAC/Canadia%20Bank/FAST/NBCInterface.wsdl&lt;/string&gt; &#13;
+     &lt;/void&gt; &#13;
+    &lt;/object&gt; &#13;
+   &lt;/void&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;configParams&quot;&gt; &#13;
+   &lt;void method=&quot;put&quot;&gt; &#13;
+    &lt;string&gt;supportsReconnection&lt;/string&gt; &#13;
+    &lt;boolean&gt;true&lt;/boolean&gt; &#13;
+   &lt;/void&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;description&quot;&gt; &#13;
+   &lt;string&gt;WSInvoker Connection&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;icon&quot;&gt; &#13;
+   &lt;string&gt;wsinvoker.png&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;implClassName&quot;&gt; &#13;
+   &lt;class&gt;com.fiorano.webservices.invoker.spi.outbound.WSInvokerManagedConnectionFactory&lt;/class&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;name&quot;&gt; &#13;
+   &lt;string&gt;WebServiceConsumer&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;type&quot;&gt; &#13;
+   &lt;string&gt;javax.resource.spi.ManagedConnectionFactory&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+ &lt;/object&gt; &#13;
+&lt;/java&gt; &#13;
+]]&gt;&lt;/ConfigurationObject&gt;&#13;
+        &lt;ConfigurationObject&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &#13;
+&lt;java version=&quot;1.8.0_281&quot; class=&quot;java.beans.XMLDecoder&quot;&gt; &#13;
+ &lt;object class=&quot;fiorano.esb.adapter.cfg.ConfigurationObject&quot;&gt; &#13;
+  &lt;void property=&quot;beanClassName&quot;&gt; &#13;
+   &lt;class&gt;fiorano.esb.adapter.jca.cci.ESBConnectionSpec&lt;/class&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;beanObject&quot;&gt; &#13;
+   &lt;void property=&quot;MCFClassName&quot;&gt; &#13;
+    &lt;string&gt;com.fiorano.webservices.invoker.spi.outbound.WSInvokerManagedConnectionFactory&lt;/string&gt; &#13;
+   &lt;/void&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;configParams&quot;&gt; &#13;
+   &lt;void method=&quot;put&quot;&gt; &#13;
+    &lt;string&gt;supportsReconnection&lt;/string&gt; &#13;
+    &lt;boolean&gt;true&lt;/boolean&gt; &#13;
+   &lt;/void&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;description&quot;&gt; &#13;
+   &lt;string&gt;WSInvoker Connection&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;icon&quot;&gt; &#13;
+   &lt;string&gt;wsinvoker.png&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;implClassName&quot;&gt; &#13;
+   &lt;class&gt;fiorano.esb.adapter.jca.cci.ESBConnectionSpec&lt;/class&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;name&quot;&gt; &#13;
+   &lt;string&gt;WebServiceConsumer&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;type&quot;&gt; &#13;
+   &lt;string&gt;javax.resource.cci.ConnectionSpec&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+ &lt;/object&gt; &#13;
+&lt;/java&gt; &#13;
+]]&gt;&lt;/ConfigurationObject&gt;&#13;
+        &lt;ConfigurationObject&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &#13;
+&lt;java version=&quot;1.8.0_281&quot; class=&quot;java.beans.XMLDecoder&quot;&gt; &#13;
+ &lt;object class=&quot;fiorano.esb.adapter.cfg.ConfigurationObject&quot;&gt; &#13;
+  &lt;void property=&quot;beanClassName&quot;&gt; &#13;
+   &lt;class&gt;com.fiorano.webservices.invoker.cci.WSInvokerInteractionSpec&lt;/class&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;beanObject&quot;&gt; &#13;
+   &lt;void property=&quot;configuredVersion&quot;&gt; &#13;
+    &lt;int&gt;1200&lt;/int&gt; &#13;
+   &lt;/void&gt; &#13;
+   &lt;void property=&quot;connectionConfiguration&quot;&gt; &#13;
+    &lt;void property=&quot;password&quot; isEncrypted=&quot;true&quot;&gt; &#13;
+     &lt;string&gt;zcC6SXzF+bh4BGN4YJKKfw==&lt;/string&gt; &#13;
+    &lt;/void&gt; &#13;
+   &lt;/void&gt; &#13;
+   &lt;void property=&quot;endpointAddress&quot;&gt; &#13;
+    &lt;string&gt;http://localhost:10080/FASTWebService/NBCInterface&lt;/string&gt; &#13;
+   &lt;/void&gt; &#13;
+   &lt;void property=&quot;errorActionsMap&quot;&gt; &#13;
+    &lt;object class=&quot;fiorano.esb.adapter.jca.error.ErrorActionsMap&quot;&gt; &#13;
+     &lt;void property=&quot;errorActionsMap&quot;&gt; &#13;
+      &lt;void method=&quot;put&quot;&gt; &#13;
+       &lt;object class=&quot;fiorano.esb.adapter.jca.error.Error&quot;&gt; &#13;
+        &lt;void property=&quot;errorID&quot;&gt; &#13;
+         &lt;int&gt;2&lt;/int&gt; &#13;
+        &lt;/void&gt; &#13;
+       &lt;/object&gt; &#13;
+       &lt;object class=&quot;java.util.ArrayList&quot;&gt; &#13;
+        &lt;void method=&quot;add&quot;&gt; &#13;
+         &lt;object class=&quot;fiorano.esb.adapter.jca.error.ErrorAction&quot;&gt; &#13;
+          &lt;void property=&quot;errorActionID&quot;&gt; &#13;
+           &lt;int&gt;4&lt;/int&gt; &#13;
+          &lt;/void&gt; &#13;
+         &lt;/object&gt; &#13;
+        &lt;/void&gt; &#13;
+        &lt;void method=&quot;add&quot;&gt; &#13;
+         &lt;object class=&quot;fiorano.esb.adapter.jca.error.RetryErrorAction&quot;&gt; &#13;
+          &lt;void property=&quot;errorActionID&quot;&gt; &#13;
+           &lt;int&gt;1&lt;/int&gt; &#13;
+          &lt;/void&gt; &#13;
+         &lt;/object&gt; &#13;
+        &lt;/void&gt; &#13;
+        &lt;void method=&quot;add&quot;&gt; &#13;
+         &lt;object class=&quot;fiorano.esb.adapter.jca.error.ErrorAction&quot;&gt; &#13;
+          &lt;void property=&quot;errorActionID&quot;&gt; &#13;
+           &lt;int&gt;3&lt;/int&gt; &#13;
+          &lt;/void&gt; &#13;
+         &lt;/object&gt; &#13;
+        &lt;/void&gt; &#13;
+       &lt;/object&gt; &#13;
+      &lt;/void&gt; &#13;
+      &lt;void method=&quot;put&quot;&gt; &#13;
+       &lt;object class=&quot;fiorano.esb.adapter.jca.error.Error&quot;&gt; &#13;
+        &lt;void property=&quot;errorID&quot;&gt; &#13;
+         &lt;int&gt;1&lt;/int&gt; &#13;
+        &lt;/void&gt; &#13;
+       &lt;/object&gt; &#13;
+       &lt;object class=&quot;java.util.ArrayList&quot;&gt; &#13;
+        &lt;void method=&quot;add&quot;&gt; &#13;
+         &lt;object class=&quot;fiorano.esb.adapter.jca.error.ErrorAction&quot;&gt; &#13;
+          &lt;void property=&quot;active&quot;&gt; &#13;
+           &lt;boolean&gt;true&lt;/boolean&gt; &#13;
+          &lt;/void&gt; &#13;
+          &lt;void property=&quot;errorActionID&quot;&gt; &#13;
+           &lt;int&gt;4&lt;/int&gt; &#13;
+          &lt;/void&gt; &#13;
+         &lt;/object&gt; &#13;
+        &lt;/void&gt; &#13;
+        &lt;void method=&quot;add&quot;&gt; &#13;
+         &lt;object class=&quot;fiorano.esb.adapter.jca.error.RetryErrorAction&quot;&gt; &#13;
+          &lt;void property=&quot;active&quot;&gt; &#13;
+           &lt;boolean&gt;true&lt;/boolean&gt; &#13;
+          &lt;/void&gt; &#13;
+          &lt;void property=&quot;noOfRetries&quot;&gt; &#13;
+           &lt;int&gt;10&lt;/int&gt; &#13;
+          &lt;/void&gt; &#13;
+          &lt;void property=&quot;repeatInterval&quot;&gt; &#13;
+           &lt;long&gt;300000&lt;/long&gt; &#13;
+          &lt;/void&gt; &#13;
+          &lt;void property=&quot;sendErrorAfterTries&quot;&gt; &#13;
+           &lt;int&gt;2&lt;/int&gt; &#13;
+          &lt;/void&gt; &#13;
+         &lt;/object&gt; &#13;
+        &lt;/void&gt; &#13;
+       &lt;/object&gt; &#13;
+      &lt;/void&gt; &#13;
+      &lt;void method=&quot;put&quot;&gt; &#13;
+       &lt;object class=&quot;fiorano.esb.adapter.jca.error.Error&quot;&gt; &#13;
+        &lt;void property=&quot;errorID&quot;&gt; &#13;
+         &lt;int&gt;0&lt;/int&gt; &#13;
+        &lt;/void&gt; &#13;
+       &lt;/object&gt; &#13;
+       &lt;object class=&quot;java.util.ArrayList&quot;/&gt; &#13;
+      &lt;/void&gt; &#13;
+     &lt;/void&gt; &#13;
+    &lt;/object&gt; &#13;
+   &lt;/void&gt; &#13;
+   &lt;void property=&quot;guid&quot;&gt; &#13;
+    &lt;string&gt;WebServiceConsumer&lt;/string&gt; &#13;
+   &lt;/void&gt; &#13;
+   &lt;void property=&quot;id&quot;&gt; &#13;
+    &lt;string&gt;MTTOMXTRANSLATOR__WebServiceConsumer1&lt;/string&gt; &#13;
+   &lt;/void&gt; &#13;
+   &lt;void property=&quot;jndiConfiguration&quot;&gt; &#13;
+    &lt;void property=&quot;password&quot; isEncrypted=&quot;true&quot;&gt; &#13;
+     &lt;string&gt;CVuEpOIpQJAIVeUQIs7kBQ==&lt;/string&gt; &#13;
+    &lt;/void&gt; &#13;
+   &lt;/void&gt; &#13;
+   &lt;void property=&quot;operationInputParam&quot;&gt; &#13;
+    &lt;string&gt;makeFullFundTransfer&lt;/string&gt; &#13;
+   &lt;/void&gt; &#13;
+   &lt;void property=&quot;operationName&quot;&gt; &#13;
+    &lt;string&gt;makeFullFundTransfer&lt;/string&gt; &#13;
+   &lt;/void&gt; &#13;
+   &lt;void property=&quot;operationOutputParam&quot;&gt; &#13;
+    &lt;string&gt;makeFullFundTransferResponse&lt;/string&gt; &#13;
+   &lt;/void&gt; &#13;
+   &lt;void property=&quot;portName&quot;&gt; &#13;
+    &lt;string&gt;NBCInterfacePort&lt;/string&gt; &#13;
+   &lt;/void&gt; &#13;
+   &lt;void property=&quot;properties&quot;&gt; &#13;
+    &lt;void method=&quot;put&quot;&gt; &#13;
+     &lt;string&gt;TargetNamespace.Prefix&lt;/string&gt; &#13;
+     &lt;string&gt;tns&lt;/string&gt; &#13;
+    &lt;/void&gt; &#13;
+    &lt;void method=&quot;put&quot;&gt; &#13;
+     &lt;string&gt;javax.xml.rpc.soap.operation.style&lt;/string&gt; &#13;
+     &lt;string&gt;wrapped&lt;/string&gt; &#13;
+    &lt;/void&gt; &#13;
+    &lt;void method=&quot;put&quot;&gt; &#13;
+     &lt;string&gt;SOAP.version&lt;/string&gt; &#13;
+     &lt;string&gt;http://schemas.xmlsoap.org/wsdl/soap/&lt;/string&gt; &#13;
+    &lt;/void&gt; &#13;
+    &lt;void method=&quot;put&quot;&gt; &#13;
+     &lt;string&gt;javax.xml.rpc.soap.http.soapaction.uri&lt;/string&gt; &#13;
+     &lt;string&gt;&lt;/string&gt; &#13;
+    &lt;/void&gt; &#13;
+   &lt;/void&gt; &#13;
+   &lt;void property=&quot;service&quot;&gt; &#13;
+    &lt;string&gt;{http://fastwebservice.nbc.org.kh/}NBCInterface&lt;/string&gt; &#13;
+   &lt;/void&gt; &#13;
+   &lt;void property=&quot;soapBodyNS&quot;&gt; &#13;
+    &lt;string&gt;http://schemas.xmlsoap.org/wsdl/soap/&lt;/string&gt; &#13;
+   &lt;/void&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;category&quot;&gt; &#13;
+   &lt;string&gt;WebService&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;configParams&quot;&gt; &#13;
+   &lt;void method=&quot;put&quot;&gt; &#13;
+    &lt;string&gt;supportsReconnection&lt;/string&gt; &#13;
+    &lt;boolean&gt;true&lt;/boolean&gt; &#13;
+   &lt;/void&gt; &#13;
+   &lt;void method=&quot;put&quot;&gt; &#13;
+    &lt;string&gt;supportsScheduling&lt;/string&gt; &#13;
+    &lt;boolean&gt;true&lt;/boolean&gt; &#13;
+   &lt;/void&gt; &#13;
+   &lt;void method=&quot;put&quot;&gt; &#13;
+    &lt;string&gt;enableScheduling&lt;/string&gt; &#13;
+    &lt;boolean&gt;false&lt;/boolean&gt; &#13;
+   &lt;/void&gt; &#13;
+   &lt;void method=&quot;put&quot;&gt; &#13;
+    &lt;string&gt;supportsStudio&lt;/string&gt; &#13;
+    &lt;boolean&gt;true&lt;/boolean&gt; &#13;
+   &lt;/void&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;description&quot;&gt; &#13;
+   &lt;string&gt;WebService Invoker component&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;icon&quot;&gt; &#13;
+   &lt;string&gt;wsinvoker.png&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;implClassName&quot;&gt; &#13;
+   &lt;class&gt;com.fiorano.webservices.invoker.cci.WSInvokerInteractionSpec&lt;/class&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;name&quot;&gt; &#13;
+   &lt;string&gt;WebServiceConsumer&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;type&quot;&gt; &#13;
+   &lt;string&gt;javax.resource.cci.InteractionSpec&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+ &lt;/object&gt; &#13;
+&lt;/java&gt; &#13;
+]]&gt;&lt;/ConfigurationObject&gt;&#13;
+    &lt;/ConfigurationObjects&gt;&#13;
+    &lt;InputRecordDefinition&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &#13;
+&lt;java version=&quot;1.8.0_281&quot; class=&quot;java.beans.XMLDecoder&quot;&gt; &#13;
+ &lt;object class=&quot;fiorano.esb.record.ESBRecordDefinition&quot;&gt; &#13;
+  &lt;void property=&quot;importedStructures&quot;&gt; &#13;
+   &lt;object class=&quot;java.util.HashMap&quot;&gt; &#13;
+    &lt;void method=&quot;put&quot;&gt; &#13;
+     &lt;string&gt;http://fastwebservice.nbc.org.kh/&lt;/string&gt; &#13;
+     &lt;object class=&quot;java.util.ArrayList&quot;&gt; &#13;
+      &lt;void method=&quot;add&quot;&gt; &#13;
+       &lt;string&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&amp;#13;&#13;
+&amp;lt;xs:schema elementFormDefault=&amp;quot;unqualified&amp;quot; targetNamespace=&amp;quot;http://fastwebservice.nbc.org.kh/&amp;quot; version=&amp;quot;1.0&amp;quot; xmlns:ns1=&amp;quot;http://schemas.xmlsoap.org/soap/http&amp;quot; xmlns:soap=&amp;quot;http://schemas.xmlsoap.org/wsdl/soap/&amp;quot; xmlns:tns=&amp;quot;http://fastwebservice.nbc.org.kh/&amp;quot; xmlns:wsdl=&amp;quot;http://schemas.xmlsoap.org/wsdl/&amp;quot; xmlns:xs=&amp;quot;http://www.w3.org/2001/XMLSchema&amp;quot; xmlns:xsd=&amp;quot;http://www.w3.org/2001/XMLSchema&amp;quot;&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;getAccountInquiry&amp;quot; type=&amp;quot;tns:getAccountInquiry&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;getAccountInquiryResponse&amp;quot; type=&amp;quot;tns:getAccountInquiryResponse&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;getIncomingTransaction&amp;quot; type=&amp;quot;tns:getIncomingTransaction&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;getIncomingTransactionResponse&amp;quot; type=&amp;quot;tns:getIncomingTransactionResponse&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;getOutgoingTransaction&amp;quot; type=&amp;quot;tns:getOutgoingTransaction&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;getOutgoingTransactionResponse&amp;quot; type=&amp;quot;tns:getOutgoingTransactionResponse&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;makeAcknowledgment&amp;quot; type=&amp;quot;tns:makeAcknowledgment&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;makeAcknowledgmentResponse&amp;quot; type=&amp;quot;tns:makeAcknowledgmentResponse&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;makeFullFundTransfer&amp;quot; type=&amp;quot;tns:makeFullFundTransfer&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;makeFullFundTransferResponse&amp;quot; type=&amp;quot;tns:makeFullFundTransferResponse&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;makeHalfFundTransfer&amp;quot; type=&amp;quot;tns:makeHalfFundTransfer&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;makeHalfFundTransferResponse&amp;quot; type=&amp;quot;tns:makeHalfFundTransferResponse&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;makeReverseTransaction&amp;quot; type=&amp;quot;tns:makeReverseTransaction&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;makeReverseTransactionResponse&amp;quot; type=&amp;quot;tns:makeReverseTransactionResponse&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;makeHalfFundTransfer&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_user_name&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_password&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;iso_message&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;import_file_name&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;makeHalfFundTransferResponse&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;return&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;getOutgoingTransaction&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_user_name&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_password&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;payer_participant_code&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;getOutgoingTransactionResponse&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;return&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;makeFullFundTransfer&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_user_name&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_password&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;iso_message&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;import_file_name&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;makeFullFundTransferResponse&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;return&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;getAccountInquiry&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_user_name&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_password&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;participant_code&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;getAccountInquiryResponse&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;return&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;makeReverseTransaction&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_user_name&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_password&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;content_message&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;makeReverseTransactionResponse&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;return&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;getIncomingTransaction&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_user_name&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_password&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;payee_participant_code&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;getIncomingTransactionResponse&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;return&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;makeAcknowledgment&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_user_name&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_password&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;content_message&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;makeAcknowledgmentResponse&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;return&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+		&amp;lt;/xs:schema&amp;gt;&lt;/string&gt; &#13;
+      &lt;/void&gt; &#13;
+     &lt;/object&gt; &#13;
+    &lt;/void&gt; &#13;
+   &lt;/object&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;rootElementName&quot;&gt; &#13;
+   &lt;string&gt;Envelope&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;structure&quot;&gt; &#13;
+   &lt;string&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&amp;#13;&#13;
+&amp;lt;xsd:schema xmlns:wsdl=&amp;quot;http://schemas.xmlsoap.org/wsdl/&amp;quot; xmlns:tns=&amp;quot;http://fastwebservice.nbc.org.kh/&amp;quot; xmlns:xsd=&amp;quot;http://www.w3.org/2001/XMLSchema&amp;quot; xmlns:ns1=&amp;quot;http://schemas.xmlsoap.org/soap/http&amp;quot; xmlns:soap=&amp;quot;http://schemas.xmlsoap.org/wsdl/soap/&amp;quot; xmlns:ftns=&amp;quot;http://fastwebservice.nbc.org.kh/makeFullFundTransfer/Input&amp;quot; targetNamespace=&amp;quot;http://fastwebservice.nbc.org.kh/makeFullFundTransfer/Input&amp;quot;&amp;gt;&amp;#13;&#13;
+    &amp;lt;xsd:import namespace=&amp;quot;http://fastwebservice.nbc.org.kh/&amp;quot;/&amp;gt;&amp;#13;&#13;
+    &amp;lt;xsd:element name=&amp;quot;Envelope&amp;quot;&amp;gt;&amp;#13;&#13;
+        &amp;lt;xsd:complexType&amp;gt;&amp;#13;&#13;
+            &amp;lt;xsd:sequence&amp;gt;&amp;#13;&#13;
+                &amp;lt;xsd:element ref=&amp;quot;ftns:Header&amp;quot;/&amp;gt;&amp;#13;&#13;
+                &amp;lt;xsd:element ref=&amp;quot;ftns:Body&amp;quot;/&amp;gt;&amp;#13;&#13;
+            &amp;lt;/xsd:sequence&amp;gt;&amp;#13;&#13;
+        &amp;lt;/xsd:complexType&amp;gt;&amp;#13;&#13;
+    &amp;lt;/xsd:element&amp;gt;&amp;#13;&#13;
+    &amp;lt;xsd:element name=&amp;quot;Header&amp;quot;&amp;gt;&amp;#13;&#13;
+        &amp;lt;xsd:complexType&amp;gt;&amp;#13;&#13;
+            &amp;lt;xsd:sequence/&amp;gt;&amp;#13;&#13;
+        &amp;lt;/xsd:complexType&amp;gt;&amp;#13;&#13;
+    &amp;lt;/xsd:element&amp;gt;&amp;#13;&#13;
+    &amp;lt;xsd:element name=&amp;quot;Body&amp;quot;&amp;gt;&amp;#13;&#13;
+        &amp;lt;xsd:complexType&amp;gt;&amp;#13;&#13;
+            &amp;lt;xsd:sequence&amp;gt;&amp;#13;&#13;
+                &amp;lt;xsd:element ref=&amp;quot;tns:makeFullFundTransfer&amp;quot;/&amp;gt;&amp;#13;&#13;
+            &amp;lt;/xsd:sequence&amp;gt;&amp;#13;&#13;
+        &amp;lt;/xsd:complexType&amp;gt;&amp;#13;&#13;
+    &amp;lt;/xsd:element&amp;gt;&amp;#13;&#13;
+&amp;lt;/xsd:schema&amp;gt;&amp;#13;&#13;
+&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;targetNamespace&quot;&gt; &#13;
+   &lt;string&gt;http://fastwebservice.nbc.org.kh/makeFullFundTransfer/Input&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+ &lt;/object&gt; &#13;
+&lt;/java&gt; &#13;
+]]&gt;&lt;/InputRecordDefinition&gt;&#13;
+    &lt;OutputRecordDefinition&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &#13;
+&lt;java version=&quot;1.8.0_281&quot; class=&quot;java.beans.XMLDecoder&quot;&gt; &#13;
+ &lt;object class=&quot;fiorano.esb.record.ESBRecordDefinition&quot;&gt; &#13;
+  &lt;void property=&quot;importedStructures&quot;&gt; &#13;
+   &lt;object class=&quot;java.util.HashMap&quot;&gt; &#13;
+    &lt;void method=&quot;put&quot;&gt; &#13;
+     &lt;string&gt;http://fastwebservice.nbc.org.kh/&lt;/string&gt; &#13;
+     &lt;object class=&quot;java.util.ArrayList&quot;&gt; &#13;
+      &lt;void method=&quot;add&quot;&gt; &#13;
+       &lt;string&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&amp;#13;&#13;
+&amp;lt;xs:schema elementFormDefault=&amp;quot;unqualified&amp;quot; targetNamespace=&amp;quot;http://fastwebservice.nbc.org.kh/&amp;quot; version=&amp;quot;1.0&amp;quot; xmlns:ns1=&amp;quot;http://schemas.xmlsoap.org/soap/http&amp;quot; xmlns:soap=&amp;quot;http://schemas.xmlsoap.org/wsdl/soap/&amp;quot; xmlns:tns=&amp;quot;http://fastwebservice.nbc.org.kh/&amp;quot; xmlns:wsdl=&amp;quot;http://schemas.xmlsoap.org/wsdl/&amp;quot; xmlns:xs=&amp;quot;http://www.w3.org/2001/XMLSchema&amp;quot; xmlns:xsd=&amp;quot;http://www.w3.org/2001/XMLSchema&amp;quot;&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;getAccountInquiry&amp;quot; type=&amp;quot;tns:getAccountInquiry&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;getAccountInquiryResponse&amp;quot; type=&amp;quot;tns:getAccountInquiryResponse&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;getIncomingTransaction&amp;quot; type=&amp;quot;tns:getIncomingTransaction&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;getIncomingTransactionResponse&amp;quot; type=&amp;quot;tns:getIncomingTransactionResponse&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;getOutgoingTransaction&amp;quot; type=&amp;quot;tns:getOutgoingTransaction&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;getOutgoingTransactionResponse&amp;quot; type=&amp;quot;tns:getOutgoingTransactionResponse&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;makeAcknowledgment&amp;quot; type=&amp;quot;tns:makeAcknowledgment&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;makeAcknowledgmentResponse&amp;quot; type=&amp;quot;tns:makeAcknowledgmentResponse&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;makeFullFundTransfer&amp;quot; type=&amp;quot;tns:makeFullFundTransfer&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;makeFullFundTransferResponse&amp;quot; type=&amp;quot;tns:makeFullFundTransferResponse&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;makeHalfFundTransfer&amp;quot; type=&amp;quot;tns:makeHalfFundTransfer&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;makeHalfFundTransferResponse&amp;quot; type=&amp;quot;tns:makeHalfFundTransferResponse&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;makeReverseTransaction&amp;quot; type=&amp;quot;tns:makeReverseTransaction&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:element name=&amp;quot;makeReverseTransactionResponse&amp;quot; type=&amp;quot;tns:makeReverseTransactionResponse&amp;quot;/&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;makeHalfFundTransfer&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_user_name&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_password&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;iso_message&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;import_file_name&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;makeHalfFundTransferResponse&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;return&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;getOutgoingTransaction&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_user_name&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_password&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;payer_participant_code&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;getOutgoingTransactionResponse&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;return&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;makeFullFundTransfer&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_user_name&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_password&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;iso_message&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;import_file_name&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;makeFullFundTransferResponse&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;return&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;getAccountInquiry&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_user_name&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_password&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;participant_code&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;getAccountInquiryResponse&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;return&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;makeReverseTransaction&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_user_name&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_password&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;content_message&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;makeReverseTransactionResponse&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;return&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;getIncomingTransaction&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_user_name&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_password&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;payee_participant_code&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;getIncomingTransactionResponse&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;return&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;makeAcknowledgment&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_user_name&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;cm_password&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;content_message&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+			&amp;lt;xs:complexType name=&amp;quot;makeAcknowledgmentResponse&amp;quot;&amp;gt;&#13;
+				&amp;lt;xs:sequence&amp;gt;&#13;
+					&amp;lt;xs:element minOccurs=&amp;quot;0&amp;quot; name=&amp;quot;return&amp;quot; type=&amp;quot;xs:string&amp;quot;/&amp;gt;&#13;
+				&amp;lt;/xs:sequence&amp;gt;&#13;
+			&amp;lt;/xs:complexType&amp;gt;&#13;
+&#13;
+		&amp;lt;/xs:schema&amp;gt;&lt;/string&gt; &#13;
+      &lt;/void&gt; &#13;
+     &lt;/object&gt; &#13;
+    &lt;/void&gt; &#13;
+   &lt;/object&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;rootElementName&quot;&gt; &#13;
+   &lt;string&gt;Envelope&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;structure&quot;&gt; &#13;
+   &lt;string&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&amp;#13;&#13;
+&amp;lt;xsd:schema xmlns:wsdl=&amp;quot;http://schemas.xmlsoap.org/wsdl/&amp;quot; xmlns:tns=&amp;quot;http://fastwebservice.nbc.org.kh/&amp;quot; xmlns:xsd=&amp;quot;http://www.w3.org/2001/XMLSchema&amp;quot; xmlns:ns1=&amp;quot;http://schemas.xmlsoap.org/soap/http&amp;quot; xmlns:soap=&amp;quot;http://schemas.xmlsoap.org/wsdl/soap/&amp;quot; xmlns:ftns=&amp;quot;http://fastwebservice.nbc.org.kh/makeFullFundTransfer/Output&amp;quot; targetNamespace=&amp;quot;http://fastwebservice.nbc.org.kh/makeFullFundTransfer/Output&amp;quot;&amp;gt;&amp;#13;&#13;
+    &amp;lt;xsd:import namespace=&amp;quot;http://fastwebservice.nbc.org.kh/&amp;quot;/&amp;gt;&amp;#13;&#13;
+    &amp;lt;xsd:element name=&amp;quot;Envelope&amp;quot;&amp;gt;&amp;#13;&#13;
+        &amp;lt;xsd:complexType&amp;gt;&amp;#13;&#13;
+            &amp;lt;xsd:sequence&amp;gt;&amp;#13;&#13;
+                &amp;lt;xsd:element ref=&amp;quot;ftns:Header&amp;quot;/&amp;gt;&amp;#13;&#13;
+                &amp;lt;xsd:element ref=&amp;quot;ftns:Body&amp;quot;/&amp;gt;&amp;#13;&#13;
+            &amp;lt;/xsd:sequence&amp;gt;&amp;#13;&#13;
+        &amp;lt;/xsd:complexType&amp;gt;&amp;#13;&#13;
+    &amp;lt;/xsd:element&amp;gt;&amp;#13;&#13;
+    &amp;lt;xsd:element name=&amp;quot;Header&amp;quot;&amp;gt;&amp;#13;&#13;
+        &amp;lt;xsd:complexType&amp;gt;&amp;#13;&#13;
+            &amp;lt;xsd:sequence/&amp;gt;&amp;#13;&#13;
+        &amp;lt;/xsd:complexType&amp;gt;&amp;#13;&#13;
+    &amp;lt;/xsd:element&amp;gt;&amp;#13;&#13;
+    &amp;lt;xsd:element name=&amp;quot;Body&amp;quot;&amp;gt;&amp;#13;&#13;
+        &amp;lt;xsd:complexType&amp;gt;&amp;#13;&#13;
+            &amp;lt;xsd:sequence&amp;gt;&amp;#13;&#13;
+                &amp;lt;xsd:element ref=&amp;quot;tns:makeFullFundTransferResponse&amp;quot;/&amp;gt;&amp;#13;&#13;
+            &amp;lt;/xsd:sequence&amp;gt;&amp;#13;&#13;
+        &amp;lt;/xsd:complexType&amp;gt;&amp;#13;&#13;
+    &amp;lt;/xsd:element&amp;gt;&amp;#13;&#13;
+&amp;lt;/xsd:schema&amp;gt;&amp;#13;&#13;
+&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;targetNamespace&quot;&gt; &#13;
+   &lt;string&gt;http://fastwebservice.nbc.org.kh/makeFullFundTransfer/Output&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+ &lt;/object&gt; &#13;
+&lt;/java&gt; &#13;
+]]&gt;&lt;/OutputRecordDefinition&gt;&#13;
+    &lt;FaultRecordDefinition&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &#13;
+&lt;java version=&quot;1.8.0_281&quot; class=&quot;java.beans.XMLDecoder&quot;&gt; &#13;
+ &lt;object class=&quot;fiorano.esb.record.ESBRecordDefinition&quot;&gt; &#13;
+  &lt;void property=&quot;rootElementName&quot;&gt; &#13;
+   &lt;string&gt;Error&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;structure&quot;&gt; &#13;
+   &lt;string&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; ?&amp;gt;&#13;
+&amp;lt;xsd:schema xmlns:xsd=&amp;quot;http://www.w3.org/2001/XMLSchema&amp;quot; targetNamespace=&amp;quot;http://www.fiorano.com/fesb/activity/fault&amp;quot; xmlns:tns=&amp;quot;http://www.fiorano.com/fesb/activity/fault&amp;quot; xmlns:soapenv=&amp;quot;http://schemas.xmlsoap.org/soap/envelope/&amp;quot;&amp;gt;&#13;
+    &amp;lt;xsd:import namespace=&amp;quot;http://schemas.xmlsoap.org/soap/envelope/&amp;quot;/&amp;gt;&#13;
+    &amp;lt;xsd:element name=&amp;quot;Error&amp;quot;&amp;gt;&#13;
+       &amp;lt;xsd:complexType&amp;gt;&#13;
+          &amp;lt;xsd:sequence&amp;gt;&#13;
+            &amp;lt;xsd:element name=&amp;quot;errorCode&amp;quot; type=&amp;quot;xsd:string&amp;quot;/&amp;gt;&#13;
+            &amp;lt;xsd:element name=&amp;quot;errorMessage&amp;quot; type=&amp;quot;xsd:string&amp;quot;/&amp;gt;&#13;
+            &amp;lt;xsd:element name=&amp;quot;errorDetail&amp;quot; type=&amp;quot;tns:errorDetail&amp;quot; minOccurs=&amp;quot;0&amp;quot;/&amp;gt;&#13;
+            &amp;lt;xsd:element name=&amp;quot;data&amp;quot; type=&amp;quot;tns:data&amp;quot; minOccurs=&amp;quot;0&amp;quot;/&amp;gt;&#13;
+          &amp;lt;/xsd:sequence&amp;gt;&#13;
+       &amp;lt;/xsd:complexType&amp;gt;&#13;
+    &amp;lt;/xsd:element&amp;gt;&#13;
+    &amp;lt;xsd:complexType name=&amp;quot;errorDetail&amp;quot;&amp;gt;&#13;
+	  &amp;lt;xsd:sequence&amp;gt;&#13;
+            &amp;lt;xsd:element ref=&amp;quot;soapenv:Fault&amp;quot;/&amp;gt;&#13;
+          &amp;lt;/xsd:sequence&amp;gt;&#13;
+    &amp;lt;/xsd:complexType&amp;gt;&#13;
+    &amp;lt;xsd:complexType name=&amp;quot;data&amp;quot;&amp;gt;&#13;
+	  &amp;lt;xsd:sequence&amp;gt;&#13;
+         &amp;lt;xsd:any namespace=&amp;quot;##any&amp;quot; minOccurs=&amp;quot;0&amp;quot; maxOccurs=&amp;quot;unbounded&amp;quot; processContents=&amp;quot;lax&amp;quot;/&amp;gt;&#13;
+      &amp;lt;/xsd:sequence&amp;gt;&#13;
+    &amp;lt;/xsd:complexType&amp;gt;&#13;
+&amp;lt;/xsd:schema&amp;gt;&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+  &lt;void property=&quot;targetNamespace&quot;&gt; &#13;
+   &lt;string&gt;http://www.fiorano.com/fesb/activity/fault&lt;/string&gt; &#13;
+  &lt;/void&gt; &#13;
+ &lt;/object&gt; &#13;
+&lt;/java&gt; &#13;
+]]&gt;&lt;/FaultRecordDefinition&gt;&#13;
+&lt;/ESBAdapterConfigurations&gt;&#13;
+</string> 
+  </void> 
+ </object> 
+</java> 
+]]></BCConfigurations>
+    <TransportConfigurations><![CDATA[<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.8.0_281" class="java.beans.XMLDecoder"> 
+ <object class="com.fiorano.bc.trgateway.model.dmi.tr.TrConfigurationInfo"/> 
+</java> 
+]]></TransportConfigurations>
+    <ErrorConfigurations><![CDATA[<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.8.0_281" class="java.beans.XMLDecoder"> 
+ <object class="com.fiorano.bc.trgateway.model.dmi.error.ErrorConfigurationInfo"> 
+  <void property="errorActionsMap"> 
+   <object class="com.fiorano.bc.trgateway.model.dmi.error.XErrorActionsMap"> 
+    <void property="errorActionsMap"> 
+     <void method="put"> 
+      <object class="fiorano.esb.adapter.jca.error.Error"> 
+       <void property="errorID"> 
+        <int>2</int> 
+       </void> 
+      </object> 
+      <object class="java.util.ArrayList"> 
+       <void method="add"> 
+        <object class="fiorano.esb.adapter.jca.error.ErrorAction"> 
+         <void property="errorActionID"> 
+          <int>4</int> 
+         </void> 
+        </object> 
+       </void> 
+       <void method="add"> 
+        <object class="fiorano.esb.adapter.jca.error.RetryErrorAction"> 
+         <void property="errorActionID"> 
+          <int>1</int> 
+         </void> 
+        </object> 
+       </void> 
+       <void method="add"> 
+        <object class="fiorano.esb.adapter.jca.error.ErrorAction"> 
+         <void property="errorActionID"> 
+          <int>3</int> 
+         </void> 
+        </object> 
+       </void> 
+       <void method="add"> 
+        <object class="com.fiorano.bc.trgateway.model.dmi.error.XErrorAction"> 
+         <void property="active"> 
+          <boolean>true</boolean> 
+         </void> 
+         <void property="errorActionID"> 
+          <int>11</int> 
+         </void> 
+        </object> 
+       </void> 
+       <void method="add"> 
+        <object class="com.fiorano.bc.trgateway.model.dmi.error.XErrorAction"> 
+         <void property="errorActionID"> 
+          <int>12</int> 
+         </void> 
+        </object> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="put"> 
+      <object class="fiorano.esb.adapter.jca.error.Error"> 
+       <void property="errorID"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+      <object class="java.util.ArrayList"> 
+       <void method="add"> 
+        <object class="fiorano.esb.adapter.jca.error.ErrorAction"> 
+         <void property="active"> 
+          <boolean>true</boolean> 
+         </void> 
+         <void property="errorActionID"> 
+          <int>4</int> 
+         </void> 
+        </object> 
+       </void> 
+       <void method="add"> 
+        <object class="fiorano.esb.adapter.jca.error.RetryErrorAction"> 
+         <void property="active"> 
+          <boolean>true</boolean> 
+         </void> 
+         <void property="noOfRetries"> 
+          <int>10</int> 
+         </void> 
+         <void property="repeatInterval"> 
+          <long>300000</long> 
+         </void> 
+         <void property="sendErrorAfterTries"> 
+          <int>2</int> 
+         </void> 
+        </object> 
+       </void> 
+       <void method="add"> 
+        <object class="com.fiorano.bc.trgateway.model.dmi.error.XErrorAction"> 
+         <void property="active"> 
+          <boolean>true</boolean> 
+         </void> 
+         <void property="errorActionID"> 
+          <int>11</int> 
+         </void> 
+        </object> 
+       </void> 
+       <void method="add"> 
+        <object class="com.fiorano.bc.trgateway.model.dmi.error.XErrorAction"> 
+         <void property="errorActionID"> 
+          <int>12</int> 
+         </void> 
+        </object> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="put"> 
+      <object class="fiorano.esb.adapter.jca.error.Error"> 
+       <void property="errorID"> 
+        <int>0</int> 
+       </void> 
+      </object> 
+      <object class="java.util.ArrayList"> 
+       <void method="add"> 
+        <object class="com.fiorano.bc.trgateway.model.dmi.error.XErrorAction"> 
+         <void property="active"> 
+          <boolean>true</boolean> 
+         </void> 
+         <void property="errorActionID"> 
+          <int>11</int> 
+         </void> 
+        </object> 
+       </void> 
+       <void method="add"> 
+        <object class="com.fiorano.bc.trgateway.model.dmi.error.XErrorAction"> 
+         <void property="active"> 
+          <boolean>true</boolean> 
+         </void> 
+         <void property="errorActionID"> 
+          <int>2</int> 
+         </void> 
+        </object> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+   </object> 
+  </void> 
+ </object> 
+</java> 
+]]></ErrorConfigurations>
+    <SchedulerConfigurations><![CDATA[<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.8.0_281" class="java.beans.XMLDecoder"> 
+ <object class="com.fiorano.bc.trgateway.model.dmi.scheduler.SchedulerConfigurationInfo"/> 
+</java> 
+]]></SchedulerConfigurations>
+</TrGatewayConfigurations>

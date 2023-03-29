@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xalan="http://xml.apache.org/xslt" xmlns:datetime="http://exslt.org/dates-and-times" xmlns:math="http://exslt.org/math" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:lxslt="http://xml.apache.org/xslt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http://xml.apache.org/xslt/java" xmlns:set="http://exslt.org/sets" exclude-result-prefixes="xalan java lxslt" xmlns:ns2="http://www.w3.org/2001/XMLSchema" xmlns:MT2MX="http://xml.apache.org/xslt/java" xmlns:MX2MT="http://xml.apache.org/xslt/java" xmlns:MXToMT="http://xml.apache.org/xslt/java" xmlns:MXtoMT="http://xml.apache.org/xslt/java" xmlns:New="http://xml.apache.org/xslt/java" xmlns:dateConversion="dateConversion" xmlns:myext="myext" xmlns:strings="strings" extension-element-prefixes="datetime set math MT2MX MX2MT MXToMT MXtoMT New dateConversion myext strings">
+  <xsl:import href="GLOBAL_FUNCLET_PATH"></xsl:import>
+  <xsl:output method="xml" indent="yes" encoding="UTF-8" xalan:indent-amount="2" omit-xml-declaration="no"></xsl:output>
+  <xsl:variable name="document" select="/"></xsl:variable>
+  <xsl:template match="/">
+    <Context>
+      <xsl:variable name="if0">
+        <xsl:choose>
+          <xsl:when test="(java:_getStringProperty($_TIF_MESSAGE_, 'ErrorCode'))=('NoError')">
+            <xsl:value-of select="java:com.fiorano.xslt.functions.jms.JMSMessageIncrementalID.getIncrementalID('http://localhost:1847',null,'MTSequenceNumber','admin','passwd',null,'0','1',null)"></xsl:value-of>
+          </xsl:when>
+        </xsl:choose>
+      </xsl:variable>
+      <xsl:value-of select="java:_setStringProperty($_TIF_MESSAGE_, 'SequenceNumber', $if0)"></xsl:value-of><xsl:value-of select="java:_setStringProperty($_TIF_MESSAGE_, 'SequenceNumber', substring(concat('0000000000',$if0),(string-length($if0)+('1')),'10'))"></xsl:value-of></Context>
+  </xsl:template>
+<!--The list of parameters defined by user-->
+  <xsl:param name="_TIF_MESSAGE_"></xsl:param>
+</xsl:stylesheet>

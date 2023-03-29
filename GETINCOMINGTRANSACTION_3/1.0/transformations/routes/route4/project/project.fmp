@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappermodel:MapperProject xmlns:mappermodel="http://www.fiorano.com/tools/mapper/mappermodel" convertor="nameIndexed" version="3.0.2">
+  <mappermodel:Comments>Key in relevant comments</mappermodel:Comments>
+  <mappermodel:InputStructure>
+    <mappermodel:Structure duplicates="" filePath="applicationContextSchema.xsd" mime="XSD" name="Application-Context" rootName="{urn:iso:std:iso:20022:tech:xsd:pain.001.001.05}Document"/>
+    <mappermodel:Structure duplicates="" filePath="OUT_PORT0.xsd" mime="XSD" name="OUT_PORT" rootName="{urn:iso:std:iso:20022:tech:xsd:pain.002.001.06}Document"/>
+  </mappermodel:InputStructure>
+  <mappermodel:OutputStructure>
+    <mappermodel:Structure duplicates="" filePath="IN_PORT1.xsd" mime="XSD" name="IN_PORT" rootName="{http://fastwebservice.nbc.org.kh/makeAcknowledgment/Input}Envelope">
+      <mappermodel:ExternalStructure filePath="SchemaRef.xsd" name="http://fastwebservice.nbc.org.kh/"/>
+    </mappermodel:Structure>
+  </mappermodel:OutputStructure>
+  <mappermodel:Mappings>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="IN_PORT:0,Envelope:0,Body:0,makeAcknowledgment:0,cm_password:0" x="-1" y="-1">
+      <mappermodel:FunctionGraphNode label="Cnb$!2016" type="22" x="136" y="153">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="1" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="IN_PORT:0,Envelope:0,Body:0,makeAcknowledgment:0,cm_user_name:0" x="-1" y="-1">
+      <mappermodel:FunctionGraphNode label="cnb_inp" type="22" x="181" y="74">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="1" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="IN_PORT:0,Envelope:0,Body:0,makeAcknowledgment:0,content_message:0" x="-1" y="-1">
+      <mappermodel:FunctionGraphNode label="Text-Content" type="131" x="98" y="132">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="1" outputIndex="0"/>
+    </mappermodel:GraphModel>
+  </mappermodel:Mappings>
+  <mappermodel:Extensions/>
+</mappermodel:MapperProject>

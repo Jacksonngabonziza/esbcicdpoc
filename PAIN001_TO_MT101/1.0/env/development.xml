@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<target:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:target="http://fiorano.com/environment/1.0" xsi:schemaLocation="http://fiorano.com/environment/1.0 env.xsd">
+  <target:instance name="XML2MT1">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property configurationType="resource" encrypt="false" name="MessageSchema Directory Configuration" type="NamedObject">SwiftMTSchemaDirectory</target:property>
+    </target:configuration-properties>
+  </target:instance>
+  <target:instance name="SwiftTranslator">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property encrypt="false" name="XSL" type="java.lang.String">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xalan=&quot;http://xml.apache.org/xslt&quot; xmlns:datetime=&quot;http://exslt.org/dates-and-times&quot; xmlns:math=&quot;http://exslt.org/math&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:lxslt=&quot;http://xml.apache.org/xslt&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:java=&quot;http://xml.apache.org/xslt/java&quot; xmlns:set=&quot;http://exslt.org/sets&quot; exclude-result-prefixes=&quot;xalan java lxslt&quot; xmlns:ns3=&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.02&quot; xmlns:ns5=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:ns4=&quot;urn:swift:xsd:mtmsg.2020&quot; xmlns:ns1=&quot;urn:swift:xsd:fin.101.2020&quot; xmlns:ns2=&quot;urn:iso:std:iso:20022:tech:xsd:pain.001.001.09&quot; xmlns:MT2MX=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MTtoMX=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MX2MT=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MXToMT=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MXtoMT=&quot;http://xml.apache.org/xslt/java&quot; xmlns:QueryGenerator=&quot;QueryGenerator&quot; xmlns:dateConversion=&quot;dateConversion&quot; xmlns:myext=&quot;myext&quot; xmlns:strings=&quot;strings&quot; extension-element-prefixes=&quot;datetime set math MT2MX MTtoMX MX2MT MXToMT MXtoMT QueryGenerator dateConversion myext strings&quot;>
+  &lt;xsl:import href=&quot;GLOBAL_FUNCLET_PATH&quot;>&lt;/xsl:import>
+  &lt;xsl:output method=&quot;xml&quot; indent=&quot;yes&quot; encoding=&quot;UTF-8&quot; xalan:indent-amount=&quot;2&quot; omit-xml-declaration=&quot;no&quot;>&lt;/xsl:output>
+  &lt;xsl:variable name=&quot;document&quot; select=&quot;/&quot;>&lt;/xsl:variable>
+  &lt;xsl:variable name=&quot;document_Input1&quot; select=&quot;document('Input1')&quot;>&lt;/xsl:variable>
+  &lt;xsl:template match=&quot;/&quot;>
+    &lt;ns4:FinMessage>
+      &lt;ns4:Block1>&lt;ns4:ApplicationIdentifier>
+          &lt;xsl:value-of select=&quot;'F'&quot;>&lt;/xsl:value-of>
+        &lt;/ns4:ApplicationIdentifier>
+        &lt;ns4:ServiceIdentifier>
+          &lt;xsl:value-of select=&quot;'01'&quot;>&lt;/xsl:value-of>
+        &lt;/ns4:ServiceIdentifier>
+        &lt;ns4:LogicalTerminalAddress>
+          &lt;xsl:variable name=&quot;if0&quot;>
+            &lt;xsl:choose>
+              &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))!=('I') or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))))&quot;>
+                &lt;xsl:value-of select=&quot;$document_Input1/Envelope/ns3:AppHdr/ns3:To/ns3:FIId/ns3:FinInstnId/ns3:BICFI&quot;>&lt;/xsl:value-of>
+              &lt;/xsl:when>
+              &lt;xsl:otherwise>
+                &lt;xsl:value-of select=&quot;$document_Input1/Envelope/ns3:AppHdr/ns3:Fr/ns3:FIId/ns3:FinInstnId/ns3:BICFI&quot;>&lt;/xsl:value-of>
+              &lt;/xsl:otherwise>
+            &lt;/xsl:choose>
+          &lt;/xsl:variable>
+          &lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.MX_To_MT_BICFI_LogicalAddress(string($if0))&quot;>&lt;/xsl:value-of>
+        &lt;/ns4:LogicalTerminalAddress>
+ &lt;ns4:SessionNumber>
+	&lt;xsl:value-of select=&quot;substring(java:_getStringProperty($_TIF_MESSAGE_, 'SequenceNumber'),'1','4')&quot;/>
+&lt;/ns4:SessionNumber>
+&lt;ns4:SequenceNumber>
+	&lt;xsl:value-of select=&quot;substring(java:_getStringProperty($_TIF_MESSAGE_, 'SequenceNumber'),'5','6')&quot;/>
+&lt;/ns4:SequenceNumber>&lt;/ns4:Block1>
+      &lt;ns4:Block2>&lt;!-- &lt;ns4:InputIdentifier>
+          &lt;xsl:variable name=&quot;if1&quot;>
+            &lt;xsl:choose>
+              &lt;xsl:when test=&quot;(java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))=('I')&quot;>
+                &lt;xsl:value-of select=&quot;'I'&quot;>&lt;/xsl:value-of>
+              &lt;/xsl:when>
+            &lt;/xsl:choose>
+          &lt;/xsl:variable>
+          &lt;xsl:value-of select=&quot;$if1&quot;>&lt;/xsl:value-of>
+        &lt;/ns4:InputIdentifier>
+        &lt;ns4:MessageType>
+          &lt;xsl:variable name=&quot;if2&quot;>
+            &lt;xsl:choose>
+              &lt;xsl:when test=&quot;(java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))=('I')&quot;>
+                &lt;xsl:value-of select=&quot;'101'&quot;>&lt;/xsl:value-of>
+              &lt;/xsl:when>
+            &lt;/xsl:choose>
+          &lt;/xsl:variable>
+          &lt;xsl:value-of select=&quot;$if2&quot;>&lt;/xsl:value-of>
+        &lt;/ns4:MessageType>
+        &lt;ns4:DestinationAddress>
+          &lt;xsl:variable name=&quot;if3&quot;>
+            &lt;xsl:choose>
+              &lt;xsl:when test=&quot;(java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))=('I')&quot;>
+                &lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.MX_To_MT_BICFI_LogicalAddress(string($document_Input1/Envelope/ns3:AppHdr/ns3:To/ns3:FIId/ns3:FinInstnId/ns3:BICFI))&quot;>&lt;/xsl:value-of>
+              &lt;/xsl:when>
+            &lt;/xsl:choose>
+          &lt;/xsl:variable>
+          &lt;xsl:value-of select=&quot;$if3&quot;>&lt;/xsl:value-of>
+        &lt;/ns4:DestinationAddress>
+        &lt;ns4:MessagePriority>
+          &lt;xsl:variable name=&quot;if4&quot;>
+            &lt;xsl:choose>
+              &lt;xsl:when test=&quot;(java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))=('I')&quot;>
+                &lt;xsl:variable name=&quot;if5&quot;>
+                  &lt;xsl:choose>
+                    &lt;xsl:when test=&quot;($document_Input1/Envelope/ns3:AppHdr/ns3:Prty)=('HIGH')&quot;>
+                      &lt;xsl:value-of select=&quot;'U'&quot;>&lt;/xsl:value-of>
+                    &lt;/xsl:when>
+                    &lt;xsl:otherwise>
+                      &lt;xsl:value-of select=&quot;'N'&quot;>&lt;/xsl:value-of>
+                    &lt;/xsl:otherwise>
+                  &lt;/xsl:choose>
+                &lt;/xsl:variable>
+                &lt;xsl:value-of select=&quot;$if5&quot;>&lt;/xsl:value-of>
+              &lt;/xsl:when>
+            &lt;/xsl:choose>
+          &lt;/xsl:variable>
+          &lt;xsl:value-of select=&quot;$if4&quot;>&lt;/xsl:value-of>
+        &lt;/ns4:MessagePriority>
+        -->&lt;ns4:OutputIdentifier>
+          &lt;xsl:variable name=&quot;if6&quot;>
+            &lt;xsl:choose>
+              &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))!=('I') or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))))&quot;>
+                &lt;xsl:value-of select=&quot;'O'&quot;>&lt;/xsl:value-of>
+              &lt;/xsl:when>
+            &lt;/xsl:choose>
+          &lt;/xsl:variable>
+          &lt;xsl:value-of select=&quot;$if6&quot;>&lt;/xsl:value-of>
+        &lt;/ns4:OutputIdentifier>
+        &lt;ns4:MessageType>
+          &lt;xsl:variable name=&quot;if7&quot;>
+            &lt;xsl:choose>
+              &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))!=('I') or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))))&quot;>
+                &lt;xsl:value-of select=&quot;'101'&quot;>&lt;/xsl:value-of>
+              &lt;/xsl:when>
+            &lt;/xsl:choose>
+          &lt;/xsl:variable>
+          &lt;xsl:value-of select=&quot;$if7&quot;>&lt;/xsl:value-of>
+        &lt;/ns4:MessageType>
+        &lt;ns4:InputTime>
+          &lt;xsl:variable name=&quot;if8&quot;>
+             &lt;xsl:choose>
+                &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))!=('I') or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode')))) and string-length(java:_getStringProperty($_TIF_MESSAGE_, 'OutputTime'))&quot;>
+                  &lt;xsl:value-of select=&quot;java:_getStringProperty($_TIF_MESSAGE_, 'OutputTime')&quot;>&lt;/xsl:value-of>
+                &lt;/xsl:when>
+				
+				 &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))!=('I') or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode')))) and (not(string-length(java:_getStringProperty($_TIF_MESSAGE_, 'OutputTime'))))&quot;>
+                   &lt;xsl:value-of select=&quot;'0000'&quot;>&lt;/xsl:value-of>
+                &lt;/xsl:when>
+              &lt;/xsl:choose>
+          &lt;/xsl:variable>
+          &lt;xsl:value-of select=&quot;$if8&quot;>&lt;/xsl:value-of>
+        &lt;/ns4:InputTime>
+        &lt;ns4:MessageInputReference>
+          &lt;ns4:Date>
+            &lt;xsl:variable name=&quot;if9&quot;>
+               &lt;xsl:choose>
+                &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))!=('I') or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode')))) and string-length(java:_getStringProperty($_TIF_MESSAGE_, 'OutputDate'))&quot;>
+                  &lt;xsl:value-of select=&quot;java:_getStringProperty($_TIF_MESSAGE_, 'OutputDate')&quot;>&lt;/xsl:value-of>
+                &lt;/xsl:when>
+				
+				 &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))!=('I') or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode')))) and (not(string-length(java:_getStringProperty($_TIF_MESSAGE_, 'OutputDate'))))&quot;>
+                   &lt;xsl:value-of select=&quot;'991231'&quot;>&lt;/xsl:value-of>
+                &lt;/xsl:when>
+              &lt;/xsl:choose>
+            &lt;/xsl:variable>
+            &lt;xsl:value-of select=&quot;$if9&quot;>&lt;/xsl:value-of>
+          &lt;/ns4:Date>
+          &lt;ns4:LTIdentifier>
+            &lt;xsl:variable name=&quot;if10&quot;>
+              &lt;xsl:choose>
+                &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))!=('I') or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))))&quot;>
+                  &lt;xsl:value-of select=&quot;MXToMT:com.fiorano.funclet.MXtoMT.MX_To_MT_BICFI_LTIAddress(string($document_Input1/Envelope/ns3:AppHdr/ns3:Fr/ns3:FIId/ns3:FinInstnId/ns3:BICFI))&quot;>&lt;/xsl:value-of>
+                &lt;/xsl:when>
+              &lt;/xsl:choose>
+            &lt;/xsl:variable>
+            &lt;xsl:value-of select=&quot;$if10&quot;>&lt;/xsl:value-of>
+          &lt;/ns4:LTIdentifier>
+          &lt;ns4:BranchCode>
+            &lt;xsl:variable name=&quot;if11&quot;>
+              &lt;xsl:choose>
+                &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))!=('I') or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))))&quot;>
+                  &lt;xsl:variable name=&quot;if12&quot;>
+                    &lt;xsl:choose>
+                      &lt;xsl:when test=&quot;(string-length($document_Input1/Envelope/ns3:AppHdr/ns3:Fr/ns3:FIId/ns3:FinInstnId/ns3:BICFI))&amp;gt;=('11')&quot;>
+                        &lt;xsl:value-of select=&quot;substring($document_Input1/Envelope/ns3:AppHdr/ns3:Fr/ns3:FIId/ns3:FinInstnId/ns3:BICFI,(string-length($document_Input1/Envelope/ns3:AppHdr/ns3:Fr/ns3:FIId/ns3:FinInstnId/ns3:BICFI))-('2'),string-length($document_Input1/Envelope/ns3:AppHdr/ns3:Fr/ns3:FIId/ns3:FinInstnId/ns3:BICFI))&quot;>&lt;/xsl:value-of>
+                      &lt;/xsl:when>
+                      &lt;xsl:otherwise>
+                        &lt;xsl:value-of select=&quot;'XXX'&quot;>&lt;/xsl:value-of>
+                      &lt;/xsl:otherwise>
+                    &lt;/xsl:choose>
+                  &lt;/xsl:variable>
+                  &lt;xsl:value-of select=&quot;$if12&quot;>&lt;/xsl:value-of>
+                &lt;/xsl:when>
+              &lt;/xsl:choose>
+            &lt;/xsl:variable>
+            &lt;xsl:value-of select=&quot;$if11&quot;>&lt;/xsl:value-of>
+          &lt;/ns4:BranchCode>
+          &lt;ns4:SessionNumber>
+            &lt;xsl:variable name=&quot;if13&quot;>
+              &lt;xsl:choose>
+                &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))!=('I') or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))))&quot;>
+                   &lt;xsl:value-of select=&quot;substring(java:_getStringProperty($_TIF_MESSAGE_, 'SequenceNumber'),'1','4')&quot;/>
+                &lt;/xsl:when>
+              &lt;/xsl:choose>
+            &lt;/xsl:variable>
+            &lt;xsl:value-of select=&quot;$if13&quot;>&lt;/xsl:value-of>
+          &lt;/ns4:SessionNumber>
+          &lt;ns4:ISN>
+            &lt;xsl:variable name=&quot;if14&quot;>
+              &lt;xsl:choose>
+                &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))!=('I') or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))))&quot;>
+                  &lt;xsl:value-of select=&quot;substring(java:_getStringProperty($_TIF_MESSAGE_, 'SequenceNumber'),'5','6')&quot;/>
+                &lt;/xsl:when>
+              &lt;/xsl:choose>
+            &lt;/xsl:variable>
+            &lt;xsl:value-of select=&quot;$if14&quot;>&lt;/xsl:value-of>
+          &lt;/ns4:ISN>
+        &lt;/ns4:MessageInputReference>
+        &lt;ns4:Date>
+          &lt;xsl:variable name=&quot;if15&quot;>
+            &lt;xsl:choose>
+                &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))!=('I') or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode')))) and string-length(java:_getStringProperty($_TIF_MESSAGE_, 'OutputDate'))&quot;>
+                  &lt;xsl:value-of select=&quot;java:_getStringProperty($_TIF_MESSAGE_, 'OutputDate')&quot;>&lt;/xsl:value-of>
+                &lt;/xsl:when>
+				
+				 &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))!=('I') or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode')))) and (not(string-length(java:_getStringProperty($_TIF_MESSAGE_, 'OutputDate'))))&quot;>
+                   &lt;xsl:value-of select=&quot;'991231'&quot;>&lt;/xsl:value-of>
+                &lt;/xsl:when>
+              &lt;/xsl:choose>
+          &lt;/xsl:variable>
+          &lt;xsl:value-of select=&quot;$if15&quot;>&lt;/xsl:value-of>
+        &lt;/ns4:Date>
+        &lt;ns4:Time>
+          &lt;xsl:variable name=&quot;if16&quot;>
+              &lt;xsl:choose>
+                &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))!=('I') or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode')))) and string-length(java:_getStringProperty($_TIF_MESSAGE_, 'OutputTime'))&quot;>
+                  &lt;xsl:value-of select=&quot;java:_getStringProperty($_TIF_MESSAGE_, 'OutputTime')&quot;>&lt;/xsl:value-of>
+                &lt;/xsl:when>
+				
+				 &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))!=('I') or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode')))) and (not(string-length(java:_getStringProperty($_TIF_MESSAGE_, 'OutputTime'))))&quot;>
+                   &lt;xsl:value-of select=&quot;'0000'&quot;>&lt;/xsl:value-of>
+                &lt;/xsl:when>
+              &lt;/xsl:choose>
+          &lt;/xsl:variable>
+          &lt;xsl:value-of select=&quot;$if16&quot;>&lt;/xsl:value-of>
+        &lt;/ns4:Time>
+        &lt;ns4:MessagePriority>
+          &lt;xsl:variable name=&quot;if17&quot;>
+            &lt;xsl:choose>
+              &lt;xsl:when test=&quot;((java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))!=('I') or not(string-length(java:_getStringProperty($_TIF_MESSAGE_, 'ApplicationMode'))))&quot;>
+                &lt;xsl:variable name=&quot;if18&quot;>
+                  &lt;xsl:choose>
+                    &lt;xsl:when test=&quot;($document_Input1/Envelope/ns3:AppHdr/ns3:Prty)=('HIGH')&quot;>
+                      &lt;xsl:value-of select=&quot;'U'&quot;>&lt;/xsl:value-of>
+                    &lt;/xsl:when>
+                    &lt;xsl:otherwise>
+                      &lt;xsl:value-of select=&quot;'N'&quot;>&lt;/xsl:value-of>
+                    &lt;/xsl:otherwise>
+                  &lt;/xsl:choose>
+                &lt;/xsl:variable>
+                &lt;xsl:value-of select=&quot;$if18&quot;>&lt;/xsl:value-of>
+              &lt;/xsl:when>
+            &lt;/xsl:choose>
+          &lt;/xsl:variable>
+          &lt;xsl:value-of select=&quot;$if17&quot;>&lt;/xsl:value-of>
+        &lt;/ns4:MessagePriority>&lt;/ns4:Block2>
+      &lt;ns4:Block3>
+        &lt;ns4:F103>&lt;xsl:value-of select=&quot;java:_setBooleanProperty($_TIF_MESSAGE_, 'isIncludeAdditionalDetails', '1')&quot;>&lt;/xsl:value-of>&lt;/ns4:F103>
+        &lt;ns4:F111>&lt;xsl:value-of select=&quot;MXtoMT:com.fiorano.funclet.MXtoMT.getServiceTypeIdentifier(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:PmtTpInf/ns2:SvcLvl/ns2:Cd))&quot;>&lt;/xsl:value-of>&lt;/ns4:F111>
+        &lt;ns4:F121>&lt;xsl:value-of select=&quot;$document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:PmtId/ns2:UETR&quot;>&lt;/xsl:value-of>
+          &lt;xsl:value-of select=&quot;java:_setStringProperty($_TIF_MESSAGE_, 'UETR_ID', $document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:PmtId/ns2:UETR)&quot;>&lt;/xsl:value-of>
+          &lt;xsl:value-of select=&quot;java:_setStringProperty($_TIF_MESSAGE_, 'Truncated_Fields', '')&quot;>&lt;/xsl:value-of>&lt;/ns4:F121>
+      &lt;/ns4:Block3>
+      &lt;ns4:Block4>
+        &lt;ns1:Document>
+          &lt;ns1:MT101>
+            &lt;ns1:SeqA>
+              &lt;ns1:F20a>&lt;xsl:variable name=&quot;MT20&quot;>
+&lt;xsl:value-of select=&quot;MXtoMT:com.fiorano.funclet.MXtoMT.MX_To_MT_Field20withTruncate(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:PmtId/ns2:InstrId))&quot;>&lt;/xsl:value-of>
+&lt;/xsl:variable>
+
+&lt;xsl:variable name=&quot;TruncTemp&quot;>
+  &lt;xsl:value-of select=&quot;java:_getStringProperty($_TIF_MESSAGE_, 'Truncated_Fields')&quot;/>
+&lt;/xsl:variable>
+
+&lt;xsl:value-of select=&quot;java:_setStringProperty($_TIF_MESSAGE_, 'Truncated_Fields', concat($TruncTemp,'F20ENDOFFIELDTAG',substring-after($MT20,'ENDOFOUTPUT'),'ENDOFTRUNCATEDFIELD'))&quot;/>
+                &lt;ns1:F20>
+                  &lt;xsl:variable name=&quot;if0&quot;>
+                    &lt;xsl:choose>
+                      &lt;xsl:when test=&quot;contains($MT20,'ENDOFOUTPUT')&quot;>
+                        &lt;xsl:value-of select=&quot;substring-before($MT20,'ENDOFOUTPUT')&quot;>&lt;/xsl:value-of>
+                      &lt;/xsl:when>
+                      &lt;xsl:otherwise>
+                        &lt;xsl:value-of select=&quot;$MT20&quot;>&lt;/xsl:value-of>
+                      &lt;/xsl:otherwise>
+                    &lt;/xsl:choose>
+                  &lt;/xsl:variable>
+                  &lt;xsl:value-of select=&quot;$if0&quot;>&lt;/xsl:value-of>
+                &lt;/ns1:F20>
+              &lt;/ns1:F20a>
+              &lt;ns1:F28a>
+                &lt;ns1:F28D>
+                  &lt;ns1:MessageIndex>
+                    &lt;xsl:value-of select=&quot;'1'&quot;>&lt;/xsl:value-of>
+                  &lt;/ns1:MessageIndex>
+                  &lt;ns1:Total>
+                    &lt;xsl:value-of select=&quot;'1'&quot;>&lt;/xsl:value-of>
+                  &lt;/ns1:Total>
+                &lt;/ns1:F28D>
+              &lt;/ns1:F28a>
+              &lt;ns1:F30a>
+                &lt;ns1:F30>
+                  &lt;xsl:value-of select=&quot;MXToMT:com.fiorano.funclet.MXtoMT.MX_To_MTDate(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:ReqdExctnDt/ns2:Dt))&quot;>&lt;/xsl:value-of>
+                &lt;/ns1:F30>
+              &lt;/ns1:F30a>
+            &lt;/ns1:SeqA>
+            &lt;ns1:SeqB>
+              &lt;ns1:F21a_1>
+                &lt;ns1:F21>&lt;xsl:value-of select=&quot;$document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:PmtId/ns2:InstrId&quot;>&lt;/xsl:value-of>&lt;/ns1:F21>
+              &lt;/ns1:F21a_1>
+              &lt;ns1:F32a>
+                &lt;ns1:F32B>
+                  &lt;ns1:Currency>
+                    &lt;xsl:value-of select=&quot;$document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:Amt/ns2:InstdAmt/@Ccy&quot;>&lt;/xsl:value-of>
+                  &lt;/ns1:Currency>
+                  &lt;ns1:Amount>&lt;xsl:value-of select=&quot;MXtoMT:com.fiorano.funclet.MXtoMT.mx2MTCurrencyAmount(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:Amt/ns2:InstdAmt))&quot;>&lt;/xsl:value-of>&lt;/ns1:Amount>
+                &lt;/ns1:F32B>
+              &lt;/ns1:F32a>
+              &lt;ns1:F50a_2>
+                &lt;ns1:F50H>&lt;xsl:variable name=&quot;LineSeparator&quot;>
+	&lt;xsl:value-of select=&quot;'ENDOFLINE'&quot;/>
+&lt;/xsl:variable>
+&lt;xsl:variable name=&quot;VariableSeparator&quot;>
+	&lt;xsl:value-of select=&quot;'ENDOFVAR'&quot;/>
+&lt;/xsl:variable>
+&lt;xsl:variable name=&quot;AppendedPostalAddress&quot;>
+	&lt;xsl:for-each select=&quot;$document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:Dbtr/ns2:PstlAdr/ns2:AdrLine&quot;>
+		&lt;xsl:value-of select=&quot;.&quot;/>
+		&lt;xsl:value-of select=&quot;$LineSeparator&quot;/>
+	&lt;/xsl:for-each>
+&lt;/xsl:variable>
+&lt;xsl:variable name=&quot;F59aFlag&quot;>
+	&lt;xsl:choose>
+		&lt;xsl:when test=&quot;(not(MX2MT:com.fiorano.funclet.MXtoMT.isInputNullorBlank(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:Dbtr/ns2:Id/ns2:OrgId/ns2:AnyBIC))))&quot;>
+			&lt;xsl:value-of select=&quot;'59ABIC'&quot;/>
+			&lt;xsl:choose>
+				&lt;xsl:when test=&quot;(not(MX2MT:com.fiorano.funclet.MXtoMT.isInputNullorBlank(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:DbtrAcct))))&quot;>
+					&lt;xsl:value-of select=&quot;'59AAccount'&quot;/>
+				&lt;/xsl:when>
+			&lt;/xsl:choose>
+		&lt;/xsl:when>
+		&lt;xsl:when test=&quot;(not(MX2MT:com.fiorano.funclet.MXtoMT.isInputNullorBlank(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:Dbtr/ns2:PstlAdr/ns2:Ctry))))&quot;>
+			&lt;xsl:value-of select=&quot;'59FPartyNameAndAddressLEI1'&quot;/>
+			&lt;xsl:choose>
+				&lt;xsl:when test=&quot;(not(MX2MT:com.fiorano.funclet.MXtoMT.isInputNullorBlank(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:DbtrAcct))))&quot;>
+					&lt;xsl:value-of select=&quot;'59FAccount'&quot;/>
+				&lt;/xsl:when>
+			&lt;/xsl:choose>
+		&lt;/xsl:when>
+		&lt;xsl:when test=&quot;(not(MX2MT:com.fiorano.funclet.MXtoMT.isInputNullorBlank(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:Dbtr/ns2:PstlAdr/ns2:AdrLine))))&quot;>
+			&lt;xsl:choose>
+				&lt;xsl:when test=&quot;(('true')=(MXToMT:com.fiorano.funclet.MXtoMT.MX_To_MTAddressLineType(string($AppendedPostalAddress),string($LineSeparator))))&quot;>
+					&lt;xsl:value-of select=&quot;'59FPartyNameAndAddressLEI2'&quot;/>
+					&lt;xsl:choose>
+						&lt;xsl:when test=&quot;(not(MX2MT:com.fiorano.funclet.MXtoMT.isInputNullorBlank(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:DbtrAcct))))&quot;>
+							&lt;xsl:value-of select=&quot;'59FAccount'&quot;/>
+						&lt;/xsl:when>
+					&lt;/xsl:choose>
+				&lt;/xsl:when>
+				&lt;xsl:otherwise>
+					&lt;xsl:value-of select=&quot;'59PartyNameAndUnstructuredAddress'&quot;/>
+					&lt;xsl:choose>
+						&lt;xsl:when test=&quot;(not(MX2MT:com.fiorano.funclet.MXtoMT.isInputNullorBlank(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:DbtrAcct))))&quot;>
+							&lt;xsl:value-of select=&quot;'59Account'&quot;/>
+						&lt;/xsl:when>
+					&lt;/xsl:choose>
+				&lt;/xsl:otherwise>
+			&lt;/xsl:choose>
+		&lt;/xsl:when>
+		&lt;xsl:when test=&quot;not(MX2MT:com.fiorano.funclet.MXtoMT.isInputNullorBlank(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:Dbtr/ns2:Nm)))&quot;>
+			&lt;xsl:value-of select=&quot;'59PartyNameAndUnstructuredAddress'&quot;/>
+			&lt;xsl:choose>
+				&lt;xsl:when test=&quot;(not(MX2MT:com.fiorano.funclet.MXtoMT.isInputNullorBlank(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:DbtrAcct))))&quot;>
+					&lt;xsl:value-of select=&quot;'59Account'&quot;/>
+				&lt;/xsl:when>
+			&lt;/xsl:choose>
+		&lt;/xsl:when>
+		&lt;xsl:when test=&quot;not(MX2MT:com.fiorano.funclet.MXtoMT.isInputNullorBlank(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:Dbtr)))&quot;>
+			&lt;xsl:value-of select=&quot;'59PartyNameAndNOTPROVIDEDAddress'&quot;/>
+			&lt;xsl:choose>
+				&lt;xsl:when test=&quot;(not(MX2MT:com.fiorano.funclet.MXtoMT.isInputNullorBlank(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:DbtrAcct))))&quot;>
+					&lt;xsl:value-of select=&quot;'59Account'&quot;/>
+				&lt;/xsl:when>
+			&lt;/xsl:choose>
+		&lt;/xsl:when>
+		&lt;xsl:otherwise>
+			&lt;xsl:value-of select=&quot;'false'&quot;/>
+		&lt;/xsl:otherwise>
+	&lt;/xsl:choose>
+&lt;/xsl:variable>
+                  &lt;ns1:Account>&lt;xsl:variable name=&quot;ResultantMTAddressTable&quot;>
+			&lt;xsl:choose>
+				&lt;xsl:when test=&quot;$F59aFlag&quot;>
+					&lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.mx2MTAccountwithTruncate(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:DbtrAcct/ns2:Id/ns2:IBAN),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:DbtrAcct/ns2:Id/ns2:Othr/ns2:Id),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:DbtrAcct/ns2:Id/ns2:Othr/ns2:SchmeNm/ns2:Cd))&quot;/>
+				&lt;/xsl:when>
+			&lt;/xsl:choose>
+		&lt;/xsl:variable>
+		&lt;xsl:value-of select=&quot;normalize-space(substring-before($ResultantMTAddressTable,'ENDOFOUTPUT'))&quot;/>
+		&lt;xsl:variable name=&quot;TruncTemp&quot;>
+			&lt;xsl:value-of select=&quot;java:_getStringProperty($_TIF_MESSAGE_, 'Truncated_Fields')&quot;/>
+		&lt;/xsl:variable>
+		&lt;xsl:value-of select=&quot;java:_setStringProperty($_TIF_MESSAGE_, 'Truncated_Fields', concat($TruncTemp,'F59Account_ENDOFFIELDTAG',substring-after($ResultantMTAddressTable,'ENDOFOUTPUT'),'ENDOFTRUNCATEDFIELD'))&quot;/>&lt;/ns1:Account>
+                  &lt;ns1:NameAndAddress>&lt;xsl:variable name=&quot;ResultantMTAddressTable&quot;>
+			&lt;xsl:choose>
+				&lt;xsl:when test=&quot;$F59aFlag&quot;>
+					&lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.MX_To_MTPartyNameAndUnstructuredAddresswithTruncate(string($AppendedPostalAddress),string($LineSeparator),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:Dbtr/ns2:Nm))&quot;/>
+				&lt;/xsl:when>
+			&lt;/xsl:choose>
+			&lt;xsl:choose>
+				&lt;xsl:when test=&quot;contains($F59aFlag,'59PartyNameAndNOTPROVIDEDAddress')&quot;>
+					&lt;xsl:value-of select=&quot;'NOTPROVIDEDENDOFOUTPUT'&quot;/>
+				&lt;/xsl:when>
+			&lt;/xsl:choose>
+		&lt;/xsl:variable>
+		&lt;xsl:call-template name=&quot;tokenizeLine&quot;>
+			&lt;xsl:with-param name=&quot;text&quot; select=&quot;substring-before($ResultantMTAddressTable,'ENDOFOUTPUT')&quot;/>
+		&lt;/xsl:call-template>
+		&lt;xsl:variable name=&quot;TruncTemp&quot;>
+			&lt;xsl:value-of select=&quot;java:_getStringProperty($_TIF_MESSAGE_, 'Truncated_Fields')&quot;/>
+		&lt;/xsl:variable>
+                    &lt;ns1:Line>&lt;xsl:value-of select=&quot;java:_setStringProperty($_TIF_MESSAGE_, 'Truncated_Fields', concat($TruncTemp,'F59_NameAndAddress_LineENDOFFIELDTAG',substring-after($ResultantMTAddressTable,'ENDOFOUTPUT'),'ENDOFTRUNCATEDFIELD'))&quot;/>&lt;/ns1:Line>
+                  &lt;/ns1:NameAndAddress>
+                &lt;/ns1:F50H>
+              &lt;/ns1:F50a_2>
+              &lt;ns1:F57a>&lt;xsl:variable name=&quot;if27&quot;>
+                  &lt;xsl:choose>
+                    &lt;xsl:when test=&quot;boolean($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAgtAcct)&quot;>
+                      &lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.mx2MTAccountWithPrefix(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAgtAcct/ns2:Id/ns2:IBAN),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAgtAcct/ns2:Id/ns2:Othr/ns2:Id),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAgtAcct/ns2:Id/ns2:Othr/ns2:SchmeNm/ns2:Cd))&quot;>&lt;/xsl:value-of>
+                    &lt;/xsl:when>
+                    &lt;xsl:otherwise>
+                      &lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.mx2MTClearingIdentifierChoice(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:PmtTpInf/ns2:ClrChanl),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAgt/ns2:FinInstnId/ns2:ClrSysMmbId/ns2:ClrSysId/ns2:Cd),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAgt/ns2:FinInstnId/ns2:ClrSysMmbId/ns2:MmbId),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAgt/ns2:FinInstnId/ns2:BICFI))&quot;>&lt;/xsl:value-of>
+                    &lt;/xsl:otherwise>
+                  &lt;/xsl:choose>
+                &lt;/xsl:variable>
+                &lt;ns1:F57A>&lt;xsl:if test=&quot;string-length($if27)&quot;>
+                  &lt;ns1:PartyIdentifier>&lt;xsl:variable name=&quot;if28&quot;>
+                      &lt;xsl:choose>
+                        &lt;xsl:when test=&quot;boolean($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAgtAcct)&quot;>
+                          &lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.mx2MTAccountWithPrefix(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAgtAcct/ns2:Id/ns2:IBAN),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAgtAcct/ns2:Id/ns2:Othr/ns2:Id),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAgtAcct/ns2:Id/ns2:Othr/ns2:SchmeNm/ns2:Cd))&quot;>&lt;/xsl:value-of>
+                        &lt;/xsl:when>
+                        &lt;xsl:otherwise>
+                          &lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.mx2MTClearingIdentifierChoice(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:PmtTpInf/ns2:ClrChanl),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAgt/ns2:FinInstnId/ns2:ClrSysMmbId/ns2:ClrSysId/ns2:Cd),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAgt/ns2:FinInstnId/ns2:ClrSysMmbId/ns2:MmbId),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAgt/ns2:FinInstnId/ns2:BICFI))&quot;>&lt;/xsl:value-of>
+                        &lt;/xsl:otherwise>
+                      &lt;/xsl:choose>
+                    &lt;/xsl:variable>
+                    &lt;xsl:value-of select=&quot;$if28&quot;>&lt;/xsl:value-of>&lt;/ns1:PartyIdentifier>&lt;/xsl:if>
+                  &lt;ns1:IdentifierCode>&lt;xsl:value-of select=&quot;$document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAgt/ns2:FinInstnId/ns2:BICFI&quot;>&lt;/xsl:value-of>&lt;/ns1:IdentifierCode>
+                &lt;/ns1:F57A>
+              &lt;/ns1:F57a>
+              &lt;ns1:F59a>
+                &lt;ns1:F59>&lt;xsl:variable name=&quot;LineSeparator&quot;>
+	&lt;xsl:value-of select=&quot;'ENDOFLINE'&quot;/>
+&lt;/xsl:variable>
+&lt;xsl:variable name=&quot;VariableSeparator&quot;>
+	&lt;xsl:value-of select=&quot;'ENDOFVAR'&quot;/>
+&lt;/xsl:variable>
+&lt;xsl:variable name=&quot;AppendedPostalAddress&quot;>
+	&lt;xsl:for-each select=&quot;$document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:Cdtr/ns2:PstlAdr/ns2:AdrLine&quot;>
+		&lt;xsl:value-of select=&quot;.&quot;/>
+		&lt;xsl:value-of select=&quot;$LineSeparator&quot;/>
+	&lt;/xsl:for-each>
+&lt;/xsl:variable>
+&lt;xsl:variable name=&quot;F59aFlag&quot;>
+	&lt;xsl:choose>
+		&lt;xsl:when test=&quot;(not(MX2MT:com.fiorano.funclet.MXtoMT.isInputNullorBlank(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:Cdtr/ns2:Id/ns2:OrgId/ns2:AnyBIC))))&quot;>
+			&lt;xsl:value-of select=&quot;'59ABIC'&quot;/>
+			&lt;xsl:choose>
+				&lt;xsl:when test=&quot;(not(MX2MT:com.fiorano.funclet.MXtoMT.isInputNullorBlank(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAcct))))&quot;>
+					&lt;xsl:value-of select=&quot;'59AAccount'&quot;/>
+				&lt;/xsl:when>
+			&lt;/xsl:choose>
+		&lt;/xsl:when>
+		&lt;xsl:when test=&quot;(not(MX2MT:com.fiorano.funclet.MXtoMT.isInputNullorBlank(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:Cdtr/ns2:PstlAdr/ns2:Ctry))))&quot;>
+			&lt;xsl:value-of select=&quot;'59FPartyNameAndAddressLEI1'&quot;/>
+			&lt;xsl:choose>
+				&lt;xsl:when test=&quot;(not(MX2MT:com.fiorano.funclet.MXtoMT.isInputNullorBlank(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAcct))))&quot;>
+					&lt;xsl:value-of select=&quot;'59FAccount'&quot;/>
+				&lt;/xsl:when>
+			&lt;/xsl:choose>
+		&lt;/xsl:when>
+		&lt;xsl:when test=&quot;(not(MX2MT:com.fiorano.funclet.MXtoMT.isInputNullorBlank(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:Cdtr/ns2:PstlAdr/ns2:AdrLine))))&quot;>
+			&lt;xsl:choose>
+				&lt;xsl:when test=&quot;(('true')=(MXToMT:com.fiorano.funclet.MXtoMT.MX_To_MTAddressLineType(string($AppendedPostalAddress),string($LineSeparator))))&quot;>
+					&lt;xsl:value-of select=&quot;'59FPartyNameAndAddressLEI2'&quot;/>
+					&lt;xsl:choose>
+						&lt;xsl:when test=&quot;(not(MX2MT:com.fiorano.funclet.MXtoMT.isInputNullorBlank(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAcct))))&quot;>
+							&lt;xsl:value-of select=&quot;'59FAccount'&quot;/>
+						&lt;/xsl:when>
+					&lt;/xsl:choose>
+				&lt;/xsl:when>
+				&lt;xsl:otherwise>
+					&lt;xsl:value-of select=&quot;'59PartyNameAndUnstructuredAddress'&quot;/>
+					&lt;xsl:choose>
+						&lt;xsl:when test=&quot;(not(MX2MT:com.fiorano.funclet.MXtoMT.isInputNullorBlank(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAcct))))&quot;>
+							&lt;xsl:value-of select=&quot;'59Account'&quot;/>
+						&lt;/xsl:when>
+					&lt;/xsl:choose>
+				&lt;/xsl:otherwise>
+			&lt;/xsl:choose>
+		&lt;/xsl:when>
+		&lt;xsl:when test=&quot;not(MX2MT:com.fiorano.funclet.MXtoMT.isInputNullorBlank(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:Cdtr/ns2:Nm)))&quot;>
+			&lt;xsl:value-of select=&quot;'59PartyNameAndUnstructuredAddress'&quot;/>
+			&lt;xsl:choose>
+				&lt;xsl:when test=&quot;(not(MX2MT:com.fiorano.funclet.MXtoMT.isInputNullorBlank(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAcct))))&quot;>
+					&lt;xsl:value-of select=&quot;'59Account'&quot;/>
+				&lt;/xsl:when>
+			&lt;/xsl:choose>
+		&lt;/xsl:when>
+		&lt;xsl:when test=&quot;not(MX2MT:com.fiorano.funclet.MXtoMT.isInputNullorBlank(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:Cdtr)))&quot;>
+			&lt;xsl:value-of select=&quot;'59PartyNameAndNOTPROVIDEDAddress'&quot;/>
+			&lt;xsl:choose>
+				&lt;xsl:when test=&quot;(not(MX2MT:com.fiorano.funclet.MXtoMT.isInputNullorBlank(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAcct))))&quot;>
+					&lt;xsl:value-of select=&quot;'59Account'&quot;/>
+				&lt;/xsl:when>
+			&lt;/xsl:choose>
+		&lt;/xsl:when>
+		&lt;xsl:otherwise>
+			&lt;xsl:value-of select=&quot;'false'&quot;/>
+		&lt;/xsl:otherwise>
+	&lt;/xsl:choose>
+&lt;/xsl:variable>
+
+
+&lt;xsl:variable name=&quot;ResultantMTAddressTable&quot;>
+			&lt;xsl:choose>
+				&lt;xsl:when test=&quot;contains($F59aFlag,'59Account')&quot;>
+					&lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.mx2MTAccountwithTruncate(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAcct/ns2:Id/ns2:IBAN),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAcct/ns2:Id/ns2:Othr/ns2:Id),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAcct/ns2:Id/ns2:Othr/ns2:SchmeNm/ns2:Cd))&quot;/>
+				&lt;/xsl:when>
+			&lt;/xsl:choose>
+		&lt;/xsl:variable>
+                  &lt;ns1:Account>&lt;xsl:variable name=&quot;ResultantMTAddressTable&quot;>
+			&lt;xsl:choose>
+				&lt;xsl:when test=&quot;$F59aFlag&quot;>
+					&lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.mx2MTAccountwithTruncate(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAcct/ns2:Id/ns2:IBAN),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAcct/ns2:Id/ns2:Othr/ns2:Id),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:CdtrAcct/ns2:Id/ns2:Othr/ns2:SchmeNm/ns2:Cd))&quot;/>
+				&lt;/xsl:when>
+			&lt;/xsl:choose>
+		&lt;/xsl:variable>
+		&lt;xsl:value-of select=&quot;normalize-space(substring-before($ResultantMTAddressTable,'ENDOFOUTPUT'))&quot;/>
+		&lt;xsl:variable name=&quot;TruncTemp&quot;>
+			&lt;xsl:value-of select=&quot;java:_getStringProperty($_TIF_MESSAGE_, 'Truncated_Fields')&quot;/>
+		&lt;/xsl:variable>
+		&lt;xsl:value-of select=&quot;java:_setStringProperty($_TIF_MESSAGE_, 'Truncated_Fields', concat($TruncTemp,'F59Account_ENDOFFIELDTAG',substring-after($ResultantMTAddressTable,'ENDOFOUTPUT'),'ENDOFTRUNCATEDFIELD'))&quot;/>&lt;/ns1:Account>
+                  &lt;ns1:NameAndAddress>&lt;xsl:variable name=&quot;ResultantMTAddressTable&quot;>
+			&lt;xsl:choose>
+				&lt;xsl:when test=&quot;$F59aFlag&quot;>
+					&lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.MX_To_MTPartyNameAndUnstructuredAddresswithTruncate(string($AppendedPostalAddress),string($LineSeparator),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:Cdtr/ns2:Nm))&quot;/>
+				&lt;/xsl:when>
+			&lt;/xsl:choose>
+			&lt;xsl:choose>
+				&lt;xsl:when test=&quot;contains($F59aFlag,'59PartyNameAndNOTPROVIDEDAddress')&quot;>
+					&lt;xsl:value-of select=&quot;'NOTPROVIDEDENDOFOUTPUT'&quot;/>
+				&lt;/xsl:when>
+			&lt;/xsl:choose>
+		&lt;/xsl:variable>
+		&lt;xsl:call-template name=&quot;tokenizeLine&quot;>
+			&lt;xsl:with-param name=&quot;text&quot; select=&quot;substring-before($ResultantMTAddressTable,'ENDOFOUTPUT')&quot;/>
+		&lt;/xsl:call-template>
+		&lt;xsl:variable name=&quot;TruncTemp&quot;>
+			&lt;xsl:value-of select=&quot;java:_getStringProperty($_TIF_MESSAGE_, 'Truncated_Fields')&quot;/>
+		&lt;/xsl:variable>
+                    &lt;ns1:Line>&lt;xsl:value-of select=&quot;java:_setStringProperty($_TIF_MESSAGE_, 'Truncated_Fields', concat($TruncTemp,'F59_NameAndAddress_LineENDOFFIELDTAG',substring-after($ResultantMTAddressTable,'ENDOFOUTPUT'),'ENDOFTRUNCATEDFIELD'))&quot;/>&lt;/ns1:Line>
+                  &lt;/ns1:NameAndAddress>
+                &lt;/ns1:F59>
+              &lt;/ns1:F59a>
+              &lt;ns1:F70a>
+                &lt;ns1:F70>&lt;xsl:variable name=&quot;F70&quot;>
+	&lt;xsl:value-of select=&quot;MX2MT:com.fiorano.funclet.MXtoMT.MX_To_MTRemittanceInformationwithTruncate(string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:RmtInf),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:RltdRmtInf),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:UltmtCdtr),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:UltmtDbtr),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns3:Purp),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns3:Purp/ns3:Prtry),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns3:PmtId/ns3:EndToEndId),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:RmtInf/ns3:Ustrd),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns3:RltdRmtInf/ns3:RmtId),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:RmtInf/ns3:Strd),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns3:UltmtCdtr/ns3:Nm),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns3:UltmtCdtr/ns3:PstlAdr/ns3:Ctry),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns3:UltmtCdtr/ns3:PstlAdr/ns3:TwnNm),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns3:UltmtCdtr/ns3:Id/ns3:OrgId/ns3:Othr/ns3:Id),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns3:UltmtCdtr/ns3:Id/ns3:PrvtId/ns3:Othr/ns3:Id),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns3:UltmtDbtr/ns3:Nm),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns3:UltmtDbtr/ns3:PstlAdr/ns3:Ctry),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns3:UltmtDbtr/ns3:PstlAdr/ns3:TwnNm),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns3:UltmtDbtr/ns3:Id/ns3:OrgId/ns3:Othr/ns3:Id),string($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns3:UltmtDbtr/ns3:Id/ns3:PrvtId/ns3:Othr/ns3:Id))&quot;>&lt;/xsl:value-of>
+&lt;/xsl:variable>
+
+&lt;xsl:variable name=&quot;LineSeparator&quot;>
+&lt;xsl:value-of select=&quot;'ENDOFFLINE'&quot;/>
+&lt;/xsl:variable>
+
+&lt;xsl:call-template name=&quot;tokenizeLine&quot;>
+	&lt;xsl:with-param name=&quot;text&quot; select=&quot;substring-before($F70,'ENDOFOUTPUT')&quot;/>
+	&lt;xsl:with-param name=&quot;separator&quot; select=&quot;$LineSeparator&quot;/>
+&lt;/xsl:call-template>
+&lt;xsl:variable name=&quot;TruncTemp&quot;>
+	&lt;xsl:value-of select=&quot;java:_getStringProperty($_TIF_MESSAGE_, 'Truncated_Fields')&quot;>&lt;/xsl:value-of>
+&lt;/xsl:variable>
+                  &lt;ns1:Narrative>
+                    &lt;ns1:Line>&lt;xsl:value-of select=&quot;java:_setStringProperty($_TIF_MESSAGE_, 'Truncated_Fields', concat($TruncTemp,'F70_Narative_LineENDOFFIELDTAG',substring-after($F70,'ENDOFOUTPUT'),'ENDOFTRUNCATEDFIELD'))&quot;>&lt;/xsl:value-of>&lt;/ns1:Line>
+                  &lt;/ns1:Narrative>
+                &lt;/ns1:F70>
+              &lt;/ns1:F70a>
+              &lt;ns1:F71a>
+                &lt;ns1:F71A>&lt;xsl:variable name=&quot;if32&quot;>
+                    &lt;xsl:choose>
+                      &lt;xsl:when test=&quot;($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:ChrgBr)=('CRED')&quot;>
+                        &lt;xsl:value-of select=&quot;'BEN'&quot;>&lt;/xsl:value-of>
+                      &lt;/xsl:when>
+                      &lt;xsl:when test=&quot;($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:ChrgBr)=('DEBT')&quot;>
+                        &lt;xsl:value-of select=&quot;'OUR'&quot;>&lt;/xsl:value-of>
+                      &lt;/xsl:when>
+                      &lt;xsl:when test=&quot;($document_Input1/Envelope/ns2:Document/ns2:CstmrCdtTrfInitn/ns2:PmtInf/ns2:CdtTrfTxInf/ns2:ChrgBr)=('SHAR')&quot;>
+                        &lt;xsl:value-of select=&quot;'SHA'&quot;>&lt;/xsl:value-of>
+                      &lt;/xsl:when>
+                    &lt;/xsl:choose>
+                  &lt;/xsl:variable>
+                  &lt;xsl:value-of select=&quot;$if32&quot;>&lt;/xsl:value-of>&lt;/ns1:F71A>
+              &lt;/ns1:F71a>
+            &lt;/ns1:SeqB>
+          &lt;/ns1:MT101>
+        &lt;/ns1:Document>
+      &lt;/ns4:Block4>
+    &lt;/ns4:FinMessage>
+  &lt;/xsl:template>&lt;xsl:template name=&quot;tokenizeLine&quot;>
+ &lt;xsl:param name=&quot;text&quot; select=&quot;.&quot;/>
+ &lt;xsl:param name=&quot;separator&quot; select=&quot;'ENDOFLINE'&quot;/>
+        &lt;xsl:choose>
+            &lt;xsl:when test=&quot;not(contains($text, $separator))&quot;>
+                &lt;ns1:Line>
+                    &lt;xsl:value-of select=&quot;normalize-space($text)&quot;/>
+                &lt;/ns1:Line>
+            &lt;/xsl:when>
+            &lt;xsl:otherwise>
+               &lt;ns1:Line>
+                    &lt;xsl:value-of select=&quot;normalize-space(substring-before($text, $separator))&quot;/>
+               &lt;/ns1:Line>
+                &lt;xsl:call-template name=&quot;tokenizeLine&quot;>
+                    &lt;xsl:with-param name=&quot;text&quot; select=&quot;substring-after($text, $separator)&quot;/>
+                &lt;/xsl:call-template>
+            &lt;/xsl:otherwise>
+        &lt;/xsl:choose>
+&lt;/xsl:template>
+&lt;xsl:param name=&quot;_TIF_MESSAGE_&quot;>&lt;/xsl:param>
+&lt;!--The list of Extensions defined by user-->&lt;/xsl:stylesheet></target:property>
+      <target:property encrypt="false" name="XSLT Engine" type="java.lang.String">Xalan</target:property>
+      <target:property encrypt="false" name="Transformation Class Name" type="java.lang.String"></target:property>
+    </target:configuration-properties>
+  </target:instance>
+</target:target>

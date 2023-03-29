@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappermodel:MapperProject xmlns:mappermodel="http://www.fiorano.com/tools/mapper/mappermodel" convertor="nameIndexed" version="3.0.2">
+  <mappermodel:Comments>Key in relevant comments</mappermodel:Comments>
+  <mappermodel:InputStructure>
+    <mappermodel:Structure duplicates="" filePath="MXTOMTWITHMT199GENERATOR_NEW.xsd" mime="XSD" name="Application-Context" rootName="Context"/>
+  </mappermodel:InputStructure>
+  <mappermodel:OutputStructure>
+    <mappermodel:Structure duplicates="" filePath="push__POST__Request.xsd" mime="XSD" name="push__POST__Request" rootName="{http://www.fiorano.com/services/rest}Request"/>
+  </mappermodel:OutputStructure>
+  <mappermodel:Mappings>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="push__POST__Request:0,Request:0,Representations:0,[Choice]:0,Representation:0,Element:0,ANY:0" x="730" y="103">
+      <mappermodel:FunctionGraphNode label="getStringProperty" type="144" x="414" y="143">
+        <mappermodel:InputPins>name</mappermodel:InputPins>
+        <mappermodel:OutputPins>string</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="MXMessage" type="22" x="172" y="118">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="myext:textToBin(text)" type="69" x="442" y="61">
+        <mappermodel:InputPins>text</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:Link inputID="1" inputIndex="0" outputID="2" outputIndex="0"/>
+      <mappermodel:Link inputID="3" inputIndex="0" outputID="1" outputIndex="0"/>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="3" outputIndex="0"/>
+    </mappermodel:GraphModel>
+  </mappermodel:Mappings>
+  <mappermodel:Extensions>
+    <mappermodel:Extension language="javascript" name="myext">
+      <mappermodel:Script>function compute(expr){
+	return eval(expr);
+}
+
+function nextMillenium(){
+	d = new Date()    //today's date
+	mill=new Date(3000, 00, 01, 00, 00, 00)    //Next millennium start date
+	diff = mill-d    //difference in milliseconds
+	mtg = new String(diff/86400000)    //calculate days and convert to string
+	point=mtg.indexOf(&quot;.&quot;)    //find the decimal point
+	days=mtg.substring(0,point)    //get just the whole days
+	return &quot;There are only &quot; + days + &quot; days remaining to the start of the next millennium.&quot;; 
+}
+
+function replace(input, pattern, flags, str){
+	return input.replace(new RegExp(pattern, flags), str);
+}
+
+function TruncField70NarativeLine(input) {
+
+    var text = &quot;F50A_Account_ENDOFFIELDTAGENDOFTRUNCATEDFIELDF50F_Account_ENDOFFIELDTAGENDOFTRUNCATEDFIELDF50F_NameAndAddress_Lines2to5ENDOFFIELDTAGENDOFTRUNCATEDFIELDF50K_Account_ENDOFFIELDTAGENDOFTRUNCATEDFIELDF50K_NameAndAddress_LineENDOFFIELDTAGENDOFTRUNCATEDFIELDF59Account_ENDOFFIELDTAGENDOFTRUNCATEDFIELDF59_NameAndAddress_LineENDOFFIELDTAGENDOFTRUNCATEDFIELDF59A_Account_ENDOFFIELDTAGENDOFTRUNCATEDFIELDF59F_Account_ENDOFFIELDTAGENDOFTRUNCATEDFIELDF59F_NumberNameAndAddressDetailsENDOFFIELDTAGENDOFTRUNCATEDFIELDF70_Narative_LineENDOFFIELDTAGTrCONCATPAIRuncated CBPR+ credit TransferENDOFPAIRENDOFTRUNCATEDFIELDF72_Lines2to6ENDOFFIELDTAGENDOFTRUNCATEDFIELDF77B_Narrative_LineENDOFFIELDTAGENDOFTRUNCATEDFIELD&quot;;
+
+    const myArray = input.split(&quot;ENDOFTRUNCATEDFIELDF&quot;);
+
+    var str;
+
+    for (var i = 0; i &lt; myArray.length; i++) {
+
+        var obj = myArray[i];
+
+        if (myArray[i].includes(&quot;70_Narative_Line&quot;)) {
+            //           str = myArray[i].replace(&quot;70_Narative_Line&quot;, &quot;&quot;).replace(&quot;ENDOFFIELDTAG&quot;,&quot;&quot;).replace(&quot;CONCATPAIR&quot;,&quot;&quot;).replace(&quot;ENDOFPAIR&quot;,&quot;&quot;);
+
+            if (myArray[i].replace(&quot;70_Narative_Line&quot;, &quot;&quot;).replace(&quot;ENDOFFIELDTAG&quot;, &quot;&quot;).split(&quot;CONCATPAIR&quot;)[1] != null) {
+                str = myArray[i].replace(&quot;70_Narative_Line&quot;, &quot;&quot;).replace(&quot;ENDOFFIELDTAG&quot;, &quot;&quot;).split(&quot;CONCATPAIR&quot;)[1].split(&quot;ENDOFPAIR&quot;)[0];
+
+                return str;
+            }
+
+        }
+    }
+    return null;
+}
+
+function textToBin(text) {
+  var length = text.length,
+      output = [];
+  for (var i = 0;i &lt; length; i++) {
+    var bin = text[i].charCodeAt().toString(2);
+    output.push(Array(8-bin.length+1).join(&quot;0&quot;) + bin);
+  } 
+  return output.join(&quot;&quot;);
+}
+</mappermodel:Script>
+      <mappermodel:Function name="textToBin" return="String">
+        <mappermodel:Argument datatype="String" name="text"/>
+      </mappermodel:Function>
+    </mappermodel:Extension>
+  </mappermodel:Extensions>
+</mappermodel:MapperProject>

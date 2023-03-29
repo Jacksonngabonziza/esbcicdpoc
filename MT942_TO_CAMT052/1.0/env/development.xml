@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<target:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:target="http://fiorano.com/environment/1.0" xsi:schemaLocation="http://fiorano.com/environment/1.0 env.xsd">
+  <target:instance name="SwiftTranslator">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property encrypt="false" name="XSL" type="java.lang.String">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xalan=&quot;http://xml.apache.org/xslt&quot; xmlns:datetime=&quot;http://exslt.org/dates-and-times&quot; xmlns:math=&quot;http://exslt.org/math&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:lxslt=&quot;http://xml.apache.org/xslt&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:java=&quot;http://xml.apache.org/xslt/java&quot; xmlns:set=&quot;http://exslt.org/sets&quot; exclude-result-prefixes=&quot;xalan java lxslt&quot; xmlns:ns6=&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.02&quot; xmlns:ns2=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:ns5=&quot;urn:iso:std:iso:20022:tech:xsd:camt.052.001.08&quot; xmlns:ns3=&quot;urn:swift:xsd:fin.942.2020&quot; xmlns:ns1=&quot;urn:swift:xsd:mtmsg.2020&quot; xmlns:ns4=&quot;urn:swift:xsd:envelope&quot; xmlns:MT2MX=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MTtoMX=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MTtoMXUtil=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MX2MT=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MXToMT=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MXtoMT=&quot;http://xml.apache.org/xslt/java&quot; xmlns:QueryGenerator=&quot;QueryGenerator&quot; xmlns:dateConversion=&quot;dateConversion&quot; xmlns:myext=&quot;myext&quot; xmlns:strings=&quot;strings&quot; extension-element-prefixes=&quot;datetime set math MT2MX MTtoMX MTtoMXUtil MX2MT MXToMT MXtoMT QueryGenerator dateConversion myext strings&quot;>
+  &lt;xsl:import href=&quot;GLOBAL_FUNCLET_PATH&quot;>&lt;/xsl:import>
+  &lt;xsl:output method=&quot;xml&quot; indent=&quot;yes&quot; encoding=&quot;UTF-8&quot; xalan:indent-amount=&quot;2&quot; omit-xml-declaration=&quot;no&quot;>&lt;/xsl:output>
+  &lt;xsl:variable name=&quot;document&quot; select=&quot;/&quot;>&lt;/xsl:variable>
+  &lt;xsl:variable name=&quot;document_IN_PORT&quot; select=&quot;document('IN_PORT')&quot;>&lt;/xsl:variable>
+  &lt;xsl:template match=&quot;/&quot;>
+    &lt;ns4:Envelope>&lt;xsl:variable name=&quot;LineSeparator&quot;>&#xD;
+	&lt;xsl:value-of select=&quot;'ENDOFFLINE'&quot;/>&#xD;
+&lt;/xsl:variable>&#xD;
+&lt;xsl:variable name=&quot;VariableSeparator&quot;>&#xD;
+	&lt;xsl:value-of select=&quot;'ENDOFFVAR'&quot;/>&#xD;
+&lt;/xsl:variable>&#xD;
+&lt;xsl:variable name=&quot;VarSeparator&quot;>&#xD;
+	&lt;xsl:value-of select=&quot;'ENDOFFVAR'&quot;/>&#xD;
+&lt;/xsl:variable>
+      &lt;ns6:AppHdr>&lt;ns6:Fr>&#xD;
+	&lt;ns6:FIId>&#xD;
+		&lt;ns6:FinInstnId>&#xD;
+			&lt;ns6:BICFI>&#xD;
+				&lt;xsl:variable name=&quot;if0&quot;>&#xD;
+					&lt;xsl:choose>&#xD;
+						&lt;xsl:when test=&quot;string-length($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:OutputIdentifier)&quot;>&#xD;
+							&lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:OutputIdentifier&quot;/>&#xD;
+						&lt;/xsl:when>&#xD;
+						&lt;xsl:when test=&quot;string-length($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:InputIdentifier)&quot;>&#xD;
+							&lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:InputIdentifier&quot;/>&#xD;
+						&lt;/xsl:when>&#xD;
+																									   &#xD;
+																											   &#xD;
+				 &#xD;
+						&lt;xsl:otherwise>&#xD;
+							&lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:OutputIdentifier&quot;/>&#xD;
+						&lt;/xsl:otherwise>&#xD;
+					&lt;/xsl:choose>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:value-of select=&quot;MT2MX:com.fiorano.funclet.MTtoMX.generateTSender(string($if0),string($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:MessageInputReference/ns1:LTIdentifier),string($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:MessageInputReference/ns1:BranchCode),string($document_IN_PORT/ns1:FinMessage/ns1:Block1/ns1:LogicalTerminalAddress))&quot;/>&#xD;
+			&lt;/ns6:BICFI>&#xD;
+		&lt;/ns6:FinInstnId>&#xD;
+	&lt;/ns6:FIId>&#xD;
+&lt;/ns6:Fr>&#xD;
+&lt;ns6:To>&#xD;
+	&lt;ns6:FIId>&#xD;
+		&lt;ns6:FinInstnId>&#xD;
+			&lt;ns6:BICFI>&#xD;
+				&lt;xsl:variable name=&quot;if1&quot;>&#xD;
+					&lt;xsl:choose>&#xD;
+						&lt;xsl:when test=&quot;string-length($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:OutputIdentifier)&quot;>&#xD;
+							&lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:OutputIdentifier&quot;/>&#xD;
+						&lt;/xsl:when>&#xD;
+						&lt;xsl:when test=&quot;string-length($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:InputIdentifier)&quot;>&#xD;
+							&lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:InputIdentifier&quot;/>&#xD;
+						&lt;/xsl:when>&#xD;
+																									   &#xD;
+																											   &#xD;
+				 &#xD;
+						&lt;xsl:otherwise>&#xD;
+							&lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:OutputIdentifier&quot;/>&#xD;
+						&lt;/xsl:otherwise>&#xD;
+					&lt;/xsl:choose>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:value-of select=&quot;MT2MX:com.fiorano.funclet.MTtoMX.generateTReceiver(string($if1),string($document_IN_PORT/ns1:FinMessage/ns1:Block1/ns1:LogicalTerminalAddress),string($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:DestinationAddress))&quot;/>&#xD;
+			&lt;/ns6:BICFI>&#xD;
+		&lt;/ns6:FinInstnId>&#xD;
+	&lt;/ns6:FIId>&#xD;
+&lt;/ns6:To>&#xD;
+&lt;ns6:BizMsgIdr>&#xD;
+	&lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT942/ns3:F20a/ns3:F20&quot;/>&#xD;
+&lt;/ns6:BizMsgIdr>&#xD;
+&lt;ns6:MsgDefIdr>&#xD;
+	&lt;xsl:value-of select=&quot;'camt.052.001.08'&quot;/>&#xD;
+&lt;/ns6:MsgDefIdr>&#xD;
+&lt;ns6:BizSvc>&#xD;
+	&lt;xsl:value-of select=&quot;'swift.cbprplus.01'&quot;/>&#xD;
+&lt;/ns6:BizSvc>&#xD;
+&lt;ns6:CreDt>&#xD;
+	&lt;xsl:value-of select=&quot;'9999-12-31T00:00:00+00:00'&quot;/>&#xD;
+&lt;/ns6:CreDt>&lt;/ns6:AppHdr>
+      &lt;ns5:Document>
+        &lt;ns5:BkToCstmrAcctRpt>
+          &lt;ns5:GrpHdr>
+            &lt;ns5:MsgId>
+              &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT942/ns3:F20a/ns3:F20&quot;>&lt;/xsl:value-of>
+            &lt;/ns5:MsgId>
+            &lt;ns5:CreDtTm>
+              &lt;xsl:value-of select=&quot;'9999-12-31T00:00:00+00:00'&quot;>&lt;/xsl:value-of>
+            &lt;/ns5:CreDtTm>
+          &lt;/ns5:GrpHdr>
+          &lt;ns5:Rpt>
+            &lt;ns5:Id>
+              &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT942/ns3:F20a/ns3:F20&quot;>&lt;/xsl:value-of>
+            &lt;/ns5:Id>
+            &lt;ns5:RptPgntn>
+              &lt;ns5:PgNb>
+                &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT942/ns3:F28a/ns3:F28C/ns3:SequenceNumber&quot;>&lt;/xsl:value-of>
+              &lt;/ns5:PgNb>
+              &lt;ns5:LastPgInd>
+                &lt;xsl:value-of select=&quot;'true'&quot;>&lt;/xsl:value-of>
+              &lt;/ns5:LastPgInd>
+            &lt;/ns5:RptPgntn>
+            &lt;ns5:ElctrncSeqNb>
+              &lt;xsl:variable name=&quot;if0&quot;>
+                &lt;xsl:choose>
+                  &lt;xsl:when test=&quot;(string-length($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT942/ns3:F28a/ns3:F28C/ns3:StatementNumber))&amp;gt;('5')&quot;>
+                    &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT942/ns3:F28a/ns3:F28C/ns3:StatementNumber&quot;>&lt;/xsl:value-of>
+                  &lt;/xsl:when>
+                &lt;/xsl:choose>
+              &lt;/xsl:variable>
+              &lt;xsl:value-of select=&quot;$if0&quot;>&lt;/xsl:value-of>
+            &lt;/ns5:ElctrncSeqNb>
+            &lt;ns5:LglSeqNb>
+              &lt;xsl:variable name=&quot;if1&quot;>
+                &lt;xsl:choose>
+                  &lt;xsl:when test=&quot;(string-length($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT942/ns3:F28a/ns3:F28C/ns3:StatementNumber))&amp;lt;=('5')&quot;>
+                    &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT942/ns3:F28a/ns3:F28C/ns3:StatementNumber&quot;>&lt;/xsl:value-of>
+                  &lt;/xsl:when>
+                &lt;/xsl:choose>
+              &lt;/xsl:variable>
+              &lt;xsl:value-of select=&quot;$if1&quot;>&lt;/xsl:value-of>
+            &lt;/ns5:LglSeqNb>
+            &lt;ns5:CreDtTm>
+              &lt;xsl:value-of select=&quot;MT2MX:com.fiorano.funclet.MTtoMX.MT_To_MXDateTimeOffset(string($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT942/ns3:F13a/ns3:F13D/ns3:Date),string($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT942/ns3:F13a/ns3:F13D/ns3:Time),string($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT942/ns3:F13a/ns3:F13D/ns3:Sign),string($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT942/ns3:F13a/ns3:F13D/ns3:Offset))&quot;>&lt;/xsl:value-of>
+            &lt;/ns5:CreDtTm>
+            &lt;ns5:Acct>
+              &lt;ns5:Id>
+                &lt;ns5:Othr>
+                  &lt;ns5:Id>
+                    &lt;xsl:variable name=&quot;if2&quot;>
+                      &lt;xsl:choose>
+                        &lt;xsl:when test=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT942/ns3:F25a/ns3:F25&quot;>
+                          &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT942/ns3:F25a/ns3:F25&quot;>&lt;/xsl:value-of>
+                        &lt;/xsl:when>
+                        &lt;xsl:when test=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT942/ns3:F25a/ns3:F25P/ns3:Account&quot;>
+                          &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT942/ns3:F25a/ns3:F25P/ns3:Account&quot;>&lt;/xsl:value-of>
+                        &lt;/xsl:when>
+                      &lt;/xsl:choose>
+                    &lt;/xsl:variable>
+                    &lt;xsl:value-of select=&quot;$if2&quot;>&lt;/xsl:value-of>
+                  &lt;/ns5:Id>
+                &lt;/ns5:Othr>
+              &lt;/ns5:Id>
+              &lt;ns5:Ccy>
+                &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT942/ns3:F34a_1/ns3:F34F/ns3:Currency&quot;>&lt;/xsl:value-of>
+              &lt;/ns5:Ccy>
+              &lt;ns5:Ownr>
+                &lt;ns5:Id>
+                  &lt;ns5:OrgId>
+                    &lt;ns5:AnyBIC>
+                      &lt;xsl:variable name=&quot;if3&quot;>
+                        &lt;xsl:choose>
+                          &lt;xsl:when test=&quot;(string-length($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT942/ns3:F25a/ns3:F25P/ns3:IdentifierCode))&amp;gt;('0')&quot;>
+                            &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT942/ns3:F25a/ns3:F25P/ns3:IdentifierCode&quot;>&lt;/xsl:value-of>
+                          &lt;/xsl:when>
+                        &lt;/xsl:choose>
+                      &lt;/xsl:variable>
+                      &lt;xsl:value-of select=&quot;$if3&quot;>&lt;/xsl:value-of>
+                    &lt;/ns5:AnyBIC>
+                  &lt;/ns5:OrgId>
+                &lt;/ns5:Id>
+              &lt;/ns5:Ownr>
+            &lt;/ns5:Acct>
+            &lt;ns5:TxsSummry>
+              &lt;ns5:TtlCdtNtries>
+                &lt;ns5:NbOfNtries>
+                  &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT942/ns3:F90a_2/ns3:F90C/ns3:Number&quot;>&lt;/xsl:value-of>
+                &lt;/ns5:NbOfNtries>
+              &lt;/ns5:TtlCdtNtries>
+              &lt;ns5:TtlDbtNtries>
+                &lt;ns5:NbOfNtries>
+                  &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT942/ns3:F90a_1/ns3:F90D/ns3:Number&quot;>&lt;/xsl:value-of>
+                &lt;/ns5:NbOfNtries>
+              &lt;/ns5:TtlDbtNtries>
+            &lt;/ns5:TxsSummry>&lt;xsl:variable name=&quot;F61Looped&quot;>&#xD;
+	&lt;xsl:for-each select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT942/ns3:Loop1/ns3:F61a/ns3:F61&quot;>&#xD;
+		&lt;xsl:value-of select=&quot;./ns3:ValueDate&quot;/>&#xD;
+		&lt;xsl:value-of select=&quot;$VariableSeparator&quot;/>&#xD;
+		&lt;xsl:value-of select=&quot;./ns3:EntryDate&quot;/>&#xD;
+		&lt;xsl:value-of select=&quot;$VariableSeparator&quot;/>&#xD;
+		&lt;xsl:value-of select=&quot;./ns3:DebitCreditMark&quot;/>&#xD;
+		&lt;xsl:value-of select=&quot;$VariableSeparator&quot;/>&#xD;
+		&lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT942/ns3:F34a_1/ns3:F34F/ns3:Currency&quot;/>&#xD;
+		&lt;xsl:value-of select=&quot;$VariableSeparator&quot;/>&#xD;
+		&lt;xsl:value-of select=&quot;./ns3:Amount&quot;/>&#xD;
+		&lt;xsl:value-of select=&quot;$VariableSeparator&quot;/>&#xD;
+		&lt;xsl:value-of select=&quot;./ns3:TransactionType&quot;/>&#xD;
+		&lt;xsl:value-of select=&quot;$VariableSeparator&quot;/>&#xD;
+		&lt;xsl:value-of select=&quot;./ns3:IdentificationCode&quot;/>&#xD;
+		&lt;xsl:value-of select=&quot;$VariableSeparator&quot;/>&#xD;
+		&lt;xsl:value-of select=&quot;./ns3:ReferenceForTheAccountOwner&quot;/>&#xD;
+		&lt;xsl:value-of select=&quot;$LineSeparator&quot;/>&#xD;
+	&lt;/xsl:for-each>&#xD;
+&lt;/xsl:variable>&#xD;
+&#xD;
+&lt;xsl:variable name=&quot;ResultantNtry&quot;>&#xD;
+   &lt;xsl:value-of select=&quot;MT2MX:com.fiorano.funclet.MTtoMX.F61Converter940(string($F61Looped), string($VarSeparator), string($LineSeparator))&quot;>&lt;/xsl:value-of>&#xD;
+ &lt;/xsl:variable>&#xD;
+ &#xD;
+ &lt;xsl:call-template name=&quot;tokenizeNtry&quot;>&#xD;
+&lt;xsl:with-param name=&quot;text&quot; select=&quot;$ResultantNtry&quot;/>&#xD;
+&lt;/xsl:call-template>
+            &lt;ns5:Ntry>
+              &lt;ns5:RvslInd>
+                &lt;xsl:value-of select=&quot;' '&quot;>&lt;/xsl:value-of>
+              &lt;/ns5:RvslInd>
+            &lt;/ns5:Ntry>
+          &lt;/ns5:Rpt>
+        &lt;/ns5:BkToCstmrAcctRpt>
+      &lt;/ns5:Document>
+    &lt;/ns4:Envelope>
+  &lt;/xsl:template>&lt;xsl:template name=&quot;tokenizeNtry&quot;>&#xD;
+	&lt;xsl:param name=&quot;text&quot; select=&quot;.&quot;/>&#xD;
+	&lt;xsl:param name=&quot;LineSeparator&quot; select=&quot;'ENDOFFLINE'&quot;/>&#xD;
+	&lt;xsl:param name=&quot;VarSeparator&quot; select=&quot;'ENDOFFVAR'&quot;/>&#xD;
+	&lt;xsl:choose>&#xD;
+		&lt;xsl:when test=&quot;not(string-length($text))&quot;>&#xD;
+		&lt;/xsl:when>&#xD;
+		&lt;xsl:when test=&quot;not(contains($text, $LineSeparator))&quot;>&#xD;
+			&lt;ns5:Ntry>&#xD;
+				&lt;xsl:variable name=&quot;CcyVal&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;normalize-space(substring-before($text, $VarSeparator))&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:variable name=&quot;Restval1&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;substring-after($text, $VarSeparator)&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:variable name=&quot;AmountVal&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;normalize-space(substring-before($Restval1, $VarSeparator))&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:variable name=&quot;Restval2&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;substring-after($Restval1, $VarSeparator)&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:variable name=&quot;CdtDbtIndVal&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;normalize-space(substring-before($Restval2, $VarSeparator))&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:variable name=&quot;Restval3&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;substring-after($Restval2, $VarSeparator)&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:variable name=&quot;RvslIndVal&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;normalize-space(substring-before($Restval3, $VarSeparator))&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:variable name=&quot;Restval4&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;substring-after($Restval3, $VarSeparator)&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:variable name=&quot;BookgDtVal&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;normalize-space(substring-before($Restval4, $VarSeparator))&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:variable name=&quot;Restval5&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;substring-after($Restval4, $VarSeparator)&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:variable name=&quot;ValDtVal&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;normalize-space(substring-before($Restval5, $VarSeparator))&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:variable name=&quot;Restval6&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;substring-after($Restval5, $VarSeparator)&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:variable name=&quot;EndToEndIdVal&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;normalize-space(substring-before($Restval6, $LineSeparator))&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;ns5:Amt>&#xD;
+					&lt;xsl:attribute name=&quot;Ccy&quot;>&#xD;
+						&lt;xsl:value-of select=&quot;$CcyVal&quot;/>&#xD;
+					&lt;/xsl:attribute>&#xD;
+					&lt;xsl:value-of select=&quot;$AmountVal&quot;/>&#xD;
+				&lt;/ns5:Amt>&#xD;
+				&lt;ns5:CdtDbtInd>&#xD;
+					&lt;xsl:value-of select=&quot;$CdtDbtIndVal&quot;/>&#xD;
+				&lt;/ns5:CdtDbtInd>&#xD;
+				&lt;ns5:RvslInd>&#xD;
+					&lt;xsl:value-of select=&quot;$RvslIndVal&quot;/>&#xD;
+				&lt;/ns5:RvslInd>&#xD;
+				&lt;ns5:Sts>&#xD;
+					&lt;ns5:Cd>&#xD;
+						&lt;xsl:value-of select=&quot;'BOOK'&quot;/>&#xD;
+					&lt;/ns5:Cd>&#xD;
+				&lt;/ns5:Sts>&#xD;
+				&lt;ns5:BookgDt>&#xD;
+					&lt;ns5:Dt>&#xD;
+						&lt;xsl:value-of select=&quot;$BookgDtVal&quot;/>&#xD;
+					&lt;/ns5:Dt>&#xD;
+				&lt;/ns5:BookgDt>&#xD;
+				&lt;ns5:ValDt>&#xD;
+					&lt;ns5:Dt>&#xD;
+						&lt;xsl:value-of select=&quot;$ValDtVal&quot;/>&#xD;
+					&lt;/ns5:Dt>&#xD;
+				&lt;/ns5:ValDt>&#xD;
+				&lt;ns5:BkTxCd>&#xD;
+					&lt;ns5:Prtry>&#xD;
+						&lt;ns5:Cd>&#xD;
+							&lt;xsl:value-of select=&quot;'NTRF'&quot;/>&#xD;
+						&lt;/ns5:Cd>&#xD;
+						&lt;ns5:Issr>&#xD;
+							&lt;xsl:value-of select=&quot;'US'&quot;/>&#xD;
+						&lt;/ns5:Issr>&#xD;
+					&lt;/ns5:Prtry>&#xD;
+				&lt;/ns5:BkTxCd>&#xD;
+				&lt;ns5:NtryDtls>&#xD;
+					&lt;ns5:TxDtls>&#xD;
+						&lt;ns5:Refs>&#xD;
+							&lt;ns5:EndToEndId>&#xD;
+								&lt;xsl:value-of select=&quot;$EndToEndIdVal&quot;/>&#xD;
+							&lt;/ns5:EndToEndId>&#xD;
+						&lt;/ns5:Refs>&#xD;
+						&lt;ns5:Amt>&#xD;
+							&lt;xsl:attribute name=&quot;Ccy&quot;>&#xD;
+								&lt;xsl:value-of select=&quot;$CcyVal&quot;/>&#xD;
+							&lt;/xsl:attribute>&#xD;
+							&lt;xsl:value-of select=&quot;$AmountVal&quot;/>&#xD;
+						&lt;/ns5:Amt>&#xD;
+						&lt;ns5:CdtDbtInd>&#xD;
+							&lt;xsl:value-of select=&quot;$CdtDbtIndVal&quot;/>&#xD;
+						&lt;/ns5:CdtDbtInd>&#xD;
+					&lt;/ns5:TxDtls>&#xD;
+				&lt;/ns5:NtryDtls>&#xD;
+			&lt;/ns5:Ntry>&#xD;
+		&lt;/xsl:when>&#xD;
+		&lt;xsl:when test=&quot;((contains($text, $LineSeparator))) &quot;>&#xD;
+			&lt;ns5:Ntry>&#xD;
+				&lt;xsl:variable name=&quot;CcyVal&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;normalize-space(substring-before($text, $VarSeparator))&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:variable name=&quot;Restval1&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;substring-after($text, $VarSeparator)&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:variable name=&quot;AmountVal&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;normalize-space(substring-before($Restval1, $VarSeparator))&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:variable name=&quot;Restval2&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;substring-after($Restval1, $VarSeparator)&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:variable name=&quot;CdtDbtIndVal&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;normalize-space(substring-before($Restval2, $VarSeparator))&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:variable name=&quot;Restval3&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;substring-after($Restval2, $VarSeparator)&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:variable name=&quot;RvslIndVal&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;normalize-space(substring-before($Restval3, $VarSeparator))&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:variable name=&quot;Restval4&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;substring-after($Restval3, $VarSeparator)&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:variable name=&quot;BookgDtVal&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;normalize-space(substring-before($Restval4, $VarSeparator))&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:variable name=&quot;Restval5&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;substring-after($Restval4, $VarSeparator)&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:variable name=&quot;ValDtVal&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;normalize-space(substring-before($Restval5, $VarSeparator))&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:variable name=&quot;Restval6&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;substring-after($Restval5, $VarSeparator)&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;xsl:variable name=&quot;EndToEndIdVal&quot;>&#xD;
+					&lt;xsl:value-of select=&quot;normalize-space(substring-before($Restval6, $LineSeparator))&quot;/>&#xD;
+				&lt;/xsl:variable>&#xD;
+				&lt;ns5:Amt>&#xD;
+					&lt;xsl:attribute name=&quot;Ccy&quot;>&#xD;
+						&lt;xsl:value-of select=&quot;$CcyVal&quot;/>&#xD;
+					&lt;/xsl:attribute>&#xD;
+					&lt;xsl:value-of select=&quot;$AmountVal&quot;/>&#xD;
+				&lt;/ns5:Amt>&#xD;
+				&lt;ns5:CdtDbtInd>&#xD;
+					&lt;xsl:value-of select=&quot;$CdtDbtIndVal&quot;/>&#xD;
+				&lt;/ns5:CdtDbtInd>&#xD;
+				&lt;ns5:RvslInd>&#xD;
+					&lt;xsl:value-of select=&quot;$RvslIndVal&quot;/>&#xD;
+				&lt;/ns5:RvslInd>&#xD;
+				&lt;ns5:Sts>&#xD;
+					&lt;ns5:Cd>&#xD;
+						&lt;xsl:value-of select=&quot;'BOOK'&quot;/>&#xD;
+					&lt;/ns5:Cd>&#xD;
+				&lt;/ns5:Sts>&#xD;
+				&lt;ns5:BookgDt>&#xD;
+					&lt;ns5:Dt>&#xD;
+						&lt;xsl:value-of select=&quot;$BookgDtVal&quot;/>&#xD;
+					&lt;/ns5:Dt>&#xD;
+				&lt;/ns5:BookgDt>&#xD;
+				&lt;ns5:ValDt>&#xD;
+					&lt;ns5:Dt>&#xD;
+						&lt;xsl:value-of select=&quot;$ValDtVal&quot;/>&#xD;
+					&lt;/ns5:Dt>&#xD;
+				&lt;/ns5:ValDt>&#xD;
+				&lt;ns5:BkTxCd>&#xD;
+					&lt;ns5:Prtry>&#xD;
+						&lt;ns5:Cd>&#xD;
+							&lt;xsl:value-of select=&quot;'NTRF'&quot;/>&#xD;
+						&lt;/ns5:Cd>&#xD;
+						&lt;ns5:Issr>&#xD;
+							&lt;xsl:value-of select=&quot;'US'&quot;/>&#xD;
+						&lt;/ns5:Issr>&#xD;
+					&lt;/ns5:Prtry>&#xD;
+				&lt;/ns5:BkTxCd>&#xD;
+				&lt;ns5:NtryDtls>&#xD;
+					&lt;ns5:TxDtls>&#xD;
+						&lt;ns5:Refs>&#xD;
+							&lt;ns5:EndToEndId>&#xD;
+								&lt;xsl:value-of select=&quot;$EndToEndIdVal&quot;/>&#xD;
+							&lt;/ns5:EndToEndId>&#xD;
+						&lt;/ns5:Refs>&#xD;
+						&lt;ns5:Amt>&#xD;
+							&lt;xsl:attribute name=&quot;Ccy&quot;>&#xD;
+								&lt;xsl:value-of select=&quot;$CcyVal&quot;/>&#xD;
+							&lt;/xsl:attribute>&#xD;
+							&lt;xsl:value-of select=&quot;$AmountVal&quot;/>&#xD;
+						&lt;/ns5:Amt>&#xD;
+						&lt;ns5:CdtDbtInd>&#xD;
+							&lt;xsl:value-of select=&quot;$CdtDbtIndVal&quot;/>&#xD;
+						&lt;/ns5:CdtDbtInd>&#xD;
+					&lt;/ns5:TxDtls>&#xD;
+				&lt;/ns5:NtryDtls>&#xD;
+			&lt;/ns5:Ntry>&#xD;
+			&lt;xsl:call-template name=&quot;tokenizeNtry&quot;>&#xD;
+				&lt;xsl:with-param name=&quot;text&quot; select=&quot;substring-after($text, $LineSeparator)&quot;/>&#xD;
+			&lt;/xsl:call-template>&#xD;
+		&lt;/xsl:when>&#xD;
+	&lt;/xsl:choose>&#xD;
+&lt;/xsl:template>
+&lt;!--The list of Extensions defined by user-->&lt;/xsl:stylesheet></target:property>
+      <target:property encrypt="false" name="XSLT Engine" type="java.lang.String">Xalan</target:property>
+      <target:property encrypt="false" name="Transformation Class Name" type="java.lang.String"></target:property>
+    </target:configuration-properties>
+  </target:instance>
+  <target:instance name="MT2XML">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property configurationType="resource" encrypt="false" name="MessageSchema Directory Configuration" type="NamedObject">SwiftMTSchemaDirectory</target:property>
+    </target:configuration-properties>
+  </target:instance>
+</target:target>

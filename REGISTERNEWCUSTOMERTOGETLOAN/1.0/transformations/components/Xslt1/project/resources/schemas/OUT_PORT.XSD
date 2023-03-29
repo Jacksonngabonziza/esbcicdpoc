@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://www.ericsson.com/em/emm/sp/backend" xmlns:ns2="urn:iso:std:iso:20022:tech:xsd" xmlns:ns1="http://www.ericsson.com/em/emm/common" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:import namespace="http://www.ericsson.com/em/emm/common"  />
+	<xs:import namespace="urn:iso:std:iso:20022:tech:xsd"  />
+
+	<xs:element name="getcustomerdetailsrequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="resource" type="ns1:subscriberfri" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="getcustomerdetailsresponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="customerid" type="ns1:bankid" minOccurs="0" />
+				<xs:element name="status" type="ns1:registrationstatus" />
+				<xs:element name="savingsaccounts">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="savingsaccount" type="ns1:savingsaccount" minOccurs="0" maxOccurs="5" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="loanaccounts">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="loanaccount" type="ns1:loanaccount" minOccurs="0" maxOccurs="5" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="customerregistrationrequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="resource" type="ns1:subscriberfri" />
+				<xs:element name="name" type="ns1:name" minOccurs="0"/>
+				<xs:element name="gender" type="ns2:GenderCode" minOccurs="0"/>
+				<xs:element name="dob" type="xs:date" minOccurs="0"/>
+				<xs:element name="idtype" type="ns2:PersonIdentificationType1Code"  minOccurs="0"/>
+				<xs:element name="idnumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="idexpiry" type="xs:date" minOccurs="0"/>
+				<xs:element name="language" type="xs:string"  minOccurs="0"/>
+				<xs:element name="addresses" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="address" type="ns2:PostalAddress3" minOccurs="0" maxOccurs="2" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="message" type="ns1:message" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="customerregistrationresponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="customerid" type="ns1:bankid" minOccurs="0" />
+				<xs:element name="status" type="ns1:registrationstatus" />
+				<xs:element name="savingsaccount" type="ns1:savingsaccount" minOccurs="0" />
+				<xs:element name="message" type="ns1:message" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="closesavingsaccountrequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="resource" type="ns1:subscriberfri" />
+				<xs:element name="accountnumber" type="ns1:bankid" />
+				<xs:element name="message" type="ns1:message" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="closesavingsaccountresponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="message" type="ns1:message" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="initiateloanapplicationrequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="resource" type="ns1:subscriberfri" />
+				<xs:element name="amount" type="ns1:moneydetailstype" />
+				<xs:element name="tenor" type="xs:int" />
+				<xs:element name="loantype" type="ns1:loantype" />
+				<xs:element name="message" type="ns1:message" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="initiateloanapplicationresponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="loanaccount" type="ns1:loanaccount" />
+				<xs:element name="message" type="ns1:message" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="ministatementrequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="resource" type="ns1:subscriberfri" />
+				<xs:element name="accountnumber" type="ns1:bankid" />
+				<xs:element name="fromdate" type="xs:date" minOccurs="0" />
+				<xs:element name="todate" type="xs:date" minOccurs="0" />
+				<xs:element name="noofdays" type="xs:integer" minOccurs="0" />
+				<xs:element name="noofentries" type="xs:integer" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="ministatementresponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="transactions">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="transaction" type="ns1:transactionrecord" minOccurs="0" maxOccurs="5" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="cancelloanapplicationrequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="resource" type="ns1:subscriberfri" />
+				<xs:element name="accountnumber" type="ns1:bankid" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="cancelloanapplicationresponse">
+		<xs:complexType>
+			<xs:sequence>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="savingsaccountapplicationrequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="resource" type="ns1:subscriberfri" />
+				<xs:element name="savingsaccounttype" type="ns1:savingsaccounttype" />
+				<xs:element name="term" type="ns1:term" minOccurs="0" />
+				<xs:element name="message" type="ns1:message" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="savingsaccountapplicationresponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="savingsaccount" type="ns1:savingsaccount" />
+				<xs:element name="message" type="ns1:message" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="bankdebitcompletedrequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="fromfri" type="ns1:subscriberfri" />
+				<xs:element name="tofri" type="ns1:spfri" />
+				<xs:element name="transactionid" type="xs:long" />
+				<xs:element name="amount" type="ns1:moneydetailstype" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="bankdebitcompletedresponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="externaltransactionid" type="ns1:providertransactionid" />
+				<xs:element name="status" type="ns1:financialtransactionstatus" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+    <xs:element name="activateautosavingsrequest">
+    	<xs:complexType>
+    		<xs:sequence>
+	    		<xs:element name="resource" type="ns1:subscriberfri"/>
+	    		<xs:element name="savingsaccountno" type="ns1:bankid"/>
+	    		<xs:element name="term" type="ns1:term" />
+	    		<xs:element name="message" type="ns1:message" minOccurs="0" />
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+    
+    <xs:element name="activateautosavingsresponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="message" type="ns1:message" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="cancelautosavingsrequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="resource" type="ns1:subscriberfri" />
+				<xs:element name="savingsaccountno" type="ns1:bankid" />
+				<xs:element name="message" type="ns1:message" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="cancelautosavingsresponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="message" type="ns1:message" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

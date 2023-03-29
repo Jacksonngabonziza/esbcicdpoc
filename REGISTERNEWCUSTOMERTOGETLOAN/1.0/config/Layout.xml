@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<layout>
+  <subflow name="FIORANO.ESTUDIO.ROOT_FLOW" x="0" y="0">
+    <service-instance name="Feeder1" x="211" y="165"/>
+    <service-instance name="LoanInputXMLtoJSON" x="208" y="22"/>
+    <service-instance name="LoanRegister" x="72" y="17"/>
+    <service-instance name="ConnectResponseToXML1" x="506" y="16"/>
+    <service-instance name="XMLToRegisterLoanJSON" x="658" y="8"/>
+    <service-instance name="CallToConnectMethod" x="338" y="19"/>
+    <service-instance name="CallToLoanRegisterMethod" x="94" y="264"/>
+    <service-instance name="Display2" x="677" y="370"/>
+    <service-instance name="JSONTOXML" x="308" y="249"/>
+  </subflow>
+</layout>

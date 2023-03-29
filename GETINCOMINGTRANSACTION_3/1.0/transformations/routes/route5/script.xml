@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:datetime="http://exslt.org/dates-and-times" xmlns:set="http://exslt.org/sets" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:math="http://exslt.org/math" xmlns:lxslt="http://xml.apache.org/xslt" xmlns:xalan="http://xml.apache.org/xslt" xmlns:java="http://xml.apache.org/xslt/java" exclude-result-prefixes="xalan java lxslt" xmlns:ns3="urn:iso:std:iso:20022:tech:xsd:pain.001.001.05" xmlns:ns2="http://www.w3.org/2001/XMLSchema" xmlns:dateConversion="ext1" xmlns:myext="ext2" xmlns:strings="ext3" extension-element-prefixes="datetime set math dateConversion myext strings">
+  <xsl:output method="xml" indent="yes" encoding="UTF-8" xalan:indent-amount="2" omit-xml-declaration="no"></xsl:output>
+  <xsl:variable name="document" select="/"></xsl:variable>
+  <xsl:variable name="document_OUT_PORT" select="document('OUT_PORT')"></xsl:variable>
+  <xsl:template match="/">
+    <Root>
+      <header>
+        <xsl:value-of select="'CND.MIDWARE.REQ,/I/PROCESS,[USERNAME]/[PASSWORD]/KH0010001,,REQ.NAME:1:1=CND.FAST.FT,'"></xsl:value-of>
+      </header>
+      <MSG.ID>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:GrpHdr/ns3:MsgId"></xsl:value-of>
+        </value>
+      </MSG.ID>
+      <CRE.DATE.TIME>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:GrpHdr/ns3:CreDtTm"></xsl:value-of>
+        </value>
+      </CRE.DATE.TIME>
+      <NBOFTXS>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:GrpHdr/ns3:NbOfTxs"></xsl:value-of>
+        </value>
+      </NBOFTXS>
+      <CREDIT.AMOUNT>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:GrpHdr/ns3:CtrlSum"></xsl:value-of>
+        </value>
+      </CREDIT.AMOUNT>
+      <NM>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:GrpHdr/ns3:InitgPty/ns3:Nm"></xsl:value-of>
+        </value>
+      </NM>
+      <PMTINFID>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:PmtInf/ns3:PmtInfId"></xsl:value-of>
+        </value>
+      </PMTINFID>
+      <PMTMTD>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:PmtInf/ns3:PmtMtd"></xsl:value-of>
+        </value>
+      </PMTMTD>
+      <BTCHBOOKG>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:PmtInf/ns3:BtchBookg"></xsl:value-of>
+        </value>
+      </BTCHBOOKG>
+      <REQDEXCTNDT>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:PmtInf/ns3:ReqdExctnDt"></xsl:value-of>
+        </value>
+      </REQDEXCTNDT>
+      <DEBITOR.NAME>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:PmtInf/ns3:Dbtr/ns3:Nm"></xsl:value-of>
+        </value>
+      </DEBITOR.NAME>
+      <DEBIT.ACCT.NO>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:PmtInf/ns3:DbtrAcct/ns3:Id/ns3:Othr/ns3:Id"></xsl:value-of>
+        </value>
+      </DEBIT.ACCT.NO>
+      <DEBIT.CCY>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:PmtInf/ns3:DbtrAcct/ns3:Ccy"></xsl:value-of>
+        </value>
+      </DEBIT.CCY>
+      <DEBITOR.BANK>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:PmtInf/ns3:DbtrAgt/ns3:FinInstnId/ns3:BICFI"></xsl:value-of>
+        </value>
+      </DEBITOR.BANK>
+      <INSTRID>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:PmtInf/ns3:CdtTrfTxInf/ns3:PmtId/ns3:InstrId"></xsl:value-of>
+        </value>
+      </INSTRID>
+      <ENDTOENDID>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:PmtInf/ns3:CdtTrfTxInf/ns3:PmtId/ns3:EndToEndId"></xsl:value-of>
+        </value>
+      </ENDTOENDID>
+      <CREDIT.CCY>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:PmtInf/ns3:CdtTrfTxInf/ns3:Amt/ns3:InstdAmt/@Ccy"></xsl:value-of>
+        </value>
+      </CREDIT.CCY>
+      <CREDIT.AMOUNT>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:PmtInf/ns3:CdtTrfTxInf/ns3:Amt/ns3:InstdAmt"></xsl:value-of>
+        </value>
+      </CREDIT.AMOUNT>
+      <CHRGBR>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:PmtInf/ns3:CdtTrfTxInf/ns3:ChrgBr"></xsl:value-of>
+        </value>
+      </CHRGBR>
+      <CEDITOR.BANK>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:PmtInf/ns3:CdtTrfTxInf/ns3:CdtrAgt/ns3:FinInstnId/ns3:BICFI"></xsl:value-of>
+        </value>
+      </CEDITOR.BANK>
+      <CREDITOR.NAME>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:PmtInf/ns3:CdtTrfTxInf/ns3:Cdtr/ns3:Nm"></xsl:value-of>
+        </value>
+      </CREDITOR.NAME>
+      <RECEIVER.ACCT.NO>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:PmtInf/ns3:CdtTrfTxInf/ns3:CdtrAcct/ns3:Id/ns3:Othr/ns3:Id"></xsl:value-of>
+        </value>
+      </RECEIVER.ACCT.NO>
+      <CODE>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:PmtInf/ns3:CdtTrfTxInf/ns3:Purp/ns3:Cd"></xsl:value-of>
+        </value>
+      </CODE>
+      <CD>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:PmtInf/ns3:CdtTrfTxInf/ns3:RmtInf/ns3:Strd/ns3:RfrdDocInf/ns3:Tp/ns3:CdOrPrtry/ns3:Cd"></xsl:value-of>
+        </value>
+      </CD>
+      <NB>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:PmtInf/ns3:CdtTrfTxInf/ns3:RmtInf/ns3:Strd/ns3:RfrdDocInf/ns3:Nb"></xsl:value-of>
+        </value>
+      </NB>
+      <RLTDDT>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:PmtInf/ns3:CdtTrfTxInf/ns3:RmtInf/ns3:Strd/ns3:RfrdDocInf/ns3:RltdDt"></xsl:value-of>
+        </value>
+      </RLTDDT>
+      <PAYMENT.DETAIL>
+        <value>
+          <xsl:value-of select="$document_OUT_PORT/ns3:Document/ns3:CstmrCdtTrfInitn/ns3:PmtInf/ns3:CdtTrfTxInf/ns3:RmtInf/ns3:Ustrd"></xsl:value-of>
+        </value>
+      </PAYMENT.DETAIL>
+    </Root>
+  </xsl:template>
+</xsl:stylesheet>

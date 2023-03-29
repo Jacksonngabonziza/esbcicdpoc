@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+   <xsd:element name="Root">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="header" type="xsd:string"/>
+            <xsd:element name="RESPONSE.CODE">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="RESPONSE.DESC">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+                  </xsd:sequence>
+                  <xsd:attribute ref="totalPositions" use="optional"/>
+               </xsd:complexType>
+            </xsd:element>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:attribute name="totalPositions" type="xsd:int"/>
+   <xsd:attribute name="position" type="xsd:int"/>
+   <xsd:element name="value">
+      <xsd:complexType>
+         <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+               <xsd:attribute ref="position" use="optional"/>
+            </xsd:extension>
+         </xsd:simpleContent>
+      </xsd:complexType>
+   </xsd:element>
+</xsd:schema>

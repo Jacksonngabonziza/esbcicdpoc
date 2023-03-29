@@ -1,0 +1,8 @@
+<!ELEMENT ClientId ( #PCDATA ) >
+<!ELEMENT ClientSecret ( #PCDATA ) >
+<!ELEMENT ClientSystemType ( #PCDATA ) >
+<!ELEMENT PrimaryEntiry ( #PCDATA ) >
+<!ELEMENT PrimaryEntityType ( #PCDATA ) >
+<!ELEMENT SecondaryEntity EMPTY >
+<!ELEMENT SecondaryEntityType ( #PCDATA ) >
+<!ELEMENT root ( ClientId, ClientSecret, ClientSystemType, PrimaryEntityType, PrimaryEntiry, SecondaryEntityType, SecondaryEntity ) >

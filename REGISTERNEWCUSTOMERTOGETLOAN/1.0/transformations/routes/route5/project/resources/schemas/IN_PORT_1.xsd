@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:uns="http://www.ericsson.com/em/emm/sp/backend" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.fiorano.com/httpGateway">
+   <xsd:import namespace="http://www.ericsson.com/em/emm/sp/backend"/>
+   <xsd:element name="HTTPRequest">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element minOccurs="0" name="Params">
+               <xsd:complexType>
+                  <xsd:sequence/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="XMLData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="uns:customerregistrationrequest"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+</xsd:schema>

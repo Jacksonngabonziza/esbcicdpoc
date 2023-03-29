@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<layout>
+  <subflow name="FIORANO.ESTUDIO.ROOT_FLOW" x="0" y="0">
+    <service-instance name="FASTtoReverseTransaction1" x="501" y="253"/>
+    <service-instance name="pain0050107" x="388" y="256"/>
+    <service-instance name="OFSConverter3" x="253" y="198"/>
+    <service-instance name="Display1" x="411" y="101"/>
+    <service-instance name="Display2" x="608" y="110"/>
+    <service-instance name="pain00106" x="608" y="303"/>
+    <remote-service-instance name="FUNDTRANSFERINITIATE_1_0.HTTPFromT24ReverTrasaction11" x="37" y="149"/>
+  </subflow>
+</layout>

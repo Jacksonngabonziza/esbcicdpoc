@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:datetime="http://exslt.org/dates-and-times" xmlns:set="http://exslt.org/sets" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:math="http://exslt.org/math" xmlns:lxslt="http://xml.apache.org/xslt" xmlns:xalan="http://xml.apache.org/xslt" xmlns:java="http://xml.apache.org/xslt/java" exclude-result-prefixes="xalan java lxslt" xmlns:ns1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.05" xmlns:ns3="http://www.w3.org/2001/XMLSchema" xmlns:dateConversion="ext1" xmlns:deimaltoHex="ext2" xmlns:myext="ext3" xmlns:strings="ext4" extension-element-prefixes="datetime set math dateConversion deimaltoHex myext strings">
+  <xsl:output method="xml" indent="yes" encoding="UTF-8" xalan:indent-amount="2" omit-xml-declaration="no"></xsl:output>
+  <xsl:variable name="document" select="/"></xsl:variable>
+  <xsl:template match="/">
+    <Root>
+      <header>
+        <xsl:value-of select="java:setStringProperty($_TIF_MESSAGE_, 'OFSCODE', substring-before(substring-after(java:getText($_TIF_MESSAGE_),'RESPONSE.CODE:1:1='),'RESPONSE.DESC:1:1='))"></xsl:value-of>
+        <xsl:value-of select="java:setStringProperty($_TIF_MESSAGE_, 'OFSDESC', substring-after(java:getText($_TIF_MESSAGE_),'RESPONSE.DESC:1:1='))"></xsl:value-of>
+      </header>
+    </Root>
+  </xsl:template>
+<!--The list of parameters defined by user-->
+  <xsl:param name="_TIF_MESSAGE_"></xsl:param>
+</xsl:stylesheet>

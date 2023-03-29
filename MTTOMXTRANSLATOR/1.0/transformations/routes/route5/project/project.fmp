@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappermodel:MapperProject xmlns:mappermodel="http://www.fiorano.com/tools/mapper/mappermodel" convertor="nameIndexed" suppressEmptyItems="false" suppressPattern="" version="3.0.2">
+  <mappermodel:XSLTVersion>1.0</mappermodel:XSLTVersion>
+  <mappermodel:XSLTEngine>org.apache.xalan.processor.TransformerFactoryImpl</mappermodel:XSLTEngine>
+  <mappermodel:XSLTEncoding>UTF-8</mappermodel:XSLTEncoding>
+  <mappermodel:OutputMethod>text</mappermodel:OutputMethod>
+  <mappermodel:OutputEncoding>UTF-8</mappermodel:OutputEncoding>
+  <mappermodel:indent>true</mappermodel:indent>
+  <mappermodel:setDTD>false</mappermodel:setDTD>
+  <mappermodel:omit-xml-declaration>false</mappermodel:omit-xml-declaration>
+  <mappermodel:createEmptyOutputTags>false</mappermodel:createEmptyOutputTags>
+  <mappermodel:copyUnmappedFromInput enabled="false"/>
+  <mappermodel:disableOutputEscapingForANY>false</mappermodel:disableOutputEscapingForANY>
+  <mappermodel:Comments>Key in relevant comments</mappermodel:Comments>
+  <mappermodel:excludeResultPrefixes></mappermodel:excludeResultPrefixes>
+  <mappermodel:addDefaultXSTypeAttributes>false</mappermodel:addDefaultXSTypeAttributes>
+  <mappermodel:InputStructure>
+    <mappermodel:Structure duplicates="" filePath="MTTOMXTRANSLATOR_NEW.xsd" mime="XSD" name="Application-Context" rootName="Context"/>
+    <mappermodel:Structure duplicates="" filePath="OUT_PORT.xsd" mime="XSD" name="OUT_PORT" rootName="{urn:swift:saa:xsd:saa.2.0}DataPDU"/>
+  </mappermodel:InputStructure>
+  <mappermodel:OutputStructure>
+    <mappermodel:Structure duplicates="" filePath="out_JMSMessage.DTD" mime="DTD" name="JMS-Message" rootName="Text"/>
+  </mappermodel:OutputStructure>
+  <mappermodel:Namespaces/>
+  <mappermodel:Mappings>
+    <mappermodel:GraphModel inputPins="1,2,3,4,5,6,7" outputNode="JMS-Message:0,Text:0" x="817" y="3">
+      <mappermodel:FunctionGraphNode label="&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;" type="22" x="-13" y="64">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="Text-Content" type="131" x="144" y="131">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="g" type="22" x="212" y="224">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="" type="22" x="312" y="270">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="myext1:replace(input, pattern, flags, str)" type="69" x="516" y="102">
+        <mappermodel:InputPins>input,pattern,flags,str</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="&amp;lt;" type="22" x="485" y="237">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="&lt;" type="22" x="528" y="286">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="&amp;gt;" type="22" x="402" y="320">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="SubString-After" type="24" x="455" y="59">
+        <mappermodel:InputPins>str,after</mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="SubString-Before" type="23" x="468" y="10">
+        <mappermodel:InputPins>str,before</mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="myext1:replace(input, pattern, flags, str)" type="69" x="681" y="172">
+        <mappermodel:InputPins>input,pattern,flags,str</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label=">" type="22" x="176" y="259">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="SubString-After" type="24" x="891" y="370">
+        <mappermodel:InputPins>str,after</mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="SubString-Before" type="23" x="856" y="282">
+        <mappermodel:InputPins>str,before</mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="&lt;/Envelope>" type="22" x="490" y="351">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;DataPDU xmlns=&quot;urn:swift:saa:xsd:saa.2.0&quot;>&#xD;&#xA;    &lt;Revision>2.0.12&lt;/Revision>&#xD;&#xA;    &lt;Header>&#xD;&#xA;        &lt;Message>&#xD;&#xA;            &lt;SenderReference>OPE9999911696&lt;/SenderReference>&#xD;&#xA;            &lt;MessageIdentifier>pacs.008.001.08&lt;/MessageIdentifier>&#xD;&#xA;            &lt;Format>MX&lt;/Format>&#xD;&#xA;            &lt;Sender>&#xD;&#xA;                &lt;DN>ou=xxx,o=baipptpl,o=swift&lt;/DN>&#xD;&#xA;                &lt;FullName>&#xD;&#xA;                    &lt;X1>BAIPPTPLXXX&lt;/X1>&#xD;&#xA;                &lt;/FullName>&#xD;&#xA;            &lt;/Sender>&#xD;&#xA;            &lt;Receiver>&#xD;&#xA;                &lt;DN>ou=xxx,o=cemaptp2,o=swift&lt;/DN>&#xD;&#xA;                &lt;FullName>&#xD;&#xA;                    &lt;X1>CEMAPTP2XXX&lt;/X1>&#xD;&#xA;                &lt;/FullName>&#xD;&#xA;            &lt;/Receiver>&#xD;&#xA;            &lt;InterfaceInfo>&#xD;&#xA;                &lt;UserReference>OPE9999911696&lt;/UserReference>&#xD;&#xA;            &lt;/InterfaceInfo>&#xD;&#xA;            &lt;NetworkInfo>&#xD;&#xA;                &lt;Service>swift.finplus!pf&lt;/Service>&#xD;&#xA;            &lt;/NetworkInfo>&#xD;&#xA;        &lt;/Message>&#xD;&#xA;    &lt;/Header>&#xD;&#xA;    &lt;Body>&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&#xD;&#xA;&amp;lt;Envelope xmlns=&quot;urn:swift:xsd:envelope&quot;&amp;gt;&#xD;&#xA;    &amp;lt;AppHdr xmlns=&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.02&quot;&amp;gt;&#xD;&#xA;        &amp;lt;Fr&amp;gt;&#xD;&#xA;            &amp;lt;FIId&amp;gt;&#xD;&#xA;                &amp;lt;FinInstnId&amp;gt;&#xD;&#xA;                    &amp;lt;BICFI&amp;gt;BAIPPTPLXXX&amp;lt;/BICFI&amp;gt;&#xD;&#xA;                &amp;lt;/FinInstnId&amp;gt;&#xD;&#xA;            &amp;lt;/FIId&amp;gt;&#xD;&#xA;        &amp;lt;/Fr&amp;gt;&#xD;&#xA;        &amp;lt;To&amp;gt;&#xD;&#xA;            &amp;lt;FIId&amp;gt;&#xD;&#xA;                &amp;lt;FinInstnId&amp;gt;&#xD;&#xA;                    &amp;lt;BICFI&amp;gt;CEMAPTP2XXX&amp;lt;/BICFI&amp;gt;&#xD;&#xA;                &amp;lt;/FinInstnId&amp;gt;&#xD;&#xA;            &amp;lt;/FIId&amp;gt;&#xD;&#xA;        &amp;lt;/To&amp;gt;&#xD;&#xA;        &amp;lt;BizMsgIdr&amp;gt;OPE9999911696&amp;lt;/BizMsgIdr&amp;gt;&#xD;&#xA;        &amp;lt;MsgDefIdr&amp;gt;pacs.008.001.08&amp;lt;/MsgDefIdr&amp;gt;&#xD;&#xA;        &amp;lt;BizSvc&amp;gt;swift.cbprplus.01&amp;lt;/BizSvc&amp;gt;&#xD;&#xA;        &amp;lt;CreDt&amp;gt;9999-12-31T00:00:00+00:00&amp;lt;/CreDt&amp;gt;&#xD;&#xA;        &amp;lt;PssblDplct&amp;gt;false&amp;lt;/PssblDplct&amp;gt;&#xD;&#xA;        &amp;lt;Prty&amp;gt;NORM&amp;lt;/Prty&amp;gt;&#xD;&#xA;    &amp;lt;/AppHdr&amp;gt;&#xD;&#xA;    &amp;lt;Document xmlns=&quot;urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08&quot;&amp;gt;&#xD;&#xA;        &amp;lt;FIToFICstmrCdtTrf&amp;gt;&#xD;&#xA;            &amp;lt;GrpHdr&amp;gt;&#xD;&#xA;                &amp;lt;MsgId&amp;gt;OPE9999911696&amp;lt;/MsgId&amp;gt;&#xD;&#xA;                &amp;lt;CreDtTm&amp;gt;9999-12-31T00:00:00+00:00&amp;lt;/CreDtTm&amp;gt;&#xD;&#xA;                &amp;lt;NbOfTxs&amp;gt;1&amp;lt;/NbOfTxs&amp;gt;&#xD;&#xA;                &amp;lt;SttlmInf&amp;gt;&#xD;&#xA;                    &amp;lt;SttlmMtd&amp;gt;INDA&amp;lt;/SttlmMtd&amp;gt;&#xD;&#xA;                &amp;lt;/SttlmInf&amp;gt;&#xD;&#xA;            &amp;lt;/GrpHdr&amp;gt;&#xD;&#xA;            &amp;lt;CdtTrfTxInf&amp;gt;&#xD;&#xA;                &amp;lt;PmtId&amp;gt;&#xD;&#xA;                    &amp;lt;InstrId&amp;gt;OPE9999911696&amp;lt;/InstrId&amp;gt;&#xD;&#xA;                    &amp;lt;EndToEndId&amp;gt;NOTPROVIDED&amp;lt;/EndToEndId&amp;gt;&#xD;&#xA;                    &amp;lt;UETR&amp;gt;9f51d385-6d23-4021-a4d8-4a127fbfcb55&amp;lt;/UETR&amp;gt;&#xD;&#xA;                &amp;lt;/PmtId&amp;gt;&#xD;&#xA;                &amp;lt;IntrBkSttlmAmt Ccy=&quot;EUR&quot;&amp;gt;1000000&amp;lt;/IntrBkSttlmAmt&amp;gt;&#xD;&#xA;                &amp;lt;IntrBkSttlmDt&amp;gt;2023-02-08&amp;lt;/IntrBkSttlmDt&amp;gt;&#xD;&#xA;                &amp;lt;InstdAmt Ccy=&quot;EUR&quot;&amp;gt;1000000&amp;lt;/InstdAmt&amp;gt;&#xD;&#xA;                &amp;lt;ChrgBr&amp;gt;SHAR&amp;lt;/ChrgBr&amp;gt;&#xD;&#xA;                &amp;lt;InstgAgt&amp;gt;&#xD;&#xA;                    &amp;lt;FinInstnId&amp;gt;&#xD;&#xA;                        &amp;lt;BICFI&amp;gt;BAIPPTPLXXX&amp;lt;/BICFI&amp;gt;&#xD;&#xA;                    &amp;lt;/FinInstnId&amp;gt;&#xD;&#xA;                &amp;lt;/InstgAgt&amp;gt;&#xD;&#xA;                &amp;lt;InstdAgt&amp;gt;&#xD;&#xA;                    &amp;lt;FinInstnId&amp;gt;&#xD;&#xA;                        &amp;lt;BICFI&amp;gt;CEMAPTP2XXX&amp;lt;/BICFI&amp;gt;&#xD;&#xA;                    &amp;lt;/FinInstnId&amp;gt;&#xD;&#xA;                &amp;lt;/InstdAgt&amp;gt;&#xD;&#xA;                &amp;lt;Dbtr&amp;gt;&#xD;&#xA;                    &amp;lt;Nm&amp;gt;ABCD MANANG PART CONSUL PROM NEGOCI&amp;lt;/Nm&amp;gt;&#xD;&#xA;                    &amp;lt;PstlAdr&amp;gt;&#xD;&#xA;                        &amp;lt;AdrLine&amp;gt;O LDA RUA 1 2L 110103 BOAVISTA  LUA&amp;lt;/AdrLine&amp;gt;&#xD;&#xA;                        &amp;lt;AdrLine&amp;gt;NDA ANGOLA&amp;lt;/AdrLine&amp;gt;&#xD;&#xA;                    &amp;lt;/PstlAdr&amp;gt;&#xD;&#xA;                &amp;lt;/Dbtr&amp;gt;&#xD;&#xA;                &amp;lt;DbtrAcct&amp;gt;&#xD;&#xA;                    &amp;lt;Id&amp;gt;&#xD;&#xA;                        &amp;lt;Othr&amp;gt;&#xD;&#xA;                            &amp;lt;Id&amp;gt;17722010001&amp;lt;/Id&amp;gt;&#xD;&#xA;                        &amp;lt;/Othr&amp;gt;&#xD;&#xA;                    &amp;lt;/Id&amp;gt;&#xD;&#xA;                &amp;lt;/DbtrAcct&amp;gt;&#xD;&#xA;                &amp;lt;DbtrAgt&amp;gt;&#xD;&#xA;                    &amp;lt;FinInstnId&amp;gt;&#xD;&#xA;                        &amp;lt;BICFI&amp;gt;BAIPPTPL&amp;lt;/BICFI&amp;gt;&#xD;&#xA;                    &amp;lt;/FinInstnId&amp;gt;&#xD;&#xA;                &amp;lt;/DbtrAgt&amp;gt;&#xD;&#xA;                &amp;lt;CdtrAgt&amp;gt;&#xD;&#xA;                    &amp;lt;FinInstnId&amp;gt;&#xD;&#xA;                        &amp;lt;BICFI&amp;gt;CEMAPTP2&amp;lt;/BICFI&amp;gt;&#xD;&#xA;                    &amp;lt;/FinInstnId&amp;gt;&#xD;&#xA;                &amp;lt;/CdtrAgt&amp;gt;&#xD;&#xA;                &amp;lt;Cdtr&amp;gt;&#xD;&#xA;                    &amp;lt;Nm&amp;gt;JOSE AFONSO DA CRUZ CARVALHO DA SIL&amp;lt;/Nm&amp;gt;&#xD;&#xA;                    &amp;lt;PstlAdr&amp;gt;&#xD;&#xA;                        &amp;lt;AdrLine&amp;gt;VA&amp;lt;/AdrLine&amp;gt;&#xD;&#xA;                    &amp;lt;/PstlAdr&amp;gt;&#xD;&#xA;                &amp;lt;/Cdtr&amp;gt;&#xD;&#xA;                &amp;lt;CdtrAcct&amp;gt;&#xD;&#xA;                    &amp;lt;Id&amp;gt;&#xD;&#xA;                        &amp;lt;IBAN&amp;gt;PT50005900011999960006969&amp;lt;/IBAN&amp;gt;&#xD;&#xA;                    &amp;lt;/Id&amp;gt;&#xD;&#xA;                &amp;lt;/CdtrAcct&amp;gt;&#xD;&#xA;                &amp;lt;RmtInf&amp;gt;&#xD;&#xA;                    &amp;lt;Ustrd&amp;gt;/RFB/PAG. 3.92PCT DO CONTRATO DE SUPRIMENTOS&amp;lt;/Ustrd&amp;gt;&#xD;&#xA;                &amp;lt;/RmtInf&amp;gt;&#xD;&#xA;            &amp;lt;/CdtTrfTxInf&amp;gt;&#xD;&#xA;        &amp;lt;/FIToFICstmrCdtTrf&amp;gt;&#xD;&#xA;    &amp;lt;/Document&amp;gt;&#xD;&#xA;&amp;lt;/Envelope&amp;gt;&#xD;&#xA;&lt;/Body>&#xD;&#xA;&lt;/DataPDU>&#xD;&#xA;" type="22" x="5" y="6">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="myext1:replace(input, pattern, flags, str)" type="69" x="346" y="391">
+        <mappermodel:InputPins>input,pattern,flags,str</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="&amp;gt;" type="22" x="122" y="317">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="&amp;lt;Envelope xmlns=&quot;urn:swift:xsd:envelope&quot;&amp;gt;" type="22" x="-12" y="98">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:Link inputID="5" inputIndex="1" outputID="6" outputIndex="0"/>
+      <mappermodel:Link inputID="5" inputIndex="2" outputID="3" outputIndex="0"/>
+      <mappermodel:Link inputID="5" inputIndex="3" outputID="7" outputIndex="0"/>
+      <mappermodel:Link inputID="5" inputIndex="0" outputID="9" outputIndex="0"/>
+      <mappermodel:Link inputID="10" inputIndex="1" outputID="1" outputIndex="0"/>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="10" outputIndex="0"/>
+      <mappermodel:Link inputID="11" inputIndex="0" outputID="5" outputIndex="0"/>
+      <mappermodel:Link inputID="11" inputIndex="1" outputID="8" outputIndex="0"/>
+      <mappermodel:Link inputID="11" inputIndex="2" outputID="3" outputIndex="0"/>
+      <mappermodel:Link inputID="11" inputIndex="3" outputID="12" outputIndex="0"/>
+      <mappermodel:Link inputID="14" inputIndex="1" outputID="15" outputIndex="0"/>
+      <mappermodel:Link inputID="13" inputIndex="1" outputID="15" outputIndex="0"/>
+      <mappermodel:Link inputID="0" inputIndex="1" outputID="14" outputIndex="0"/>
+      <mappermodel:Link inputID="0" inputIndex="2" outputID="13" outputIndex="0"/>
+      <mappermodel:Link inputID="17" inputIndex="0" outputID="11" outputIndex="0"/>
+      <mappermodel:Link inputID="14" inputIndex="0" outputID="17" outputIndex="0"/>
+      <mappermodel:Link inputID="13" inputIndex="0" outputID="17" outputIndex="0"/>
+      <mappermodel:Link inputID="17" inputIndex="1" outputID="18" outputIndex="0"/>
+      <mappermodel:Link inputID="17" inputIndex="2" outputID="3" outputIndex="0"/>
+      <mappermodel:Link inputID="17" inputIndex="3" outputID="12" outputIndex="0"/>
+      <mappermodel:Link inputID="10" inputIndex="0" outputID="2" outputIndex="0"/>
+      <mappermodel:Link inputID="9" inputIndex="0" outputID="2" outputIndex="0"/>
+      <mappermodel:Link inputID="9" inputIndex="1" outputID="19" outputIndex="0"/>
+    </mappermodel:GraphModel>
+  </mappermodel:Mappings>
+  <mappermodel:Extensions>
+    <mappermodel:Extension language="javascript" name="myext1">
+      <mappermodel:Script>function compute(expr){
+	return eval(expr);
+}
+
+function nextMillenium(){
+	d = new Date()    //today's date
+	mill=new Date(3000, 00, 01, 00, 00, 00)    //Next millennium start date
+	diff = mill-d    //difference in milliseconds
+	mtg = new String(diff/86400000)    //calculate days and convert to string
+	point=mtg.indexOf(&quot;.&quot;)    //find the decimal point
+	days=mtg.substring(0,point)    //get just the whole days
+	return &quot;There are only &quot; + days + &quot; days remaining to the start of the next millennium.&quot;; 
+}
+
+function replace(input, pattern, flags, str){
+	return input.replace(new RegExp(pattern, flags), str);
+}</mappermodel:Script>
+      <mappermodel:Function name="replace" return="String">
+        <mappermodel:Argument datatype="String" name="input"/>
+        <mappermodel:Argument datatype="String" name="pattern"/>
+        <mappermodel:Argument datatype="String" name="flags"/>
+        <mappermodel:Argument datatype="String" name="str"/>
+      </mappermodel:Function>
+    </mappermodel:Extension>
+  </mappermodel:Extensions>
+</mappermodel:MapperProject>

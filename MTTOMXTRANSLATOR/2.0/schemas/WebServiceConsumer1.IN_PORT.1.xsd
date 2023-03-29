@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="unqualified" targetNamespace="http://fastwebservice.nbc.org.kh/" version="1.0" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://fastwebservice.nbc.org.kh/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+			<xs:element name="getAccountInquiry" type="tns:getAccountInquiry"/>
+
+			<xs:element name="getAccountInquiryResponse" type="tns:getAccountInquiryResponse"/>
+
+			<xs:element name="getIncomingTransaction" type="tns:getIncomingTransaction"/>
+
+			<xs:element name="getIncomingTransactionResponse" type="tns:getIncomingTransactionResponse"/>
+
+			<xs:element name="getOutgoingTransaction" type="tns:getOutgoingTransaction"/>
+
+			<xs:element name="getOutgoingTransactionResponse" type="tns:getOutgoingTransactionResponse"/>
+
+			<xs:element name="makeAcknowledgment" type="tns:makeAcknowledgment"/>
+
+			<xs:element name="makeAcknowledgmentResponse" type="tns:makeAcknowledgmentResponse"/>
+
+			<xs:element name="makeFullFundTransfer" type="tns:makeFullFundTransfer"/>
+
+			<xs:element name="makeFullFundTransferResponse" type="tns:makeFullFundTransferResponse"/>
+
+			<xs:element name="makeHalfFundTransfer" type="tns:makeHalfFundTransfer"/>
+
+			<xs:element name="makeHalfFundTransferResponse" type="tns:makeHalfFundTransferResponse"/>
+
+			<xs:element name="makeReverseTransaction" type="tns:makeReverseTransaction"/>
+
+			<xs:element name="makeReverseTransactionResponse" type="tns:makeReverseTransactionResponse"/>
+
+			<xs:complexType name="makeHalfFundTransfer">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="cm_user_name" type="xs:string"/>
+					<xs:element minOccurs="0" name="cm_password" type="xs:string"/>
+					<xs:element minOccurs="0" name="iso_message" type="xs:string"/>
+					<xs:element minOccurs="0" name="import_file_name" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="makeHalfFundTransferResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="return" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="getOutgoingTransaction">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="cm_user_name" type="xs:string"/>
+					<xs:element minOccurs="0" name="cm_password" type="xs:string"/>
+					<xs:element minOccurs="0" name="payer_participant_code" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="getOutgoingTransactionResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="return" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="makeFullFundTransfer">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="cm_user_name" type="xs:string"/>
+					<xs:element minOccurs="0" name="cm_password" type="xs:string"/>
+					<xs:element minOccurs="0" name="iso_message" type="xs:string"/>
+					<xs:element minOccurs="0" name="import_file_name" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="makeFullFundTransferResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="return" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="getAccountInquiry">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="cm_user_name" type="xs:string"/>
+					<xs:element minOccurs="0" name="cm_password" type="xs:string"/>
+					<xs:element minOccurs="0" name="participant_code" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="getAccountInquiryResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="return" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="makeReverseTransaction">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="cm_user_name" type="xs:string"/>
+					<xs:element minOccurs="0" name="cm_password" type="xs:string"/>
+					<xs:element minOccurs="0" name="content_message" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="makeReverseTransactionResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="return" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="getIncomingTransaction">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="cm_user_name" type="xs:string"/>
+					<xs:element minOccurs="0" name="cm_password" type="xs:string"/>
+					<xs:element minOccurs="0" name="payee_participant_code" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="getIncomingTransactionResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="return" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="makeAcknowledgment">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="cm_user_name" type="xs:string"/>
+					<xs:element minOccurs="0" name="cm_password" type="xs:string"/>
+					<xs:element minOccurs="0" name="content_message" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="makeAcknowledgmentResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="return" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+
+		</xs:schema>

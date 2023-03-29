@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.8.0-262" class="java.beans.XMLDecoder"> 
+ <object class="com.fiorano.services.xslt.configuration.XsltPM"> 
+  <void property="JMSMessageXSL"> 
+   <null/> 
+  </void> 
+  <void property="JMSMessageXSL1"> 
+   <null/> 
+  </void> 
+  <void property="XSL"> 
+   <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xalan=&quot;http://xml.apache.org/xslt&quot; xmlns:datetime=&quot;http://exslt.org/dates-and-times&quot; xmlns:math=&quot;http://exslt.org/math&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:lxslt=&quot;http://xml.apache.org/xslt&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:java=&quot;http://xml.apache.org/xslt/java&quot; xmlns:set=&quot;http://exslt.org/sets&quot; exclude-result-prefixes=&quot;xalan java lxslt&quot; xmlns:ns3=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:ns1=&quot;http://www.fiorano.com/services/rest&quot; xmlns:FOOSignature=&quot;http://xml.apache.org/xslt/java&quot; xmlns:Hash=&quot;http://xml.apache.org/xslt/java&quot; xmlns:PGP=&quot;http://xml.apache.org/xslt/java&quot; xmlns:ccc=&quot;http://xml.apache.org/xslt/java&quot; xmlns:dateConversion=&quot;dateConversion&quot; xmlns:myext=&quot;myext&quot; xmlns:strings=&quot;strings&quot; xmlns:tcsipi=&quot;http://xml.apache.org/xslt/java&quot; extension-element-prefixes=&quot;datetime set math FOOSignature Hash PGP ccc dateConversion myext strings tcsipi&quot;&gt;
+  &lt;xsl:import href=&quot;GLOBAL_FUNCLET_PATH&quot;&gt;&lt;/xsl:import&gt;
+  &lt;xsl:output method=&quot;xml&quot; indent=&quot;yes&quot; encoding=&quot;UTF-8&quot; xalan:indent-amount=&quot;2&quot; omit-xml-declaration=&quot;no&quot;&gt;&lt;/xsl:output&gt;
+  &lt;xsl:variable name=&quot;document&quot; select=&quot;/&quot;&gt;&lt;/xsl:variable&gt;
+  &lt;xsl:template match=&quot;/&quot;&gt;
+    &lt;root&gt;&lt;xsl:value-of select=&quot;$document_IN_PORT/Responses/Response/Representations/Representation/Element&quot;&gt;&lt;/xsl:value-of&gt;&lt;/root&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</string> 
+  </void> 
+  <void property="configuredVersion"> 
+   <int>1200</int> 
+  </void> 
+  <void property="errorHandlingConfiguration"> 
+   <void property="errorActionsMap"> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>3</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>2</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>1</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.RetryAction"> 
+       <void property="configuration"> 
+        <object class="com.fiorano.edbc.framework.service.exception.RetryConfiguration"> 
+         <void property="otherActions"> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+            <void property="enabled"> 
+             <boolean>true</boolean> 
+            </void> 
+            <void property="id"> 
+             <int>1</int> 
+            </void> 
+           </object> 
+           <int>1</int> 
+          </void> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+            <void property="enabled"> 
+             <boolean>true</boolean> 
+            </void> 
+           </object> 
+           <int>1</int> 
+          </void> 
+         </void> 
+        </object> 
+       </void> 
+       <void property="id"> 
+        <int>2</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>4</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>0</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>6</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+   </void> 
+  </void> 
+  <void property="esbDefInPort"> 
+   <object class="fiorano.esb.record.ESBRecordDefinition"> 
+    <void property="rootElementName"> 
+     <string>Responses</string> 
+    </void> 
+    <void property="structure"> 
+     <string>&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;&#13;
+&lt;xsd:schema xmlns:tns=&quot;http://www.fiorano.com/services/rest&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:wadl=&quot;http://wadl.dev.java.net/2009/02&quot; targetNamespace=&quot;http://www.fiorano.com/services/rest&quot;&gt;&#13;
+   &lt;xsd:element name=&quot;Responses&quot;&gt;&#13;
+      &lt;xsd:complexType&gt;&#13;
+         &lt;xsd:choice&gt;&#13;
+            &lt;xsd:element name=&quot;Response&quot;&gt;&#13;
+               &lt;xsd:complexType&gt;&#13;
+                  &lt;xsd:sequence&gt;&#13;
+                     &lt;xsd:element name=&quot;Representations&quot;&gt;&#13;
+                        &lt;xsd:complexType&gt;&#13;
+                           &lt;xsd:choice&gt;&#13;
+                              &lt;xsd:element name=&quot;Representation&quot;&gt;&#13;
+                                 &lt;xsd:complexType&gt;&#13;
+                                    &lt;xsd:sequence&gt;&#13;
+                                       &lt;xsd:element name=&quot;Element&quot;&gt;&#13;
+                                          &lt;xsd:complexType&gt;&#13;
+                                             &lt;xsd:sequence&gt;&#13;
+                                                &lt;xsd:any /&gt;&#13;
+                                             &lt;/xsd:sequence&gt;&#13;
+                                          &lt;/xsd:complexType&gt;&#13;
+                                       &lt;/xsd:element&gt;&#13;
+                                    &lt;/xsd:sequence&gt;&#13;
+                                    &lt;xsd:attribute default=&quot;application/json&quot; name=&quot;MediaType&quot; type=&quot;xsd:string&quot; use=&quot;optional&quot; /&gt;&#13;
+                                 &lt;/xsd:complexType&gt;&#13;
+                              &lt;/xsd:element&gt;&#13;
+                           &lt;/xsd:choice&gt;&#13;
+                        &lt;/xsd:complexType&gt;&#13;
+                     &lt;/xsd:element&gt;&#13;
+                  &lt;/xsd:sequence&gt;&#13;
+                  &lt;xsd:attribute default=&quot;200&quot; name=&quot;Status&quot; type=&quot;xsd:int&quot; use=&quot;optional&quot; /&gt;&#13;
+               &lt;/xsd:complexType&gt;&#13;
+            &lt;/xsd:element&gt;&#13;
+         &lt;/xsd:choice&gt;&#13;
+      &lt;/xsd:complexType&gt;&#13;
+   &lt;/xsd:element&gt;&#13;
+&lt;/xsd:schema&gt;&#13;
+</string> 
+    </void> 
+    <void property="targetNamespace"> 
+     <string>http://www.fiorano.com/services/rest</string> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="esbDefOutPort"> 
+   <object class="fiorano.esb.record.ESBRecordDefinition"> 
+    <void property="rootElementName"> 
+     <string>root</string> 
+    </void> 
+    <void property="structure"> 
+     <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#13;
+&lt;!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) --&gt;&#13;
+&lt;xs:schema attributeFormDefault=&quot;unqualified&quot; elementFormDefault=&quot;qualified&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;&#13;
+  &lt;xs:element name=&quot;root&quot;&gt;&#13;
+    &lt;xs:complexType&gt;&#13;
+      &lt;xs:sequence&gt;&#13;
+        &lt;xs:element name=&quot;responseCode&quot; type=&quot;xs:unsignedByte&quot; /&gt;&#13;
+        &lt;xs:element name=&quot;status&quot; type=&quot;xs:string&quot; /&gt;&#13;
+        &lt;xs:element name=&quot;responseMessage&quot; type=&quot;xs:string&quot; /&gt;&#13;
+        &lt;xs:element name=&quot;responseData&quot;&gt;&#13;
+          &lt;xs:complexType&gt;&#13;
+            &lt;xs:sequence&gt;&#13;
+              &lt;xs:element name=&quot;accountNumber&quot; type=&quot;xs:unsignedLong&quot; /&gt;&#13;
+              &lt;xs:element name=&quot;amount&quot; type=&quot;xs:decimal&quot; /&gt;&#13;
+              &lt;xs:element name=&quot;custName&quot; type=&quot;xs:string&quot; /&gt;&#13;
+              &lt;xs:element name=&quot;resField1&quot; type=&quot;xs:string&quot; /&gt;&#13;
+              &lt;xs:element name=&quot;resField2&quot; type=&quot;xs:string&quot; /&gt;&#13;
+              &lt;xs:element name=&quot;resField3&quot; type=&quot;xs:unsignedByte&quot; /&gt;&#13;
+              &lt;xs:element name=&quot;resField4&quot; type=&quot;xs:unsignedByte&quot; /&gt;&#13;
+              &lt;xs:element name=&quot;resField5&quot; type=&quot;xs:string&quot; /&gt;&#13;
+              &lt;xs:element name=&quot;resField6&quot; type=&quot;xs:decimal&quot; /&gt;&#13;
+              &lt;xs:element name=&quot;oderId&quot; type=&quot;xs:string&quot; /&gt;&#13;
+              &lt;xs:element name=&quot;providerTransactionId&quot; type=&quot;xs:integer&quot; /&gt;&#13;
+              &lt;xs:element name=&quot;arrayResponse&quot;&gt;&#13;
+                &lt;xs:complexType&gt;&#13;
+                  &lt;xs:sequence&gt;&#13;
+                    &lt;xs:element name=&quot;AccountNumber&quot; type=&quot;xs:unsignedLong&quot; /&gt;&#13;
+                    &lt;xs:element name=&quot;PremiseType&quot; type=&quot;xs:string&quot; /&gt;&#13;
+                    &lt;xs:element name=&quot;Area&quot; type=&quot;xs:string&quot; /&gt;&#13;
+                    &lt;xs:element name=&quot;AccountType&quot; type=&quot;xs:string&quot; /&gt;&#13;
+                    &lt;xs:element name=&quot;PoBox&quot; /&gt;&#13;
+                    &lt;xs:element name=&quot;Balance&quot; type=&quot;xs:decimal&quot; /&gt;&#13;
+                  &lt;/xs:sequence&gt;&#13;
+                &lt;/xs:complexType&gt;&#13;
+              &lt;/xs:element&gt;&#13;
+            &lt;/xs:sequence&gt;&#13;
+          &lt;/xs:complexType&gt;&#13;
+        &lt;/xs:element&gt;&#13;
+      &lt;/xs:sequence&gt;&#13;
+    &lt;/xs:complexType&gt;&#13;
+  &lt;/xs:element&gt;&#13;
+&lt;/xs:schema&gt;&#13;
+</string> 
+    </void> 
+    <void property="targetNamespace"> 
+     <string></string> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="inputStructureName"> 
+   <string>IN_PORT</string> 
+  </void> 
+  <void property="inputStructures"> 
+   <string>Body</string> 
+  </void> 
+  <void property="project"> 
+   <string>project</string> 
+  </void> 
+  <void property="tfClassName"> 
+   <string></string> 
+  </void> 
+ </object> 
+</java> 

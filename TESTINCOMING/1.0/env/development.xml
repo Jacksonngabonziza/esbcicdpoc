@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<target:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:target="http://fiorano.com/environment/1.0" xsi:schemaLocation="http://fiorano.com/environment/1.0 env.xsd">
+  <target:instance name="Xslt2">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property encrypt="false" name="XSL" type="java.lang.String">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xalan=&quot;http://xml.apache.org/xslt&quot; xmlns:datetime=&quot;http://exslt.org/dates-and-times&quot; xmlns:math=&quot;http://exslt.org/math&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:lxslt=&quot;http://xml.apache.org/xslt&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:java=&quot;http://xml.apache.org/xslt/java&quot; xmlns:set=&quot;http://exslt.org/sets&quot; exclude-result-prefixes=&quot;xalan java lxslt&quot; xmlns:ns4=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:ns2=&quot;urn:swift:saa:xsd:saa.2.0&quot; xmlns:ns1=&quot;urn:swift:xsd:envelope&quot; xmlns:MT2MX=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MTtoMX=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MTtoMXUtil=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MX2MT=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MXtoMT=&quot;http://xml.apache.org/xslt/java&quot; xmlns:QueryGenerator=&quot;QueryGenerator&quot; xmlns:ccc=&quot;http://xml.apache.org/xslt/java&quot; xmlns:dateConversion=&quot;dateConversion&quot; xmlns:myext=&quot;myext&quot; xmlns:myext1=&quot;myext1&quot; xmlns:strings=&quot;strings&quot; extension-element-prefixes=&quot;datetime set math MT2MX MTtoMX MTtoMXUtil MX2MT MXtoMT QueryGenerator ccc dateConversion myext myext1 strings&quot;>
+  &lt;xsl:import href=&quot;GLOBAL_FUNCLET_PATH&quot;>&lt;/xsl:import>
+  &lt;xsl:output method=&quot;xml&quot; indent=&quot;yes&quot; encoding=&quot;UTF-8&quot; xalan:indent-amount=&quot;2&quot; omit-xml-declaration=&quot;no&quot;>&lt;/xsl:output>
+  &lt;xsl:variable name=&quot;document&quot; select=&quot;/&quot;>&lt;/xsl:variable>
+  &lt;xsl:variable name=&quot;document_Input1&quot; select=&quot;document('Input1')&quot;>&lt;/xsl:variable>
+  &lt;xsl:template match=&quot;/&quot;>
+    &lt;ns1:Envelope>
+      &lt;xsl:copy-of select=&quot;$document_Input1/ns2:DataPDU/ns2:Body&quot;>&lt;/xsl:copy-of>
+    &lt;/ns1:Envelope>
+  &lt;/xsl:template>
+&lt;/xsl:stylesheet></target:property>
+      <target:property encrypt="false" name="XSLT Engine" type="java.lang.String">Xalan</target:property>
+      <target:property encrypt="false" name="Transformation Class Name" type="java.lang.String"></target:property>
+    </target:configuration-properties>
+  </target:instance>
+  <target:instance name="SwiftMXMessages1">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property encrypt="false" name="Post Processing Action" type="java.lang.String">MOVE</target:property>
+      <target:property encrypt="false" name="Pre Processing Arguments" type="java.lang.String"></target:property>
+      <target:property encrypt="false" name="FileReaderConfiguration" type="NamedObject">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
+&lt;ns1:namedConfiguration ns1:CLASS_NAME=&quot;com.fiorano.adapter.jca.filereader.cci.FileReaderConfiguration&quot; xmlns:ns1=&quot;uri:com.fiorano.adapter.jca.filereader.cci&quot;>
+    &lt;ns1:connectedToDiffMachine>false&lt;/ns1:connectedToDiffMachine>
+    &lt;ns1:relativeDirectory>D:\InboundMessages\&lt;/ns1:relativeDirectory>
+    &lt;ns1:fileName>*.*&lt;/ns1:fileName>
+    &lt;ns1:sourceDirectory>MX From PFH&lt;/ns1:sourceDirectory>
+    &lt;ns1:useWorkingDirectory>false&lt;/ns1:useWorkingDirectory>
+    &lt;ns1:workingDirectory>E:\SI\Finastra\Dev\SwiftMXMessages\Work&lt;/ns1:workingDirectory>
+    &lt;ns1:processPendingFilesInWork>false&lt;/ns1:processPendingFilesInWork>
+    &lt;ns1:errorDirectory>Processed\err&lt;/ns1:errorDirectory>
+&lt;/ns1:namedConfiguration>
+</target:property>
+      <target:property encrypt="false" name="Post Processing Directory" type="java.lang.String">Processed</target:property>
+    </target:configuration-properties>
+  </target:instance>
+  <target:instance name="ScopeFinder">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property encrypt="false" name="XSL" type="java.lang.String">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xalan=&quot;http://xml.apache.org/xslt&quot; xmlns:datetime=&quot;http://exslt.org/dates-and-times&quot; xmlns:math=&quot;http://exslt.org/math&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:lxslt=&quot;http://xml.apache.org/xslt&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:java=&quot;http://xml.apache.org/xslt/java&quot; xmlns:set=&quot;http://exslt.org/sets&quot; exclude-result-prefixes=&quot;xalan java lxslt&quot; xmlns:ns1=&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.02&quot; xmlns:ns4=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:ns2=&quot;urn:swift:xsd:envelope&quot; xmlns:MT2MX=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MTtoMX=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MTtoMXUtil=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MX2MT=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MXToMT=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MXtoMT=&quot;http://xml.apache.org/xslt/java&quot; xmlns:New=&quot;http://xml.apache.org/xslt/java&quot; xmlns:QueryGenerator=&quot;QueryGenerator&quot; xmlns:ccc=&quot;http://xml.apache.org/xslt/java&quot; xmlns:dateConversion=&quot;dateConversion&quot; xmlns:myext=&quot;myext&quot; xmlns:strings=&quot;strings&quot; extension-element-prefixes=&quot;datetime set math MT2MX MTtoMX MTtoMXUtil MX2MT MXToMT MXtoMT New QueryGenerator ccc dateConversion myext strings&quot;>
+  &lt;xsl:import href=&quot;GLOBAL_FUNCLET_PATH&quot;>&lt;/xsl:import>
+  &lt;xsl:output method=&quot;xml&quot; indent=&quot;yes&quot; encoding=&quot;UTF-8&quot; xalan:indent-amount=&quot;2&quot; omit-xml-declaration=&quot;no&quot;>&lt;/xsl:output>
+  &lt;xsl:variable name=&quot;document&quot; select=&quot;/&quot;>&lt;/xsl:variable>
+  &lt;xsl:variable name=&quot;document_Input1&quot; select=&quot;document('Input1')&quot;>&lt;/xsl:variable>
+  &lt;xsl:template match=&quot;/&quot;>
+    &lt;MXVersion>
+      &lt;Translator>
+        &lt;xsl:value-of select=&quot;MXToMT:com.fiorano.funclet.MXtoMT.scopeFindeWithrDocumentNamespace(string($document_Input1/ns2:Envelope/ns1:AppHdr/ns1:BizSvc),string($document_Input1/ns2:Envelope/ns1:AppHdr/ns1:Rltd/ns1:MsgDefIdr))&quot;>&lt;/xsl:value-of>
+        &lt;xsl:value-of select=&quot;java:_setStringProperty($_TIF_MESSAGE_, 'MXMessage', java:_getText($_TIF_MESSAGE_))&quot;>&lt;/xsl:value-of>
+        &lt;xsl:value-of select=&quot;java:_setStringProperty($_TIF_MESSAGE_, 'TranslationScope', MXToMT:com.fiorano.funclet.MXtoMT.scopeFindeWithrDocumentNamespace(string($document_Input1/ns2:Envelope/ns1:AppHdr/ns1:BizSvc),string($document_Input1/ns2:Envelope/ns1:AppHdr/ns1:Rltd/ns1:MsgDefIdr)))&quot;>&lt;/xsl:value-of>
+        &lt;xsl:value-of select=&quot;java:_setStringProperty($_TIF_MESSAGE_, 'mt_filename', concat(MXToMT:com.fiorano.funclet.MXtoMT.scopeFindeWithrDocumentNamespace(string($document_Input1/ns2:Envelope/ns1:AppHdr/ns1:BizSvc),string($document_Input1/ns2:Envelope/ns1:AppHdr/ns1:Rltd/ns1:MsgDefIdr)),'.txt'))&quot;>&lt;/xsl:value-of>
+      &lt;/Translator>
+    &lt;/MXVersion>
+  &lt;/xsl:template>
+&lt;!--The list of parameters defined by user-->
+  &lt;xsl:param name=&quot;_TIF_MESSAGE_&quot;>&lt;/xsl:param>
+&lt;!--The list of Extensions defined by user-->
+&lt;/xsl:stylesheet></target:property>
+      <target:property encrypt="false" name="XSLT Engine" type="java.lang.String">Xalan</target:property>
+      <target:property encrypt="false" name="Transformation Class Name" type="java.lang.String"></target:property>
+    </target:configuration-properties>
+  </target:instance>
+</target:target>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappermodel:MapperProject xmlns:mappermodel="http://www.fiorano.com/tools/mapper/mappermodel" convertor="nameIndexed" version="3.0.2">
+  <mappermodel:Comments>Key in relevant comments</mappermodel:Comments>
+  <mappermodel:InputStructure>
+    <mappermodel:Structure duplicates="" filePath="Application-Context.XSD" mime="XSD" name="Application-Context" rootName="Context"/>
+    <mappermodel:Structure duplicates="" filePath="Input1.XSD" mime="XSD" name="Input1" rootName="{urn:swift:xsd:envelope}Envelope">
+      <mappermodel:ExternalStructure filePath="AppHdr.xsd" name="urn:iso:std:iso:20022:tech:xsd:head.001.001.01"/>
+    </mappermodel:Structure>
+  </mappermodel:InputStructure>
+  <mappermodel:OutputStructure>
+    <mappermodel:Structure duplicates="" filePath="Output1.XSD" mime="XSD" name="Output1" rootName="MXVersion"/>
+  </mappermodel:OutputStructure>
+  <mappermodel:Mappings>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="Output1:0,MXVersion:0,Translator:0" x="-1" y="-1"/>
+  </mappermodel:Mappings>
+  <mappermodel:Extensions/>
+  <mappermodel:UserXSL index="1" node="Output1:0,MXVersion:0,Translator:0">&lt;!-- User code ends here -->&#xD;
+&#xD;
+          &lt;xsl:value-of select=&quot;MXToMT:com.fiorano.funclet.MXtoMT.scopeFinderRTGSWithDocumentNamespace(string($document_Input1/ns2:Envelope/ns1:AppHdr/ns1:BizSvc),string($document_Input1/ns2:Envelope/ns1:AppHdr/ns1:Rltd/ns1:MsgDefIdr),string($document_Input1/ns2:Envelope/ns1:AppHdr/ns1:MsgDefIdr))&quot;>&lt;/xsl:value-of>&#xD;
+        &lt;xsl:value-of select=&quot;java:_setStringProperty($_TIF_MESSAGE_, 'MXMessage', java:_getText($_TIF_MESSAGE_))&quot;>&lt;/xsl:value-of>&#xD;
+       &lt;xsl:value-of select=&quot;java:_setStringProperty($_TIF_MESSAGE_, 'TranslationScope', MXToMT:com.fiorano.funclet.MXtoMT.scopeFinderRTGSWithDocumentNamespace(string($document_Input1/ns2:Envelope/ns1:AppHdr/ns1:BizSvc),string($document_Input1/ns2:Envelope/ns1:AppHdr/ns1:Rltd/ns1:MsgDefIdr),string($document_Input1/ns2:Envelope/ns1:AppHdr/ns1:MsgDefIdr)))&quot;>&lt;/xsl:value-of>&#xD;
+&lt;!-- User code starts here --></mappermodel:UserXSL>
+  <mappermodel:UserXSL index="1" node="Output1:0">&lt;!--The list of parameters defined by user-->&#xD;
+  &lt;xsl:param name=&quot;_TIF_MESSAGE_&quot;>&lt;/xsl:param>&#xD;
+&lt;!--The list of Extensions defined by user--></mappermodel:UserXSL>
+</mappermodel:MapperProject>

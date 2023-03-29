@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" version="1.0" targetNamespace="http://www.ericsson.com/em/emm/common" xmlns:op="http://www.ericsson.com/em/emm/common"
+	xmlns:tns="http://www.ericsson.com/em/emm/common" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:simpleType name="quoteid">
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+
+	<xs:complexType name="transactionrecord">
+		<xs:sequence>
+			<xs:element name="transactionid" type="tns:bankid" />
+			<xs:element name="fromfri" type="xs:string" />
+			<xs:element name="tofri" type="xs:string" />
+			<xs:element name="amount" type="tns:moneydetailstype" />
+			<xs:element name="transactiontype" type="tns:transactiontype" />
+			<xs:element name="transactiondate" type="xs:dateTime" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="savingsaccount">
+		<xs:sequence>
+			<xs:element name="accountnumber" type="tns:bankid" />
+			<xs:element name="status" type="tns:savingsaccountstatus" />
+			<xs:element name="balance" type="tns:moneydetailstype" minOccurs="0" />
+			<xs:element name="savingsaccounttype" type="tns:savingsaccounttype" />
+			<xs:element name="interest" type="tns:interest" minOccurs="0" />
+			<xs:element name="extension" type="tns:extensiontype" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="loanaccount">
+		<xs:sequence>
+			<xs:element name="accountnumber" type="tns:bankid" />
+			<xs:element name="status" type="tns:loanstatus" />
+			<xs:element name="due" type="tns:moneydetailstype" minOccurs="0" />
+			<xs:element name="duedate" type="xs:date" minOccurs="0" />
+			<xs:element name="tenor" type="xs:integer" minOccurs="0" />
+			<xs:element name="loantype" type="tns:loantype" />
+			<xs:element name="interest" type="xs:decimal" />
+			<xs:element name="extension" type="tns:extensiontype" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="registrationstatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="REGISTERED" />
+			<xs:enumeration value="UNREGISTERED" />
+			<xs:enumeration value="PENDING" />
+			<xs:enumeration value="FAILED" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="frequency">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DAILY" />
+			<xs:enumeration value="WEEKLY" />
+			<xs:enumeration value="MONTHLY" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="savingsaccountstatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ACTIVE" />
+			<xs:enumeration value="PENDING" />
+			<xs:enumeration value="FAILED" />
+			<xs:enumeration value="INACTIVE" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="loanstatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="APPROVED" />
+			<xs:enumeration value="DECLINED" />
+			<xs:enumeration value="PENDING" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="transactiontype">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DEPOSIT" />
+			<xs:enumeration value="WITHDRAW" />
+			<xs:enumeration value="OTHER" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="savingsaccounttype">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SAVINGS" />
+			<xs:enumeration value="DEPOSIT" />
+			<xs:enumeration value="SWEEP" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="loantype">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PERSONAL" />
+			<xs:enumeration value="AUTO" />
+			<xs:enumeration value="STUDENT" />
+			<xs:enumeration value="MORTGAGE" />
+			<xs:enumeration value="SME" />
+			<xs:enumeration value="OTHER" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="moneydetailstype">
+		<xs:sequence>
+			<xs:element name="amount" type="tns:amount" />
+			<xs:element name="currency" type="tns:currency" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="name">
+		<xs:sequence>
+			<xs:element name="firstname" type="tns:firstname" minOccurs="0" />
+			<xs:element name="lastname" type="tns:lastname" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="financialtransactionstatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SUCCESSFUL" />
+			<xs:enumeration value="PENDING" />
+			<xs:enumeration value="FAILED" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="paymentstatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PENDING" />
+			<xs:enumeration value="COMPLETED" />
+			<xs:enumeration value="FAILED" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="extensiontype">
+		<xs:sequence>
+			<xs:any processContents="lax" namespace="##other" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="preapprovalstatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PENDING" />
+			<xs:enumeration value="APPROVED" />
+			<xs:enumeration value="REJECTED" />
+			<xs:enumeration value="EXPIRED" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="receiverinfo">
+		<xs:sequence>
+			<xs:element name="fri" type="xs:string" />
+			<xs:element name="name" type="tns:restricted-string" minOccurs="0" />
+			<xs:element name="msisdn" type="xs:string" minOccurs="0" />
+			<xs:element name="emailadresses" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="email" type="tns:emailaddress" minOccurs="0" maxOccurs="unbounded" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="language" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="emailaddress">
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+
+	<xs:simpleType name="status">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CREATED" />
+			<xs:enumeration value="PENDING" />
+			<xs:enumeration value="COMPLETED" />
+			<xs:enumeration value="FAILED" />
+			<xs:enumeration value="EXPIRED" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="term">
+		<xs:sequence>
+			<xs:element name="amount" type="tns:moneydetailstype" />
+			<xs:element name="frequency" type="tns:frequency" minOccurs="0" />
+			<xs:element name="frequencyvalue" type="xs:int" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="spfri">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="FRI:.*/USER"></xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="linkedfri">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="FRI:([0-9])*@.*-.*/SP"></xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="subscriberfri">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="FRI:([0-9])*/MSISDN"></xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="customerid">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0" />
+			<xs:maxLength value="32" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="bankid">
+		<xs:restriction base="tns:external-refernce-string">
+			<xs:minLength value="0" />
+			<xs:maxLength value="32" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="amount">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="currency">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="3" />
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="interest">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="firstname">
+		<xs:restriction base="tns:restricted-string">
+			<xs:minLength value="0" />
+			<xs:maxLength value="48" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="lastname">
+		<xs:restriction base="tns:restricted-string">
+			<xs:minLength value="0" />
+			<xs:maxLength value="128" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="message">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0" />
+			<xs:maxLength value="256" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="providertransactionid">
+		<xs:restriction base="tns:external-refernce-string">
+			<xs:minLength value="0" />
+			<xs:maxLength value="256" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="referenceid">
+		<xs:restriction base="tns:external-refernce-string">
+			<xs:minLength value="0" />
+			<xs:maxLength value="64" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="external-refernce-string">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[\p{L}\p{N}_\-]*"></xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="restricted-string">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[\p{L}\p{N}\s.,()!?:/+*=@'_\-]*"></xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
+

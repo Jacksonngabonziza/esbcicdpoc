@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ASCII"?>
+<layout>
+  <subflow name="FIORANO.ESTUDIO.ROOT_FLOW" x="0" y="0">
+    <service-instance name="SwiftMXMessages" x="106" y="427"/>
+    <service-instance name="ScopeFinder" x="281" y="341"/>
+    <service-instance name="OutOfScopeAndErrorWriter" x="737" y="-1"/>
+    <service-instance name="MXErrorHandler" x="449" y="335"/>
+    <service-instance name="CAMT054_To_MT900_MT910Router" x="971" y="722"/>
+    <service-instance name="PACS002_To_MT199_MT299Router" x="968" y="-26"/>
+    <service-instance name="PACS009_To_MT202CORERouter" x="959" y="362"/>
+    <service-instance name="CAMT057_To_MT210Router" x="962" y="911"/>
+    <service-instance name="PACS009_To_MT202COVERouter" x="975" y="453"/>
+    <service-instance name="PACS004_To_MT202CORERouter" x="972" y="174"/>
+    <service-instance name="PACS004_To_MT103Router" x="971" y="71"/>
+    <service-instance name="PACS008_To_MT103Router" x="971" y="273"/>
+    <service-instance name="FTIResponseFormatter" x="1393" y="347"/>
+    <service-instance name="CAMT056_To_MT192_MT292Router" x="970" y="824"/>
+    <service-instance name="CAMT029_To_MT196_MT296Router" x="973" y="529"/>
+    <service-instance name="CAMT053_To_MT940_MT950Router" x="968" y="631"/>
+    <service-instance name="MT199Generator" x="1450" y="227"/>
+    <service-instance name="MT199Formatter" x="1326" y="202"/>
+    <service-instance name="POSTNucleus" x="319" y="99"/>
+    <service-instance name="POSTNucleus1" x="1544" y="463"/>
+  </subflow>
+  <shortcut-routes/>
+</layout>

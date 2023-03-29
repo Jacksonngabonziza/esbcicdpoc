@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappermodel:MapperProject xmlns:mappermodel="http://www.fiorano.com/tools/mapper/mappermodel" convertor="nameIndexed" suppressEmptyItems="false" suppressPattern="" version="3.0.2">
+  <mappermodel:XSLTVersion>1.0</mappermodel:XSLTVersion>
+  <mappermodel:XSLTEngine>org.apache.xalan.processor.TransformerFactoryImpl</mappermodel:XSLTEngine>
+  <mappermodel:XSLTEncoding>UTF-8</mappermodel:XSLTEncoding>
+  <mappermodel:OutputMethod>text</mappermodel:OutputMethod>
+  <mappermodel:OutputEncoding>UTF-8</mappermodel:OutputEncoding>
+  <mappermodel:indent>false</mappermodel:indent>
+  <mappermodel:setDTD>false</mappermodel:setDTD>
+  <mappermodel:omit-xml-declaration>false</mappermodel:omit-xml-declaration>
+  <mappermodel:createEmptyOutputTags>false</mappermodel:createEmptyOutputTags>
+  <mappermodel:copyUnmappedFromInput enabled="false"/>
+  <mappermodel:disableOutputEscapingForANY>false</mappermodel:disableOutputEscapingForANY>
+  <mappermodel:Comments>Key in relevant comments</mappermodel:Comments>
+  <mappermodel:excludeResultPrefixes></mappermodel:excludeResultPrefixes>
+  <mappermodel:addDefaultXSTypeAttributes>false</mappermodel:addDefaultXSTypeAttributes>
+  <mappermodel:InputStructure>
+    <mappermodel:Structure duplicates="" filePath="Application-Context.XSD" mime="XSD" name="Application-Context" rootName="Context"/>
+    <mappermodel:Structure duplicates="" filePath="Input1.XSD" mime="XSD" name="Input1" rootName="{urn:swift:xsd:envelope}Envelope">
+      <mappermodel:ExternalStructure filePath="AppHdr.xsd" name="urn:iso:std:iso:20022:tech:xsd:head.001.001.01"/>
+    </mappermodel:Structure>
+  </mappermodel:InputStructure>
+  <mappermodel:OutputStructure>
+    <mappermodel:Structure duplicates="" filePath="out_JMSMessage.DTD" mime="DTD" name="JMS-Message" rootName="Message"/>
+  </mappermodel:OutputStructure>
+  <mappermodel:Namespaces/>
+  <mappermodel:Mappings>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="JMS-Message:0,Message:0,Text:0" x="883" y="55">
+      <mappermodel:FunctionGraphNode label="getStringProperty" type="144" x="520" y="57">
+        <mappermodel:InputPins>name</mappermodel:InputPins>
+        <mappermodel:OutputPins>string</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="MXMessage" type="22" x="224" y="72">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="1" outputIndex="0"/>
+      <mappermodel:Link inputID="1" inputIndex="0" outputID="2" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="JMS-Message:0,Message:0,Properties:0,[ZERO MANY]:0,Property:0,name:0" x="597" y="89">
+      <mappermodel:FunctionGraphNode label="ErrorCode" type="22" x="231" y="73">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="1" outputIndex="0"/>
+    </mappermodel:GraphModel>
+    <mappermodel:GraphModel inputPins="1,2" outputNode="JMS-Message:0,Message:0,Properties:0,[ZERO MANY]:0,Property:0" x="2616" y="20">
+      <mappermodel:FunctionGraphNode label="count(document('Input1')//*[local-name()='CdtTrfTxInf'])" type="28" x="1162" y="20">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label=">" type="33" x="1629" y="20">
+        <mappermodel:InputPins>1,2</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="1" type="22" x="704" y="288">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="If-Then-Else" type="41" x="2478" y="10">
+        <mappermodel:InputPins>bool,then,bool,then,bool,then,bool,then,bool,then,bool,then,bool,then,bool,then,bool,then,bool,then,bool,then,bool,then,bool,then,bool,then,bool,else</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="T00053" type="22" x="2196" y="105">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="NoError" type="22" x="2196" y="1701">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="document('Input1')//*[local-name()='Ntry'][*[local-name()='Sts'][*[local-name()='Cd']]]" type="28" x="1162" y="84">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="!=" type="32" x="1629" y="90">
+        <mappermodel:InputPins>1,2</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="BOOK" type="22" x="1162" y="148">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="T00038" type="22" x="2196" y="254">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="getStringProperty" type="144" x="249" y="20">
+        <mappermodel:InputPins>name</mappermodel:InputPins>
+        <mappermodel:OutputPins>string</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="TranslatorScope" type="22" x="20" y="20">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="=" type="31" x="704" y="84">
+        <mappermodel:InputPins>1,2</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="PACS009RTGS_To_MT202CORE" type="22" x="249" y="84">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="AND" type="38" x="2196" y="20">
+        <mappermodel:InputPins>1,2,3</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="AND" type="38" x="2196" y="169">
+        <mappermodel:InputPins>1,2,3</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="=" type="31" x="1629" y="160">
+        <mappermodel:InputPins>1,2</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="CAMT054RTGS_To_MT900_910" type="22" x="1162" y="212">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="=" type="31" x="1162" y="596">
+        <mappermodel:InputPins>1,2</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="PACS004RTGS_To_MT103" type="22" x="704" y="20">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="AND" type="38" x="2196" y="318">
+        <mappermodel:InputPins>1,2,3</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="BOOL" type="42" x="1629" y="230">
+        <mappermodel:InputPins>1</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="document('Input1')//*[local-name()='RtrChain'][*[local-name()='Dbtr'][*[local-name()='Agt']]]" type="28" x="1162" y="276">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="T00046" type="22" x="2196" y="403">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="AND" type="38" x="2196" y="467">
+        <mappermodel:InputPins>1,2,3</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="document('Input1')//*[local-name()='RtrChain'][*[local-name()='Cdtr'][*[local-name()='Agt']]]" type="28" x="1629" y="294">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="T00047" type="22" x="2196" y="552">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="=" type="31" x="1629" y="358">
+        <mappermodel:InputPins>1,2</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="PACS004RTGS_To_MT202CORE" type="22" x="1162" y="340">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="AND" type="38" x="2196" y="616">
+        <mappermodel:InputPins>1,2,3</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="document('Input1')//*[local-name()='RtrChain'][*[local-name()='Dbtr'][*[local-name()='Pty']]]" type="28" x="1162" y="404">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="BOOL" type="42" x="1629" y="428">
+        <mappermodel:InputPins>1</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="T00048" type="22" x="2196" y="701">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="AND" type="38" x="2196" y="765">
+        <mappermodel:InputPins>1,2,3</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="document('Input1')//*[local-name()='RtrChain'][*[local-name()='Cdtr'][*[local-name()='Pty']]]" type="28" x="1162" y="468">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="T00049" type="22" x="2196" y="850">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="BOOL" type="42" x="1629" y="492">
+        <mappermodel:InputPins>1</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="OR" type="37" x="1162" y="1138">
+        <mappermodel:InputPins>1,2,3</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="PACS008RTGS_To_MT103" type="22" x="249" y="148">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="=" type="31" x="704" y="154">
+        <mappermodel:InputPins>1,2</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="count(document('Input1')//*[local-name()='Document'][*[local-name()='PmtRtr'][*[local-name()='TxInf']]])" type="28" x="1162" y="532">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label=">" type="33" x="1629" y="641">
+        <mappermodel:InputPins>1,2</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="OR" type="37" x="1629" y="556">
+        <mappermodel:InputPins>1,2,3</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="AND" type="38" x="2196" y="914">
+        <mappermodel:InputPins>1,2,3</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="count(document('Input1')//*[local-name()='Ntfctn'])" type="28" x="704" y="224">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label=">" type="33" x="1162" y="666">
+        <mappermodel:InputPins>1,2</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="OR" type="37" x="1629" y="711">
+        <mappermodel:InputPins>1,2,3,4,5</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="count(document('Input1')//*[local-name()='Ntry'])" type="28" x="704" y="352">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label=">" type="33" x="1162" y="736">
+        <mappermodel:InputPins>1,2</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="count(document('Input1')//*[local-name()='NtryDtls'])" type="28" x="704" y="416">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label=">" type="33" x="1162" y="806">
+        <mappermodel:InputPins>1,2</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="count(document('Input1')//*[local-name()='TxDtls'])" type="28" x="704" y="480">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label=">" type="33" x="1162" y="876">
+        <mappermodel:InputPins>1,2</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="AND" type="38" x="2196" y="999">
+        <mappermodel:InputPins>1,2,3</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="document('Input1')//*[local-name()='Ntfctn'][*[local-name()='Itm'][*[local-name()='Amt']]]/@*[local-name()='Ccy']" type="28" x="1162" y="1010">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="AND" type="38" x="2196" y="1084">
+        <mappermodel:InputPins>1,2,3</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="CAMT057_To_MT210" type="22" x="302" y="942">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="=" type="31" x="677" y="1023">
+        <mappermodel:InputPins>1,2</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="T00054" type="22" x="2196" y="1169">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="MXtoMT:com.fiorano.funclet.MXtoMT.isCurrencyCodeInvalid(java.lang.String Code)" type="69" x="1629" y="896">
+        <mappermodel:InputPins>Code</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="MXtoMT:com.fiorano.funclet.MXtoMT.isCurrencyCodeInvalid(java.lang.String Code)" type="69" x="1629" y="960">
+        <mappermodel:InputPins>Code</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="AND" type="38" x="2196" y="1233">
+        <mappermodel:InputPins>1,2,3</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="document('Input1')//*[local-name()='PmtRtr'][*[local-name()='TxInf'][*[local-name()='RtrdIntrBkSttlmAmt']]]/@*[local-name()='Ccy']" type="28" x="1162" y="1074">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="OR" type="37" x="1629" y="1024">
+        <mappermodel:InputPins>1,2,3</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="=" type="31" x="1162" y="1223">
+        <mappermodel:InputPins>1,2</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="PACS009RTGS_To_MT202COVE" type="22" x="704" y="544">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="AND" type="38" x="2196" y="1318">
+        <mappermodel:InputPins>1,2,3</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="MXtoMT:com.fiorano.funclet.MXtoMT.isCurrencyCodeInvalid(java.lang.String Code)" type="69" x="1629" y="1109">
+        <mappermodel:InputPins>Code</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="document('Input1')//*[local-name()='CdtTrfTxInf'][*[local-name()='IntrBkSttlmAmt']]/@*[local-name()='Ccy']" type="28" x="1162" y="1293">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="document('Input1')//*[local-name()='FIToFIPmtStsRpt'][*[local-name()='TxInfAndSts'][*[local-name()='TxSts']]]" type="28" x="1162" y="1357">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="!=" type="32" x="1629" y="1243">
+        <mappermodel:InputPins>1,2</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="RJCT" type="22" x="1162" y="1421">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="AND" type="38" x="2196" y="1403">
+        <mappermodel:InputPins>1,2,3</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="PACS002_To_MT199_299" type="22" x="1162" y="1485">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="=" type="31" x="1653" y="1422">
+        <mappermodel:InputPins>1,2</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="T00049" type="22" x="2371" y="480">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="T00056" type="22" x="2196" y="1488">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="document('Input1')//*[local-name()='TxInfAndSts'][*[local-name()='OrgnlGrpInf'][*[local-name()='OrgnlMsgNmId']]]" type="28" x="249" y="212">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="StartsWith" type="49" x="704" y="608">
+        <mappermodel:InputPins>str,start</mappermodel:InputPins>
+        <mappermodel:OutputPins>bool</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="pacs.008" type="22" x="249" y="276">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="StartsWith" type="49" x="704" y="678">
+        <mappermodel:InputPins>str,start</mappermodel:InputPins>
+        <mappermodel:OutputPins>bool</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="MT103" type="22" x="249" y="340">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="StartsWith" type="49" x="704" y="748">
+        <mappermodel:InputPins>str,start</mappermodel:InputPins>
+        <mappermodel:OutputPins>bool</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="pacs.009" type="22" x="249" y="404">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="StartsWith" type="49" x="704" y="818">
+        <mappermodel:InputPins>str,start</mappermodel:InputPins>
+        <mappermodel:OutputPins>bool</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="MT202" type="22" x="249" y="468">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="AND" type="38" x="1162" y="1549">
+        <mappermodel:InputPins>1,2,3,4,5</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="NOT" type="39" x="1629" y="1313">
+        <mappermodel:InputPins>1</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="AND" type="38" x="2196" y="1552">
+        <mappermodel:InputPins>1,2,3</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="T00057" type="22" x="2196" y="1637">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="AND" type="38" x="2007" y="529">
+        <mappermodel:InputPins>1,2,3</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="count(document('Input1')//*[local-name()='NtfctnToRcv'][*[local-name()='Ntfctn'][*[local-name()='Itm']]])" type="28" x="260" y="1309">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label=">" type="33" x="325" y="811">
+        <mappermodel:InputPins>1,2</mappermodel:InputPins>
+        <mappermodel:OutputPins>R</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:FunctionGraphNode label="T00061" type="22" x="2488" y="611">
+        <mappermodel:InputPins></mappermodel:InputPins>
+        <mappermodel:OutputPins>str</mappermodel:OutputPins>
+        <mappermodel:Properties/>
+      </mappermodel:FunctionGraphNode>
+      <mappermodel:Link inputID="2" inputIndex="0" outputID="1" outputIndex="0"/>
+      <mappermodel:Link inputID="2" inputIndex="1" outputID="3" outputIndex="0"/>
+      <mappermodel:Link inputID="0" inputIndex="0" outputID="4" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="1" outputID="5" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="29" outputID="6" outputIndex="0"/>
+      <mappermodel:Link inputID="8" inputIndex="0" outputID="7" outputIndex="0"/>
+      <mappermodel:Link inputID="8" inputIndex="1" outputID="9" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="3" outputID="10" outputIndex="0"/>
+      <mappermodel:Link inputID="11" inputIndex="0" outputID="12" outputIndex="0"/>
+      <mappermodel:Link inputID="13" inputIndex="0" outputID="11" outputIndex="0"/>
+      <mappermodel:Link inputID="13" inputIndex="1" outputID="14" outputIndex="0"/>
+      <mappermodel:Link inputID="15" inputIndex="0" outputID="2" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="0" outputID="15" outputIndex="0"/>
+      <mappermodel:Link inputID="16" inputIndex="0" outputID="8" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="2" outputID="16" outputIndex="0"/>
+      <mappermodel:Link inputID="17" inputIndex="1" outputID="18" outputIndex="0"/>
+      <mappermodel:Link inputID="16" inputIndex="1" outputID="17" outputIndex="0"/>
+      <mappermodel:Link inputID="17" inputIndex="0" outputID="11" outputIndex="0"/>
+      <mappermodel:Link inputID="19" inputIndex="0" outputID="11" outputIndex="0"/>
+      <mappermodel:Link inputID="19" inputIndex="1" outputID="20" outputIndex="0"/>
+      <mappermodel:Link inputID="21" inputIndex="0" outputID="19" outputIndex="0"/>
+      <mappermodel:Link inputID="21" inputIndex="1" outputID="22" outputIndex="0"/>
+      <mappermodel:Link inputID="22" inputIndex="0" outputID="23" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="4" outputID="21" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="5" outputID="24" outputIndex="0"/>
+      <mappermodel:Link inputID="25" inputIndex="0" outputID="19" outputIndex="0"/>
+      <mappermodel:Link inputID="25" inputIndex="1" outputID="26" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="6" outputID="25" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="7" outputID="27" outputIndex="0"/>
+      <mappermodel:Link inputID="28" inputIndex="1" outputID="29" outputIndex="0"/>
+      <mappermodel:Link inputID="28" inputIndex="0" outputID="11" outputIndex="0"/>
+      <mappermodel:Link inputID="30" inputIndex="0" outputID="28" outputIndex="0"/>
+      <mappermodel:Link inputID="32" inputIndex="0" outputID="31" outputIndex="0"/>
+      <mappermodel:Link inputID="30" inputIndex="1" outputID="32" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="8" outputID="30" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="9" outputID="33" outputIndex="0"/>
+      <mappermodel:Link inputID="34" inputIndex="0" outputID="28" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="10" outputID="34" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="11" outputID="36" outputIndex="0"/>
+      <mappermodel:Link inputID="37" inputIndex="0" outputID="35" outputIndex="0"/>
+      <mappermodel:Link inputID="34" inputIndex="1" outputID="37" outputIndex="0"/>
+      <mappermodel:Link inputID="38" inputIndex="0" outputID="13" outputIndex="0"/>
+      <mappermodel:Link inputID="15" inputIndex="1" outputID="38" outputIndex="0"/>
+      <mappermodel:Link inputID="40" inputIndex="1" outputID="39" outputIndex="0"/>
+      <mappermodel:Link inputID="40" inputIndex="0" outputID="11" outputIndex="0"/>
+      <mappermodel:Link inputID="38" inputIndex="1" outputID="40" outputIndex="0"/>
+      <mappermodel:Link inputID="42" inputIndex="0" outputID="41" outputIndex="0"/>
+      <mappermodel:Link inputID="42" inputIndex="1" outputID="3" outputIndex="0"/>
+      <mappermodel:Link inputID="43" inputIndex="0" outputID="19" outputIndex="0"/>
+      <mappermodel:Link inputID="43" inputIndex="1" outputID="29" outputIndex="0"/>
+      <mappermodel:Link inputID="44" inputIndex="0" outputID="43" outputIndex="0"/>
+      <mappermodel:Link inputID="44" inputIndex="1" outputID="42" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="12" outputID="44" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="13" outputID="5" outputIndex="0"/>
+      <mappermodel:Link inputID="46" inputIndex="0" outputID="45" outputIndex="0"/>
+      <mappermodel:Link inputID="46" inputIndex="1" outputID="3" outputIndex="0"/>
+      <mappermodel:Link inputID="47" inputIndex="0" outputID="46" outputIndex="0"/>
+      <mappermodel:Link inputID="49" inputIndex="0" outputID="48" outputIndex="0"/>
+      <mappermodel:Link inputID="49" inputIndex="1" outputID="3" outputIndex="0"/>
+      <mappermodel:Link inputID="47" inputIndex="1" outputID="49" outputIndex="0"/>
+      <mappermodel:Link inputID="51" inputIndex="0" outputID="50" outputIndex="0"/>
+      <mappermodel:Link inputID="51" inputIndex="1" outputID="3" outputIndex="0"/>
+      <mappermodel:Link inputID="47" inputIndex="2" outputID="51" outputIndex="0"/>
+      <mappermodel:Link inputID="53" inputIndex="0" outputID="52" outputIndex="0"/>
+      <mappermodel:Link inputID="53" inputIndex="1" outputID="3" outputIndex="0"/>
+      <mappermodel:Link inputID="47" inputIndex="3" outputID="53" outputIndex="0"/>
+      <mappermodel:Link inputID="54" inputIndex="0" outputID="47" outputIndex="0"/>
+      <mappermodel:Link inputID="54" inputIndex="1" outputID="17" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="14" outputID="54" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="15" outputID="5" outputIndex="0"/>
+      <mappermodel:Link inputID="58" inputIndex="1" outputID="57" outputIndex="0"/>
+      <mappermodel:Link inputID="58" inputIndex="0" outputID="11" outputIndex="0"/>
+      <mappermodel:Link inputID="56" inputIndex="0" outputID="58" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="16" outputID="56" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="17" outputID="59" outputIndex="0"/>
+      <mappermodel:Link inputID="60" inputIndex="0" outputID="55" outputIndex="0"/>
+      <mappermodel:Link inputID="56" inputIndex="1" outputID="60" outputIndex="0"/>
+      <mappermodel:Link inputID="62" inputIndex="0" outputID="43" outputIndex="0"/>
+      <mappermodel:Link inputID="62" inputIndex="1" outputID="61" outputIndex="0"/>
+      <mappermodel:Link inputID="61" inputIndex="0" outputID="63" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="18" outputID="62" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="19" outputID="59" outputIndex="0"/>
+      <mappermodel:Link inputID="64" inputIndex="0" outputID="38" outputIndex="0"/>
+      <mappermodel:Link inputID="65" inputIndex="1" outputID="66" outputIndex="0"/>
+      <mappermodel:Link inputID="65" inputIndex="0" outputID="11" outputIndex="0"/>
+      <mappermodel:Link inputID="64" inputIndex="1" outputID="65" outputIndex="0"/>
+      <mappermodel:Link inputID="67" inputIndex="0" outputID="64" outputIndex="0"/>
+      <mappermodel:Link inputID="67" inputIndex="1" outputID="68" outputIndex="0"/>
+      <mappermodel:Link inputID="68" inputIndex="0" outputID="69" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="20" outputID="67" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="21" outputID="59" outputIndex="0"/>
+      <mappermodel:Link inputID="71" inputIndex="0" outputID="70" outputIndex="0"/>
+      <mappermodel:Link inputID="71" inputIndex="1" outputID="72" outputIndex="0"/>
+      <mappermodel:Link inputID="73" inputIndex="1" outputID="71" outputIndex="0"/>
+      <mappermodel:Link inputID="75" inputIndex="1" outputID="74" outputIndex="0"/>
+      <mappermodel:Link inputID="75" inputIndex="0" outputID="11" outputIndex="0"/>
+      <mappermodel:Link inputID="73" inputIndex="0" outputID="75" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="22" outputID="73" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="23" outputID="77" outputIndex="0"/>
+      <mappermodel:Link inputID="79" inputIndex="0" outputID="78" outputIndex="0"/>
+      <mappermodel:Link inputID="79" inputIndex="1" outputID="80" outputIndex="0"/>
+      <mappermodel:Link inputID="81" inputIndex="0" outputID="78" outputIndex="0"/>
+      <mappermodel:Link inputID="81" inputIndex="1" outputID="82" outputIndex="0"/>
+      <mappermodel:Link inputID="83" inputIndex="1" outputID="84" outputIndex="0"/>
+      <mappermodel:Link inputID="83" inputIndex="0" outputID="78" outputIndex="0"/>
+      <mappermodel:Link inputID="85" inputIndex="1" outputID="86" outputIndex="0"/>
+      <mappermodel:Link inputID="85" inputIndex="0" outputID="78" outputIndex="0"/>
+      <mappermodel:Link inputID="87" inputIndex="0" outputID="79" outputIndex="0"/>
+      <mappermodel:Link inputID="87" inputIndex="1" outputID="81" outputIndex="0"/>
+      <mappermodel:Link inputID="87" inputIndex="2" outputID="83" outputIndex="0"/>
+      <mappermodel:Link inputID="87" inputIndex="3" outputID="85" outputIndex="0"/>
+      <mappermodel:Link inputID="88" inputIndex="0" outputID="87" outputIndex="0"/>
+      <mappermodel:Link inputID="89" inputIndex="1" outputID="88" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="24" outputID="89" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="25" outputID="90" outputIndex="0"/>
+      <mappermodel:Link inputID="91" inputIndex="0" outputID="58" outputIndex="0"/>
+      <mappermodel:Link inputID="93" inputIndex="0" outputID="92" outputIndex="0"/>
+      <mappermodel:Link inputID="93" inputIndex="1" outputID="3" outputIndex="0"/>
+      <mappermodel:Link inputID="91" inputIndex="1" outputID="93" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="26" outputID="91" outputIndex="0"/>
+      <mappermodel:Link inputID="4" inputIndex="27" outputID="94" outputIndex="0"/>
+      <mappermodel:Link inputID="89" inputIndex="0" outputID="75" outputIndex="0"/>
+    </mappermodel:GraphModel>
+  </mappermodel:Mappings>
+  <mappermodel:Extensions>
+    <mappermodel:Extension language="java" name="MXtoMT">
+      <mappermodel:Script>com.fiorano.funclet.MXtoMT</mappermodel:Script>
+      <mappermodel:Function name="public static boolean com.fiorano.funclet.MXtoMT.isCurrencyCodeInvalid(java.lang.String)">
+        <mappermodel:Argument datatype="java.lang.String" name="Code"/>
+      </mappermodel:Function>
+    </mappermodel:Extension>
+  </mappermodel:Extensions>
+</mappermodel:MapperProject>

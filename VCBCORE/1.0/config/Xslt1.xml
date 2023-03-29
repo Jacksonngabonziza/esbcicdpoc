@@ -1,0 +1,1204 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.8.0_281" class="java.beans.XMLDecoder"> 
+ <object class="com.fiorano.services.xslt.configuration.XsltPM"> 
+  <void property="JMSMessageXSL"> 
+   <null/> 
+  </void> 
+  <void property="JMSMessageXSL1"> 
+   <null/> 
+  </void> 
+  <void property="XSL"> 
+   <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xalan=&quot;http://xml.apache.org/xslt&quot; xmlns:datetime=&quot;http://exslt.org/dates-and-times&quot; xmlns:math=&quot;http://exslt.org/math&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:lxslt=&quot;http://xml.apache.org/xslt&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:java=&quot;http://xml.apache.org/xslt/java&quot; xmlns:set=&quot;http://exslt.org/sets&quot; exclude-result-prefixes=&quot;xalan java lxslt&quot; xmlns:ns4=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:ns2=&quot;urn:swift:saa:xsd:saa.2.0&quot; xmlns:ns1=&quot;urn:swift:xsd:envelope&quot; xmlns:MT2MX=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MTtoMX=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MTtoMXUtil=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MX2MT=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MXtoMT=&quot;http://xml.apache.org/xslt/java&quot; xmlns:QueryGenerator=&quot;QueryGenerator&quot; xmlns:ccc=&quot;http://xml.apache.org/xslt/java&quot; xmlns:dateConversion=&quot;dateConversion&quot; xmlns:myext=&quot;myext&quot; xmlns:myext1=&quot;myext1&quot; xmlns:strings=&quot;strings&quot; extension-element-prefixes=&quot;datetime set math MT2MX MTtoMX MTtoMXUtil MX2MT MXtoMT QueryGenerator ccc dateConversion myext myext1 strings&quot;&gt;
+  &lt;xsl:import href=&quot;GLOBAL_FUNCLET_PATH&quot;&gt;&lt;/xsl:import&gt;
+  &lt;xsl:output method=&quot;xml&quot; indent=&quot;yes&quot; encoding=&quot;UTF-8&quot; xalan:indent-amount=&quot;2&quot; omit-xml-declaration=&quot;no&quot;&gt;&lt;/xsl:output&gt;
+  &lt;xsl:variable name=&quot;document&quot; select=&quot;/&quot;&gt;&lt;/xsl:variable&gt;
+  &lt;xsl:variable name=&quot;document_Input1&quot; select=&quot;document(&apos;Input1&apos;)&quot;&gt;&lt;/xsl:variable&gt;
+  &lt;xsl:template match=&quot;/&quot;&gt;
+    &lt;ns1:Envelope&gt;
+      &lt;xsl:copy-of select=&quot;$document_Input1/ns2:DataPDU/ns2:Body&quot;&gt;&lt;/xsl:copy-of&gt;
+    &lt;/ns1:Envelope&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</string> 
+  </void> 
+  <void property="configuredVersion"> 
+   <int>1200</int> 
+  </void> 
+  <void property="errorHandlingConfiguration"> 
+   <void property="errorActionsMap"> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>3</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>2</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>1</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.RetryAction"> 
+       <void property="configuration"> 
+        <object class="com.fiorano.edbc.framework.service.exception.RetryConfiguration"> 
+         <void property="otherActions"> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+            <void property="enabled"> 
+             <boolean>true</boolean> 
+            </void> 
+            <void property="id"> 
+             <int>1</int> 
+            </void> 
+           </object> 
+           <int>1</int> 
+          </void> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+            <void property="enabled"> 
+             <boolean>true</boolean> 
+            </void> 
+           </object> 
+           <int>1</int> 
+          </void> 
+         </void> 
+        </object> 
+       </void> 
+       <void property="id"> 
+        <int>2</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>4</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>0</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>6</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+   </void> 
+  </void> 
+  <void property="esbDefInPort"> 
+   <object class="fiorano.esb.record.ESBRecordDefinition"> 
+    <void property="rootElementName"> 
+     <string>DataPDU</string> 
+    </void> 
+    <void property="structure"> 
+     <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#13;
+&lt;xs:schema elementFormDefault=&quot;qualified&quot; xmlns=&quot;urn:swift:saa:xsd:saa.2.0&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&#13;
+	targetNamespace=&quot;urn:swift:saa:xsd:saa.2.0&quot; version=&quot;2.0.12&quot;&gt;&#13;
+	&lt;xs:complexType name=&quot;SwAny&quot; mixed=&quot;true&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:any namespace=&quot;##any&quot; processContents=&quot;skip&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:simpleType name=&quot;X1&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:length value=&quot;11&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;X2&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;20&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;X3&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;20&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;X4&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;20&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;FinancialInstitution&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;105&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;BranchInformation&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;70&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;CityName&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;35&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;Location&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;105&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;Countrycode&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:length value=&quot;2&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;Nickname&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:minLength value=&quot;1&quot; /&gt;&#13;
+			&lt;xs:maxLength value=&quot;31&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;DN&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:minLength value=&quot;1&quot; /&gt;&#13;
+			&lt;xs:maxLength value=&quot;100&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;BIC12&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:length value=&quot;12&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;BIC8&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:length value=&quot;8&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;RoutingPoint&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;20&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;MACPACValue&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;8&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;ChecksumValue&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;12&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;UserPriority&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;4&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;CopyService&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;3&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;Service&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;30&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;UserReference&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;30&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;RoutingCode&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;16&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;SenderReference&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:minLength value=&quot;0&quot; /&gt;&#13;
+			&lt;xs:maxLength value=&quot;70&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;CBTReference&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;40&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;MessageIdentifier&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:minLength value=&quot;1&quot; /&gt;&#13;
+			&lt;xs:maxLength value=&quot;30&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;MessageSyntaxVersion&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;7&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;ReleaseInfo&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;32&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;FinInformReleaseInfo&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;39&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;PCInfoForReceiver&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;25&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;ValidationIdentifier&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;8&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;CorrespondentInputReference&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:length value=&quot;28&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;TimeString&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:length value=&quot;14&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&#13;
+	&lt;xs:simpleType name=&quot;InputTimeString&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:pattern value=&quot;[0-9]{14}&quot;/&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&#13;
+	&lt;xs:simpleType name=&quot;FINTrailer&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;38&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;SWIFTNetTime&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;24&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;SWIFTNetReference&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;50&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;NRWarning&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;50&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;SNLEndPoint&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;20&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;SnFQueueName&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;30&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;SnFChannelName&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;30&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;Operator&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;150&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;MessagePartner&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;50&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;Format&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:minLength value=&quot;1&quot; /&gt;&#13;
+			&lt;xs:maxLength value=&quot;16&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;InstanceName&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;50&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;UserName&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;50&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;Unit&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;50&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;RequestType&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:minLength value=&quot;1&quot; /&gt;&#13;
+			&lt;xs:maxLength value=&quot;30&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;RequestSubtype&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:minLength value=&quot;1&quot; /&gt;&#13;
+			&lt;xs:maxLength value=&quot;35&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;FileLogicalName&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:minLength value=&quot;1&quot; /&gt;&#13;
+			&lt;xs:maxLength value=&quot;254&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;FileDigestValue&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:minLength value=&quot;1&quot; /&gt;&#13;
+			&lt;xs:maxLength value=&quot;50&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;TransferRef&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:minLength value=&quot;1&quot; /&gt;&#13;
+			&lt;xs:maxLength value=&quot;50&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;FileInfoDescription&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:minLength value=&quot;1&quot; /&gt;&#13;
+			&lt;xs:maxLength value=&quot;256&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;AttributeValue&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:minLength value=&quot;0&quot; /&gt;&#13;
+			&lt;xs:maxLength value=&quot;256&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;VendorName&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:minLength value=&quot;0&quot; /&gt;&#13;
+			&lt;xs:maxLength value=&quot;8&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;ProductName&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:minLength value=&quot;0&quot; /&gt;&#13;
+			&lt;xs:maxLength value=&quot;8&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;ProductVersion&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:minLength value=&quot;0&quot; /&gt;&#13;
+			&lt;xs:maxLength value=&quot;8&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;DigestRef&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:minLength value=&quot;1&quot; /&gt;&#13;
+			&lt;xs:maxLength value=&quot;128&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;DigestValue&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:minLength value=&quot;1&quot; /&gt;&#13;
+			&lt;xs:maxLength value=&quot;50&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;CustomDigestValue&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:length value=&quot;44&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;Sumid&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:length value=&quot;16&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;MessageURI&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:minLength value=&quot;1&quot; /&gt;&#13;
+			&lt;xs:maxLength value=&quot;256&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;FINUserHeader&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:minLength value=&quot;1&quot; /&gt;&#13;
+			&lt;xs:maxLength value=&quot;2500&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+&#13;
+	&lt;xs:simpleType name=&quot;ServiceLevelAgreement&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:length value=&quot;3&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;	&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&#13;
+	&lt;xs:simpleType name=&quot;E2ETransactionReference&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:length value=&quot;36&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;	&#13;
+	&lt;/xs:simpleType&gt;	&#13;
+&#13;
+	&lt;xs:simpleType name=&quot;TranslationResultDetails&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;16000&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;	&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&#13;
+	&lt;xs:simpleType name=&quot;MessagePropertyName&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;128&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;	&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&#13;
+	&lt;xs:simpleType name=&quot;MessagePropertyValue&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:maxLength value=&quot;512&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;	&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&#13;
+	&lt;!-- Enumerated types --&gt;&#13;
+	&lt;xs:simpleType name=&quot;RoutingFunction&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:enumeration value=&quot;Route&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;DisposeToRoutingStep&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;DisposeToRoutingPoint&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;RoutingStep&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:enumeration value=&quot;Verify&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Authorise&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Modify&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;ReadyToSend&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;ValidationLevel&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:enumeration value=&quot;None&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Minimum&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Intermediate&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Maximum&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;Priority&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:enumeration value=&quot;Normal&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Urgent&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;System&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;SubFormat&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:enumeration value=&quot;Input&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Output&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;ReportingApplication&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:enumeration value=&quot;ApplicationInterface&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;SWIFTNetInterface&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;FINInterface&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;TrafficReconciliation&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Other&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;MessageCreator&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:enumeration value=&quot;ApplicationInterface&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;SWIFTNetInterface&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;FINInterface&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Workstation&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Messenger&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Other&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;MessageContext&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:enumeration value=&quot;Original&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Copy&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Report&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;MessageNature&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:enumeration value=&quot;Financial&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Text&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Network&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Security&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Service&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;RMAResult&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:enumeration value=&quot;Success&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Bypassed&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;NoRecord&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;NotEnabled&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;InvalidPeriod&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Unauthorised&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;ChecksumResult&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:enumeration value=&quot;Success&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Failed&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Bypassed&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;MACPACResult&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:enumeration value=&quot;Success&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;SuccessFuture&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;SuccessOld&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Bypassed&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;NoKey&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Failed&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;InvalidDigest&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;InvalidSignerDN&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;InvalidCertPolicyID&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;SignatureResult&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:enumeration value=&quot;Success&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Bypassed&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Failed&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;NRType&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:enumeration value=&quot;SvcOpt&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;SvcMand&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;Network&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:enumeration value=&quot;Application&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;SWIFTNet&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;FIN&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Other&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;IntvCategory&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:enumeration value=&quot;TransmissionReport&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;DeliveryReport&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;TransmissionResponse&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;HistoryIntvCategory&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:enumeration value=&quot;TransmissionReport&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;DeliveryReport&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;TransmissionResponse&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Security&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Routing&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;MesgAsTransmitted&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;MesgAsReceived&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;MesgModified&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Other&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;MessageFields&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:enumeration value=&quot;NoOriginal&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;MinimumInfo&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;HeaderOnly&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;HeaderAndBody&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;NetworkDeliveryStatus&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:enumeration value=&quot;NetworkAcked&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;NetworkNacked&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;NetworkRejectedLocally&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;NetworkAborted&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;NetworkTimedOut&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;NetworkWaitingAck&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;ReceiverDeliveryStatus&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:enumeration value=&quot;RcvDelivered&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;RcvAborted&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;RcvDelayedNak&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;RcvFCPReleased&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;RcvOverdue&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;RcvUnknown&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;FileDigestAlgorithm&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:enumeration value=&quot;SHA-1&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;SHA-256&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;SessionDirection&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:enumeration value=&quot;ToMessagePartner&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;FromMessagePartner&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;ToAndFromMessagePartner&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;xs:simpleType name=&quot;TranslatedResult&quot;&gt;&#13;
+		&lt;xs:restriction base=&quot;xs:string&quot;&gt;&#13;
+			&lt;xs:enumeration value=&quot;Success&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;TruncationNonRef&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;TruncationRef&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Failure&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Partial&quot; /&gt;&#13;
+			&lt;xs:enumeration value=&quot;Other&quot; /&gt;&#13;
+		&lt;/xs:restriction&gt;&#13;
+	&lt;/xs:simpleType&gt;&#13;
+	&lt;!-- General Types --&gt;&#13;
+	&lt;xs:complexType name=&quot;AddressFullName&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;X1&quot; type=&quot;X1&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;X2&quot; type=&quot;X2&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;X3&quot; type=&quot;X3&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;X4&quot; type=&quot;X4&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;FinancialInstitution&quot; type=&quot;FinancialInstitution&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;BranchInformation&quot; type=&quot;BranchInformation&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;CityName&quot; type=&quot;CityName&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;Location&quot; type=&quot;Location&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;CountryCode&quot; type=&quot;Countrycode&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;AddressInfo&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:choice&gt;&#13;
+				&lt;xs:element name=&quot;BIC12&quot; type=&quot;BIC12&quot; /&gt;&#13;
+				&lt;xs:element name=&quot;DN&quot; type=&quot;DN&quot; /&gt;&#13;
+				&lt;xs:element name=&quot;Nickname&quot; type=&quot;Nickname&quot; /&gt;&#13;
+			&lt;/xs:choice&gt;&#13;
+			&lt;xs:element name=&quot;FullName&quot; type=&quot;AddressFullName&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;Intervention&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;IntvCategory&quot; type=&quot;IntvCategory&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;CreationTime&quot; type=&quot;TimeString&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;OperatorOrigin&quot; type=&quot;Operator&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;Contents&quot; type=&quot;SwAny&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;HistoryIntervention&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;IntvCategory&quot; type=&quot;HistoryIntvCategory&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;CreationTime&quot; type=&quot;TimeString&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;OperatorOrigin&quot; type=&quot;Operator&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;Text&quot; type=&quot;xs:string&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;Interventions&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;Intervention&quot; type=&quot;Intervention&quot; maxOccurs=&quot;unbounded&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;HistoryInterventions&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;Intervention&quot; type=&quot;HistoryIntervention&quot; maxOccurs=&quot;unbounded&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;RoutingInstruction&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;RoutingFunction&quot; type=&quot;RoutingFunction&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;RoutingPoint&quot; type=&quot;RoutingPoint&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;RoutingStep&quot; type=&quot;RoutingStep&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;PDEPDM&quot;&gt;&#13;
+		&lt;xs:choice maxOccurs=&quot;unbounded&quot;&gt;&#13;
+			&lt;xs:element name=&quot;PDE&quot; type=&quot;xs:string&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;PDM&quot; type=&quot;xs:string&quot; /&gt;&#13;
+		&lt;/xs:choice&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;Product&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;VendorName&quot; type=&quot;VendorName&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ProductName&quot; type=&quot;ProductName&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ProductVersion&quot; type=&quot;ProductVersion&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;ProductList&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;Product&quot; type=&quot;Product&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;3&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;Digest&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;DigestRef&quot; type=&quot;DigestRef&quot; minOccurs=&quot;1&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;DigestValue&quot; type=&quot;DigestValue&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;DigestList&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;Digest&quot; type=&quot;Digest&quot; minOccurs=&quot;1&quot; maxOccurs=&quot;8&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;MessageProperty&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;MessagePropertyName&quot; type=&quot;MessagePropertyName&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;MessagePropertyValue&quot; type=&quot;MessagePropertyValue&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;MessagePropertyList&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;MessageProperty&quot; type=&quot;MessageProperty&quot; maxOccurs=&quot;unbounded&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;!-- Interface Info Type --&gt;&#13;
+	&lt;xs:complexType name=&quot;InterfaceInfo&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;UserReference&quot; type=&quot;UserReference&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;RoutingCode&quot; type=&quot;RoutingCode&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ValidationLevel&quot; type=&quot;ValidationLevel&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;IsModificationAllowed&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;RoutingInstruction&quot; type=&quot;RoutingInstruction&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;MessageCreator&quot; type=&quot;MessageCreator&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;MessageContext&quot; type=&quot;MessageContext&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;MessageNature&quot; type=&quot;MessageNature&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ProductInfo&quot; type=&quot;ProductList&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;CustomDigestValue&quot; type=&quot;CustomDigestValue&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;Sumid&quot; type=&quot;Sumid&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ServiceURI&quot; type=&quot;MessageURI&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;MessageTypeURI&quot; type=&quot;MessageURI&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;MessageProperties&quot; type=&quot;MessagePropertyList&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;!-- Network Info Type --&gt;&#13;
+	&lt;xs:complexType name=&quot;NetworkInfo&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;Priority&quot; type=&quot;Priority&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;IsPossibleDuplicate&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;DuplicateHistory&quot; type=&quot;PDEPDM&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;IsNotificationRequested&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;Service&quot; type=&quot;Service&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;Network&quot; type=&quot;Network&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SessionNr&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SeqNr&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;TransactionData&quot; type=&quot;TransactionData&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:choice minOccurs=&quot;0&quot;&gt;&#13;
+				&lt;xs:element name=&quot;FINNetworkInfo&quot; type=&quot;FINNetworkInfo&quot; /&gt;&#13;
+				&lt;xs:element name=&quot;SWIFTNetNetworkInfo&quot; type=&quot;SWIFTNetNetworkInfo&quot; /&gt;&#13;
+			&lt;/xs:choice&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;TransactionData&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;TransactionDataResult&quot; type=&quot;xs:string&quot;/&gt;&#13;
+			&lt;xs:element name=&quot;TransactionDataDetails&quot; type=&quot;xs:string&quot;/&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;FINNetworkInfo&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;UserPriority&quot; type=&quot;UserPriority&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;CopyService&quot; type=&quot;CopyService&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;CopyCID&quot; type=&quot;BIC8&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;MessageSyntaxVersion&quot; type=&quot;MessageSyntaxVersion&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;IsRetrieved&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ReleaseInfo&quot; type=&quot;ReleaseInfo&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ValidationIdentifier&quot; type=&quot;ValidationIdentifier&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;CorrespondentInputReference&quot; type=&quot;CorrespondentInputReference&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;CorrespondentInputTime&quot; type=&quot;TimeString&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;LocalOutputTime&quot; type=&quot;TimeString&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SystemOriginated&quot; type=&quot;FINTrailer&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;DelayedMessage&quot; type=&quot;FINTrailer&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;FINUserHeader&quot; type=&quot;FINUserHeader&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ServiceLevelAgreement&quot; type=&quot;ServiceLevelAgreement&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;E2ETransactionReference&quot; type=&quot;E2ETransactionReference&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;FinInformReleaseInfo&quot; type=&quot;FinInformReleaseInfo&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;PCInfoForReceiver&quot; type=&quot;PCInfoForReceiver&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;TranslatedResult&quot; type=&quot;TranslatedResult&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;TranslationResultDetails&quot; type=&quot;TranslationResultDetails&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;PayloadAttribute&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;Name&quot; type=&quot;xs:NCName&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;Value&quot; type=&quot;AttributeValue&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;PayloadAttributeList&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;PayloadAttribute&quot; type=&quot;PayloadAttribute&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;3&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;RecipientListType&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;RecipientDN&quot; type=&quot;xs:string&quot; minOccurs=&quot;1&quot; maxOccurs=&quot;1000&quot;/&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;ThirdPartyListType&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;ThirdPartyDN&quot; type=&quot;xs:string&quot; minOccurs=&quot;1&quot; maxOccurs=&quot;30&quot;/&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;DistributionInfo&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;RecipientDNList&quot; type=&quot;RecipientListType&quot;/&gt;&#13;
+			&lt;xs:element name=&quot;OrigSnFRef&quot; type=&quot;xs:string&quot;/&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;SWIFTNetNetworkInfo&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;RequestType&quot; type=&quot;RequestType&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;RequestSubtype&quot; type=&quot;RequestSubtype&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SWIFTRef&quot; type=&quot;SWIFTNetReference&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SNLRef&quot; type=&quot;SWIFTNetReference&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;Reference&quot; type=&quot;CBTReference&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SNLEndPoint&quot; type=&quot;SNLEndPoint&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SnFQueueName&quot; type=&quot;SnFQueueName&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SnFChannelName&quot; type=&quot;SnFQueueName&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SnFInputTime&quot; type=&quot;SWIFTNetTime&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SnFDeliveryTime&quot; type=&quot;SWIFTNetTime&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;CreationTime&quot; type=&quot;SWIFTNetTime&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ValidationDescriptor&quot; type=&quot;SwAny&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ResponseResponderDN&quot; type=&quot;DN&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ResponseSWIFTRef&quot; type=&quot;SWIFTNetReference&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ResponseSNLRef&quot; type=&quot;SWIFTNetReference&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ResponseReference&quot; type=&quot;CBTReference&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;IsPossibleDuplicateResponse&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ResponseValidationDescriptor&quot; type=&quot;SwAny&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;PayloadAttributes&quot; type=&quot;PayloadAttributeList&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ResponsePayloadAttributes&quot; type=&quot;PayloadAttributeList&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;IsCopyRequested&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;IsAuthNotificationRequested&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;CopyInfo&quot; type=&quot;SwAny&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;TransferRef&quot; type=&quot;TransferRef&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;StoredTransferRef&quot; type=&quot;TransferRef&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;OrigSnfRef&quot; type=&quot;SWIFTNetReference&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;TransferDescription&quot; type=&quot;FileInfoDescription&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;TransferInfo&quot; type=&quot;FileInfoDescription&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;FileDescription&quot; type=&quot;FileInfoDescription&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;FileInfo&quot; type=&quot;FileInfoDescription&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;HeaderInfo&quot; type=&quot;SwAny&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;NotificationResponderDN&quot; type=&quot;DN&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;NotificationRequestType&quot; type=&quot;RequestType&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;FileStartTime&quot; type=&quot;TimeString&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;FileEndTime&quot; type=&quot;TimeString&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;OverdueWarningTime&quot; type=&quot;SWIFTNetTime&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;OverdueWarningDelay&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;RecipientList&quot; type=&quot;RecipientListType&quot; minOccurs=&quot;0&quot;/&gt;&#13;
+			&lt;xs:element name=&quot;ThirdPartyList&quot; type=&quot;ThirdPartyListType&quot; minOccurs=&quot;0&quot;/&gt;&#13;
+			&lt;xs:element name=&quot;IsRecipientListPublic&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot;/&gt;&#13;
+			&lt;xs:element name=&quot;DistributionInfo&quot; type=&quot;DistributionInfo&quot; minOccurs=&quot;0&quot;/&gt;&#13;
+			&lt;xs:element name=&quot;RetrievalInfo&quot; type=&quot;SwAny&quot; minOccurs=&quot;0&quot;/&gt;&#13;
+			&lt;xs:element name=&quot;RequestE2EControl&quot; type=&quot;SwAny&quot; minOccurs=&quot;0&quot;/&gt;&#13;
+			&lt;xs:element name=&quot;RetrievalDescriptor&quot; type=&quot;SwAny&quot; minOccurs=&quot;0&quot;/&gt;&#13;
+			&lt;xs:element name=&quot;TSInfoForReceiver&quot; type=&quot;PCInfoForReceiver&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;OrigTransferRef&quot; type=&quot;TransferRef&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;!-- Security Info Types --&gt;&#13;
+	&lt;xs:complexType name=&quot;SecurityInfo&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;IsSigningRequested&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;RMAResult&quot; type=&quot;RMAResult&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;RMAChecked&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:choice minOccurs=&quot;0&quot;&gt;&#13;
+				&lt;xs:element name=&quot;FINSecurityInfo&quot; type=&quot;FINSecurityInfo&quot; /&gt;&#13;
+				&lt;xs:element name=&quot;SWIFTNetSecurityInfo&quot; type=&quot;SWIFTNetSecurityInfo&quot; /&gt;&#13;
+			&lt;/xs:choice&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;FINSecurityInfo&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;ChecksumResult&quot; type=&quot;ChecksumResult&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ChecksumValue&quot; type=&quot;ChecksumValue&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;PACResult&quot; type=&quot;MACPACResult&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;PACValue&quot; type=&quot;MACPACValue&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;MACResult&quot; type=&quot;MACPACResult&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;MACValue&quot; type=&quot;MACPACValue&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;MACSignatureValue&quot; type=&quot;SwAny&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;PAC2SignatureValue&quot; type=&quot;SwAny&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;SWIFTNetSecurityInfo&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;IsNRRequested&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SignerDN&quot; type=&quot;DN&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;NRType&quot; type=&quot;NRType&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;NRWarning&quot; type=&quot;NRWarning&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SignatureResult&quot; type=&quot;SignatureResult&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SignatureValue&quot; type=&quot;SwAny&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ResponseNRType&quot; type=&quot;NRType&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ResponseNRWarning&quot; type=&quot;NRWarning&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ResponseSignatureResult&quot; type=&quot;SignatureResult&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ResponseSignatureValue&quot; type=&quot;SwAny&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;FileDigestAlgorithm&quot; type=&quot;FileDigestAlgorithm&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;FileDigestValue&quot; type=&quot;FileDigestValue&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;DigestList&quot; type=&quot;DigestList&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ThirdPartySignerDN&quot; type=&quot;DN&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;PartialCopyResult&quot; type=&quot;SignatureResult&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;!-- SAA Info Type --&gt;&#13;
+	&lt;xs:complexType name=&quot;SAAInfo&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;InstanceName&quot; type=&quot;InstanceName&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;UserName&quot; type=&quot;UserName&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;Unit&quot; type=&quot;Unit&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;!-- Delivery Notification Type --&gt;&#13;
+	&lt;xs:complexType name=&quot;DeliveryNotification&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;ReconciliationInfo&quot; type=&quot;SenderReference&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ReceiverDeliveryStatus&quot; type=&quot;ReceiverDeliveryStatus&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;MessageIdentifier&quot; type=&quot;MessageIdentifier&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;Receiver&quot; type=&quot;AddressInfo&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;InterfaceInfo&quot; type=&quot;InterfaceInfo&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;NetworkInfo&quot; type=&quot;NetworkInfo&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SecurityInfo&quot; type=&quot;SecurityInfo&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SAAInfo&quot; type=&quot;SAAInfo&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;!-- Message Type --&gt;&#13;
+	&lt;xs:complexType name=&quot;Message&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;SenderReference&quot; type=&quot;SenderReference&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;MessageIdentifier&quot; type=&quot;MessageIdentifier&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;Format&quot; type=&quot;Format&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SubFormat&quot; type=&quot;SubFormat&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;Sender&quot; type=&quot;AddressInfo&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;Receiver&quot; type=&quot;AddressInfo&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;InterfaceInfo&quot; type=&quot;InterfaceInfo&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;NetworkInfo&quot; type=&quot;NetworkInfo&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SecurityInfo&quot; type=&quot;SecurityInfo&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SAAInfo&quot; type=&quot;SAAInfo&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;FileLogicalName&quot; type=&quot;FileLogicalName&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ExpiryDateTime&quot; type=&quot;InputTimeString&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;!-- Report Types --&gt;&#13;
+	&lt;xs:complexType name=&quot;HistoryReport&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;SenderReference&quot; type=&quot;SenderReference&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;OriginalInstanceAddressee&quot; type=&quot;AddressFullName&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ReportingApplication&quot; type=&quot;ReportingApplication&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SAAInfo&quot; type=&quot;SAAInfo&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;Interventions&quot; type=&quot;HistoryInterventions&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;IsRelatedInstanceOriginal&quot; type=&quot;xs:boolean&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;RelatedInstanceAddressee&quot; type=&quot;AddressFullName&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;MessageCreator&quot; type=&quot;MessageCreator&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;IsMessageModified&quot; type=&quot;xs:boolean&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;MessageFields&quot; type=&quot;MessageFields&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;Message&quot; type=&quot;Message&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;TransmissionReport&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;SenderReference&quot; type=&quot;SenderReference&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ReconciliationInfo&quot; type=&quot;SenderReference&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;NetworkDeliveryStatus&quot; type=&quot;NetworkDeliveryStatus&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;OriginalInstanceAddressee&quot; type=&quot;AddressFullName&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ReportingApplication&quot; type=&quot;ReportingApplication&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;NetworkInfo&quot; type=&quot;NetworkInfo&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SAAInfo&quot; type=&quot;SAAInfo&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;Interventions&quot; type=&quot;Interventions&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;IsRelatedInstanceOriginal&quot; type=&quot;xs:boolean&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;RelatedInstanceAddressee&quot; type=&quot;AddressFullName&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;MessageCreator&quot; type=&quot;MessageCreator&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;IsMessageModified&quot; type=&quot;xs:boolean&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;MessageFields&quot; type=&quot;MessageFields&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;Message&quot; type=&quot;Message&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;DeliveryReport&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;SenderReference&quot; type=&quot;SenderReference&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ReceiverDeliveryStatus&quot; type=&quot;ReceiverDeliveryStatus&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;OriginalInstanceAddressee&quot; type=&quot;AddressFullName&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ReportingApplication&quot; type=&quot;ReportingApplication&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;NetworkInfo&quot; type=&quot;NetworkInfo&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SAAInfo&quot; type=&quot;SAAInfo&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;Interventions&quot; type=&quot;Interventions&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;IsRelatedInstanceOriginal&quot; type=&quot;xs:boolean&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;RelatedInstanceAddressee&quot; type=&quot;AddressFullName&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;MessageCreator&quot; type=&quot;MessageCreator&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;IsMessageModified&quot; type=&quot;xs:boolean&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;MessageFields&quot; type=&quot;MessageFields&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;Message&quot; type=&quot;Message&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;!-- Status Report Types --&gt;&#13;
+	&lt;xs:complexType name=&quot;MessageStatus&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;SenderReference&quot; type=&quot;SenderReference&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SeqNr&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;IsSuccess&quot; type=&quot;xs:boolean&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ErrorCode&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ErrorText&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SAAInfo&quot; type=&quot;SAAInfo&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;SessionStatus&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;MessagePartner&quot; type=&quot;MessagePartner&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;CreationTime&quot; type=&quot;TimeString&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SessionNr&quot; type=&quot;xs:int&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;InputFile&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;IsSuccess&quot; type=&quot;xs:boolean&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ErrorCode&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;ErrorText&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SessionDirection&quot; type=&quot;SessionDirection&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;Accepted&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;Rejected&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;AcceptedFromMessagePartner&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;RejectedFromMessagePartner&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;AcceptedToMessagePartner&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;RejectedToMessagePartner&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;!-- DataPDU &amp; Header --&gt;&#13;
+	&lt;xs:complexType name=&quot;Header&quot;&gt;&#13;
+		&lt;xs:choice&gt;&#13;
+			&lt;xs:element name=&quot;Message&quot; type=&quot;Message&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;TransmissionReport&quot; type=&quot;TransmissionReport&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;DeliveryNotification&quot; type=&quot;DeliveryNotification&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;DeliveryReport&quot; type=&quot;DeliveryReport&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;HistoryReport&quot; type=&quot;HistoryReport&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;MessageStatus&quot; type=&quot;MessageStatus&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;SessionStatus&quot; type=&quot;SessionStatus&quot; /&gt;&#13;
+		&lt;/xs:choice&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;xs:complexType name=&quot;DataPDU&quot;&gt;&#13;
+		&lt;xs:sequence&gt;&#13;
+			&lt;xs:element name=&quot;Revision&quot; type=&quot;xs:string&quot; fixed=&quot;2.0.12&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;Header&quot; type=&quot;Header&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;Body&quot; type=&quot;SwAny&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+			&lt;xs:element name=&quot;LAU&quot; type=&quot;SwAny&quot; minOccurs=&quot;0&quot; /&gt;&#13;
+		&lt;/xs:sequence&gt;&#13;
+	&lt;/xs:complexType&gt;&#13;
+	&lt;!-- Root element --&gt;&#13;
+	&lt;xs:element name=&quot;DataPDU&quot; type=&quot;DataPDU&quot;&gt;&lt;/xs:element&gt;&#13;
+&lt;/xs:schema&gt;&#13;
+</string> 
+    </void> 
+    <void property="targetNamespace"> 
+     <string>urn:swift:saa:xsd:saa.2.0</string> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="esbDefOutPort"> 
+   <object class="fiorano.esb.record.ESBRecordDefinition"> 
+    <void property="rootElementName"> 
+     <string>Envelope</string> 
+    </void> 
+    <void property="structure"> 
+     <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#13;
+&lt;!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) --&gt;&#13;
+&lt;xs:schema xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; attributeFormDefault=&quot;unqualified&quot; elementFormDefault=&quot;qualified&quot; targetNamespace=&quot;urn:swift:xsd:envelope&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;&#13;
+  &lt;xs:element name=&quot;Envelope&quot; type=&quot;xs:string&quot; /&gt;&#13;
+&lt;/xs:schema&gt;&#13;
+</string> 
+    </void> 
+    <void property="targetNamespace"> 
+     <string>urn:swift:xsd:envelope</string> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="inputStructureName"> 
+   <string>Input1</string> 
+  </void> 
+  <void property="project"> 
+   <string>project</string> 
+  </void> 
+ </object> 
+</java> 

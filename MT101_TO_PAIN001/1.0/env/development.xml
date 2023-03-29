@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<target:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:target="http://fiorano.com/environment/1.0" xsi:schemaLocation="http://fiorano.com/environment/1.0 env.xsd">
+  <target:instance name="SwiftTranslator">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property encrypt="false" name="XSL" type="java.lang.String">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xalan=&quot;http://xml.apache.org/xslt&quot; xmlns:datetime=&quot;http://exslt.org/dates-and-times&quot; xmlns:math=&quot;http://exslt.org/math&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:lxslt=&quot;http://xml.apache.org/xslt&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:java=&quot;http://xml.apache.org/xslt/java&quot; xmlns:set=&quot;http://exslt.org/sets&quot; exclude-result-prefixes=&quot;xalan java lxslt&quot; xmlns:ns5=&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.02&quot; xmlns:ns4=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:ns1=&quot;urn:swift:xsd:mtmsg.2020&quot; xmlns:ns2=&quot;urn:iso:std:iso:20022:tech:xsd:pain.001.001.09&quot; xmlns:ns3=&quot;urn:swift:xsd:fin.101.2020&quot; xmlns:MT2MX=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MTtoMX=&quot;http://xml.apache.org/xslt/java&quot; xmlns:MTtoMXUtil=&quot;http://xml.apache.org/xslt/java&quot; xmlns:dateConversion=&quot;dateConversion&quot; xmlns:myext=&quot;myext&quot; xmlns:strings=&quot;strings&quot; extension-element-prefixes=&quot;datetime set math MT2MX MTtoMX MTtoMXUtil dateConversion myext strings&quot;>
+  &lt;xsl:import href=&quot;GLOBAL_FUNCLET_PATH&quot;>&lt;/xsl:import>
+  &lt;xsl:output method=&quot;xml&quot; indent=&quot;yes&quot; encoding=&quot;UTF-8&quot; xalan:indent-amount=&quot;2&quot; omit-xml-declaration=&quot;no&quot;>&lt;/xsl:output>
+  &lt;xsl:variable name=&quot;document&quot; select=&quot;/&quot;>&lt;/xsl:variable>
+  &lt;xsl:variable name=&quot;document_IN_PORT&quot; select=&quot;document('IN_PORT')&quot;>&lt;/xsl:variable>
+  &lt;xsl:template match=&quot;/&quot;>
+    &lt;Envelope>
+      &lt;ns5:AppHdr>
+        &lt;ns5:Fr>
+          &lt;ns5:FIId>
+            &lt;ns5:FinInstnId>
+              &lt;ns5:BICFI>
+                &lt;xsl:variable name=&quot;if0&quot;>
+                  &lt;xsl:choose>
+                    &lt;xsl:when test=&quot;string-length($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:OutputIdentifier)&quot;>
+                      &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:OutputIdentifier&quot;>&lt;/xsl:value-of>
+                    &lt;/xsl:when>
+                    &lt;xsl:when test=&quot;string-length($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:InputIdentifier)&quot;>
+                      &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:InputIdentifier&quot;>&lt;/xsl:value-of>
+                    &lt;/xsl:when>
+                    &lt;xsl:otherwise>
+                      &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:OutputIdentifier&quot;>&lt;/xsl:value-of>
+                    &lt;/xsl:otherwise>
+                  &lt;/xsl:choose>
+                &lt;/xsl:variable>
+                &lt;xsl:value-of select=&quot;MT2MX:com.fiorano.funclet.MTtoMX.generateTSender(string($if0),string($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:MessageInputReference/ns1:LTIdentifier),string($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:MessageInputReference/ns1:BranchCode),string($document_IN_PORT/ns1:FinMessage/ns1:Block1/ns1:LogicalTerminalAddress))&quot;>&lt;/xsl:value-of>
+              &lt;/ns5:BICFI>
+            &lt;/ns5:FinInstnId>
+          &lt;/ns5:FIId>
+        &lt;/ns5:Fr>
+        &lt;ns5:To>
+          &lt;ns5:FIId>
+            &lt;ns5:FinInstnId>
+              &lt;ns5:BICFI>
+                &lt;xsl:variable name=&quot;if1&quot;>
+                  &lt;xsl:choose>
+                    &lt;xsl:when test=&quot;string-length($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:OutputIdentifier)&quot;>
+                      &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:OutputIdentifier&quot;>&lt;/xsl:value-of>
+                    &lt;/xsl:when>
+                    &lt;xsl:when test=&quot;string-length($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:InputIdentifier)&quot;>
+                      &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:InputIdentifier&quot;>&lt;/xsl:value-of>
+                    &lt;/xsl:when>
+                    &lt;xsl:otherwise>
+                      &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:OutputIdentifier&quot;>&lt;/xsl:value-of>
+                    &lt;/xsl:otherwise>
+                  &lt;/xsl:choose>
+                &lt;/xsl:variable>
+                &lt;xsl:value-of select=&quot;MT2MX:com.fiorano.funclet.MTtoMX.generateTReceiver(string($if1),string($document_IN_PORT/ns1:FinMessage/ns1:Block1/ns1:LogicalTerminalAddress),string($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:DestinationAddress))&quot;>&lt;/xsl:value-of>
+              &lt;/ns5:BICFI>
+            &lt;/ns5:FinInstnId>
+          &lt;/ns5:FIId>
+        &lt;/ns5:To>
+        &lt;ns5:BizMsgIdr>
+          &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqA/ns3:F20a/ns3:F20&quot;>&lt;/xsl:value-of>
+        &lt;/ns5:BizMsgIdr>
+        &lt;ns5:MsgDefIdr>
+          &lt;xsl:value-of select=&quot;'pain.001.001.09'&quot;>&lt;/xsl:value-of>
+        &lt;/ns5:MsgDefIdr>
+        &lt;ns5:BizSvc>
+          &lt;xsl:value-of select=&quot;'swift.cbprplus.02'&quot;>&lt;/xsl:value-of>
+        &lt;/ns5:BizSvc>
+        &lt;ns5:CreDt>
+          &lt;xsl:value-of select=&quot;'9999-12-31T00:00:00+00:00'&quot;>&lt;/xsl:value-of>
+        &lt;/ns5:CreDt>
+        &lt;ns5:Prty>
+          &lt;xsl:variable name=&quot;if2&quot;>
+            &lt;xsl:choose>
+              &lt;xsl:when test=&quot;(translate($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:MessagePriority,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ'))=('U')&quot;>
+                &lt;xsl:value-of select=&quot;'HIGH'&quot;>&lt;/xsl:value-of>
+              &lt;/xsl:when>
+              &lt;xsl:otherwise>
+                &lt;xsl:value-of select=&quot;'NORM'&quot;>&lt;/xsl:value-of>
+              &lt;/xsl:otherwise>
+            &lt;/xsl:choose>
+          &lt;/xsl:variable>
+          &lt;xsl:value-of select=&quot;$if2&quot;>&lt;/xsl:value-of>
+        &lt;/ns5:Prty>
+      &lt;/ns5:AppHdr>
+      &lt;ns2:Document>
+        &lt;ns2:CstmrCdtTrfInitn>
+          &lt;ns2:GrpHdr>
+            &lt;ns2:MsgId>
+              &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqA/ns3:F20a/ns3:F20&quot;>&lt;/xsl:value-of>
+            &lt;/ns2:MsgId>
+            &lt;ns2:CreDtTm>
+              &lt;xsl:value-of select=&quot;'2012-09-28T14:07:00'&quot;>&lt;/xsl:value-of>
+            &lt;/ns2:CreDtTm>
+            &lt;ns2:NbOfTxs>
+              &lt;xsl:value-of select=&quot;'1'&quot;>&lt;/xsl:value-of>
+            &lt;/ns2:NbOfTxs>&lt;xsl:variable name=&quot;F52H_NameAndAddress&quot;> 
+ &lt;xsl:for-each select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F50a_2/ns3:F50H/ns3:NameAndAddress/ns3:Line&quot;> 
+ &lt;xsl:value-of select=&quot;concat(text(),'\n')&quot;>&lt;/xsl:value-of>
+	&lt;/xsl:for-each>
+	 &lt;/xsl:variable>
+            &lt;ns2:InitgPty>
+              &lt;ns2:Nm>&lt;xsl:value-of select=&quot;substring-before($F52H_NameAndAddress,'\n')&quot;>&lt;/xsl:value-of>&lt;/ns2:Nm>
+              &lt;ns2:PstlAdr>
+                &lt;ns2:Ctry>
+                  &lt;xsl:value-of select=&quot;'US'&quot;>&lt;/xsl:value-of>
+                &lt;/ns2:Ctry>
+              &lt;/ns2:PstlAdr>
+            &lt;/ns2:InitgPty>
+          &lt;/ns2:GrpHdr>
+          &lt;ns2:PmtInf>
+            &lt;ns2:PmtInfId>
+              &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F21a_1/ns3:F21&quot;>&lt;/xsl:value-of>
+            &lt;/ns2:PmtInfId>
+            &lt;ns2:PmtMtd>
+              &lt;xsl:value-of select=&quot;'TRF'&quot;>&lt;/xsl:value-of>
+            &lt;/ns2:PmtMtd>
+            &lt;ns2:PmtTpInf>
+              &lt;ns2:SvcLvl>
+                &lt;ns2:Cd>
+                  &lt;xsl:variable name=&quot;if3&quot;>
+                    &lt;xsl:choose>
+                      &lt;xsl:when test=&quot;starts-with($document_IN_PORT/ns1:FinMessage/ns1:Block3/ns1:F111,'00')&quot;>
+                        &lt;xsl:value-of select=&quot;concat('G',$document_IN_PORT/ns1:FinMessage/ns1:Block3/ns1:F111)&quot;>&lt;/xsl:value-of>
+                      &lt;/xsl:when>
+                      &lt;xsl:otherwise>
+                        &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block3/ns1:F111&quot;>&lt;/xsl:value-of>
+                      &lt;/xsl:otherwise>
+                    &lt;/xsl:choose>
+                  &lt;/xsl:variable>
+                  &lt;xsl:value-of select=&quot;$if3&quot;>&lt;/xsl:value-of>
+                &lt;/ns2:Cd>
+              &lt;/ns2:SvcLvl>
+            &lt;/ns2:PmtTpInf>
+            &lt;ns2:ReqdExctnDt>
+              &lt;ns2:Dt>
+                &lt;xsl:value-of select=&quot;MTtoMX:com.fiorano.funclet.MTtoMX.MT_To_MXDate(string($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqA/ns3:F30a/ns3:F30))&quot;>&lt;/xsl:value-of>
+              &lt;/ns2:Dt>
+            &lt;/ns2:ReqdExctnDt>
+            &lt;ns2:Dbtr>
+              &lt;ns2:Nm>
+                &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqA/ns3:F50a_1/ns3:F50L&quot;>&lt;/xsl:value-of>
+              &lt;/ns2:Nm>
+              &lt;ns2:PstlAdr>
+                &lt;xsl:for-each select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqA/ns3:F50a_2/ns3:F50H/ns3:NameAndAddress/ns3:Line&quot;>
+                  &lt;ns2:AdrLine>&lt;!--&#xD;
+&lt;xsl:variable name=&quot;if7&quot;>
+                      &lt;xsl:choose>
+                        &lt;xsl:when test=&quot;(not(string-length(substring-after($F52H_NameAndAddress,'\n'))) and string-length(substring-before($F52H_NameAndAddress,'\n')))&quot;>
+                          &lt;xsl:value-of select=&quot;'NOTPROVIDED'&quot;>&lt;/xsl:value-of>
+                        &lt;/xsl:when>
+                      &lt;/xsl:choose>
+                    &lt;/xsl:variable>
+                    &lt;xsl:value-of select=&quot;$if7&quot;>&lt;/xsl:value-of>&#xD;
+-->
+                    &lt;xsl:value-of select=&quot;.&quot;>&lt;/xsl:value-of>
+                  &lt;/ns2:AdrLine>
+                &lt;/xsl:for-each>
+              &lt;/ns2:PstlAdr>
+            &lt;/ns2:Dbtr>
+            &lt;ns2:DbtrAcct>
+              &lt;ns2:Id>
+                &lt;ns2:Othr>
+                  &lt;ns2:Id>
+                    &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqA/ns3:F50a_2/ns3:F50H/ns3:Account&quot;>&lt;/xsl:value-of>
+                  &lt;/ns2:Id>
+                &lt;/ns2:Othr>
+              &lt;/ns2:Id>
+            &lt;/ns2:DbtrAcct>
+            &lt;ns2:DbtrAgt>
+              &lt;ns2:FinInstnId>
+                &lt;ns2:BICFI>&lt;xsl:variable name=&quot;if38&quot;>
+                    &lt;xsl:choose>
+                      &lt;xsl:when test=&quot;boolean($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F57a/ns3:F57A)&quot;>
+                        &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F57a/ns3:F57A/ns3:IdentifierCode&quot;>&lt;/xsl:value-of>
+                      &lt;/xsl:when>
+                      &lt;xsl:otherwise>
+                        &lt;xsl:variable name=&quot;if39&quot;>
+                          &lt;xsl:choose>
+                            &lt;xsl:when test=&quot;string-length($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:OutputIdentifier)&quot;>
+                              &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:OutputIdentifier&quot;>&lt;/xsl:value-of>
+                            &lt;/xsl:when>
+                            &lt;xsl:when test=&quot;string-length($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:InputIdentifier)&quot;>
+                              &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:InputIdentifier&quot;>&lt;/xsl:value-of>
+                            &lt;/xsl:when>
+                            &lt;xsl:otherwise>
+                              &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:OutputIdentifier&quot;>&lt;/xsl:value-of>
+                            &lt;/xsl:otherwise>
+                          &lt;/xsl:choose>
+                        &lt;/xsl:variable>
+                        &lt;xsl:value-of select=&quot;MT2MX:com.fiorano.funclet.MTtoMX.generateTReceiver(string($if39),string($document_IN_PORT/ns1:FinMessage/ns1:Block1/ns1:LogicalTerminalAddress),string($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:DestinationAddress))&quot;>&lt;/xsl:value-of>
+                      &lt;/xsl:otherwise>
+                    &lt;/xsl:choose>
+                  &lt;/xsl:variable>
+                  &lt;xsl:value-of select=&quot;$if38&quot;>&lt;/xsl:value-of>&lt;/ns2:BICFI>
+              &lt;/ns2:FinInstnId>
+            &lt;/ns2:DbtrAgt>
+            &lt;ns2:CdtTrfTxInf>
+              &lt;ns2:PmtId>
+                &lt;ns2:InstrId>
+                  &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqA/ns3:F20a/ns3:F20&quot;>&lt;/xsl:value-of>
+                &lt;/ns2:InstrId>&lt;xsl:variable name=&quot;Appended70Narrative&quot;>
+		&lt;xsl:for-each select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F70a/ns3:F70/ns3:Narrative/ns3:Line&quot;>
+			&lt;xsl:value-of select=&quot;.&quot;/>
+		&lt;/xsl:for-each>
+&lt;/xsl:variable>
+                &lt;ns2:EndToEndId>
+                  &lt;xsl:variable name=&quot;if4&quot;>
+                    &lt;xsl:choose>
+                      &lt;xsl:when test=&quot;contains($Appended70Narrative,'/ROC/')&quot;>
+                        &lt;xsl:value-of select=&quot;MTtoMXUtil:com.fiorano.funclet.MTtoMXUtil.mt70ROC_To_MX35Text(string($Appended70Narrative))&quot;>&lt;/xsl:value-of>
+                      &lt;/xsl:when>
+                      &lt;xsl:otherwise>
+                        &lt;xsl:value-of select=&quot;'NOTPROVIDED'&quot;>&lt;/xsl:value-of>
+                      &lt;/xsl:otherwise>
+                    &lt;/xsl:choose>
+                  &lt;/xsl:variable>
+                  &lt;xsl:value-of select=&quot;$if4&quot;>&lt;/xsl:value-of>
+                &lt;/ns2:EndToEndId>
+                &lt;ns2:UETR>
+                  &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block3/ns1:F121&quot;>&lt;/xsl:value-of>
+                &lt;/ns2:UETR>
+              &lt;/ns2:PmtId>
+              &lt;ns2:PmtTpInf>
+                &lt;ns2:SvcLvl>
+                  &lt;ns2:Cd>
+                    &lt;xsl:variable name=&quot;if5&quot;>
+                      &lt;xsl:choose>
+                        &lt;xsl:when test=&quot;starts-with($document_IN_PORT/ns1:FinMessage/ns1:Block3/ns1:F111,'00')&quot;>
+                          &lt;xsl:value-of select=&quot;concat('G',$document_IN_PORT/ns1:FinMessage/ns1:Block3/ns1:F111)&quot;>&lt;/xsl:value-of>
+                        &lt;/xsl:when>
+                        &lt;xsl:otherwise>
+                          &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block3/ns1:F111&quot;>&lt;/xsl:value-of>
+                        &lt;/xsl:otherwise>
+                      &lt;/xsl:choose>
+                    &lt;/xsl:variable>
+                    &lt;xsl:value-of select=&quot;$if5&quot;>&lt;/xsl:value-of>
+                  &lt;/ns2:Cd>
+                &lt;/ns2:SvcLvl>
+              &lt;/ns2:PmtTpInf>
+              &lt;ns2:Amt>
+                &lt;ns2:InstdAmt>
+                  &lt;xsl:attribute name=&quot;Ccy&quot;>
+                    &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F32a/ns3:F32B/ns3:Currency&quot;>&lt;/xsl:value-of>
+                  &lt;/xsl:attribute>&lt;xsl:value-of select=&quot;MTtoMX:com.fiorano.funclet.MTtoMX.mt2MXAmount(string($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F32a/ns3:F32B/ns3:Amount))&quot;>&lt;/xsl:value-of>&lt;/ns2:InstdAmt>
+              &lt;/ns2:Amt>
+              &lt;ns2:ChrgBr>
+                &lt;xsl:variable name=&quot;if6&quot;>
+                  &lt;xsl:choose>
+                    &lt;xsl:when test=&quot;($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F71a/ns3:F71A)=('BEN')&quot;>
+                      &lt;xsl:value-of select=&quot;'CRED'&quot;>&lt;/xsl:value-of>
+                    &lt;/xsl:when>
+                    &lt;xsl:when test=&quot;($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F71a/ns3:F71A)=('OUR')&quot;>
+                      &lt;xsl:value-of select=&quot;'DEBT'&quot;>&lt;/xsl:value-of>
+                    &lt;/xsl:when>
+                    &lt;xsl:when test=&quot;($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F71a/ns3:F71A)=('SHA')&quot;>
+                      &lt;xsl:value-of select=&quot;'SHAR'&quot;>&lt;/xsl:value-of>
+                    &lt;/xsl:when>
+                  &lt;/xsl:choose>
+                &lt;/xsl:variable>
+                &lt;xsl:value-of select=&quot;$if6&quot;>&lt;/xsl:value-of>
+              &lt;/ns2:ChrgBr>
+              &lt;ns2:CdtrAgt>
+                &lt;ns2:FinInstnId>
+                  &lt;ns2:BICFI>&lt;xsl:variable name=&quot;if38&quot;>
+                    &lt;xsl:choose>
+                      &lt;xsl:when test=&quot;boolean($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F57a/ns3:F57A)&quot;>
+                        &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F57a/ns3:F57A/ns3:IdentifierCode&quot;>&lt;/xsl:value-of>
+                      &lt;/xsl:when>
+                      &lt;xsl:otherwise>
+                        &lt;xsl:variable name=&quot;if39&quot;>
+                          &lt;xsl:choose>
+                            &lt;xsl:when test=&quot;string-length($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:OutputIdentifier)&quot;>
+                              &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:OutputIdentifier&quot;>&lt;/xsl:value-of>
+                            &lt;/xsl:when>
+                            &lt;xsl:when test=&quot;string-length($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:InputIdentifier)&quot;>
+                              &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:InputIdentifier&quot;>&lt;/xsl:value-of>
+                            &lt;/xsl:when>
+                            &lt;xsl:otherwise>
+                              &lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:OutputIdentifier&quot;>&lt;/xsl:value-of>
+                            &lt;/xsl:otherwise>
+                          &lt;/xsl:choose>
+                        &lt;/xsl:variable>
+                        &lt;xsl:value-of select=&quot;MT2MX:com.fiorano.funclet.MTtoMX.generateTReceiver(string($if39),string($document_IN_PORT/ns1:FinMessage/ns1:Block1/ns1:LogicalTerminalAddress),string($document_IN_PORT/ns1:FinMessage/ns1:Block2/ns1:DestinationAddress))&quot;>&lt;/xsl:value-of>
+                      &lt;/xsl:otherwise>
+                    &lt;/xsl:choose>
+                  &lt;/xsl:variable>
+                  &lt;xsl:value-of select=&quot;$if38&quot;>&lt;/xsl:value-of>&lt;/ns2:BICFI>
+                &lt;/ns2:FinInstnId>
+              &lt;/ns2:CdtrAgt>
+              &lt;ns2:Cdtr>&lt;xsl:variable name=&quot;F59_NameAndAddress&quot;> 
+ &lt;xsl:for-each select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F59a/ns3:F59/ns3:NameAndAddress/ns3:Line&quot;> 
+ &lt;xsl:value-of select=&quot;concat(text(),'\n')&quot;>&lt;/xsl:value-of>
+	&lt;/xsl:for-each>
+	 &lt;/xsl:variable>
+                &lt;ns2:Nm>&lt;xsl:value-of select=&quot;substring-before($F59_NameAndAddress,'\n')&quot;>&lt;/xsl:value-of>&lt;/ns2:Nm>
+                &lt;ns2:PstlAdr>
+                  &lt;ns2:Ctry>
+                    &lt;xsl:value-of select=&quot;'US'&quot;>&lt;/xsl:value-of>
+                  &lt;/ns2:Ctry>&lt;xsl:call-template name=&quot;Address_Template&quot;>
+                    &lt;xsl:with-param name=&quot;text&quot; select=&quot;substring-after($F59_NameAndAddress, '\n')&quot;/>
+                &lt;/xsl:call-template>
+                  &lt;ns2:AdrLine>&lt;xsl:variable name=&quot;if7&quot;>
+                      &lt;xsl:choose>
+                        &lt;xsl:when test=&quot;(not(string-length(substring-after($F59_NameAndAddress,'\n'))) and string-length(substring-before($F59_NameAndAddress,'\n')))&quot;>
+                          &lt;xsl:value-of select=&quot;'NOTPROVIDED'&quot;>&lt;/xsl:value-of>
+                        &lt;/xsl:when>
+                      &lt;/xsl:choose>
+                    &lt;/xsl:variable>
+                    &lt;xsl:value-of select=&quot;$if7&quot;>&lt;/xsl:value-of>&lt;/ns2:AdrLine>
+                &lt;/ns2:PstlAdr>
+              &lt;/ns2:Cdtr>
+              &lt;ns2:CdtrAcct>
+                &lt;ns2:Id>
+                  &lt;ns2:Othr>
+                    &lt;ns2:Id>&lt;xsl:if test=&quot;string-length($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F59a/ns3:F59)&quot;>
+				&lt;xsl:variable name=&quot;if32&quot;>
+					&lt;xsl:if test=&quot;string-length($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F59a/ns3:F59/ns3:Account)&quot;>
+						&lt;xsl:choose>
+							&lt;xsl:when test=&quot;starts-with($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F59a/ns3:F59/ns3:Account,'//CH')&quot;>
+								&lt;xsl:value-of select=&quot;substring($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F59a/ns3:F59/ns3:Account,'5')&quot;/>
+							&lt;/xsl:when>
+							&lt;xsl:otherwise>
+								&lt;xsl:choose>
+									&lt;xsl:when test=&quot;not(MT2MX:com.fiorano.funclet.MTtoMX.isIBAN(string($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F59a/ns3:F59/ns3:Account)))&quot;>
+										&lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F59a/ns3:F59/ns3:Account&quot;/>
+									&lt;/xsl:when>
+								&lt;/xsl:choose>
+							&lt;/xsl:otherwise>
+						&lt;/xsl:choose>
+					&lt;/xsl:if>
+				&lt;/xsl:variable>
+				&lt;xsl:value-of select=&quot;$if32&quot;/>
+			&lt;/xsl:if>
+			&lt;xsl:if test=&quot;string-length($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F59a/ns3:F59A)&quot;>
+				&lt;xsl:variable name=&quot;if34&quot;>
+					&lt;xsl:if test=&quot;string-length($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F59a/ns3:F59A/ns3:Account)&quot;>
+						&lt;xsl:choose>
+							&lt;xsl:when test=&quot;starts-with($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F59a/ns3:F59A/ns3:Account,'//CH')&quot;>
+								&lt;xsl:value-of select=&quot;substring($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F59a/ns3:F59A/ns3:Account,'5')&quot;/>
+							&lt;/xsl:when>
+							&lt;xsl:otherwise>
+								&lt;xsl:choose>
+									&lt;xsl:when test=&quot;not(MT2MX:com.fiorano.funclet.MTtoMX.isIBAN(string($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F59a/ns3:F59A/ns3:Account)))&quot;>
+										&lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F59a/ns3:F59A/ns3:Account&quot;/>
+									&lt;/xsl:when>
+								&lt;/xsl:choose>
+							&lt;/xsl:otherwise>
+						&lt;/xsl:choose>
+					&lt;/xsl:if>
+				&lt;/xsl:variable>
+				&lt;xsl:value-of select=&quot;$if34&quot;/>
+			&lt;/xsl:if>
+			&lt;xsl:if test=&quot;string-length($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F59a/ns3:F59F)&quot;>
+				&lt;xsl:variable name=&quot;if36&quot;>
+					&lt;xsl:if test=&quot;string-length($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F59a/ns3:F59F/ns3:Account)&quot;>
+						&lt;xsl:choose>
+							&lt;xsl:when test=&quot;starts-with($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F59a/ns3:F59F/ns3:Account,'//CH')&quot;>
+								&lt;xsl:value-of select=&quot;substring($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F59a/ns3:F59F/ns3:Account,'5')&quot;/>
+							&lt;/xsl:when>
+							&lt;xsl:otherwise>
+								&lt;xsl:choose>
+									&lt;xsl:when test=&quot;not(MT2MX:com.fiorano.funclet.MTtoMX.isIBAN(string($document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F59a/ns3:F59F/ns3:Account)))&quot;>
+										&lt;xsl:value-of select=&quot;$document_IN_PORT/ns1:FinMessage/ns1:Block4/ns3:Document/ns3:MT101/ns3:SeqB/ns3:F59a/ns3:F59F/ns3:Account&quot;/>
+									&lt;/xsl:when>
+								&lt;/xsl:choose>
+							&lt;/xsl:otherwise>
+						&lt;/xsl:choose>
+					&lt;/xsl:if>
+				&lt;/xsl:variable>
+				&lt;xsl:value-of select=&quot;$if36&quot;/>
+			&lt;/xsl:if>&lt;/ns2:Id>
+                  &lt;/ns2:Othr>
+                &lt;/ns2:Id>
+              &lt;/ns2:CdtrAcct>
+            &lt;/ns2:CdtTrfTxInf>
+          &lt;/ns2:PmtInf>
+        &lt;/ns2:CstmrCdtTrfInitn>
+      &lt;/ns2:Document>
+    &lt;/Envelope>
+  &lt;/xsl:template>&lt;xsl:template name=&quot;Address_Template&quot;>
+ &lt;xsl:param name=&quot;text&quot; select=&quot;.&quot;/>
+ &lt;xsl:param name=&quot;separator&quot; select=&quot;'\n'&quot;/>
+        &lt;xsl:choose>
+            &lt;xsl:when test=&quot;not(contains($text, $separator))&quot;>
+                  &lt;ns2:AdrLine>
+                    &lt;xsl:value-of select=&quot;normalize-space($text)&quot;/>
+                &lt;/ns2:AdrLine>
+            &lt;/xsl:when>
+            &lt;xsl:otherwise>
+               &lt;ns2:AdrLine>
+                    &lt;xsl:value-of select=&quot;normalize-space(substring-before($text, $separator))&quot;/>
+               &lt;/ns2:AdrLine>
+                &lt;xsl:call-template name=&quot;Address_Template&quot;>
+                    &lt;xsl:with-param name=&quot;text&quot; select=&quot;substring-after($text, $separator)&quot;/>
+                &lt;/xsl:call-template>
+            &lt;/xsl:otherwise>
+        &lt;/xsl:choose>
+&lt;/xsl:template>
+&lt;!--The list of Extensions defined by user-->&lt;/xsl:stylesheet></target:property>
+      <target:property encrypt="false" name="XSLT Engine" type="java.lang.String">Xalan</target:property>
+      <target:property encrypt="false" name="Transformation Class Name" type="java.lang.String"></target:property>
+    </target:configuration-properties>
+  </target:instance>
+  <target:instance name="MTtoXML">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+    <target:configuration-properties>
+      <target:property configurationType="resource" encrypt="false" name="MessageSchema Directory Configuration" type="NamedObject">SwiftMTSchemaDirectory</target:property>
+    </target:configuration-properties>
+  </target:instance>
+  <target:instance name="Display1">
+    <target:instance-properties>
+      <target:deployment cache="true" nodes="fes"/>
+    </target:instance-properties>
+  </target:instance>
+</target:target>
